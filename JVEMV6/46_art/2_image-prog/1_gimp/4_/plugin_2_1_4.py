@@ -18,10 +18,25 @@ import inspect, os
 
 from fileinput import lineno
 
+# from enum import Enum
+
+import sys
+# sys.path.append("C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\2_image-prog")
+# sys.path.append("C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\2_image-prog\\libs_image_prog")
+# sys.path.append('..')
+# 
+# from libs_image_prog import cons_image
+
 ########################################################################
+# class CONS(Enum):
+# 	
+# 	str_Fpath_Debug = "debug!!"
+
+
 def write_Log(msg):
 	
-	dpath = "C:\\WORKS_2\\WS\\WS_Others\\JVEMV6\\46_art\\2_image-prog\\1_gimp\\4_"
+	dpath = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\2_image-prog\\1_gimp\\4_"
+# 	dpath = "C:\\WORKS_2\\WS\\WS_Others\\JVEMV6\\46_art\\2_image-prog\\1_gimp\\4_"
 	
 	fname = "debug.log"
 	
@@ -324,6 +339,62 @@ def test_1(timg, tdrawable):
 	
 	display_image(image)
 
+# def show_Message(image, layer, message):
+
+def show_Message(timg, tdrawable):
+	
+	tlabel = get_TimeLabel_Now()
+# 	
+	msg = "[%s / %s:%d]\nshow_Message()" \
+			% (get_TimeLabel_Now(), os.path.basename(thisfile()), linenum(0))
+
+	write_Log(msg)
+
+	'''###################
+		ops		
+	###################'''
+	width  = tdrawable.width
+
+	msg = "[%s / %s:%d]\nwidth => %d" \
+			% (get_TimeLabel_Now(), os.path.basename(thisfile()), linenum(0)
+			, width
+			
+			)
+
+	write_Log(msg)
+	
+	'''###################
+		message		
+	###################'''
+	gimp.message("Hello, World!: %s" % (tlabel))
+# # 	gimp.message("Hello, World!: %s (%s)" % (tlabel, CONS.str_Fpath_Debug.value))
+# # 	gimp.message("Hello, World!: %s (%s)" % (tlabel, cons_image.FPath.str_Test.value))
+# # 	gimp.message("Hello, World!: %s (%s)" % (tlabel, cons_image.FPath.dpath_Gimp_Debug.value))
+# #     gimp.message("Hello, World: " + message)
+# 	
+# 	'''###################
+# 		write to file		
+# 	###################'''
+# 	dpath = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\2_image-prog\\1_gimp\\4_"
+# # 	dpath = "C:\\WORKS_2\\WS\\WS_Others\\JVEMV6\\46_art\\2_image-prog\\1_gimp\\4_"
+# 	
+# 	fname = "debug.%s.log" % tlabel
+# 	
+# 	fpath = "%s\\%s" % (dpath, fname)
+# 	
+# 	f = open(fpath, "a")
+# 	
+# 	f.write("===============================\n")
+# 	
+# 	msg = "[%s / %s:%d]\ntest show_Message" \
+# 		% (get_TimeLabel_Now(), os.path.basename(thisfile()), linenum(0))
+# 
+# 	f.write(msg)
+# # 	f.write(msg)
+# 	
+# 	f.write("\n\n")
+# 	
+# 	f.close()
 
 def plugin_main(timg, tdrawable):
 	
@@ -354,6 +425,45 @@ register(
 	plugin_main,			# 処理を埋け持つ関数名
 	menu='<Image>/Layer/user_libs'	# メニュー表示場所
 	)
+
+register(
+	'show_Message',			# プロシジャの名前
+	'転写スクリプト。アクティブなレイヤーの内容を、下にあるレイヤーに転写する。',
+	# プロシジャの説明文
+	'ver 2.8 以上を対象とした転写スクリプト。転写元のレイヤーから転写先のレイヤーへ内容を転写する。レイヤーグループ内での動作や、レイヤーマスクの保持が行われる。',
+	# PDBに登録する追加情報
+	'かんら・から',					# 作者名
+	'GPLv3',					# ライセンス情報
+	'2012.12.15',					# 作成日
+	'show_Message',				# メニューアイテム
+	'*',						# 対応する画像タイプ
+
+	[
+		(PF_IMAGE, 'image', 'Input image', None),
+		(PF_DRAWABLE, 'drawable', 'Input drawable', None)
+	],	# プロシジャの引数
+	[],	# 戻り値の定義
+
+	show_Message,			# 処理を埋け持つ関数名
+	menu='<Image>/Layer/user_libs'	# メニュー表示場所
+	)
+
+
+# register(
+#         "python_fu_FUNCTION_NAME",
+#         "blurb: 推薦文",
+#         "help: もう少し詳しい説明",
+#         "author",
+#         "copyright",
+#         "2014/9/20",
+#         "<Image>/Image/ABC", # メニュー項目
+#         "*", # imagetypes: "RGB*, GRAY*" など
+#         [ # 引数  (type, name, description, default [, extra])
+#            (PF_STRING, "string", "Text string", 'Hello, world!')
+#         ],
+#         [], # 戻り値
+#         show_Message) # 関数名
+# #         plugin_main) # 関数名
 
 
 main() # プラグインを駆動させるための関数
