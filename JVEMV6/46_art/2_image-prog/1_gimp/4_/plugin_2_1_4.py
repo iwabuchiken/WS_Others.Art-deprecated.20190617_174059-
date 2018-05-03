@@ -341,6 +341,16 @@ def test_1(timg, tdrawable):
 
 # def show_Message(image, layer, message):
 
+#ref https://jacksonbates.wordpress.com/2015/09/14/python-fu-5-automating-workflows-coding-a-complete-plug-in/
+def extreme_unsharp_desaturation(image, drawable):
+    pdb.gimp_image_undo_group_start(image)
+    radius = 5.0
+    amount = 5.0
+    threshold = 0
+    pdb.plug_in_unsharp_mask(image, drawable, radius, amount, threshold)
+    pdb.gimp_desaturate_full(drawable, DESATURATE_LIGHTNESS)
+    pdb.gimp_image_undo_group_end(image)
+
 def show_Message(timg, tdrawable):
 	
 	tlabel = get_TimeLabel_Now()
@@ -445,6 +455,28 @@ register(
 	[],	# 戻り値の定義
 
 	show_Message,			# 処理を埋け持つ関数名
+	menu='<Image>/Layer/user_libs'	# メニュー表示場所
+	)
+
+register(
+	'extreme_unsharp_desaturation',			# プロシジャの名前
+	'転写スクリプト。アクティブなレイヤーの内容を、下にあるレイヤーに転写する。',
+	# プロシジャの説明文
+	'ver 2.8 以上を対象とした転写スクリプト。転写元のレイヤーから転写先のレイヤーへ内容を転写する。レイヤーグループ内での動作や、レイヤーマスクの保持が行われる。',
+	# PDBに登録する追加情報
+	'かんら・から',					# 作者名
+	'GPLv3',					# ライセンス情報
+	'2012.12.15',					# 作成日
+	'extreme_unsharp_desaturation',				# メニューアイテム
+	'*',						# 対応する画像タイプ
+
+	[
+		(PF_IMAGE, 'image', 'Input image', None),
+		(PF_DRAWABLE, 'drawable', 'Input drawable', None)
+	],	# プロシジャの引数
+	[],	# 戻り値の定義
+
+	extreme_unsharp_desaturation,			# 処理を埋け持つ関数名
 	menu='<Image>/Layer/user_libs'	# メニュー表示場所
 	)
 
