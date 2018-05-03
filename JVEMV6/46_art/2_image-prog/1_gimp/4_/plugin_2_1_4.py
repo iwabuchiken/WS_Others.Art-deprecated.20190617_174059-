@@ -351,6 +351,13 @@ def extreme_unsharp_desaturation(image, drawable):
     pdb.gimp_desaturate_full(drawable, DESATURATE_LIGHTNESS)
     pdb.gimp_image_undo_group_end(image)
 
+def extreme_unsharp_desaturation_options(image, drawable, radius, amount, mode):
+    pdb.gimp_image_undo_group_start(image)
+    threshold = 0
+    pdb.plug_in_unsharp_mask(image, drawable, radius, amount, threshold) 
+    pdb.gimp_desaturate_full(drawable, mode)
+    pdb.gimp_image_undo_group_end(image)
+
 def show_Message(timg, tdrawable):
 	
 	tlabel = get_TimeLabel_Now()
@@ -480,6 +487,41 @@ register(
 	menu='<Image>/Layer/user_libs'	# メニュー表示場所
 	)
 
+register(
+#     "python-fu-extreme-unsharp-desaturation-options",
+#     "Unsharp mask and desaurate image, with options",
+#     "Run an unsharp mask with variables set by user",
+#     "Jackson Bates", "Jackson Bates", "2015",
+#     "Extreme unsharp and desaturate options...",
+#     "RGB",
+	'extreme_unsharp_desaturation_options',			# プロシジャの名前
+	'転写スクリプト。アクティブなレイヤーの内容を、下にあるレイヤーに転写する。',
+	# プロシジャの説明文
+	'ver 2.8 以上を対象とした転写スクリプト。転写元のレイヤーから転写先のレイヤーへ内容を転写する。レイヤーグループ内での動作や、レイヤーマスクの保持が行われる。',
+	# PDBに登録する追加情報
+	'かんら・から',					# 作者名
+	'GPLv3',					# ライセンス情報
+	'2012.12.15',					# 作成日
+	'extreme_unsharp_desaturation_options',				# メニューアイテム
+	'*',						# 対応する画像タイプ
+
+
+	[
+	    (PF_IMAGE, "image", "takes current image", None),
+	    (PF_DRAWABLE, "drawable", "Input layer", None),
+	    (PF_SLIDER, "radius", "Radius", 5, (0, 500, 0.5)),
+	    # note extra tuple (min, max, step)
+	    (PF_SLIDER, "amount", "Amount", 5.0, (0, 10, 0.1)),
+	    (PF_RADIO, "mode", "Set Desauration mode: ", DESATURATE_LIGHTNESS,
+	        (
+	             ("Lightness", DESATURATE_LIGHTNESS),
+	             ( "Luminosity", DESATURATE_LUMINOSITY),
+	             ("Average", DESATURATE_AVERAGE)
+	        )
+	     )
+	],
+	[],
+	extreme_unsharp_desaturation_options, menu="<Image>/Layer/user_libs")
 
 # register(
 #         "python_fu_FUNCTION_NAME",
