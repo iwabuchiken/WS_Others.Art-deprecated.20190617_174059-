@@ -358,6 +358,103 @@ def extreme_unsharp_desaturation_options(image, drawable, radius, amount, mode):
     pdb.gimp_desaturate_full(drawable, mode)
     pdb.gimp_image_undo_group_end(image)
 
+def circles(image, drawable):
+	
+	tlabel = get_TimeLabel_Now()
+	
+	gimp.message("circles() : %s" % (tlabel))
+	
+	img=pdb.gimp_image_new(SIZE, SIZE, gimpfu.RGB)
+
+	#add layer with 100% of opacity
+	layer=pdb.gimp_layer_new(img, SIZE, SIZE, gimpfu.RGB_IMAGE, "base", 100, gimpfu.NORMAL_MODE)
+	pdb.gimp_image_add_layer(img, layer, 0)
+	
+	#we need it with alpha channel
+	pdb.gimp_layer_add_alpha(layer)
+	
+	#access its drawable
+	drw = pdb.gimp_image_active_drawable(img)
+	
+	#set background to black, and foreground to white
+	pdb.gimp_context_set_background((0,0,0))
+	pdb.gimp_context_set_foreground((255, 255, 255))
+	
+	#fill the background - black
+	pdb.gimp_drawable_fill(drw, gimpfu.BACKGROUND_FILL)
+	
+	#to set the brush, check first for available brushes using  pdb.gimp_brushes_get_list("")
+	#Exanples of brush with width 3 is '1. Pixel', and with width 1, 'Pixel (1x1 square)'
+	
+	#set brush to simple pixel (width: 1)
+	pdb.gimp_context_set_brush('Circle (01)')
+	
+	#draw a square around the image
+	ctrlPoints = [RADIO, RADIO, SIZE-RADIO, RADIO, SIZE-RADIO, 
+	              SIZE-RADIO, RADIO, SIZE-RADIO, RADIO, RADIO]
+	pdb.gimp_paintbrush_default(drw,len(ctrlPoints),ctrlPoints)
+	
+	#now we draw 9 transparent circles (3 rows x 3 columns)
+	#a transparent circle means -with an alpha layer-, to select the area and cut it
+	for x in (0, SIZE/2-RADIO, SIZE-2*RADIO):
+		for y in (0, SIZE/2-RADIO, SIZE-2*RADIO):
+			#next call was available on 2.6, not on 2.8
+			#pdb.gimp_image_select_ellipse(img, gimpfu.CHANNEL_OP_REPLACE, 
+			#                              x, y, RADIO*2, RADIO*2)
+			pdb.gimp_ellipse_select(img, x, y, RADIO*2, RADIO*2, 
+			                        gimpfu.CHANNEL_OP_REPLACE, True, False, 0)
+			pdb.gimp_edit_cut(drw)
+	
+	#remove any selection
+	pdb.gimp_selection_none(img)
+	
+	#and display the image
+	display=pdb.gimp_display_new(img)
+	
+#/ def circles(image, drawable):
+
+def lazy_Resize(timg, tdrawable, max_width, max_height):	
+	
+# 	print ("max width: %s\nmax height: %s" % (max_width, max_height))
+	gimp.message("max width: %s\nmax height: %s" % (max_width, max_height))
+	
+	width = tdrawable.width
+	height = tdrawable.height
+
+	if max_width <= 0:
+		# Assume width is okay as it is
+		max_width = width
+	if max_height <= 0:
+		# Assume height is okay
+		max_height= height
+
+	if width <= max_width and height <= max_height:
+		
+		gimp.message("Nothing to do, returning")
+# 		print ("Nothing to do, returning")
+		return
+
+	image_aspect	= float(width) / float(height)
+	boundary_aspect = float(max_width) / float(max_height)
+	
+	if image_aspect > boundary_aspect:
+		# Width is the limiting factor:
+		new_width = max_width
+		new_height= int(round(  new_width/image_aspect ))
+	else:
+		# Height is the limiting factor:
+		new_height = max_height
+		new_width = int(round(  image_aspect*new_height  ))
+
+	gimp.message("Resizing %s:%s to %s:%s" % (width, height, new_width, new_height))
+# 	print ("Resizing %s:%s to %s:%s" % (width, height, new_width, new_height))
+
+	# At present, documnatation does not specify the interpolation--
+	# another tutorial claimed it was cubic:
+	pdb.gimp_image_scale(timg, new_width, new_height)	
+	
+#/ def lazy_Resize(timg, tdrawable, max_width, max_height):	
+
 def show_Message(timg, tdrawable):
 	
 	tlabel = get_TimeLabel_Now()
@@ -522,6 +619,56 @@ register(
 	],
 	[],
 	extreme_unsharp_desaturation_options, menu="<Image>/Layer/user_libs")
+
+register(
+	'circles',			# プロシジャの名前
+	'転写スクリプト。アクティブなレイヤーの内容を、下にあるレイヤーに転写する。',
+	# プロシジャの説明文
+	'ver 2.8 以上を対象とした転写スクリプト。転写元のレイヤーから転写先のレイヤーへ内容を転写する。レイヤーグループ内での動作や、レイヤーマスクの保持が行われる。',
+	# PDBに登録する追加情報
+	'かんら・から',					# 作者名
+	'GPLv3',					# ライセンス情報
+	'2012.12.15',					# 作成日
+	'circles',				# メニューアイテム
+	'*',						# 対応する画像タイプ
+
+	[
+		(PF_IMAGE, 'image', 'Input image', None),
+		(PF_DRAWABLE, 'drawable', 'Input drawable', None)
+	],	# プロシジャの引数
+	[],	# 戻り値の定義
+
+	circles,			# 処理を埋け持つ関数名
+	menu='<Image>/Layer/user_libs'	# メニュー表示場所
+	)
+
+register(
+	'lazy_Resize',			# プロシジャの名前
+	'転写スクリプト。アクティブなレイヤーの内容を、下にあるレイヤーに転写する。',
+	# プロシジャの説明文
+	'ver 2.8 以上を対象とした転写スクリプト。転写元のレイヤーから転写先のレイヤーへ内容を転写する。レイヤーグループ内での動作や、レイヤーマスクの保持が行われる。',
+	# PDBに登録する追加情報
+	'かんら・から',					# 作者名
+	'GPLv3',					# ライセンス情報
+	'2012.12.15',					# 作成日
+	'lazy_Resize',				# メニューアイテム
+	'*',						# 対応する画像タイプ
+
+	[
+		# 引数  (type, name, description, default [, extra])
+		(PF_IMAGE, 'image', 'Input image', None),
+		(PF_DRAWABLE, 'drawable', 'Input drawable', None),
+		(PF_INT, "max_width", "Maximum new width", 200),
+        (PF_INT, "max_height", "Maximum new height", 200)
+# 		(PF_INT, "max_width", "Maximum new width", 1280),
+#         (PF_INT, "max_height", "Maximum new height", 900)
+	],	# プロシジャの引数
+	[],	# 戻り値の定義
+
+	lazy_Resize,			# 処理を埋け持つ関数名
+	menu='<Image>/Layer/user_libs'	# メニュー表示場所
+	)
+
 
 # register(
 #         "python_fu_FUNCTION_NAME",
