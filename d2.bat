@@ -9,6 +9,10 @@ taskkill /im wish.exe
 echo killing Domino.exe
 taskkill /im Domino.exe
 
+echo killing javaw.exe
+taskkill /im javaw.exe
+
+
 exit
 
 REM pause
