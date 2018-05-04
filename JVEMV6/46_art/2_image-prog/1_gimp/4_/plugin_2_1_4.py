@@ -20,7 +20,7 @@ from fileinput import lineno
 
 # from enum import Enum
 
-import sys
+import sys, random
 # sys.path.append("C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\2_image-prog")
 # sys.path.append("C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\2_image-prog\\libs_image_prog")
 # sys.path.append('..')
@@ -258,6 +258,152 @@ def draw_pencil_lines(drawable, lines):
 def draw_rect(drawable, x1, y1, x2, y2):
   lines = [x1, y1, x2, y1, x2, y2, x1, y2, x1, y1]
   draw_pencil_lines(drawable, lines)
+
+def test_4(timg, tdrawable):	#add layer to the current image ]] 20180504_122012
+	
+# 	image = create_image(640, 400)
+	
+	name_Layer = "L-1"
+	
+	# image instance
+	imageObj = ImageObject( timg )
+# 	imageObj = ImageObject( image )
+
+	im = imageObj.get_Image()
+	
+	msg = "[%s / %s:%d]\nimageObj ==> instance made" \
+				% (get_TimeLabel_Now(), os.path.basename(thisfile()), linenum(0))
+# 				% (str_Time, num_Line, num_Line_EndStack, num_Line_Current)
+# 					 (str_Time, num_Line, num_Line_EndStack)
+	write_Log(msg)
+	
+	msg = "[%s / %s:%d]\ncalling ---> im.add_Layer()" \
+				% (get_TimeLabel_Now(), os.path.basename(thisfile()), linenum(0))
+# 				% (str_Time, num_Line, num_Line_EndStack, num_Line_Current)
+# 					 (str_Time, num_Line, num_Line_EndStack)
+	write_Log(msg)
+	
+	
+	imageObj.add_Layer(name_Layer)
+# 	im.add_Layer(name_Layer)
+
+	msg = "[%s / %s:%d]\nimageObj ==> Layer added" \
+				% (get_TimeLabel_Now(), os.path.basename(thisfile()), linenum(0))
+# 				% (str_Time, num_Line, num_Line_EndStack, num_Line_Current)
+# 					 (str_Time, num_Line, num_Line_EndStack)
+	write_Log(msg)
+	
+	'''###################
+		background		
+	###################'''
+	#ref http://coderazzi.net/python/gimp/pythonfu.html
+	cols_Mix = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+	
+	pdb.gimp_context_set_background(cols_Mix)
+# 	pdb.gimp_context_set_background((0,0,0))
+	
+	# get drawable
+	drw = pdb.gimp_image_active_drawable(im)
+	
+	msg = "[%s / %s:%d]\ndrawable ==> obtained" \
+				% (get_TimeLabel_Now(), os.path.basename(thisfile()), linenum(0))
+# 				% (str_Time, num_Line, num_Line_EndStack, num_Line_Current)
+# 					 (str_Time, num_Line, num_Line_EndStack)
+	write_Log(msg)
+
+	# fill bg
+	pdb.gimp_drawable_fill(drw, 1)
+# 	pdb.gimp_drawable_fill(drw, gimpfu.BACKGROUND_FILL)
+			# The type of fill { FOREGROUND-FILL (0), BACKGROUND-FILL (1), WHITE-FILL (2), TRANSPARENT-FILL (3), PATTERN-FILL (4), NO-FILL (5) }
+
+	msg = "[%s / %s:%d]\nbg ==> filled" \
+				% (get_TimeLabel_Now(), os.path.basename(thisfile()), linenum(0))
+# 				% (str_Time, num_Line, num_Line_EndStack, num_Line_Current)
+# 					 (str_Time, num_Line, num_Line_EndStack)
+	write_Log(msg)
+
+# 	
+# 	#debug
+# 	pdb.gimp_message("layer => added")
+# 	
+# 	layer = im.get_Layer()
+# 
+# 	draw_rect(layer, 190, 210, 490, 310)
+# # 	draw_rect(layer, 390, 210, 490, 310)
+	
+# 	display_image(im)
+# 	display_image(image)
+
+def test_3(timg, tdrawable):
+	
+	image = create_image(640, 400)
+	
+	name_Layer = "L-1"
+	
+	# image instance
+	imageObj = ImageObject( image )
+
+	im = imageObj.get_Image()
+	
+	msg = "[%s / %s:%d]\nimageObj ==> instance made" \
+				% (get_TimeLabel_Now(), os.path.basename(thisfile()), linenum(0))
+# 				% (str_Time, num_Line, num_Line_EndStack, num_Line_Current)
+# 					 (str_Time, num_Line, num_Line_EndStack)
+	write_Log(msg)
+	
+	msg = "[%s / %s:%d]\ncalling ---> im.add_Layer()" \
+				% (get_TimeLabel_Now(), os.path.basename(thisfile()), linenum(0))
+# 				% (str_Time, num_Line, num_Line_EndStack, num_Line_Current)
+# 					 (str_Time, num_Line, num_Line_EndStack)
+	write_Log(msg)
+	
+	
+	imageObj.add_Layer(name_Layer)
+# 	im.add_Layer(name_Layer)
+
+	msg = "[%s / %s:%d]\nimageObj ==> Layer added" \
+				% (get_TimeLabel_Now(), os.path.basename(thisfile()), linenum(0))
+# 				% (str_Time, num_Line, num_Line_EndStack, num_Line_Current)
+# 					 (str_Time, num_Line, num_Line_EndStack)
+	write_Log(msg)
+	
+	'''###################
+		background		
+	###################'''
+	#ref http://coderazzi.net/python/gimp/pythonfu.html
+	pdb.gimp_context_set_background((0,0,0))
+	
+	# get drawable
+	drw = pdb.gimp_image_active_drawable(im)
+	
+	msg = "[%s / %s:%d]\ndrawable ==> obtained" \
+				% (get_TimeLabel_Now(), os.path.basename(thisfile()), linenum(0))
+# 				% (str_Time, num_Line, num_Line_EndStack, num_Line_Current)
+# 					 (str_Time, num_Line, num_Line_EndStack)
+	write_Log(msg)
+
+	# fill bg
+	pdb.gimp_drawable_fill(drw, 1)
+# 	pdb.gimp_drawable_fill(drw, gimpfu.BACKGROUND_FILL)
+			# The type of fill { FOREGROUND-FILL (0), BACKGROUND-FILL (1), WHITE-FILL (2), TRANSPARENT-FILL (3), PATTERN-FILL (4), NO-FILL (5) }
+
+	msg = "[%s / %s:%d]\nbg ==> filled" \
+				% (get_TimeLabel_Now(), os.path.basename(thisfile()), linenum(0))
+# 				% (str_Time, num_Line, num_Line_EndStack, num_Line_Current)
+# 					 (str_Time, num_Line, num_Line_EndStack)
+	write_Log(msg)
+
+# 	
+# 	#debug
+# 	pdb.gimp_message("layer => added")
+# 	
+# 	layer = im.get_Layer()
+# 
+# 	draw_rect(layer, 190, 210, 490, 310)
+# # 	draw_rect(layer, 390, 210, 490, 310)
+	
+	display_image(im)
+# 	display_image(image)
 
 def test_2(timg, tdrawable):
 	
@@ -512,7 +658,9 @@ def show_Message(timg, tdrawable):
 
 def plugin_main(timg, tdrawable):
 	
-	test_2(timg, tdrawable)
+	test_4(timg, tdrawable)
+# 	test_3(timg, tdrawable)
+# 	test_2(timg, tdrawable)
 
 ########################################################################
 
