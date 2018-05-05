@@ -12,6 +12,8 @@ taskkill /im Domino.exe
 echo killing javaw.exe
 taskkill /im javaw.exe
 
+echo killing thunderbird.exe
+taskkill /im thunderbird.exe
 
 exit
 
