@@ -259,6 +259,70 @@ def draw_rect(drawable, x1, y1, x2, y2):
   lines = [x1, y1, x2, y1, x2, y2, x1, y2, x1, y1]
   draw_pencil_lines(drawable, lines)
 
+def test_8__Multiple_Copies(timg, tdrawable, numOf_NewLayers = 1):	#add layer to the current image ---> multiple layers
+	
+	layer  = timg.active_layer
+	
+	name_Orig = layer.name
+	
+	# conver to int
+	numOf_NewLayers = int(numOf_NewLayers)
+	
+	# undo start
+	pdb.gimp_image_undo_group_start(timg)
+	
+	# copy layer
+	for i in range(numOf_NewLayers):
+
+		#ref http://gimpforums.com/thread-python-get-number-of-layers
+		new_Layer = layer.copy()
+		
+		new_Layer.name = "%s.copy-%02d" % (name_Orig, i + 1) 
+# 		new_Layer.name = "%s-%02d" % (name_Orig, i) 
+		
+		timg.add_layer(new_Layer, 0)
+	
+	# undo end
+	pdb.gimp_image_undo_group_end(timg)
+	
+#/for i in range(numOf_NewLayers):
+
+	
+#/ def def test_8__Multiple_Copies(timg, tdrawable, numOf_NewLayers = 1):	#add layer to the current image ---> multiple layers
+
+def test_7__DrawCircle(timg, tdrawable, numOf_NewLayers = 1):
+	
+	'''###################
+		select ellipse		
+	###################'''
+	#ref https://developer.gimp.org/api/2.0/libgimp/libgimp-gimpimageselect.html#gimp-image-select-ellipse
+	#ref CHANNEL_OP_REPLACE https://stackoverflow.com/questions/39641231/gimp-python-fu-how-do-i-select-a-polygon#39654251
+	pdb.gimp_image_select_ellipse(timg, CHANNEL_OP_REPLACE, 100, 100, 50, 50)
+	
+	'''###################
+    	border		
+    ###################'''
+	border_thickness = 5
+	
+	#ref border https://superuser.com/questions/829495/how-can-i-automate-some-simple-steps-within-the-gimp
+	pdb.gimp_selection_border(timg, border_thickness)
+	
+	'''###################
+		fill		
+	###################'''
+	# fill the selected area
+	#refhttps://stackoverflow.com/questions/49888598/gimp-python-fu-create-simple-border
+	pdb.gimp_edit_fill(pdb.gimp_image_get_active_drawable(timg), 2)
+
+# 	pdb.gimp_image_select_ellipse(img, gimpfu.CHANNEL_OP_REPLACE, 
+# 			x, y, RADIO*2, RADIO*2)
+
+# def test_7__DrawCircle(timg, tdrawable, numOf_NewLayers = 1):
+
+'''###################
+	test_6
+	copy the active layer
+###################'''
 def test_6(timg, tdrawable, numOf_NewLayers = 1):	#add layer to the current image ---> multiple layers
 	
 	layer  = timg.active_layer
@@ -828,7 +892,40 @@ def plugin_main(timg, tdrawable, numOf_NewLayers):
 
 ########################################################################
 
+def test_group_2(timg, tdrawable, numOf_NewLayers):
+# def plugin_main(timg, tdrawable):
+	
+	test_8__Multiple_Copies(timg, tdrawable, numOf_NewLayers)
+# 	test_7__DrawCircle(timg, tdrawable)
 
+#/ def test_group_2(timg, tdrawable, numOf_NewLayers):
+
+########################################################################
+
+
+
+register(
+	'test_group_2',			# プロシジャの名前
+	'転写スクリプト。アクティブなレイヤーの内容を、下にあるレイヤーに転写する。',
+	# プロシジャの説明文
+	'ver 2.8 以上を対象とした転写スクリプト。転写元のレイヤーから転写先のレイヤーへ内容を転写する。レイヤーグループ内での動作や、レイヤーマスクの保持が行われる。',
+	# PDBに登録する追加情報
+	'かんら・から',					# 作者名
+	'GPLv3',					# ライセンス情報
+	'2012.12.15',					# 作成日
+	'test_group_2',				# メニューアイテム
+	'*',						# 対応する画像タイプ
+
+	[
+		(PF_IMAGE, 'image', 'Input image', None),
+		(PF_DRAWABLE, 'drawable', 'Input drawable', None)
+		, (PF_SPINNER, 'numOf_NewLayers', 'num of new layers (max 15)', 1, (1, 15, 1))
+	],	# プロシジャの引数
+	[],	# 戻り値の定義
+
+	test_group_2,			# 処理を埋け持つ関数名
+	menu='<Image>/Layer/user_libs'	# メニュー表示場所
+	)
 
 register(
 	'plugin_main',			# プロシジャの名前
