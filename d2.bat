@@ -15,6 +15,10 @@ taskkill /im javaw.exe
 echo killing thunderbird.exe
 taskkill /im thunderbird.exe
 
+echo killing chrome.exe
+taskkill /im chrome.exe
+
+
 exit
 
 REM pause
