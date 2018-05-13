@@ -1,5 +1,15 @@
 #https://postd.cc/image-processing-101/
 
+#ref ipython notebook how to : https://qiita.com/payashim/items/d4fe5227b21a5215e78b
+'''
+r 3
+ipython notebook
+
+
+
+'''
+
+
 # coding: utf-8
 
 # In[1]:
