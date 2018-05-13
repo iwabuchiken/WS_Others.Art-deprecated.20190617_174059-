@@ -112,6 +112,261 @@ def show_Message() :
 #     return binwave
 # #gen_WaveData(fs, sec, A)
 
+def test_4():
+    
+    print("[%s:%d] test_4()" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    
+    '''###################
+        load : image        
+    ###################'''
+    dpath_Img = "C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/2_image-prog/2_projects/1_sort-out/images"
+    fname_Img = "IMG_3171.JPG"
+    fpath_Img = "%s/%s" % (dpath_Img, fname_Img)
+    
+    img = cv2.imread(fpath_Img)
+#     img = cv2.imread('C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/2_image-prog/2_projects/1_sort-out/images/IMG_3171.JPG')
+#     img = cv2.imread('../images/IMG_3171.JPG')
+    
+    img2 = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    
+    dpath = "C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/2_image-prog/2_projects/1_sort-out/2_/images"
+     
+    '''###################
+        get : data
+    ###################'''
+    # data
+    height, width, channels = img2.shape
+    off_set = 280
+    
+    tlabel = libs.get_TimeLabel_Now()
+    
+    plt_ = plt
+    
+    
+    # save image
+    '''###################
+        corner : LB        
+    ###################'''
+    titles = ["clp_LB", "clp_RB", "clp_LU", "clp_RU"]
+    
+    clips = [
+        
+            img2[(height - off_set) : height, 0 : off_set], # clp_LB
+            img2[(height - off_set) : height, width - off_set : width], # clp_RB
+            img2[0 : off_set, 0 : off_set], # clp_LU
+            img2[0 : off_set, width - off_set : width], # clp_RU
+        ]
+    
+    '''###################
+        max, min        
+    ###################'''
+    clip_0 = clips[0]
+    
+    max_R = -1; max_G = -1; max_B = -1
+
+    for item in clip_0[0]:
+    
+        R = item[0]; G = item[1]; B = item[2]
+        
+        if R > max_R : max_R = R
+        if G > max_G : max_G = G
+        if B > max_B : max_B = B
+            
+    #/for item in clip_0[0]:
+    
+    '''###################
+        log        
+    ###################'''
+    dpath_Log = "C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/2_image-prog/2_projects/1_sort-out/2_"
+    fname_Log = "2_.log"
+    
+    fpath_Log = "%s/%s" % (dpath_Log, fname_Log)
+    
+    f = open(fpath_Log, "a")
+    f.write("===================================")
+    f.write("\n")
+    
+    msg = "[%s:%s:%d] file : %s" % \
+        (libs.get_TimeLabel_Now(), os.path.basename(libs.thisfile()), libs.linenum() \
+         , fpath_Img)
+    f.write(msg)
+    f.write("\n")
+        
+    msg = "[%s:%s:%d] min, max -----------" % \
+        (libs.get_TimeLabel_Now(), os.path.basename(libs.thisfile()), libs.linenum())
+    
+    f.write(msg)
+    f.write("\n")
+    
+    msg = "max_R = %d, max_G = %d, max_B = %d" % (max_R, max_G, max_B)
+    
+    f.write(msg)
+    f.write("\n")
+    f.write("\n")
+    
+#     print("[%s:%d] min, max -----------" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#          
+#         ), file=sys.stderr)
+# #     print("max_R = %d, max_G = %d, max_B = %d" % (max_R, max_G, max_B))
+
+    f.close()
+
+
+#/ def test_4():
+
+def test_3():
+    
+    print("[%s:%d] test_3()" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    
+    '''###################
+        load : image        
+    ###################'''
+    img = cv2.imread('C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/2_image-prog/2_projects/1_sort-out/images/IMG_3171.JPG')
+#     img = cv2.imread('../images/IMG_3171.JPG')
+    
+    img2 = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    
+#     plt.imshow(img2)
+#     
+    dpath = "C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/2_image-prog/2_projects/1_sort-out/2_/images"
+#     
+#     fname = "image.%s.png" % (libs.get_TimeLabel_Now())
+#     
+#     fpath = "%s/%s" % (dpath, fname)
+#     
+#     plt.savefig(fpath)
+    
+    #ref display image https://github.com/PrinzEugen7/ImageProcessing/blob/master/Image/Python/Matplotlib/draw_opencv_img.py
+#     plt.show()
+    
+    '''###################
+        get : data
+    ###################'''
+    # data
+    height, width, channels = img2.shape
+    off_set = 280
+    
+    tlabel = libs.get_TimeLabel_Now()
+    
+    plt_ = plt
+    
+    
+    # save image
+    '''###################
+        corner : LB        
+    ###################'''
+    titles = ["clp_LB", "clp_RB", "clp_LU", "clp_RU"]
+    
+    clips = [
+        
+            img2[(height - off_set) : height, 0 : off_set], # clp_LB
+            img2[(height - off_set) : height, width - off_set : width], # clp_RB
+            img2[0 : off_set, 0 : off_set], # clp_LU
+            img2[0 : off_set, width - off_set : width], # clp_RU
+        ]
+    
+    # iterate
+    cnt = 0 # counter
+    
+    for item in titles:
+
+        # file name
+        fname = "image.%s.%s.png" % (tlabel, item)
+        
+        # save fig
+        test_2__SaveFig(item, dpath, fname, clips[cnt], plt_)
+        
+        # clear plot
+        plt_.clf()
+        
+        # count
+        cnt += 1
+        
+    #/for item in titles:
+
+    
+#     title = "clp_LB"
+#     fname = "image.%s.%s.png" % (tlabel, title)
+    
+#     clp_LB = img2[(height - off_set) : height, 0 : off_set]
+#     h_Clp_LB, w_Clp_LB, ch_Clp_Lb = clp_LB.shape
+    
+#     test_2__SaveFig(title, dpath, fname, clp_LB, plt_)
+    
+    '''###################
+        corner : RB        
+    ###################'''
+#     title = "clp_RB"
+#     fname = "image.%s.%s.png" % (tlabel, title)
+    
+#     clp_RB = img2[(height - off_set) : height, width - off_set : width]
+    
+#     plt_.clf()
+#     plt_ = plt
+    
+#     test_2__SaveFig(title, dpath, fname, clp_RB, plt_)
+    
+    '''###################
+        corner : LU        
+    ###################'''
+#     title = "clp_LU"
+#     fname = "image.%s.%s.png" % (tlabel, title)
+    
+#     clp_LU = img2[0 : off_set, 0 : off_set]
+    
+#     plt_.clf()
+# #     plt_ = plt
+#     
+#     test_2__SaveFig(title, dpath, fname, clp_LU, plt_)
+    
+    '''###################
+        corner : RU        
+    ###################'''
+#     title = "clp_RU"
+#     fname = "image.%s.%s.png" % (tlabel, title)
+    
+#     clp_RU = img2[0 : off_set, width - off_set : width]
+    
+#     plt_.clf()
+# #     plt_ = plt
+#     
+#     test_2__SaveFig(title, dpath, fname, clp_RU, plt_)
+    
+    
+#     title = "clp_LB"
+#      
+#     fname = "image.%s.%s.png" % (title, libs.get_TimeLabel_Now())
+#      
+#     fpath = "%s/%s" % (dpath, fname)
+#     
+#     xpixels = clp_LB.shape[1]
+#     ypixels = clp_LB.shape[0]
+#     
+#     dpi = 72
+#     scalefactor = 1
+#     
+#     xinch = xpixels * scalefactor / dpi
+#     yinch = ypixels * scalefactor / dpi
+# 
+#     fig = plt.figure(figsize=(xinch,yinch))
+#     
+#     plt.imshow(clp_LB)
+#     
+# #     plt.savefig(fpath)
+#     plt.savefig(fpath, dpi=dpi)
+
+        
+    
+#/ def test_2():
+
+
 def test_2__SaveFig(title, dpath, fname, clp_, plt_):
     
     # save image
@@ -240,6 +495,7 @@ def test_2():
 #     xpixels = clp_LB.shape[1]
 #     ypixels = clp_LB.shape[0]
 #     
+    #ref https://stackoverflow.com/questions/13623301/convert-contour-matplotlib-or-opencv-to-image-of-the-same-size-as-the-original#13623960
 #     dpi = 72
 #     scalefactor = 1
 #     
@@ -343,7 +599,9 @@ def exec_prog():
     '''###################
         ops        
     ###################'''
-    test_2()
+    test_4()
+#     test_3()
+#     test_2()
 #     test_1()
     
     print("[%s:%d] exec_prog() => done" % \
