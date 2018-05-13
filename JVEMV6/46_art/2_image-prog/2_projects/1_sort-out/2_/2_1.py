@@ -112,6 +112,151 @@ def show_Message() :
 #     return binwave
 # #gen_WaveData(fs, sec, A)
 
+def test_2__SaveFig(title, dpath, fname, clp_, plt_):
+    
+    # save image
+#     title = "clp_LB"
+     
+#     fname = "image.%s.%s.png" % (title, libs.get_TimeLabel_Now())
+     
+    fpath = "%s/%s" % (dpath, fname)
+    
+    xpixels = clp_.shape[1]
+    ypixels = clp_.shape[0]
+    
+    dpi = 72
+    scalefactor = 1
+    
+    xinch = xpixels * scalefactor / dpi
+    yinch = ypixels * scalefactor / dpi
+
+    fig = plt_.figure(figsize=(xinch,yinch))
+    
+    plt_.imshow(clp_)
+    
+#     plt.savefig(fpath)
+    plt_.savefig(fpath, dpi=dpi)
+    
+#/ def test_2():
+    
+def test_2():
+    
+    print("[%s:%d] test_2()" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    
+    '''###################
+        load : image        
+    ###################'''
+    img = cv2.imread('C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/2_image-prog/2_projects/1_sort-out/images/IMG_3171.JPG')
+#     img = cv2.imread('../images/IMG_3171.JPG')
+    
+    img2 = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    
+#     plt.imshow(img2)
+#     
+    dpath = "C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/2_image-prog/2_projects/1_sort-out/2_/images"
+#     
+#     fname = "image.%s.png" % (libs.get_TimeLabel_Now())
+#     
+#     fpath = "%s/%s" % (dpath, fname)
+#     
+#     plt.savefig(fpath)
+    
+    #ref display image https://github.com/PrinzEugen7/ImageProcessing/blob/master/Image/Python/Matplotlib/draw_opencv_img.py
+#     plt.show()
+    
+    '''###################
+        clip        
+    ###################'''
+    # data
+    height, width, channels = img2.shape
+    off_set = 280
+    
+    tlabel = libs.get_TimeLabel_Now()
+    
+    plt_ = plt
+    
+    
+    # save image
+    '''###################
+        corner : LB        
+    ###################'''
+    title = "clp_LB"
+    fname = "image.%s.%s.png" % (tlabel, title)
+    
+    clp_LB = img2[(height - off_set) : height, 0 : off_set]
+#     h_Clp_LB, w_Clp_LB, ch_Clp_Lb = clp_LB.shape
+    
+    test_2__SaveFig(title, dpath, fname, clp_LB, plt_)
+    
+    '''###################
+        corner : RB        
+    ###################'''
+    title = "clp_RB"
+    fname = "image.%s.%s.png" % (tlabel, title)
+    
+    clp_RB = img2[(height - off_set) : height, width - off_set : width]
+    
+    plt_.clf()
+#     plt_ = plt
+    
+    test_2__SaveFig(title, dpath, fname, clp_RB, plt_)
+    
+    '''###################
+        corner : LU        
+    ###################'''
+    title = "clp_LU"
+    fname = "image.%s.%s.png" % (tlabel, title)
+    
+    clp_LU = img2[0 : off_set, 0 : off_set]
+    
+    plt_.clf()
+#     plt_ = plt
+    
+    test_2__SaveFig(title, dpath, fname, clp_LU, plt_)
+    
+    '''###################
+        corner : RU        
+    ###################'''
+    title = "clp_RU"
+    fname = "image.%s.%s.png" % (tlabel, title)
+    
+    clp_RU = img2[0 : off_set, width - off_set : width]
+    
+    plt_.clf()
+#     plt_ = plt
+    
+    test_2__SaveFig(title, dpath, fname, clp_RU, plt_)
+    
+    
+#     title = "clp_LB"
+#      
+#     fname = "image.%s.%s.png" % (title, libs.get_TimeLabel_Now())
+#      
+#     fpath = "%s/%s" % (dpath, fname)
+#     
+#     xpixels = clp_LB.shape[1]
+#     ypixels = clp_LB.shape[0]
+#     
+#     dpi = 72
+#     scalefactor = 1
+#     
+#     xinch = xpixels * scalefactor / dpi
+#     yinch = ypixels * scalefactor / dpi
+# 
+#     fig = plt.figure(figsize=(xinch,yinch))
+#     
+#     plt.imshow(clp_LB)
+#     
+# #     plt.savefig(fpath)
+#     plt.savefig(fpath, dpi=dpi)
+
+        
+    
+#/ def test_2():
+
 def test_1():
     
     print("[%s:%d] test_1()" % \
@@ -198,7 +343,8 @@ def exec_prog():
     '''###################
         ops        
     ###################'''
-    test_1()
+    test_2()
+#     test_1()
     
     print("[%s:%d] exec_prog() => done" % \
             (os.path.basename(libs.thisfile()), libs.linenum()
