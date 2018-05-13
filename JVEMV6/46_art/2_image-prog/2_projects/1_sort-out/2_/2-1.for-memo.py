@@ -2,7 +2,11 @@
 
 #ref ipython notebook how to : https://qiita.com/payashim/items/d4fe5227b21a5215e78b
 '''
+    file : 2-1.for-memo.py
+    date : 2018/05/13 11:42:34
 r 3
+
+pushd C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\2_image-prog\2_projects\1_sort-out\2_\
 ipython notebook
 
 
@@ -39,7 +43,7 @@ import matplotlib.pyplot as plt
 # In[15]:
 
 
-img = cv2.imread('images/IMG_3171.JPG')
+img = cv2.imread('../images/IMG_3171.JPG')
 
 
 # In[16]:
@@ -58,13 +62,8 @@ plt.imshow(img)
 
 
 img2 = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-
-
-# In[19]:
-
-
 plt.imshow(img2)
-
+#aa
 
 # In[20]:
 
@@ -100,23 +99,21 @@ plt.imshow(img4)
 
 
 gray_img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+plt.imshow(gray_img)
 
-
-# In[27]:
-
-
-print(gray_img)
+gray_img[0]
 
 
 # In[28]:
 
 
 _, threshold_img = cv2.threshold(gray_img, 60, 255, cv2.THRESH_BINARY)
+plt.imshow(threshold_img)
 
+_, threshold_img = cv2.threshold(gray_img, 60, 100, cv2.THRESH_BINARY)
+plt.imshow(threshold_img)
 
-# In[29]:
-
-
+_, threshold_img = cv2.threshold(gray_img, 20, 255, cv2.THRESH_BINARY)
 plt.imshow(threshold_img)
 
 
@@ -127,19 +124,32 @@ _, threshold_img = cv2.threshold(gray_img, 100, 255, cv2.THRESH_BINARY)
 plt.imshow(threshold_img)
 
 #閾値より低い値を探さなくても、 =========================================
-piet = cv2.imread('images/IMG_3171.JPG')
+piet = cv2.imread('../images/IMG_3171.JPG')
 # piet = cv2.imread('images/piet.png')
 piet_hsv = cv2.cvtColor(piet, cv2.COLOR_BGR2HSV)
- 
+
+len(piet_hsv)
+
 # threshold for hue channel in blue range
 blue_min = np.array([100, 100, 20], np.uint8)
+blue_min[0]
+len(blue_min)
+
 # blue_min = np.array([100, 100, 100], np.uint8)
 blue_max = np.array([140, 255, 255], np.uint8)
 threshold_blue_img = cv2.inRange(piet_hsv, blue_min, blue_max)
  
-threshold_blue_img = cv2.cvtColor(threshold_blue_img, cv2.COLOR_GRAY2RGB)
- 
 plt.imshow(threshold_blue_img)
+ 
+val_max = 80
+blue_min = np.array([20, 20, 20], np.uint8)
+blue_max = np.array([val_max, val_max, val_max], np.uint8)
+threshold_blue_img = cv2.inRange(piet_hsv, blue_min, blue_max)
+plt.imshow(threshold_blue_img)
+ 
+threshold_blue_img_Cnvtd = cv2.cvtColor(threshold_blue_img, cv2.COLOR_GRAY2RGB)
+plt.imshow(threshold_blue_img_Cnvtd)
+ 
 
 #------------------------------------------
 piet = cv2.imread('images/IMG_3171.JPG')
@@ -190,3 +200,11 @@ cv2.imwrite('images/clp.png',clp)
 
 clp_LeftBottom = mask_RGB_cvted[(height - off_set) : height, 0 : off_set]
 plt.imshow(clp_LeftBottom)  
+
+# ----------------------------------------- 20180513_120247
+plt.imshow(img2)
+
+height, width, channels = img2.shape
+off_set = 280
+clp = img2[(height - off_set) : height, 0 : off_set]
+plt.imshow(clp)
