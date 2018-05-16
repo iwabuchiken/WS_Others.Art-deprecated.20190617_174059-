@@ -112,6 +112,517 @@ def show_Message() :
 #     return binwave
 # #gen_WaveData(fs, sec, A)
 
+def get_mean(lo_Data):
+    
+    sumOf_Data = 0
+    
+    for d in lo_Data:
+
+        sumOf_Data += d
+        
+    #/for d in lo_Data:
+
+    # return
+    return sumOf_Data
+    
+#/ def get_mean(lo_Data):
+
+
+def test_6():
+    
+    print("[%s:%d] test_6()" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    
+    '''###################
+        load : image        
+    ###################'''
+#     "C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\2_image-prog\2_projects\1_sort-out\images"
+    dpath_Img = "C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/2_image-prog/2_projects/1_sort-out/images"
+    fname_Img = "IMG_3171.JPG"
+    fpath_Img = "%s/%s" % (dpath_Img, fname_Img)
+    
+    img = cv2.imread(fpath_Img)
+#     img = cv2.imread('C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/2_image-prog/2_projects/1_sort-out/images/IMG_3171.JPG')
+#     img = cv2.imread('../images/IMG_3171.JPG')
+    
+    img2 = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    
+    dpath = "C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/2_image-prog/2_projects/1_sort-out/2_/images"
+     
+    '''###################
+        get : data
+    ###################'''
+    # data
+    height, width, channels = img2.shape
+    off_set = 280
+    
+    tlabel = libs.get_TimeLabel_Now()
+    
+    plt_ = plt
+    
+    
+    # save image
+    '''###################
+        corner : LB        
+    ###################'''
+    titles = ["clp_LB", "clp_RB", "clp_LU", "clp_RU"]
+    
+    clips = [
+        
+            img2[(height - off_set) : height, 0 : off_set], # clp_LB
+            img2[(height - off_set) : height, width - off_set : width], # clp_RB
+            img2[0 : off_set, 0 : off_set], # clp_LU
+            img2[0 : off_set, width - off_set : width], # clp_RU
+        ]
+    
+    '''###################
+        max, min        
+    ###################'''
+#     idxOf_Clips = 1
+    idxOf_Clips = 0
+    
+    clip_0 = clips[idxOf_Clips]
+#     clip_0 = clips[0]
+    
+    max_R = -1; max_G = -1; max_B = -1
+
+    # counter
+    cntOf_Row = 0
+    cntOf_Cell = 0
+    
+    # values
+    valsOf_R = [0] * 255
+    valsOf_G = [0] * 255
+    valsOf_B = [0] * 255
+    
+    colNames = [str(x) for x in range(255)]
+#     colNames = [x for x in range(255)]
+    
+    str_ColNames = "\t".join(colNames)
+#     str_ColNames = colNames.join("\t")
+    
+    for row in clip_0:
+        
+        for cell in row:
+            
+            # get value
+            R = cell[0]; G = cell[1]; B = cell[2]
+            
+            # addition
+            valsOf_R[R] += 1
+            valsOf_G[G] += 1
+            valsOf_B[B] += 1
+            
+            if R > max_R : max_R = R
+            if G > max_G : max_G = G
+            if B > max_B : max_B = B
+            
+            # count
+            cntOf_Cell += 1
+        
+        # reset count of cells
+        cntOf_Cell = 0
+        
+        # count
+        cntOf_Row += 1
+        
+    #/for row in clip_0:
+    
+    '''###################
+        log        
+    ###################'''
+    dpath_Log = "C:/WORKS_2/WS/WS_Others.Art/JVEMV6" \
+                + "/46_art/2_image-prog/2_projects/1_sort-out/2_" \
+                + "/data"
+                
+    # validate dir
+    if not os.path.exists(dpath): os.makedirs(dpath)
+
+        
+    fname_Log = "3_.%s.log" % libs.get_TimeLabel_Now()
+    
+    fpath_Log = "%s/%s" % (dpath_Log, fname_Log)
+    
+    f = open(fpath_Log, "a")
+    f.write("===================================")
+    f.write("\n")
+    
+    msg = "[%s:%s:%d] result =>" % \
+        (libs.get_TimeLabel_Now(), os.path.basename(libs.thisfile()), libs.linenum() \
+         )
+    f.write(msg)
+    f.write("\n")
+    
+    msg = "file : %s" % \
+        (fpath_Img)
+    f.write(msg)
+    f.write("\n")
+        
+    msg = "rows, cells : %d x %d" % (cntOf_Row, cntOf_Cell)
+    
+    f.write(msg)
+    f.write("\n")
+
+    # index
+    msg = "index of clips : %d (%s)" % (idxOf_Clips, titles[idxOf_Clips])
+    
+    f.write(msg)
+    f.write("\n")
+
+    msg = "min, max : "
+    
+    f.write(msg)
+#     f.write("\n")
+    
+    msg = "max_R = %d, max_G = %d, max_B = %d" % (max_R, max_G, max_B)
+    
+    f.write(msg)
+    f.write("\n")
+#     f.write("\n")
+    
+#     print("[%s:%d] min, max -----------" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#          
+#         ), file=sys.stderr)
+# #     print("max_R = %d, max_G = %d, max_B = %d" % (max_R, max_G, max_B))
+
+    '''###################
+        vals        
+    ###################'''
+    msg = "color\t%s" % str_ColNames
+    
+    f.write(msg)
+    f.write("\n")
+
+    lineOf_R = ""
+    lineOf_G = ""
+    lineOf_B = ""
+    
+    for i in range(255):
+            
+        lineOf_R += str(valsOf_R[i]) + "\t"
+        lineOf_G += str(valsOf_G[i]) + "\t"
+        lineOf_B += str(valsOf_B[i]) + "\t"
+        
+    #/for i in range(255):
+    
+    msg = "Rs\t%s" % lineOf_R
+    
+    f.write(msg)
+    f.write("\n")
+    
+    msg = "Gs\t%s" % lineOf_G
+    
+    f.write(msg)
+    f.write("\n")
+    
+    msg = "Bs\t%s" % lineOf_B
+    
+    f.write(msg)
+    f.write("\n")
+    
+    
+    '''###################
+        stats
+    ###################'''
+    sumOf_Rs = 0
+    
+    # sum
+    for d in valsOf_R: sumOf_Rs += d
+    
+    # mean
+    mean_R = sumOf_Rs * 1.0 / len(valsOf_R)
+    
+    # summation
+    summation = 0
+    
+    for d in valsOf_R:
+    
+        summation += np.power(d - mean_R, 4)
+        
+    #/for d in valsOf_R:
+
+    # summation divided by length
+    summation = summation / len(valsOf_R)
+    
+    # standard dev
+    lo_tmp = [np.power(x, 2) for x in valsOf_R]
+    
+    # sum of squares
+    sumOf_Squares_R = sum(lo_tmp)
+    
+    # dev
+    deviation = sumOf_Squares_R * 1.0 / len(valsOf_R) - np.power(mean_R, 2)
+    
+    # std dev
+    std_dev = np.sqrt(deviation)
+    
+    # skew
+    #ref http://hs-www.hyogo-dai.ac.jp/~kawano/HStat/?plugin=cssj&page=2010%2F3rd%2FSkewness_Kurtosis
+    skew = summation * 1.0 / np.power(std_dev, 4)
+    
+    # write to file
+    msg = "sumOf_Rs = %d, mean_R = %.03f summation = %.03f std_dev = %.03f skew = %.03f" % \
+             (sumOf_Rs, mean_R, summation, std_dev, skew)
+#     msg = "sumOf_Rs = %d, mean_R = %.03f" % (sumOf_Rs, mean_R)
+    
+    
+    
+    f.write(msg)
+    f.write("\n")
+    
+    # index of max
+    idxOf_Max_R = -1
+    
+    maxOf_R = -1
+    
+    idx = 0
+    
+    for d in valsOf_R:
+    
+        if d > maxOf_R : #if d > maxOf_R
+            
+            # update : index of max
+            idxOf_Max_R = idx
+            
+            # update : max of Rs
+            maxOf_R = d
+            
+        #/if d > maxOf_R
+        
+        # increment
+        idx += 1
+        
+    #/for d in valsOf_R:
+    
+    # write
+    msg = "idxOf_Max_R = %d" % \
+             (idxOf_Max_R)
+#     msg = "sumOf_Rs = %d, mean_R = %.03f" % (sumOf_Rs, mean_R)
+    
+    
+    
+    f.write(msg)
+    f.write("\n")
+    
+            #/for d in valsOf_R:
+
+#     sumOf_Rs = get_mean(valsOf_R)
+#     
+#     mean_R = sumOf_Rs * 1.0 / len(valsOf_R)
+    
+    '''###################
+        dividing line        
+    ###################'''
+    f.write("\n")
+    
+    '''###################
+        close        
+    ###################'''
+    f.close()
+
+
+#/ def test_5():
+
+def test_5():
+    
+    print("[%s:%d] test_5()" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    
+    '''###################
+        load : image        
+    ###################'''
+    dpath_Img = "C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/2_image-prog/2_projects/1_sort-out/images"
+    fname_Img = "IMG_3171.JPG"
+    fpath_Img = "%s/%s" % (dpath_Img, fname_Img)
+    
+    img = cv2.imread(fpath_Img)
+#     img = cv2.imread('C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/2_image-prog/2_projects/1_sort-out/images/IMG_3171.JPG')
+#     img = cv2.imread('../images/IMG_3171.JPG')
+    
+    img2 = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    
+    dpath = "C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/2_image-prog/2_projects/1_sort-out/2_/images"
+     
+    '''###################
+        get : data
+    ###################'''
+    # data
+    height, width, channels = img2.shape
+    off_set = 280
+    
+    tlabel = libs.get_TimeLabel_Now()
+    
+    plt_ = plt
+    
+    
+    # save image
+    '''###################
+        corner : LB        
+    ###################'''
+    titles = ["clp_LB", "clp_RB", "clp_LU", "clp_RU"]
+    
+    clips = [
+        
+            img2[(height - off_set) : height, 0 : off_set], # clp_LB
+            img2[(height - off_set) : height, width - off_set : width], # clp_RB
+            img2[0 : off_set, 0 : off_set], # clp_LU
+            img2[0 : off_set, width - off_set : width], # clp_RU
+        ]
+    
+    '''###################
+        max, min        
+    ###################'''
+    idxOf_Clips = 1
+#     idxOf_Clips = 0
+    
+    clip_0 = clips[idxOf_Clips]
+#     clip_0 = clips[0]
+    
+    max_R = -1; max_G = -1; max_B = -1
+
+    # counter
+    cntOf_Row = 0
+    cntOf_Cell = 0
+    
+    # values
+    valsOf_R = [0] * 255
+    valsOf_G = [0] * 255
+    valsOf_B = [0] * 255
+    
+    colNames = [str(x) for x in range(255)]
+#     colNames = [x for x in range(255)]
+    
+    str_ColNames = "\t".join(colNames)
+#     str_ColNames = colNames.join("\t")
+    
+    for row in clip_0:
+        
+        for cell in row:
+            
+            # get value
+            R = cell[0]; G = cell[1]; B = cell[2]
+            
+            # addition
+            valsOf_R[R] += 1
+            valsOf_G[G] += 1
+            valsOf_B[B] += 1
+            
+            if R > max_R : max_R = R
+            if G > max_G : max_G = G
+            if B > max_B : max_B = B
+            
+            # count
+            cntOf_Cell += 1
+        
+        # reset count of cells
+        cntOf_Cell = 0
+        
+        # count
+        cntOf_Row += 1
+        
+    #/for row in clip_0:
+    
+    '''###################
+        log        
+    ###################'''
+    dpath_Log = "C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/2_image-prog/2_projects/1_sort-out/2_"
+    fname_Log = "2_.log"
+    
+    fpath_Log = "%s/%s" % (dpath_Log, fname_Log)
+    
+    f = open(fpath_Log, "a")
+    f.write("===================================")
+    f.write("\n")
+    
+    msg = "[%s:%s:%d] result =>" % \
+        (libs.get_TimeLabel_Now(), os.path.basename(libs.thisfile()), libs.linenum() \
+         )
+    f.write(msg)
+    f.write("\n")
+    
+    msg = "file : %s" % \
+        (fpath_Img)
+    f.write(msg)
+    f.write("\n")
+        
+    msg = "rows, cells : %d x %d" % (cntOf_Row, cntOf_Cell)
+    
+    f.write(msg)
+    f.write("\n")
+
+    # index
+    msg = "index of clips : %d (%s)" % (idxOf_Clips, titles[idxOf_Clips])
+    
+    f.write(msg)
+    f.write("\n")
+
+    msg = "min, max : "
+    
+    f.write(msg)
+#     f.write("\n")
+    
+    msg = "max_R = %d, max_G = %d, max_B = %d" % (max_R, max_G, max_B)
+    
+    f.write(msg)
+    f.write("\n")
+#     f.write("\n")
+    
+#     print("[%s:%d] min, max -----------" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#          
+#         ), file=sys.stderr)
+# #     print("max_R = %d, max_G = %d, max_B = %d" % (max_R, max_G, max_B))
+
+    '''###################
+        vals        
+    ###################'''
+    msg = "color\t%s" % str_ColNames
+    
+    f.write(msg)
+    f.write("\n")
+
+    lineOf_R = ""
+    lineOf_G = ""
+    lineOf_B = ""
+    
+    for i in range(255):
+            
+        lineOf_R += str(valsOf_R[i]) + "\t"
+        lineOf_G += str(valsOf_G[i]) + "\t"
+        lineOf_B += str(valsOf_B[i]) + "\t"
+        
+    #/for i in range(255):
+    
+    msg = "Rs\t%s" % lineOf_R
+    
+    f.write(msg)
+    f.write("\n")
+    
+    msg = "Gs\t%s" % lineOf_G
+    
+    f.write(msg)
+    f.write("\n")
+    
+    msg = "Bs\t%s" % lineOf_B
+    
+    f.write(msg)
+    f.write("\n")
+    
+    f.write("\n")
+    
+    '''###################
+        close        
+    ###################'''
+    f.close()
+
+
+#/ def test_5():
+
 def test_4():
     
     print("[%s:%d] test_4()" % \
@@ -599,7 +1110,9 @@ def exec_prog():
     '''###################
         ops        
     ###################'''
-    test_4()
+    test_6()
+#     test_5()
+#     test_4()
 #     test_3()
 #     test_2()
 #     test_1()
