@@ -1,0 +1,44 @@
+p.current_Scheme {
+	
+	color  : blue;
+	/*color  : green;*/
+	/*color  : red;*/
+	
+}
+
+
+table#tbl_Im_Actions {
+	
+	/*border     : 1;*/
+	/*border     : 1px solid black;*/
+	/* ref template for css files https://stackoverflow.com/questions/7900575/how-to-add-css-autocomplete-to-eclipse */
+	/*ref table border http://www.html.am/html-codes/tables/table-border.cfm*/
+	border     : 1px solid #aaaaaa;
+	
+	margin     : 10px;
+}
+
+table#tbl_Im_Actions tr th {
+	
+	/*ref https://www.w3schools.com/CSSref/pr_background-color.asp*/
+	background-color   : #22ffff;
+	
+	text-align     : center;
+	
+	border     : 1px solid #aaaaaa;
+	
+	padding    : 5px;
+	
+}
+
+table#tbl_Im_Actions tr td {
+	
+	background-color   : #ffffff;
+	
+	text-align     : left;
+	
+	border     : 1px solid #aaaaaa;
+	
+	padding    : 5px;
+	
+}
