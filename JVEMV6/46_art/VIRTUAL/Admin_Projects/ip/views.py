@@ -62,3 +62,27 @@ def test(request):
 
 #     return HttpResponse(html)
 # #     return HttpResponse("Hello Django (new urls.py file)")
+
+def basics(request):
+    
+    now = datetime.datetime.now()
+
+
+    action = "basics"
+    message = "yes"
+
+    page_Title = "IP / basics"
+
+    dic = {
+            'action' : action, 
+            "message" : message, 
+#             "lo_Commands" : lo_Commands,
+            "page_Title" : page_Title,
+    }
+#     dic = {'action' : action, "message" : message, "lo_Commands" : lo_Commands}
+
+#     dic = {message : _message}
+
+    return render(request, 'ip/basics.html', dic)
+
+#/ def basics(request):
