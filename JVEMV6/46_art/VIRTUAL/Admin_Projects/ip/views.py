@@ -9,7 +9,22 @@ from django import template
 '''###################
     built-in modules        
 ###################'''
-import subprocess, copy, re, clipboard, time, os, datetime, ftplib, glob
+import subprocess, copy, re, clipboard, time, \
+        os, datetime, ftplib, glob, sys, cv2 \
+        , matplotlib.pyplot as plt
+
+# sys.path.append('.')
+# sys.path.append('..')
+
+# sys.path.append('C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/VIRTUAL/Admin_Projects')
+# sys.path.append('C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects')
+from libs_admin import libs, lib_ip
+# from Admin_Projects.libs_admin import libs
+
+# sys.path.append('C:/WORKS_2/WS/WS_Others/prog/D-7/2_2/VIRTUAL/Admin_Projects/mm')
+# 
+# from mm.libs_mm import cons_mm, cons_fx, libs, libfx
+
 
 # Create your views here.
 # def index():
@@ -83,6 +98,392 @@ def basics(request):
 
 #     dic = {message : _message}
 
-    return render(request, 'ip/basics.html', dic)
+    '''###################
+        list of commands
+    ###################'''
+    lo_Commands = [
+        
+        ["get_4_Corners", "4 corners of an image file"],
+        
+        ["???", "unknown"],
+    ]
+    
+    
+    # set var
+    dic["lo_Commands"] = lo_Commands
+
+    '''###################
+        get : referer        
+    ###################'''
+    referer_MM = "http://127.0.0.1:8000/ip/"
+    
+    referer_Current = request.META.get('HTTP_REFERER')
+
+    if referer_Current == referer_MM : #if referer_Current == referer_MM
+    
+        print()
+        print("[%s:%d] referer_Current == referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, 'ip/basics.html', dic)
+#         return render(request, 'mm/numbering.html', dic)
+        
+    else : #if referer_Current == referer_MM
+
+        print()
+        print("[%s:%d] referer_Current <> referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, 'ip/basics_full.html', dic)
+
+def get_4_corners(request):
+    
+    '''###################
+        vars        
+    ###################'''
+    dic = {}
+
+    '''###################
+        get : files list
+    ###################'''
+    dpath_Images = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\images"
+    
+    fpath_Glob = "%s\\*" % (dpath_Images)
+
+    #ref glob https://stackoverflow.com/questions/14798220/how-can-i-search-sub-folders-using-glob-glob-module-in-python answered Feb 10 '13 at 13:31    
+    lo_Files = glob.glob(fpath_Glob)
+
+    lo_Files.sort()
+
+
+    # set list
+    dic['lo_Files'] = [os.path.basename(x) for x in lo_Files]
+    
+    # set : dpath
+    dic['dpath_Images'] = dpath_Images
+    
+    '''###################
+        get : referer        
+    ###################'''
+    referer_MM = "http://127.0.0.1:8001/ip/basics/"
+#     referer_MM = "http://127.0.0.1:8000/ip/"
+    
+    referer_Current = request.META.get('HTTP_REFERER')
+
+    if referer_Current == referer_MM : #if referer_Current == referer_MM
+    
+        print()
+        print("[%s:%d] referer_Current == referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, 'ip/get_4_corners.html', dic)
+#         return render(request, 'mm/numbering.html', dic)
+        
+    else : #if referer_Current == referer_MM
+
+        print()
+        print("[%s:%d] referer_Current <> referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, 'ip/get_4_corners_full.html', dic)
+
+def get_Corner_Images(img_Src, corner_Length) :
+    
+    height, width, channels = img_Src.shape
+    
+    clips = [
+    
+        img_Src[(height - corner_Length) : height, 0 : corner_Length], # clp_LB
+        img_Src[(height - corner_Length) : height, width - corner_Length : width], # clp_RB
+        img_Src[0 : corner_Length, 0 : corner_Length], # clp_LU
+        img_Src[0 : corner_Length, width - corner_Length : width], # clp_RU
+    ]
+    
+    # return
+    return clips
+    
+#/ def get_Corner_Images(img_RGB, corner_Length) :
+
+def exec_get_4_corners(request):
+    
+    '''###################
+        debug
+        
+        http://127.0.0.1:8001/ip/exec_get_4_corners?dpath_images=C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images&fname_image=IMG_3154.PNG
+        
+    ###################'''
+    
+    
+    '''###################
+        get : params
+    ###################'''
+    dpath_Images = request.GET.get('dpath_images', False)
+    
+    fname_Image = request.GET.get('fname_image', False)
+    
+    '''###################
+        get : cv instance        
+    ###################'''
+    fpath_Image = "%s\\%s" % (dpath_Images, fname_Image)
+    
+    # validate
+    res = os.path.isfile(fpath_Image)
+    
+    if res == False : #if res == True
+
+        print("[%s:%d] file NOT exist! => %s" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , fpath_Image
+        ), file=sys.stderr)
+    
+    else : #if res == True
+    
+        print("[%s:%d] file exists => %s" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , fpath_Image
+        ), file=sys.stderr)
+        
+        # cv instance
+        img_Orig = cv2.imread(fpath_Image)
+        
+        print()
+        print("[%s:%d] cv2 image ==> loaded" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+        
+        # convert to RGB
+        img_RGB = img_Orig
+#         img_RGB = cv2.cvtColor(img_Orig, cv2.COLOR_BGR2RGB)
+        
+        '''###################
+            get : meta data
+        ###################'''
+        # data
+        height, width, channels = img_RGB.shape
+        
+        print()
+        print("[%s:%d] height = %d, width = %d, channels = %d" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , height, width, channels
+        ), file=sys.stderr)
+        
+        '''###################
+            get : 4 corners        
+        ###################'''
+        corner_Length = 280
+        
+        img_Corners = get_Corner_Images(img_RGB, corner_Length)
+        
+        print()
+        print("[%s:%d] len(img_Corners) = %d" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , len(img_Corners)
+        ), file=sys.stderr)
+        
+        '''###################
+            save : images of 4 corners        
+        ###################'''
+        # count
+        cntOf_Corners = 1
+        
+        
+        # time label
+        tlabel = libs.get_TimeLabel_Now()
+
+        # paths
+        dpath_Plot= "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\img.corners"
+        
+        lo_Names_Of_Corner_Images = []
+        
+        for item in img_Corners:
+    
+#             xpixels = item.shape[1]
+#             ypixels = item.shape[0]
+#             
+#             dpi = 72
+#             scalefactor = 1
+# 
+#             xinch = xpixels * scalefactor / dpi
+#             yinch = ypixels * scalefactor / dpi
+#         
+#             fig = plt.figure(figsize=(xinch,yinch))
+#             
+#             plt.imshow(item)
+            
+#             dpath_Plot= "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\img.corners"
+            
+            fname_Plot = "img.%s.%s.%d.png" % (tlabel, fname_Image, cntOf_Corners)
+#             fname_Plot = "%s.%s.%d.png" % (fname_Image, tlabel, cntOf_Corners)
+            
+            fpath_Plot = "%s\\%s" % (dpath_Plot, fname_Plot)
+            
+            # increment
+            cntOf_Corners += 1
+            
+#             plt.savefig(fpath_Plot, dpi=dpi)
+
+            # cv2 : save image
+            #ref https://www.tutorialkart.com/opencv/python/opencv-python-save-image-example/
+            cv2.imwrite(fpath_Plot, item)
+            
+            #debug
+            print()
+            print("[%s:%d] fpath_Plot => '%s'" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , fpath_Plot
+            ), file=sys.stderr)
+            
+            # append file name
+            lo_Names_Of_Corner_Images.append(fname_Plot)
+            
+#             # reset plot
+#             plt.clf()
+#             plt.cla()
+            
+        #/for item in im_Corners:
+
+        
+    #/if res == True
+    
+    '''###################
+        write log : file names
+    ###################'''
+    dpath_Log = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\logs"
+    
+    fname_Log = "get_4_corners.log"
+    
+    fpath_Log = "%s\\%s" % (dpath_Log, fname_Log)
+    
+    fout_Log = open(fpath_Log, "a")
+    
+    # header
+    fout_Log.write(
+        "[%s %s:%s] =============== Get 4 corners" % \
+                (libs.get_TimeLabel_Now(), 
+                 os.path.basename(libs.thisfile()), 
+                 libs.linenum()))
+    
+    fout_Log.write("\n")
+    
+    for item in lo_Names_Of_Corner_Images:
+    
+        fout_Log.write(item)
+        fout_Log.write('\n')
+        
+    #/for item in lo_Names_Of_Corner_Images:
+
+    # separator line
+    fout_Log.write('\n')
+    
+    # close file
+    fout_Log.close()
+    
+    '''###################
+        vars        
+    ###################'''
+    dic = {}
+
+    '''###################
+        set : vars
+    ###################'''
+    dic['dpath_Images'] = dpath_Images
+    dic['fname_Image'] = fname_Image
+    
+    dic['height'] = height
+    dic['width'] = width
+    dic['channels'] = channels
+    
+    
+    
+    '''###################
+        get : referer        
+    ###################'''
+    referer_MM = "http://127.0.0.1:8001/ip/get_4_corners/"
+#     referer_MM = "http://127.0.0.1:8000/ip/"
+    
+    referer_Current = request.META.get('HTTP_REFERER')
+
+    if referer_Current == referer_MM : #if referer_Current == referer_MM
+    
+        print()
+        print("[%s:%d] referer_Current == referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, 'ip/exec_get_4_corners.html', dic)
+#         return render(request, 'mm/numbering.html', dic)
+        
+    else : #if referer_Current == referer_MM
+
+        print()
+        print("[%s:%d] referer_Current <> referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, 'ip/exec_get_4_corners_full.html', dic)
+
+#/ def exec_get_4_corners(request):
+#     return render(request, 'ip/basics.html', dic)
 
 #/ def basics(request):
+
+def open_image_dir(request):
+    
+    '''###################
+        vars        
+    ###################'''
+    dic = {}
+    
+    print()
+    print("[%s:%d] opening image dir..." % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+
+    '''###################
+        build : command string        
+    ###################'''
+    command = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\utils\\open_image_dir.bat"
+#     command = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\images"
+#     command = "C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images"
+#     command = "%s\\%s" % (cons_im.FPath.DPATH_CMD_LIB_WS_CAKE_IFM11.value, action)
+
+#     print()
+#     print("[%s:%d] _im_actions__Ops_13()" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+
+    cmd_Full = [command]  #=> 
+#     cmd_Full = [command, arg1]  #=> 
+
+    print()
+    print("[%s:%d] command => %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , command
+            ), file=sys.stderr)
+
+    '''###################
+        subprocess        
+    ###################'''
+    #ref https://stackoverflow.com/questions/13525882/tasklist-output answered Nov 23 '12 at 9:36
+    res = subprocess.call(cmd_Full)
+#     res = subprocess.check_output(cmd_Full)
+
+
+
+    return render(request, 'ip/open_image_dir.html', dic)
+
+    
+#/ def open_image_dir(request):
