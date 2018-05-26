@@ -2091,6 +2091,18 @@ function exec_Get_4Corners(fname) {
 		
 		tag.css("background", cname_Wheat);
 		
+		var intvl_On = 250;
+		var intvl_Off = 150;
+		
+		tag
+			.fadeIn(intvl_On).fadeOut(100)
+			.fadeIn(intvl_On).fadeOut(100)
+			.fadeIn(intvl_On).fadeOut(100)
+			.fadeIn(intvl_On).fadeOut(100)
+			.fadeIn(intvl_On);
+//		tag.fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+		
+//		tag.effect("highlight",{},800)
 		
 	}).fail(function(xhr, status, error) {
 		

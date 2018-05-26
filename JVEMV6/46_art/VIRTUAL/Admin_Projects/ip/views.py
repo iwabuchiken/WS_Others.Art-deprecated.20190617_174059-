@@ -298,6 +298,11 @@ def exec_get_4_corners(request):
         
         # time label
         tlabel = libs.get_TimeLabel_Now()
+
+        # paths
+        dpath_Plot= "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\img.corners"
+        
+        lo_Names_Of_Corner_Images = []
         
         for item in img_Corners:
     
@@ -314,7 +319,7 @@ def exec_get_4_corners(request):
 #             
 #             plt.imshow(item)
             
-            dpath_Plot= "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\img.corners"
+#             dpath_Plot= "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\img.corners"
             
             fname_Plot = "img.%s.%s.%d.png" % (tlabel, fname_Image, cntOf_Corners)
 #             fname_Plot = "%s.%s.%d.png" % (fname_Image, tlabel, cntOf_Corners)
@@ -327,6 +332,7 @@ def exec_get_4_corners(request):
 #             plt.savefig(fpath_Plot, dpi=dpi)
 
             # cv2 : save image
+            #ref https://www.tutorialkart.com/opencv/python/opencv-python-save-image-example/
             cv2.imwrite(fpath_Plot, item)
             
             #debug
@@ -335,6 +341,9 @@ def exec_get_4_corners(request):
             (os.path.basename(libs.thisfile()), libs.linenum()
             , fpath_Plot
             ), file=sys.stderr)
+            
+            # append file name
+            lo_Names_Of_Corner_Images.append(fname_Plot)
             
 #             # reset plot
 #             plt.clf()
@@ -345,7 +354,38 @@ def exec_get_4_corners(request):
         
     #/if res == True
     
+    '''###################
+        write log : file names
+    ###################'''
+    dpath_Log = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\logs"
+    
+    fname_Log = "get_4_corners.log"
+    
+    fpath_Log = "%s\\%s" % (dpath_Log, fname_Log)
+    
+    fout_Log = open(fpath_Log, "a")
+    
+    # header
+    fout_Log.write(
+        "[%s %s:%s] =============== Get 4 corners" % \
+                (libs.get_TimeLabel_Now(), 
+                 os.path.basename(libs.thisfile()), 
+                 libs.linenum()))
+    
+    fout_Log.write("\n")
+    
+    for item in lo_Names_Of_Corner_Images:
+    
+        fout_Log.write(item)
+        fout_Log.write('\n')
+        
+    #/for item in lo_Names_Of_Corner_Images:
 
+    # separator line
+    fout_Log.write('\n')
+    
+    # close file
+    fout_Log.close()
     
     '''###################
         vars        
