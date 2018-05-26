@@ -10,7 +10,8 @@ from django import template
     built-in modules        
 ###################'''
 import subprocess, copy, re, clipboard, time, \
-        os, datetime, ftplib, glob, sys, cv2
+        os, datetime, ftplib, glob, sys, cv2 \
+        , matplotlib.pyplot as plt
 
 # sys.path.append('.')
 # sys.path.append('..')
@@ -194,7 +195,32 @@ def get_4_corners(request):
     
         return render(request, 'ip/get_4_corners_full.html', dic)
 
+def get_Corner_Images(img_Src, corner_Length) :
+    
+    height, width, channels = img_Src.shape
+    
+    clips = [
+    
+        img_Src[(height - corner_Length) : height, 0 : corner_Length], # clp_LB
+        img_Src[(height - corner_Length) : height, width - corner_Length : width], # clp_RB
+        img_Src[0 : corner_Length, 0 : corner_Length], # clp_LU
+        img_Src[0 : corner_Length, width - corner_Length : width], # clp_RU
+    ]
+    
+    # return
+    return clips
+    
+#/ def get_Corner_Images(img_RGB, corner_Length) :
+
 def exec_get_4_corners(request):
+    
+    '''###################
+        debug
+        
+        http://127.0.0.1:8001/ip/exec_get_4_corners?dpath_images=C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images&fname_image=IMG_3154.PNG
+        
+    ###################'''
+    
     
     '''###################
         get : params
@@ -235,7 +261,8 @@ def exec_get_4_corners(request):
             ), file=sys.stderr)
         
         # convert to RGB
-        img_RGB = cv2.cvtColor(img_Orig, cv2.COLOR_BGR2RGB)
+        img_RGB = img_Orig
+#         img_RGB = cv2.cvtColor(img_Orig, cv2.COLOR_BGR2RGB)
         
         '''###################
             get : meta data
@@ -248,6 +275,72 @@ def exec_get_4_corners(request):
         (os.path.basename(libs.thisfile()), libs.linenum()
         , height, width, channels
         ), file=sys.stderr)
+        
+        '''###################
+            get : 4 corners        
+        ###################'''
+        corner_Length = 280
+        
+        img_Corners = get_Corner_Images(img_RGB, corner_Length)
+        
+        print()
+        print("[%s:%d] len(img_Corners) = %d" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , len(img_Corners)
+        ), file=sys.stderr)
+        
+        '''###################
+            save : images of 4 corners        
+        ###################'''
+        # count
+        cntOf_Corners = 1
+        
+        
+        # time label
+        tlabel = libs.get_TimeLabel_Now()
+        
+        for item in img_Corners:
+    
+#             xpixels = item.shape[1]
+#             ypixels = item.shape[0]
+#             
+#             dpi = 72
+#             scalefactor = 1
+# 
+#             xinch = xpixels * scalefactor / dpi
+#             yinch = ypixels * scalefactor / dpi
+#         
+#             fig = plt.figure(figsize=(xinch,yinch))
+#             
+#             plt.imshow(item)
+            
+            dpath_Plot= "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\img.corners"
+            
+            fname_Plot = "img.%s.%s.%d.png" % (tlabel, fname_Image, cntOf_Corners)
+#             fname_Plot = "%s.%s.%d.png" % (fname_Image, tlabel, cntOf_Corners)
+            
+            fpath_Plot = "%s\\%s" % (dpath_Plot, fname_Plot)
+            
+            # increment
+            cntOf_Corners += 1
+            
+#             plt.savefig(fpath_Plot, dpi=dpi)
+
+            # cv2 : save image
+            cv2.imwrite(fpath_Plot, item)
+            
+            #debug
+            print()
+            print("[%s:%d] fpath_Plot => '%s'" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , fpath_Plot
+            ), file=sys.stderr)
+            
+#             # reset plot
+#             plt.clf()
+#             plt.cla()
+            
+        #/for item in im_Corners:
 
         
     #/if res == True
