@@ -14,5 +14,7 @@ urlpatterns = [
     #test
     url(r'^test/$', views.test, name='ip_test'),
     
+    url(r'^get_4_corners/$', views.get_4_corners, name='get_4_corners'),
+    
     
 ]
