@@ -9,14 +9,15 @@ from django import template
 '''###################
     built-in modules        
 ###################'''
-import subprocess, copy, re, clipboard, time, os, datetime, ftplib, glob, sys
+import subprocess, copy, re, clipboard, time, \
+        os, datetime, ftplib, glob, sys, cv2
 
 # sys.path.append('.')
 # sys.path.append('..')
 
 # sys.path.append('C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/VIRTUAL/Admin_Projects')
 # sys.path.append('C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects')
-from libs_admin import libs
+from libs_admin import libs, lib_ip
 # from Admin_Projects.libs_admin import libs
 
 # sys.path.append('C:/WORKS_2/WS/WS_Others/prog/D-7/2_2/VIRTUAL/Admin_Projects/mm')
@@ -203,6 +204,57 @@ def exec_get_4_corners(request):
     fname_Image = request.GET.get('fname_image', False)
     
     '''###################
+        get : cv instance        
+    ###################'''
+    fpath_Image = "%s\\%s" % (dpath_Images, fname_Image)
+    
+    # validate
+    res = os.path.isfile(fpath_Image)
+    
+    if res == False : #if res == True
+
+        print("[%s:%d] file NOT exist! => %s" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , fpath_Image
+        ), file=sys.stderr)
+    
+    else : #if res == True
+    
+        print("[%s:%d] file exists => %s" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , fpath_Image
+        ), file=sys.stderr)
+        
+        # cv instance
+        img_Orig = cv2.imread(fpath_Image)
+        
+        print()
+        print("[%s:%d] cv2 image ==> loaded" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+        
+        # convert to RGB
+        img_RGB = cv2.cvtColor(img_Orig, cv2.COLOR_BGR2RGB)
+        
+        '''###################
+            get : meta data
+        ###################'''
+        # data
+        height, width, channels = img_RGB.shape
+        
+        print()
+        print("[%s:%d] height = %d, width = %d, channels = %d" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , height, width, channels
+        ), file=sys.stderr)
+
+        
+    #/if res == True
+    
+
+    
+    '''###################
         vars        
     ###################'''
     dic = {}
@@ -212,6 +264,12 @@ def exec_get_4_corners(request):
     ###################'''
     dic['dpath_Images'] = dpath_Images
     dic['fname_Image'] = fname_Image
+    
+    dic['height'] = height
+    dic['width'] = width
+    dic['channels'] = channels
+    
+    
     
     '''###################
         get : referer        

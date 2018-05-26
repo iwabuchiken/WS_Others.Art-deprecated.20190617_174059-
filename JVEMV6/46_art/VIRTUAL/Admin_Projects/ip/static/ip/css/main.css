@@ -455,6 +455,26 @@ div#div_IP_Get_4Corners__Tbl {
     
 }/*div#div_IP_Get_4Corners__Tbl {*/
 
+div#div_IP_Get_4Corners_Result_Area {
+    
+    margin         : 10px;
+    
+    background     : PaleGreen;
+    
+    padding         : 10px;
+    
+}/*div#div_IP_Get_4Corners_Result_Area {*/
+
+div#div_IP_Get_4Corners_Message_Area {
+    
+    margin         : 10px;
+    
+    background     : Wheat;
+    
+    padding         : 10px;
+    
+}/*div#div_IP_Get_4Corners_Message_Area {*/
+
 div#div_Curr_Basics_Result_Area {
     
     margin         : 10px;

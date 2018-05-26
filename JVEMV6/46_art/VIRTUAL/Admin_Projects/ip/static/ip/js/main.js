@@ -12,6 +12,9 @@ var cname_LightBlue = "LightBlue";
 var cname_Plum = "Plum";
 var cname_Moccasin = "Moccasin";
 
+var cname_PaleGreen = "PaleGreen";
+var cname_Wheat = "Wheat";
+
 var className_BT_Numbering_List = "bt_Numbering_List";
 
 var TIME_FADE_IN = 300;
@@ -2062,7 +2065,7 @@ function exec_Get_4Corners(fname) {
 		
 		tag_Result.html(data);
 		
-		tag_Result.css("background", cname_LightBlue);
+		tag_Result.css("background", cname_PaleGreen);
 		
 		/***************************
 			time
@@ -2086,7 +2089,7 @@ function exec_Get_4Corners(fname) {
 		
 		tag.html(msg);
 		
-		tag.css("background", cname_LightBlue);
+		tag.css("background", cname_Wheat);
 		
 		
 	}).fail(function(xhr, status, error) {
