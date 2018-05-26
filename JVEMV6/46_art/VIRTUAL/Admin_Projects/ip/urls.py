@@ -16,5 +16,9 @@ urlpatterns = [
     
     url(r'^get_4_corners/$', views.get_4_corners, name='get_4_corners'),
     
+    url(r'^open_image_dir/$', views.open_image_dir, name='open_image_dir'),
+    
+    url(r'^exec_get_4_corners/$', views.exec_get_4_corners, name='exec_get_4_corners'),
+    
     
 ]

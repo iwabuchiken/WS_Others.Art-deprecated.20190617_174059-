@@ -1947,3 +1947,166 @@ function ip_Basics_Index_GO(param) {
 	
 }//ip_Basics_Index_GO
 
+function btn_IP_Get_4Corners__Open_ImageDir() {
+	
+	/***************************
+		ajax
+		
+		ref : C:\WORKS_2\WS\Eclipse_Luna\Cake_IFM11\app\webroot\js\main.js
+	 ***************************/
+	var tag = $('div#div_IP_Get_4Corners_Message_Area');
+	
+	tag.html('');
+
+	// message
+	tag.css("background", cname_Yellow);
+
+	/***************************
+		ajax
+		
+		ref : C:\WORKS_2\WS\Eclipse_Luna\Cake_IFM11\app\webroot\js\main.js
+	 ***************************/
+	var _url = "http://127.0.0.1:8001/ip/open_image_dir/";
+	//var _url = "http://127.0.0.1:8000/ip/get_4_corners/";
+	//var _data = {action : _param};
+	
+	$.ajax({
+		
+		url: _url,
+		type: "GET",
+		//REF http://stackoverflow.com/questions/1916309/pass-multiple-parameters-to-jquery-ajax-call answered Dec 16 '09 at 17:37
+	//    data: {id: id},
+	//    data: {memos: memos, image_id: image_id},
+	//	data: _data,
+		
+		timeout: 10000
+		
+	}).done(function(data, status, xhr) {
+		
+		/***************************
+			result
+		 ***************************/
+//		alert(data);
+		
+		var tag = $('div#div_IP_Get_4Corners_Message_Area');
+		
+		tag.html(data);
+
+		// message
+		tag.css("background", cname_LightBlue);
+
+	}).fail(function(xhr, status, error) {
+		
+		/***************************
+			message
+		 ***************************/
+		alert(error);
+		
+		
+	});
+	
+	
+	
+}
+
+function exec_Get_4Corners(fname) {
+	
+	/***************************
+		vars
+	 ***************************/
+	var t_Start = +new Date();
+	
+	/***************************
+		get : params
+	 ***************************/
+	// dpath to images
+	var dpath_Images = $('input#ipt_IP_Get_4Corners').val();
+	
+//	alert(dpath_Images);
+	
+//	// file name
+//	alert(fname);
+	
+	
+//	//debug
+//	return;
+	
+	/***************************
+		ajax
+		
+		ref : C:\WORKS_2\WS\Eclipse_Luna\Cake_IFM11\app\webroot\js\main.js
+	 ***************************/
+	var _url = "http://127.0.0.1:8001/ip/exec_get_4_corners/";
+	//var _url = "http://127.0.0.1:8000/ip/get_4_corners/";
+	
+	// params
+	var _data = {fname_image : fname, dpath_images : dpath_Images};
+	
+	$.ajax({
+		
+		url: _url,
+		type: "GET",
+		//REF http://stackoverflow.com/questions/1916309/pass-multiple-parameters-to-jquery-ajax-call answered Dec 16 '09 at 17:37
+	//    data: {id: id},
+	//    data: {memos: memos, image_id: image_id},
+		data: _data,
+		
+		timeout: 10000
+		
+	}).done(function(data, status, xhr) {
+		
+		/***************************
+			result
+		 ***************************/
+		var tag_Result = $('div#div_IP_Get_4Corners_Result_Area');
+		
+		tag_Result.html(data);
+		
+		tag_Result.css("background", cname_LightBlue);
+		
+		/***************************
+			time
+		 ***************************/
+		//ref elapsed https://stackoverflow.com/questions/3528425/how-to-display-moving-elapsed-time-in-jquery answered Apr 29 '17 at 1:04
+		var elapsed = +new Date() - t_Start;
+		
+		var txt_Elapsed = millisToMinutesAndSeconds(elapsed);
+		
+		/***************************
+			message
+		 ***************************/
+		var msg = "ajax done for --> 'exec_get_4_corners'"
+				+ " "
+				+ "(" + get_Timelabel_Now_2() + ")"
+				+ "(command = 'gen_peak_data')"
+				+ " (took = " + txt_Elapsed + ")"
+				;
+		
+		var tag = $('div#div_IP_Get_4Corners_Message_Area');
+		
+		tag.html(msg);
+		
+		tag.css("background", cname_LightBlue);
+		
+		
+	}).fail(function(xhr, status, error) {
+		
+		/***************************
+			message
+		 ***************************/
+	//	alert(xhr.status + " / " + error);
+	//	alert(xhr.status);
+		
+		var msg = "ajax returned error (" + xhr.status + " / " + error + ")"
+				+ "(" + get_Timelabel_Now_2() + ")"
+				+ "(command = 'exec_get_4_corners')";
+	//	var msg = "ajax returned error";
+	
+		var tag = $('div#div_IP_Get_4Corners_Message_Area');
+	
+		tag.html(msg);
+		
+		tag.css("background", cname_Red);
+	});
+	
+}//exec_Get_4Corners

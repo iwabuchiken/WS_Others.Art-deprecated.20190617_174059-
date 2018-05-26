@@ -18,6 +18,20 @@ table#tbl_Im_Actions {
     margin     : 10px;
 }
 
+table#tbl_IP_Get_4Corners td {
+    
+    /*border     : 1;*/
+    /*border     : 1px solid black;*/
+    /* ref template for css files https://stackoverflow.com/questions/7900575/how-to-add-css-autocomplete-to-eclipse */
+    /*ref table border http://www.html.am/html-codes/tables/table-border.cfm*/
+    border     : 1px solid #aaaaaa;
+    
+    margin     : 10px;
+    
+    font-size   : 15px;
+    
+}/*tbl_IP_Get_4Corners*/
+
 table#tbl_Im_Actions__Header {
     
     /*border     : 1;*/
@@ -425,6 +439,22 @@ div#div_Curr_Basics_Gen_PeakData_Message_Area {
     
 }/*div#div_Curr_Basics_Gen_PeakData_Message_Area {*/
 
+div#div_IP_Get_4Corners__Tbl {
+    
+    margin         : 10px;
+    
+    background     : white;
+    
+    padding     : 10px;
+    
+       /*ref https://stackoverflow.com/questions/17450861/add-scroll-bar-to-table-body */
+    overflow       :scroll;
+    
+    height         : 350px;
+    
+    
+}/*div#div_IP_Get_4Corners__Tbl {*/
+
 div#div_Curr_Basics_Result_Area {
     
     margin         : 10px;
@@ -771,6 +801,22 @@ input#ipt_DeNumbering_MainDir {
     
 }/*input#ipt_Numbering_MainDir {*/
 
+input#ipt_IP_Get_4Corners {
+    
+    height: 30px;
+    width:  350px;
+    /*width:  250px;*/
+
+    background: #81BEF7;
+    
+    margin-top: 10px;
+    
+    margin-left : 20px;
+    
+    padding     : 5px;
+    
+}/*input#ipt_IP_Get_4Corners {*/
+
 select#select_MM_Actions {
     
     font-size: 20px;
@@ -815,3 +861,22 @@ label.lbl_Curr_UpdownPatterns {
     padding    : 5px;
     
 }
+
+textarea#ta_IP_Get_4Corners {
+	
+	width      : 500px;
+	height     : 80px;
+	
+	font-size  : 15px;
+
+    background: LemonChiffon;
+    
+    margin-top    : 20px;
+    
+    margin-left    : 20px;
+    
+    margin-right    : 20px;
+    
+    padding        : 5px;
+	
+}/*ta_IP_Get_4Corners*/
