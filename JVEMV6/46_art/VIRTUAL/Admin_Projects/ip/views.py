@@ -212,6 +212,112 @@ def get_Corner_Images(img_Src, corner_Length) :
     
 #/ def get_Corner_Images(img_RGB, corner_Length) :
 
+def _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images):
+    
+    dpath_Log = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\logs"
+    
+    fname_Log = "get_4_corners.log"
+    
+    fpath_Log = "%s\\%s" % (dpath_Log, fname_Log)
+    
+    fout_Log = open(fpath_Log, "a")
+    
+    # header
+    fout_Log.write(
+        "[%s %s:%s] =============== Get 4 corners" % \
+                (libs.get_TimeLabel_Now(), 
+                 os.path.basename(libs.thisfile()), 
+                 libs.linenum()))
+    
+    fout_Log.write("\n")
+    
+    # iterate
+    idxOf_Images = 0
+    
+    lenOf_LO_Names_Of_Corner_Images = len(lo_Names_Of_Corner_Images)
+    
+#     for item in lo_Names_Of_Corner_Images:
+    for i in range(lenOf_LO_Names_Of_Corner_Images):
+    
+        # items
+        name = lo_Names_Of_Corner_Images[i]
+        
+        metaData = lo_Image_MetaData[i]
+    
+        # file name
+        fout_Log.write(name)
+#         fout_Log.write(item)
+        fout_Log.write('\n')
+        
+        # meta data
+#         print()
+#         print("[%s:%d] type(metaData) => %s" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 , type(metaData)
+#                 ), file=sys.stderr)
+#         
+#         print("[%s:%d] type(metaData[0]) => %s" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 , type(metaData[0])
+#                 ), file=sys.stderr)
+#         
+#         print("[%s:%d] type(metaData[1]) => %s" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 , type(metaData[1])
+#                 ), file=sys.stderr)
+
+                #         max_R
+                #         , max_G
+                #         , max_B
+                #         
+                #         , min_R
+                #         , min_G
+                #         , min_B
+                
+                #         , valsOf_R
+                #         , valsOf_G
+                #         , valsOf_B
+        
+        msg = "R=(%d,%d) G=(%d,%d) B=(%d,%d)" % \
+                (metaData[0], metaData[3], metaData[1]
+                 , metaData[4], metaData[2], metaData[5]
+                 )
+#         msg = "\t".join(metaData)
+        
+        fout_Log.write(msg)
+#         fout_Log.write("\t".join(metaData))
+        fout_Log.write('\n')
+        
+        dat = [str(x) for x in metaData[6]]
+        msg = "\t".join(dat)
+#         msg = "\t".join(metaData[6])
+        fout_Log.write(msg)
+        fout_Log.write('\n')
+        
+        dat = [str(x) for x in metaData[7]]
+        msg = "\t".join(dat)
+        fout_Log.write(msg)
+        fout_Log.write('\n')
+        
+        dat = [str(x) for x in metaData[8]]
+        msg = "\t".join(dat)
+        fout_Log.write(msg)
+        fout_Log.write('\n')
+        
+        
+        fout_Log.write('\n')
+        
+    #/for item in lo_Names_Of_Corner_Images:
+
+    # separator line
+    fout_Log.write('\n')
+    
+    # close file
+    fout_Log.close()
+
+    
+#/ def _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images):
+    
 def exec_get_4_corners(request):
     
     '''###################
@@ -331,9 +437,9 @@ def exec_get_4_corners(request):
             
 #             plt.savefig(fpath_Plot, dpi=dpi)
 
-            # cv2 : save image
-            #ref https://www.tutorialkart.com/opencv/python/opencv-python-save-image-example/
-            cv2.imwrite(fpath_Plot, item)
+#             # cv2 : save image
+#             #ref https://www.tutorialkart.com/opencv/python/opencv-python-save-image-example/
+#             cv2.imwrite(fpath_Plot, item)
             
             #debug
             print()
@@ -355,7 +461,7 @@ def exec_get_4_corners(request):
     #/if res == True
     
     '''###################
-        get : skew values        
+        get : basic data
     ###################'''
 #     max_R = -1; max_G = -1; max_B = -1
 #     min_R = 256; min_G = 256; min_B = 256
@@ -446,110 +552,117 @@ def exec_get_4_corners(request):
         )
             
     #/for item in img_Corners:
+
+    '''###################
+        get : stat data
+    ###################'''
+    
     
     '''###################
         write log : file names
     ###################'''
-    dpath_Log = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\logs"
+    _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images)
     
-    fname_Log = "get_4_corners.log"
-    
-    fpath_Log = "%s\\%s" % (dpath_Log, fname_Log)
-    
-    fout_Log = open(fpath_Log, "a")
-    
-    # header
-    fout_Log.write(
-        "[%s %s:%s] =============== Get 4 corners" % \
-                (libs.get_TimeLabel_Now(), 
-                 os.path.basename(libs.thisfile()), 
-                 libs.linenum()))
-    
-    fout_Log.write("\n")
-    
-    # iterate
-    idxOf_Images = 0
-    
-    lenOf_LO_Names_Of_Corner_Images = len(lo_Names_Of_Corner_Images)
-    
-#     for item in lo_Names_Of_Corner_Images:
-    for i in range(lenOf_LO_Names_Of_Corner_Images):
-    
-        # items
-        name = lo_Names_Of_Corner_Images[i]
-        
-        metaData = lo_Image_MetaData[i]
-    
-        # file name
-        fout_Log.write(name)
-#         fout_Log.write(item)
-        fout_Log.write('\n')
-        
-        # meta data
-#         print()
-#         print("[%s:%d] type(metaData) => %s" % \
-#                 (os.path.basename(libs.thisfile()), libs.linenum()
-#                 , type(metaData)
-#                 ), file=sys.stderr)
+#     dpath_Log = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\logs"
+#     
+#     fname_Log = "get_4_corners.log"
+#     
+#     fpath_Log = "%s\\%s" % (dpath_Log, fname_Log)
+#     
+#     fout_Log = open(fpath_Log, "a")
+#     
+#     # header
+#     fout_Log.write(
+#         "[%s %s:%s] =============== Get 4 corners" % \
+#                 (libs.get_TimeLabel_Now(), 
+#                  os.path.basename(libs.thisfile()), 
+#                  libs.linenum()))
+#     
+#     fout_Log.write("\n")
+#     
+#     # iterate
+#     idxOf_Images = 0
+#     
+#     lenOf_LO_Names_Of_Corner_Images = len(lo_Names_Of_Corner_Images)
+#     
+# #     for item in lo_Names_Of_Corner_Images:
+#     for i in range(lenOf_LO_Names_Of_Corner_Images):
+#     
+#         # items
+#         name = lo_Names_Of_Corner_Images[i]
 #         
-#         print("[%s:%d] type(metaData[0]) => %s" % \
-#                 (os.path.basename(libs.thisfile()), libs.linenum()
-#                 , type(metaData[0])
-#                 ), file=sys.stderr)
+#         metaData = lo_Image_MetaData[i]
+#     
+#         # file name
+#         fout_Log.write(name)
+# #         fout_Log.write(item)
+#         fout_Log.write('\n')
 #         
-#         print("[%s:%d] type(metaData[1]) => %s" % \
-#                 (os.path.basename(libs.thisfile()), libs.linenum()
-#                 , type(metaData[1])
-#                 ), file=sys.stderr)
-
-                #         max_R
-                #         , max_G
-                #         , max_B
-                #         
-                #         , min_R
-                #         , min_G
-                #         , min_B
-                
-                #         , valsOf_R
-                #         , valsOf_G
-                #         , valsOf_B
-        
-        msg = "R=(%d,%d) G=(%d,%d) B=(%d,%d)" % \
-                (metaData[0], metaData[3], metaData[1]
-                 , metaData[4], metaData[2], metaData[5]
-                 )
-#         msg = "\t".join(metaData)
-        
-        fout_Log.write(msg)
-#         fout_Log.write("\t".join(metaData))
-        fout_Log.write('\n')
-        
-        dat = [str(x) for x in metaData[6]]
-        msg = "\t".join(dat)
-#         msg = "\t".join(metaData[6])
-        fout_Log.write(msg)
-        fout_Log.write('\n')
-        
-        dat = [str(x) for x in metaData[7]]
-        msg = "\t".join(dat)
-        fout_Log.write(msg)
-        fout_Log.write('\n')
-        
-        dat = [str(x) for x in metaData[8]]
-        msg = "\t".join(dat)
-        fout_Log.write(msg)
-        fout_Log.write('\n')
-        
-        
-        fout_Log.write('\n')
-        
-    #/for item in lo_Names_Of_Corner_Images:
-
-    # separator line
-    fout_Log.write('\n')
-    
-    # close file
-    fout_Log.close()
+#         # meta data
+# #         print()
+# #         print("[%s:%d] type(metaData) => %s" % \
+# #                 (os.path.basename(libs.thisfile()), libs.linenum()
+# #                 , type(metaData)
+# #                 ), file=sys.stderr)
+# #         
+# #         print("[%s:%d] type(metaData[0]) => %s" % \
+# #                 (os.path.basename(libs.thisfile()), libs.linenum()
+# #                 , type(metaData[0])
+# #                 ), file=sys.stderr)
+# #         
+# #         print("[%s:%d] type(metaData[1]) => %s" % \
+# #                 (os.path.basename(libs.thisfile()), libs.linenum()
+# #                 , type(metaData[1])
+# #                 ), file=sys.stderr)
+# 
+#                 #         max_R
+#                 #         , max_G
+#                 #         , max_B
+#                 #         
+#                 #         , min_R
+#                 #         , min_G
+#                 #         , min_B
+#                 
+#                 #         , valsOf_R
+#                 #         , valsOf_G
+#                 #         , valsOf_B
+#         
+#         msg = "R=(%d,%d) G=(%d,%d) B=(%d,%d)" % \
+#                 (metaData[0], metaData[3], metaData[1]
+#                  , metaData[4], metaData[2], metaData[5]
+#                  )
+# #         msg = "\t".join(metaData)
+#         
+#         fout_Log.write(msg)
+# #         fout_Log.write("\t".join(metaData))
+#         fout_Log.write('\n')
+#         
+#         dat = [str(x) for x in metaData[6]]
+#         msg = "\t".join(dat)
+# #         msg = "\t".join(metaData[6])
+#         fout_Log.write(msg)
+#         fout_Log.write('\n')
+#         
+#         dat = [str(x) for x in metaData[7]]
+#         msg = "\t".join(dat)
+#         fout_Log.write(msg)
+#         fout_Log.write('\n')
+#         
+#         dat = [str(x) for x in metaData[8]]
+#         msg = "\t".join(dat)
+#         fout_Log.write(msg)
+#         fout_Log.write('\n')
+#         
+#         
+#         fout_Log.write('\n')
+#         
+#     #/for item in lo_Names_Of_Corner_Images:
+# 
+#     # separator line
+#     fout_Log.write('\n')
+#     
+#     # close file
+#     fout_Log.close()
     
     '''###################
         vars        
