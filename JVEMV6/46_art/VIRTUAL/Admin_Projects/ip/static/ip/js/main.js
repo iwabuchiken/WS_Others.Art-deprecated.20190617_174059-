@@ -1830,8 +1830,8 @@ function _ip_Basics_Index_GO__Get_4_Corners() {
 //	var _url = "http://127.0.0.1:8000/ip/get_4_corners/";
 	//var _data = {action : _param};
 	
-	//debug
-	alert("ajax for => '" + _url + "'");
+//	//debug
+//	alert("ajax for => '" + _url + "'");
 	
 	$.ajax({
 		

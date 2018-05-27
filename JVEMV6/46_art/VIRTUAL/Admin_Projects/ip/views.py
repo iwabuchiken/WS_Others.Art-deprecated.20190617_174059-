@@ -463,19 +463,6 @@ def exec_get_4_corners(request):
     '''###################
         get : basic data
     ###################'''
-#     max_R = -1; max_G = -1; max_B = -1
-#     min_R = 256; min_G = 256; min_B = 256
-# #     min_R = 255; min_G = 255; min_B = 255
-# 
-#     # counter
-#     cntOf_Row = 0
-#     cntOf_Cell = 0
-#     
-#     # values
-#     valsOf_R = [0] * 256
-#     valsOf_G = [0] * 256
-#     valsOf_B = [0] * 256
-
     # data
     lo_Image_MetaData = []
 
