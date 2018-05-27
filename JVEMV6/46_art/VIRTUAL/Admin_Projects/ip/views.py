@@ -212,7 +212,7 @@ def get_Corner_Images(img_Src, corner_Length) :
     
 #/ def get_Corner_Images(img_RGB, corner_Length) :
 
-def _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images):
+def _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images, lo_Image_MetaData):
     
     dpath_Log = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\logs"
     
@@ -317,6 +317,108 @@ def _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images):
 
     
 #/ def _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images):
+    
+def _exec_get_4_corners__Get_MetaData(img_Corners):
+    
+    # data
+    lo_Image_MetaData = []
+
+    for item in img_Corners:
+        '''###################
+            vars        
+        ###################'''
+        max_R = -1; max_G = -1; max_B = -1
+        min_R = 256; min_G = 256; min_B = 256
+    #     min_R = 255; min_G = 255; min_B = 255
+    
+        # counter
+        cntOf_Row = 0
+        cntOf_Cell = 0
+        
+        # values
+        valsOf_R = [0] * 256
+        valsOf_G = [0] * 256
+        valsOf_B = [0] * 256
+
+        for row in item:
+        
+            for cell in row:
+                
+#                 #debug
+#                 print()
+#                 print("[%s:%d] len(cell) => %d" % \
+#                     (os.path.basename(libs.thisfile()), libs.linenum()
+#                     , len(cell)
+#                     ), file=sys.stderr)
+#                 return
+                
+                # get value
+                R = cell[0]; G = cell[1]; B = cell[2]
+                
+                # histogram
+                valsOf_R[R] += 1
+                valsOf_G[G] += 1
+                valsOf_B[B] += 1
+                
+                # max value
+                if R > max_R : max_R = R
+                if G > max_G : max_G = G
+                if B > max_B : max_B = B
+                
+                # min value
+                if R < min_R : min_R = R
+                if G < min_G : min_G = G
+                if B < min_B : min_B = B
+                
+                # count
+                cntOf_Cell += 1
+            
+            # reset count of cells
+            cntOf_Cell = 0
+            
+            # count
+            cntOf_Row += 1
+            
+        #/for row in item:
+        
+        # append data
+        lo_Image_MetaData.append(
+            [
+#                 valsOf_R
+#                 , valsOf_G
+#                 , valsOf_B
+                
+#                 , max_R
+                max_R
+                , max_G
+                , max_B
+                
+                , min_R
+                , min_G
+                , min_B
+                
+                , valsOf_R
+                , valsOf_G
+                , valsOf_B
+                ]
+        )
+            
+    #/for item in img_Corners:
+    
+    '''###################
+        return        
+    ###################'''
+    #debug
+    print()
+    print("[%s:%d] len(lo_Image_MetaData) => %d" % \
+                        (os.path.basename(libs.thisfile()), libs.linenum()
+                        , len(lo_Image_MetaData)
+                        ), file=sys.stderr)
+        
+    return lo_Image_MetaData
+    
+#/ def _exec_get_4_corners__Get_MetaData(img_Corners):
+    
     
 def exec_get_4_corners(request):
     
@@ -463,82 +565,84 @@ def exec_get_4_corners(request):
     '''###################
         get : basic data
     ###################'''
-    # data
-    lo_Image_MetaData = []
-
-    for item in img_Corners:
-        '''###################
-            vars        
-        ###################'''
-        max_R = -1; max_G = -1; max_B = -1
-        min_R = 256; min_G = 256; min_B = 256
-    #     min_R = 255; min_G = 255; min_B = 255
+    lo_Image_MetaData = _exec_get_4_corners__Get_MetaData(img_Corners)
     
-        # counter
-        cntOf_Row = 0
-        cntOf_Cell = 0
-        
-        # values
-        valsOf_R = [0] * 256
-        valsOf_G = [0] * 256
-        valsOf_B = [0] * 256
-
-        for row in item:
-        
-            for cell in row:
-                
-                # get value
-                R = cell[0]; G = cell[1]; B = cell[2]
-                
-                # histogram
-                valsOf_R[R] += 1
-                valsOf_G[G] += 1
-                valsOf_B[B] += 1
-                
-                # max value
-                if R > max_R : max_R = R
-                if G > max_G : max_G = G
-                if B > max_B : max_B = B
-                
-                # min value
-                if R < min_R : min_R = R
-                if G < min_G : min_G = G
-                if B < min_B : min_B = B
-                
-                # count
-                cntOf_Cell += 1
-            
-            # reset count of cells
-            cntOf_Cell = 0
-            
-            # count
-            cntOf_Row += 1
-            
-        #/for row in item:
-        
-        # append data
-        lo_Image_MetaData.append(
-            [
-#                 valsOf_R
+#     # data
+#     lo_Image_MetaData = []
+# 
+#     for item in img_Corners:
+#         '''###################
+#             vars        
+#         ###################'''
+#         max_R = -1; max_G = -1; max_B = -1
+#         min_R = 256; min_G = 256; min_B = 256
+#     #     min_R = 255; min_G = 255; min_B = 255
+#     
+#         # counter
+#         cntOf_Row = 0
+#         cntOf_Cell = 0
+#         
+#         # values
+#         valsOf_R = [0] * 256
+#         valsOf_G = [0] * 256
+#         valsOf_B = [0] * 256
+# 
+#         for row in item:
+#         
+#             for cell in row:
+#                 
+#                 # get value
+#                 R = cell[0]; G = cell[1]; B = cell[2]
+#                 
+#                 # histogram
+#                 valsOf_R[R] += 1
+#                 valsOf_G[G] += 1
+#                 valsOf_B[B] += 1
+#                 
+#                 # max value
+#                 if R > max_R : max_R = R
+#                 if G > max_G : max_G = G
+#                 if B > max_B : max_B = B
+#                 
+#                 # min value
+#                 if R < min_R : min_R = R
+#                 if G < min_G : min_G = G
+#                 if B < min_B : min_B = B
+#                 
+#                 # count
+#                 cntOf_Cell += 1
+#             
+#             # reset count of cells
+#             cntOf_Cell = 0
+#             
+#             # count
+#             cntOf_Row += 1
+#             
+#         #/for row in item:
+#         
+#         # append data
+#         lo_Image_MetaData.append(
+#             [
+# #                 valsOf_R
+# #                 , valsOf_G
+# #                 , valsOf_B
+#                 
+# #                 , max_R
+#                 max_R
+#                 , max_G
+#                 , max_B
+#                 
+#                 , min_R
+#                 , min_G
+#                 , min_B
+#                 
+#                 , valsOf_R
 #                 , valsOf_G
 #                 , valsOf_B
-                
-#                 , max_R
-                max_R
-                , max_G
-                , max_B
-                
-                , min_R
-                , min_G
-                , min_B
-                
-                , valsOf_R
-                , valsOf_G
-                , valsOf_B
-                ]
-        )
-            
-    #/for item in img_Corners:
+#                 ]
+#         )
+#             
+#     #/for item in img_Corners:
 
     '''###################
         get : stat data
@@ -548,7 +652,7 @@ def exec_get_4_corners(request):
     '''###################
         write log : file names
     ###################'''
-    _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images)
+    _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images, lo_Image_MetaData)
     
 #     dpath_Log = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\logs"
 #     
