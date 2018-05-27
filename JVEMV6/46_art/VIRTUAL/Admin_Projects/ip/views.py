@@ -418,7 +418,110 @@ def _exec_get_4_corners__Get_MetaData(img_Corners):
     return lo_Image_MetaData
     
 #/ def _exec_get_4_corners__Get_MetaData(img_Corners):
+
+'''==============================================
+    _exec_get_4_corners__Get_StatsData(img_Corners)
     
+    at : 2018/05/28 07:35:40
+    
+    @param img_Corners: list of opencv image data (4 corners of a original image)
+    
+    @return: list of dictionaries
+        [{'skew' : 3.032, 'kurtosis' : 1.2230, 'integral' : 3428322},...]
+=============================================='''
+def _exec_get_4_corners__Get_StatsData(img_Corners):
+    
+    # data
+    lo_Image_StatsData = []
+    
+    for img_Data in img_Corners:
+        
+        # var
+        do_StasData = {}
+        
+        skew = lib_ip.get_Skew(img_Data)
+        
+        do_StasData['skew'] = skew
+        
+        # append
+        lo_Image_StatsData.append(do_StasData)
+        
+    #/for img in img_Corners:
+
+    '''###################
+        return        
+    ###################'''
+    return lo_Image_StatsData
+
+#/ def _exec_get_4_corners__Get_StatsData(img_Corners):
+    
+def _exec_get_4_corners__SaveImage_4Corners(img_Corners, fname_Image):
+    
+    # count
+    cntOf_Corners = 1
+    
+    
+    # time label
+    tlabel = libs.get_TimeLabel_Now()
+
+    # paths
+    dpath_Plot= "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\img.corners"
+    
+    lo_Names_Of_Corner_Images = []
+    
+    for item in img_Corners:
+
+#             xpixels = item.shape[1]
+#             ypixels = item.shape[0]
+#             
+#             dpi = 72
+#             scalefactor = 1
+# 
+#             xinch = xpixels * scalefactor / dpi
+#             yinch = ypixels * scalefactor / dpi
+#         
+#             fig = plt.figure(figsize=(xinch,yinch))
+#             
+#             plt.imshow(item)
+        
+#             dpath_Plot= "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\img.corners"
+        
+        fname_Plot = "img.%s.%s.%d.png" % (tlabel, fname_Image, cntOf_Corners)
+#             fname_Plot = "%s.%s.%d.png" % (fname_Image, tlabel, cntOf_Corners)
+        
+        fpath_Plot = "%s\\%s" % (dpath_Plot, fname_Plot)
+        
+        # increment
+        cntOf_Corners += 1
+        
+#             plt.savefig(fpath_Plot, dpi=dpi)
+
+#         # cv2 : save image
+#         #ref https://www.tutorialkart.com/opencv/python/opencv-python-save-image-example/
+#         cv2.imwrite(fpath_Plot, item)
+        
+        #debug
+        print()
+        print("[%s:%d] fpath_Plot => '%s'" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , fpath_Plot
+        ), file=sys.stderr)
+        
+        # append file name
+        lo_Names_Of_Corner_Images.append(fname_Plot)
+        
+#             # reset plot
+#             plt.clf()
+#             plt.cla()
+        
+    #/for item in im_Corners:    
+    
+    '''###################
+        return        
+    ###################'''
+    return lo_Names_Of_Corner_Images
+    
+#/ def _exec_get_4_corners__SaveImage_4Corners(img_Corners):
     
 def exec_get_4_corners(request):
     
@@ -429,6 +532,10 @@ def exec_get_4_corners(request):
         
     ###################'''
     
+    '''###################
+        vars        
+    ###################'''
+    dic = {}
     
     '''###################
         get : params
@@ -451,6 +558,9 @@ def exec_get_4_corners(request):
         (os.path.basename(libs.thisfile()), libs.linenum()
         , fpath_Image
         ), file=sys.stderr)
+        
+        # set dic
+        dic['msg'] = "file NOT exist : %s" % fpath_Image
     
     else : #if res == True
     
@@ -500,64 +610,67 @@ def exec_get_4_corners(request):
         '''###################
             save : images of 4 corners        
         ###################'''
-        # count
-        cntOf_Corners = 1
+        lo_Names_Of_Corner_Images = \
+                _exec_get_4_corners__SaveImage_4Corners(img_Corners, fname_Image)
         
-        
-        # time label
-        tlabel = libs.get_TimeLabel_Now()
-
-        # paths
-        dpath_Plot= "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\img.corners"
-        
-        lo_Names_Of_Corner_Images = []
-        
-        for item in img_Corners:
-    
-#             xpixels = item.shape[1]
-#             ypixels = item.shape[0]
-#             
-#             dpi = 72
-#             scalefactor = 1
-# 
-#             xinch = xpixels * scalefactor / dpi
-#             yinch = ypixels * scalefactor / dpi
+#         # count
+#         cntOf_Corners = 1
 #         
-#             fig = plt.figure(figsize=(xinch,yinch))
+#         
+#         # time label
+#         tlabel = libs.get_TimeLabel_Now()
+# 
+#         # paths
+#         dpath_Plot= "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\img.corners"
+#         
+#         lo_Names_Of_Corner_Images = []
+#         
+#         for item in img_Corners:
+#     
+# #             xpixels = item.shape[1]
+# #             ypixels = item.shape[0]
+# #             
+# #             dpi = 72
+# #             scalefactor = 1
+# # 
+# #             xinch = xpixels * scalefactor / dpi
+# #             yinch = ypixels * scalefactor / dpi
+# #         
+# #             fig = plt.figure(figsize=(xinch,yinch))
+# #             
+# #             plt.imshow(item)
 #             
-#             plt.imshow(item)
-            
-#             dpath_Plot= "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\img.corners"
-            
-            fname_Plot = "img.%s.%s.%d.png" % (tlabel, fname_Image, cntOf_Corners)
-#             fname_Plot = "%s.%s.%d.png" % (fname_Image, tlabel, cntOf_Corners)
-            
-            fpath_Plot = "%s\\%s" % (dpath_Plot, fname_Plot)
-            
-            # increment
-            cntOf_Corners += 1
-            
-#             plt.savefig(fpath_Plot, dpi=dpi)
-
-#             # cv2 : save image
-#             #ref https://www.tutorialkart.com/opencv/python/opencv-python-save-image-example/
-#             cv2.imwrite(fpath_Plot, item)
-            
-            #debug
-            print()
-            print("[%s:%d] fpath_Plot => '%s'" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-            , fpath_Plot
-            ), file=sys.stderr)
-            
-            # append file name
-            lo_Names_Of_Corner_Images.append(fname_Plot)
-            
-#             # reset plot
-#             plt.clf()
-#             plt.cla()
-            
-        #/for item in im_Corners:
+# #             dpath_Plot= "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\img.corners"
+#             
+#             fname_Plot = "img.%s.%s.%d.png" % (tlabel, fname_Image, cntOf_Corners)
+# #             fname_Plot = "%s.%s.%d.png" % (fname_Image, tlabel, cntOf_Corners)
+#             
+#             fpath_Plot = "%s\\%s" % (dpath_Plot, fname_Plot)
+#             
+#             # increment
+#             cntOf_Corners += 1
+#             
+# #             plt.savefig(fpath_Plot, dpi=dpi)
+# 
+# #             # cv2 : save image
+# #             #ref https://www.tutorialkart.com/opencv/python/opencv-python-save-image-example/
+# #             cv2.imwrite(fpath_Plot, item)
+#             
+#             #debug
+#             print()
+#             print("[%s:%d] fpath_Plot => '%s'" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             , fpath_Plot
+#             ), file=sys.stderr)
+#             
+#             # append file name
+#             lo_Names_Of_Corner_Images.append(fname_Plot)
+#             
+# #             # reset plot
+# #             plt.clf()
+# #             plt.cla()
+#             
+#         #/for item in im_Corners:
 
         
     #/if res == True
@@ -566,199 +679,21 @@ def exec_get_4_corners(request):
         get : basic data
     ###################'''
     lo_Image_MetaData = _exec_get_4_corners__Get_MetaData(img_Corners)
-    
-#     # data
-#     lo_Image_MetaData = []
-# 
-#     for item in img_Corners:
-#         '''###################
-#             vars        
-#         ###################'''
-#         max_R = -1; max_G = -1; max_B = -1
-#         min_R = 256; min_G = 256; min_B = 256
-#     #     min_R = 255; min_G = 255; min_B = 255
-#     
-#         # counter
-#         cntOf_Row = 0
-#         cntOf_Cell = 0
-#         
-#         # values
-#         valsOf_R = [0] * 256
-#         valsOf_G = [0] * 256
-#         valsOf_B = [0] * 256
-# 
-#         for row in item:
-#         
-#             for cell in row:
-#                 
-#                 # get value
-#                 R = cell[0]; G = cell[1]; B = cell[2]
-#                 
-#                 # histogram
-#                 valsOf_R[R] += 1
-#                 valsOf_G[G] += 1
-#                 valsOf_B[B] += 1
-#                 
-#                 # max value
-#                 if R > max_R : max_R = R
-#                 if G > max_G : max_G = G
-#                 if B > max_B : max_B = B
-#                 
-#                 # min value
-#                 if R < min_R : min_R = R
-#                 if G < min_G : min_G = G
-#                 if B < min_B : min_B = B
-#                 
-#                 # count
-#                 cntOf_Cell += 1
-#             
-#             # reset count of cells
-#             cntOf_Cell = 0
-#             
-#             # count
-#             cntOf_Row += 1
-#             
-#         #/for row in item:
-#         
-#         # append data
-#         lo_Image_MetaData.append(
-#             [
-# #                 valsOf_R
-# #                 , valsOf_G
-# #                 , valsOf_B
-#                 
-# #                 , max_R
-#                 max_R
-#                 , max_G
-#                 , max_B
-#                 
-#                 , min_R
-#                 , min_G
-#                 , min_B
-#                 
-#                 , valsOf_R
-#                 , valsOf_G
-#                 , valsOf_B
-#                 ]
-#         )
-#             
-#     #/for item in img_Corners:
 
     '''###################
         get : stat data
     ###################'''
-    
+    lo_Image_StatsData = _exec_get_4_corners__Get_StatsData(img_Corners)
     
     '''###################
         write log : file names
     ###################'''
     _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images, lo_Image_MetaData)
     
-#     dpath_Log = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\logs"
-#     
-#     fname_Log = "get_4_corners.log"
-#     
-#     fpath_Log = "%s\\%s" % (dpath_Log, fname_Log)
-#     
-#     fout_Log = open(fpath_Log, "a")
-#     
-#     # header
-#     fout_Log.write(
-#         "[%s %s:%s] =============== Get 4 corners" % \
-#                 (libs.get_TimeLabel_Now(), 
-#                  os.path.basename(libs.thisfile()), 
-#                  libs.linenum()))
-#     
-#     fout_Log.write("\n")
-#     
-#     # iterate
-#     idxOf_Images = 0
-#     
-#     lenOf_LO_Names_Of_Corner_Images = len(lo_Names_Of_Corner_Images)
-#     
-# #     for item in lo_Names_Of_Corner_Images:
-#     for i in range(lenOf_LO_Names_Of_Corner_Images):
-#     
-#         # items
-#         name = lo_Names_Of_Corner_Images[i]
-#         
-#         metaData = lo_Image_MetaData[i]
-#     
-#         # file name
-#         fout_Log.write(name)
-# #         fout_Log.write(item)
-#         fout_Log.write('\n')
-#         
-#         # meta data
-# #         print()
-# #         print("[%s:%d] type(metaData) => %s" % \
-# #                 (os.path.basename(libs.thisfile()), libs.linenum()
-# #                 , type(metaData)
-# #                 ), file=sys.stderr)
-# #         
-# #         print("[%s:%d] type(metaData[0]) => %s" % \
-# #                 (os.path.basename(libs.thisfile()), libs.linenum()
-# #                 , type(metaData[0])
-# #                 ), file=sys.stderr)
-# #         
-# #         print("[%s:%d] type(metaData[1]) => %s" % \
-# #                 (os.path.basename(libs.thisfile()), libs.linenum()
-# #                 , type(metaData[1])
-# #                 ), file=sys.stderr)
-# 
-#                 #         max_R
-#                 #         , max_G
-#                 #         , max_B
-#                 #         
-#                 #         , min_R
-#                 #         , min_G
-#                 #         , min_B
-#                 
-#                 #         , valsOf_R
-#                 #         , valsOf_G
-#                 #         , valsOf_B
-#         
-#         msg = "R=(%d,%d) G=(%d,%d) B=(%d,%d)" % \
-#                 (metaData[0], metaData[3], metaData[1]
-#                  , metaData[4], metaData[2], metaData[5]
-#                  )
-# #         msg = "\t".join(metaData)
-#         
-#         fout_Log.write(msg)
-# #         fout_Log.write("\t".join(metaData))
-#         fout_Log.write('\n')
-#         
-#         dat = [str(x) for x in metaData[6]]
-#         msg = "\t".join(dat)
-# #         msg = "\t".join(metaData[6])
-#         fout_Log.write(msg)
-#         fout_Log.write('\n')
-#         
-#         dat = [str(x) for x in metaData[7]]
-#         msg = "\t".join(dat)
-#         fout_Log.write(msg)
-#         fout_Log.write('\n')
-#         
-#         dat = [str(x) for x in metaData[8]]
-#         msg = "\t".join(dat)
-#         fout_Log.write(msg)
-#         fout_Log.write('\n')
-#         
-#         
-#         fout_Log.write('\n')
-#         
-#     #/for item in lo_Names_Of_Corner_Images:
-# 
-#     # separator line
-#     fout_Log.write('\n')
-#     
-#     # close file
-#     fout_Log.close()
-    
-    '''###################
-        vars        
-    ###################'''
-    dic = {}
+#     '''###################
+#         vars        
+#     ###################'''
+#     dic = {}
 
     '''###################
         set : vars
