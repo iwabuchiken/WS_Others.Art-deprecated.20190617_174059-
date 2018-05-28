@@ -7,12 +7,15 @@ from django.shortcuts import render
 from django import template
 
 '''###################
-    built-in modules        
+    import : built-in modules        
 ###################'''
 import subprocess, copy, re, clipboard, time, \
         os, datetime, ftplib, glob, sys, cv2 \
         , matplotlib.pyplot as plt
 
+'''###################
+    import : orig modules        
+###################'''
 # sys.path.append('.')
 # sys.path.append('..')
 
@@ -439,9 +442,11 @@ def _exec_get_4_corners__Get_StatsData(img_Corners):
         # var
         do_StasData = {}
         
-        skew = lib_ip.get_Skew(img_Data)
+        skew_Values = lib_ip.get_Skews(img_Data)
+#         skew = lib_ip.get_Skew(img_Data)
         
-        do_StasData['skew'] = skew
+        do_StasData['skew_values'] = skew_Values
+#         do_StasData['skew'] = skew
         
         # append
         lo_Image_StatsData.append(do_StasData)
@@ -613,82 +618,31 @@ def exec_get_4_corners(request):
         lo_Names_Of_Corner_Images = \
                 _exec_get_4_corners__SaveImage_4Corners(img_Corners, fname_Image)
         
-#         # count
-#         cntOf_Corners = 1
-#         
-#         
-#         # time label
-#         tlabel = libs.get_TimeLabel_Now()
-# 
-#         # paths
-#         dpath_Plot= "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\img.corners"
-#         
-#         lo_Names_Of_Corner_Images = []
-#         
-#         for item in img_Corners:
-#     
-# #             xpixels = item.shape[1]
-# #             ypixels = item.shape[0]
-# #             
-# #             dpi = 72
-# #             scalefactor = 1
-# # 
-# #             xinch = xpixels * scalefactor / dpi
-# #             yinch = ypixels * scalefactor / dpi
-# #         
-# #             fig = plt.figure(figsize=(xinch,yinch))
-# #             
-# #             plt.imshow(item)
-#             
-# #             dpath_Plot= "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\img.corners"
-#             
-#             fname_Plot = "img.%s.%s.%d.png" % (tlabel, fname_Image, cntOf_Corners)
-# #             fname_Plot = "%s.%s.%d.png" % (fname_Image, tlabel, cntOf_Corners)
-#             
-#             fpath_Plot = "%s\\%s" % (dpath_Plot, fname_Plot)
-#             
-#             # increment
-#             cntOf_Corners += 1
-#             
-# #             plt.savefig(fpath_Plot, dpi=dpi)
-# 
-# #             # cv2 : save image
-# #             #ref https://www.tutorialkart.com/opencv/python/opencv-python-save-image-example/
-# #             cv2.imwrite(fpath_Plot, item)
-#             
-#             #debug
-#             print()
-#             print("[%s:%d] fpath_Plot => '%s'" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#             , fpath_Plot
-#             ), file=sys.stderr)
-#             
-#             # append file name
-#             lo_Names_Of_Corner_Images.append(fname_Plot)
-#             
-# #             # reset plot
-# #             plt.clf()
-# #             plt.cla()
-#             
-#         #/for item in im_Corners:
-
+        '''###################
+            get : basic data
+        ###################'''
+        lo_Image_MetaData = _exec_get_4_corners__Get_MetaData(img_Corners)
+    
+        '''###################
+            get : stat data
+        ###################'''
+        lo_Image_StatsData = _exec_get_4_corners__Get_StatsData(img_Corners)
+        
+        print()
+        print("[%s:%d] lo_Image_StatsData =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+        
+        print(lo_Image_StatsData)
+        
+        '''###################
+            write log : file names
+        ###################'''
+        _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images, lo_Image_MetaData)
         
     #/if res == True
     
-    '''###################
-        get : basic data
-    ###################'''
-    lo_Image_MetaData = _exec_get_4_corners__Get_MetaData(img_Corners)
-
-    '''###################
-        get : stat data
-    ###################'''
-    lo_Image_StatsData = _exec_get_4_corners__Get_StatsData(img_Corners)
-    
-    '''###################
-        write log : file names
-    ###################'''
-    _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images, lo_Image_MetaData)
     
 #     '''###################
 #         vars        
