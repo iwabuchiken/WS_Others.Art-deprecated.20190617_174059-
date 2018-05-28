@@ -442,6 +442,10 @@ def _exec_get_4_corners__Get_StatsData(img_Corners):
         # var
         do_StasData = {}
         
+        print("[%s:%d] getting skew values..." % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            ), file=sys.stderr)
+        
         skew_Values = lib_ip.get_Skews(img_Data)
 #         skew = lib_ip.get_Skew(img_Data)
         
