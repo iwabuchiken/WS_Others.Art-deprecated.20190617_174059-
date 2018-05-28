@@ -1823,9 +1823,15 @@ function _ip_Basics_Index_GO__Get_4_Corners() {
 		
 		ref : C:\WORKS_2\WS\Eclipse_Luna\Cake_IFM11\app\webroot\js\main.js
 	 ***************************/
+//	var _url = "http://127.0.0.1:8001/ip/get_4_corners";
+//	var _url = "http://127.0.0.1:8000/ip/get_4_corners/";
 	var _url = "http://127.0.0.1:8001/ip/get_4_corners/";
+		//	http://127.0.0.1:8001/ip/get_4_corners/	
 //	var _url = "http://127.0.0.1:8000/ip/get_4_corners/";
 	//var _data = {action : _param};
+	
+//	//debug
+//	alert("ajax for => '" + _url + "'");
 	
 	$.ajax({
 		
@@ -2027,8 +2033,8 @@ function exec_Get_4Corners(fname) {
 	
 //	alert(dpath_Images);
 	
-//	// file name
-//	alert(fname);
+	// file name
+	alert(fname);
 	
 	
 //	//debug

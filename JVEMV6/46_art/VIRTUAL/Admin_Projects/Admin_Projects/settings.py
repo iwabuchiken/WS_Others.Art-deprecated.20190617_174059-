@@ -30,6 +30,22 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+#ref https://stackoverflow.com/questions/43357687/django-python-rest-framework-no-access-control-allow-origin-header-is-present#44615874 answered Jul 28 '17 at 14:40
+CORS_ORIGIN_ALLOW_ALL=True
+
+#=> not working (20180528_065603)
+# CORS_ORIGIN_WHITELIST = (
+# 
+#     'google.com',
+#     'hostname.example.com',
+#     'localhost:8000',
+#     '127.0.0.1:9000'
+#     
+#     'localhost:8001',
+#     
+#     'http://localhost:8001/',
+# )
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,10 +55,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'ip',
+    
+    #ref https://stackoverflow.com/questions/43357687/django-python-rest-framework-no-access-control-allow-origin-header-is-present#44615874 answered Jul 28 '17 at 14:40
+    'corsheaders',
+    
 
 ]
 
 MIDDLEWARE = [
+    
+    #ref https://stackoverflow.com/questions/43357687/django-python-rest-framework-no-access-control-allow-origin-header-is-present#44615874 answered Jul 28 '17 at 14:40
+    'corsheaders.middleware.CorsMiddleware',
+    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
