@@ -36,6 +36,178 @@ from libs_admin import libs #=> working
     functions        
 #########################################################'''
 '''###################
+    get_Std_Dev(lo_Data)
+    
+    at : 
+    
+    @return: dictionary of skew values        
+    
+        {'R' : 1.1002928031008152, 
+            'G' : 4.955577672343114,
+            'B' : 6.775475308994965 }
+    
+###################'''
+def get_Std_Dev(lo_Data):
+    
+    '''###################
+        get : mean value        
+    ###################'''
+    # values of each color composite
+#     valsOf_R = [x * 0.001 for x in lo_Data]
+#     valsOf_R = [x * np.power(10, -3) for x in lo_Data]
+    valsOf_R = lo_Data
+#     valsOf_R = do_Image_MetaData['valsOf_R']
+    
+#     #debug
+#     print()
+#     print("[%s:%d] valsOf_R[0:10] =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(valsOf_R[0:10])
+    
+    # sum
+    sumOf_ValsOf_R = sum(valsOf_R)
+
+    # mean
+    meanOf_R = sumOf_ValsOf_R / len(valsOf_R)
+    
+#     #debug
+#     print()
+#     print("[%s:%d] meanOf_R = %.03f" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , meanOf_R
+#         ), file=sys.stderr)
+    
+    # vals squared
+    valsSquared_R = [np.power(x, 2) for x in valsOf_R]
+    
+#     #debug
+#     print()
+#     print("[%s:%d] valsSquared_R[0:10] =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(valsSquared_R[0:10])
+
+
+    # summation of vals squared
+    summationOf_ValsSquared_R = sum(valsSquared_R)
+#     summationOf_ValsSquared_R = sum[valsSquared_R]
+
+#     #debug
+#     print()
+#     print("[%s:%d] summationOf_ValsSquared_R = %.03f" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , summationOf_ValsSquared_R
+#         ), file=sys.stderr)
+    
+    # length
+    lenOf_R = len(valsOf_R)
+    
+    # standard dev
+    variance_R = 1.0 * summationOf_ValsSquared_R / lenOf_R - np.power(meanOf_R, 2)
+    
+#     #debug
+#     print()
+#     print("[%s:%d] variance_R = %.03f" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , variance_R
+#         ), file=sys.stderr)
+    
+    # standard dev
+    stdDev_R = np.sqrt(variance_R)
+
+    '''###################
+        return        
+    ###################'''
+    return stdDev_R
+    
+#/ def get_Std_Dev(lo__Data):
+    
+'''###################
+    get_Skew_Value(valsOf_ColorComposite)
+    
+    @return: skew value (float)        
+                e.g. 4.955577672343114,
+    
+###################'''
+# def get_Skew_Value(lo_Image_Data):
+def get_Skew_Value(valsOf_ColorComposite):
+    
+    '''###################
+        prep        
+    ###################'''
+    # meta data
+#     do_Image_MetaData = get_Image_MetaData_Basic(lo_Image_Data)
+
+    '''###################
+        get : std dev
+    ###################'''
+    # values of each color composite
+    valsOf_R = valsOf_ColorComposite
+#     valsOf_R = do_Image_MetaData['valsOf_R']
+#     valsOf_G = do_Image_MetaData['valsOf_G']
+#     valsOf_B = do_Image_MetaData['valsOf_B']
+    
+    # std dev
+    stdDev_R = get_Std_Dev(valsOf_R)
+#     stdDev_G = get_Std_Dev(valsOf_G)
+#     stdDev_B = get_Std_Dev(valsOf_B)
+    
+    #debug
+    print()
+    print("[%s:%d] stdDev_R = %.05f" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , stdDev_R
+            ), file=sys.stderr)
+#     print("[%s:%d] stdDev_R = %.03f, stdDev_G = %.03f, stdDev_B = %.03f" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             , stdDev_R, stdDev_G, stdDev_B
+#             ), file=sys.stderr)
+    
+#     # sum
+#     sumOf_ValsOf_R = sum(valsOf_R)
+#     sumOf_ValsOf_G = sum(valsOf_G)
+#     sumOf_ValsOf_B = sum(valsOf_B)
+# 
+#     # mean
+#     meanOf_R = sumOf_ValsOf_R / len(valsOf_R)
+#     meanOf_G = sumOf_ValsOf_G / len(valsOf_G)
+#     meanOf_B = sumOf_ValsOf_B / len(valsOf_B)
+#     
+#     # vals squared
+#     valsSquared_R = [np.power(x, 2) for x in valsOf_R]
+#     valsSquared_G = [np.power(x, 2) for x in valsOf_G]
+#     valsSquared_B = [np.power(x, 2) for x in valsOf_B]
+#     
+#     # summation of vals squared
+#     summationOf_ValsSquared_R = sum[valsSquared_R]
+#     summationOf_ValsSquared_G = sum[valsSquared_G]
+#     summationOf_ValsSquared_B = sum[valsSquared_B]
+#     
+#     # length
+#     lenOf_R = len(valsOf_R)
+#     lenOf_G = len(valsOf_G)
+#     lenOf_B = len(valsOf_B)
+#     
+#     # standard dev
+#     stdDevOf_R = 1.0 * summationOf_ValsSquared_R / lenOf_R - np.power(meanOf_R, 2)
+#     stdDevOf_G = 1.0 * summationOf_ValsSquared_G / lenOf_G - np.power(meanOf_G, 2)
+#     stdDevOf_B = 1.0 * summationOf_ValsSquared_B / lenOf_B - np.power(meanOf_B, 2)
+    
+    '''###################
+        return        
+    ###################'''
+    return -999
+    
+#     pass
+    
+#/ def get_Skew_Value(list):
+
+'''###################
+    get_Skews(img_Data)
+    
     @return: dictionary of skew values        
     
         {'R' : 1.1002928031008152, 
@@ -68,9 +240,22 @@ def get_Skews(img_Data):
         
         ref : C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\2_image-prog\2_projects\1_sort-out\2_\2_1.py
     ###################'''
-    do_Skews['skew_R'] = skew(valsOf_R)
-    do_Skews['skew_G'] = skew(valsOf_G)
-    do_Skews['skew_B'] = skew(valsOf_B)
+    # adjust values
+    valOf_Adjust = 0.01
+    
+    valsOf_R__ = [x * valOf_Adjust for x in valsOf_R]
+    valsOf_G__ = [x * valOf_Adjust for x in valsOf_G]
+    valsOf_B__ = [x * valOf_Adjust for x in valsOf_B]
+    
+    do_Skews['skew_R'] = get_Skew_Value(valsOf_R__)
+    do_Skews['skew_G'] = get_Skew_Value(valsOf_G__)
+    do_Skews['skew_B'] = get_Skew_Value(valsOf_B__)
+#     do_Skews['skew_R'] = get_Skew_Value(valsOf_R)
+#     do_Skews['skew_G'] = get_Skew_Value(valsOf_G)
+#     do_Skews['skew_B'] = get_Skew_Value(valsOf_B)
+#     do_Skews['skew_R'] = skew(valsOf_R)
+#     do_Skews['skew_G'] = skew(valsOf_G)
+#     do_Skews['skew_B'] = skew(valsOf_B)
     
 #     # sum
 #     sumOf_ValsOf_R = sum(valsOf_R)
