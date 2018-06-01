@@ -215,7 +215,9 @@ def get_Corner_Images(img_Src, corner_Length) :
     
 #/ def get_Corner_Images(img_RGB, corner_Length) :
 
-def _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images, lo_Image_MetaData):
+# def _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images, lo_Image_MetaData):
+def _exec_get_4_corners__Write_Log \
+(lo_Names_Of_Corner_Images, lo_Image_MetaData, lo_Image_StatsData):
     
     dpath_Log = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\logs"
     
@@ -245,8 +247,43 @@ def _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images, lo_Image_MetaData)
         # items
         name = lo_Names_Of_Corner_Images[i]
         
+        # meta data
         metaData = lo_Image_MetaData[i]
-    
+        
+        # stats
+                #         [{'skew_values': {'skew_B': 533.0519884872008, 'skew_R': 236.23069368923885, 'sk
+                # ew_G': 238.3791814689376}}, {'skew_values': {'skew_B': 56.682440339675104, 'skew
+                # _R': 149.4848026940312, 'skew_G': 78.97239727258551}}, {'skew_values': {'skew_B'
+                # : 494.3158542205711, 'skew_R': 312.1150017522547, 'skew_G': 465.10712589168577}}
+                # , {'skew_values': {'skew_B': 481.71441048360913, 'skew_R': 323.66383568902853, '
+                # skew_G': 475.05481070433}}]
+        do_Stats = lo_Image_StatsData[i]
+        
+        do_Skews = do_Stats['skew_values']
+#         print()
+#         print("[%s:%d] lo_Image_StatsData =>" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 
+#                 ), file=sys.stderr)
+#         print(lo_Image_StatsData)
+#         
+#         print()
+#         print("[%s:%d] do_Stats =>" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 
+#                 ), file=sys.stderr)
+#         print(do_Stats)
+        
+        skew_R = do_Skews['skew_R']
+        skew_G = do_Skews['skew_G']
+        skew_B = do_Skews['skew_B']
+#         skew_R = do_Stats['skew_R']
+#         skew_G = do_Stats['skew_G']
+#         skew_B = do_Stats['skew_B']
+        
+        '''###################
+            file name
+        ###################'''
         # file name
         fout_Log.write(name)
 #         fout_Log.write(item)
@@ -291,6 +328,22 @@ def _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images, lo_Image_MetaData)
 #         fout_Log.write("\t".join(metaData))
         fout_Log.write('\n')
         
+        '''###################
+            skews        
+        ###################'''
+        msg = "skew_R = %.04f, skew_G = %.04f, skew_B = %.04f" % \
+                (
+                    skew_R, skew_G, skew_B
+                 )
+#         msg = "\t".join(metaData)
+        
+        fout_Log.write(msg)
+#         fout_Log.write("\t".join(metaData))
+        fout_Log.write('\n')
+        
+        '''###################
+            raw data : histogram        
+        ###################'''
         dat = [str(x) for x in metaData[6]]
         msg = "\t".join(dat)
 #         msg = "\t".join(metaData[6])
@@ -505,9 +558,9 @@ def _exec_get_4_corners__SaveImage_4Corners(img_Corners, fname_Image):
         
 #             plt.savefig(fpath_Plot, dpi=dpi)
 
-#         # cv2 : save image
-#         #ref https://www.tutorialkart.com/opencv/python/opencv-python-save-image-example/
-#         cv2.imwrite(fpath_Plot, item)
+        # cv2 : save image
+        #ref https://www.tutorialkart.com/opencv/python/opencv-python-save-image-example/
+        cv2.imwrite(fpath_Plot, item)
         
         #debug
         print()
@@ -622,6 +675,13 @@ def exec_get_4_corners(request):
         lo_Names_Of_Corner_Images = \
                 _exec_get_4_corners__SaveImage_4Corners(img_Corners, fname_Image)
         
+        print()
+        print("[%s:%d] lo_Names_Of_Corner_Images =>" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                
+                ), file=sys.stderr)
+        print(lo_Names_Of_Corner_Images)
+        
         '''###################
             get : basic data
         ###################'''
@@ -643,7 +703,11 @@ def exec_get_4_corners(request):
         '''###################
             write log : file names
         ###################'''
-        _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images, lo_Image_MetaData)
+        _exec_get_4_corners__Write_Log(
+                        lo_Names_Of_Corner_Images, 
+                        lo_Image_MetaData, 
+                        lo_Image_StatsData)
+#         _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images, lo_Image_MetaData)
         
     #/if res == True
     
