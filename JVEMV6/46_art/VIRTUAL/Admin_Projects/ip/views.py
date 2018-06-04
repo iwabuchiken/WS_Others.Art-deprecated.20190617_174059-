@@ -153,13 +153,43 @@ def get_4_corners(request):
     '''###################
         get : files list
     ###################'''
-    dpath_Images = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\images"
+    dpath_Images = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6" \
+                + "\\46_art\\VIRTUAL\\Admin_Projects" \
+                + "\\ip" \
+                + "\\images"
     
     fpath_Glob = "%s\\*" % (dpath_Images)
 
     #ref glob https://stackoverflow.com/questions/14798220/how-can-i-search-sub-folders-using-glob-glob-module-in-python answered Feb 10 '13 at 13:31    
     lo_Files = glob.glob(fpath_Glob)
+    
+    # files only
+    lo_Files_Filtered = []
+    
+#     #debug
+#     print()
+#     print("[%s:%d] os.path.isfile(dpath_Images + \"\\\" + lo_Files[0]) => %s" % \
+#                     (os.path.basename(libs.thisfile()), libs.linenum()
+#                     , os.path.isfile(dpath_Images + "\\" + lo_Files[0])
+#                     ), file=sys.stderr)
+#     
+#     print("[%s:%d] dpath_Images + \"\\\" + lo_Files[0] => %s" % \
+#                     (os.path.basename(libs.thisfile()), libs.linenum()
+#                     , dpath_Images + "\\" + lo_Files[0]
+#                     ), file=sys.stderr)
+    
+    for item in lo_Files:
 
+#         if os.path.isfile(dpath_Images + "\\" + item) == True : 
+        if os.path.isfile(item) == True : 
+            lo_Files_Filtered.append(item)
+        
+    #/for item in lo_Files:
+
+    # update the list
+    
+    lo_Files = lo_Files_Filtered
+    
     lo_Files.sort()
 
 
@@ -717,153 +747,6 @@ def exec_get_4_corners(request):
     res, msg, (height, width, channels) = \
                 lib_ip.is_PhotoOf__Sweets(dpath_Images, fname_Image)
 #     res, msg = lib_ip.is_PhotoOf__Sweets(dpath_Images, fname_Image)
-    
-#     '''###################
-#         get : cv instance        
-#     ###################'''
-#     fpath_Image = "%s\\%s" % (dpath_Images, fname_Image)
-#     
-#     # validate
-#     res = os.path.isfile(fpath_Image)
-#     
-#     if res == False : #if res == True
-# 
-#         print("[%s:%d] file NOT exist! => %s" % \
-#         (os.path.basename(libs.thisfile()), libs.linenum()
-#         , fpath_Image
-#         ), file=sys.stderr)
-#         
-#         # set dic
-#         dic['msg'] = "file NOT exist : %s" % fpath_Image
-#     
-#     else : #if res == True
-#     
-#         print("[%s:%d] file exists => %s" % \
-#         (os.path.basename(libs.thisfile()), libs.linenum()
-#         , fpath_Image
-#         ), file=sys.stderr)
-#         
-#         # cv instance
-#         img_Orig = cv2.imread(fpath_Image)
-#         
-#         print()
-#         print("[%s:%d] cv2 image ==> loaded" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#             
-#             ), file=sys.stderr)
-#         
-#         # convert to RGB
-#         img_RGB = img_Orig
-# #         img_RGB = cv2.cvtColor(img_Orig, cv2.COLOR_BGR2RGB)
-#         
-#         '''###################
-#             get : meta data
-#         ###################'''
-#         # data
-#         height, width, channels = img_RGB.shape
-#         
-#         print()
-#         print("[%s:%d] height = %d, width = %d, channels = %d" % \
-#         (os.path.basename(libs.thisfile()), libs.linenum()
-#         , height, width, channels
-#         ), file=sys.stderr)
-#         
-#         '''###################
-#             get : 4 corners        
-#         ###################'''
-#         corner_Length = 280
-#         
-#         img_Corners = lib_ip.get_Corner_Images(img_RGB, corner_Length)
-# #         img_Corners = get_Corner_Images(img_RGB, corner_Length)
-#         
-#         print()
-#         print("[%s:%d] len(img_Corners) = %d" % \
-#         (os.path.basename(libs.thisfile()), libs.linenum()
-#         , len(img_Corners)
-#         ), file=sys.stderr)
-#         
-#         '''###################
-#             save : images of 4 corners        
-#         ###################'''
-#         lo_Names_Of_Corner_Images = \
-#                 _exec_get_4_corners__SaveImage_4Corners(img_Corners, fname_Image)
-#         
-#         print()
-#         print("[%s:%d] lo_Names_Of_Corner_Images =>" % \
-#                 (os.path.basename(libs.thisfile()), libs.linenum()
-#                 
-#                 ), file=sys.stderr)
-#         print(lo_Names_Of_Corner_Images)
-#         
-#         '''###################
-#             get : basic data
-#         ###################'''
-#         lo_Image_MetaData = _exec_get_4_corners__Get_MetaData(img_Corners)
-#     
-#         '''###################
-#             get : stat data
-#         ###################'''
-#         lo_Image_StatsData = _exec_get_4_corners__Get_StatsData(img_Corners)
-#         
-# #         print()
-# #         print("[%s:%d] lo_Image_StatsData =>" % \
-# #             (os.path.basename(libs.thisfile()), libs.linenum()
-# #             
-# #             ), file=sys.stderr)
-# #         
-# #         print(lo_Image_StatsData)
-# 
-#         '''###################
-#             filtering : a corner of green ?
-#         ###################'''
-#         # lo_Image_StatsData[0] => left bottom corner
-# #         res = lib_ip.is_CornerOf_Green(lo_Image_StatsData[0])
-#         res, comment = lib_ip.is_CornerOf_Green__PhotoOf_Sweets(lo_Image_StatsData[0])
-# #         res, comment = lib_ip.is_CornerOf_Green(lo_Image_StatsData[0])
-#         
-#         print()
-#         print("[%s:%d] is_CornerOf_Green => %s" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#             , res
-#             ), file=sys.stderr)
-# 
-#         
-#         '''###################
-#             write log : file names
-#         ###################'''
-#         _exec_get_4_corners__Write_Log(
-#                         lo_Names_Of_Corner_Images, 
-#                         lo_Image_MetaData, 
-#                         lo_Image_StatsData
-#                         , dpath_Images
-#                         , fname_Image
-#                         , res
-#                         , comment
-#                         )
-# #                         lo_Image_StatsData)
-#         _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images, lo_Image_MetaData)
-        
-#         '''###################
-#             filtering : a corner of green ?
-#         ###################'''
-#         # lo_Image_StatsData[0] => left bottom corner
-# #         res = lib_ip.is_CornerOf_Green(lo_Image_StatsData[0])
-#         res, comment = lib_ip.is_CornerOf_Green__PhotoOf_Sweets(lo_Image_StatsData[0])
-# #         res, comment = lib_ip.is_CornerOf_Green(lo_Image_StatsData[0])
-#         
-#         print()
-#         print("[%s:%d] is_CornerOf_Green => %s" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#             , res
-#             ), file=sys.stderr)
-        
-    #/if res == True
-    
-    
-#     '''###################
-#         vars        
-#     ###################'''
-#     dic = {}
 
     '''###################
         set : vars
@@ -874,8 +757,6 @@ def exec_get_4_corners(request):
     dic['height'] = height
     dic['width'] = width
     dic['channels'] = channels
-    
-    
     
     '''###################
         get : referer        
