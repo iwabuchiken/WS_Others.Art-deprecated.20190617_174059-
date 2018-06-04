@@ -197,7 +197,20 @@ def get_4_corners(request):
                 ), file=sys.stderr)
     
         return render(request, 'ip/get_4_corners_full.html', dic)
+'''###################
+    get_Corner_Images(img_Src, corner_Length)        
+    
+    @return: [left bottom, right bottom, left up, right up]
 
+    |------------------------|
+    |(2)                  (3)|
+    |                        |
+    |                        |
+    |                        |
+    |(0)                  (1)|
+    |------------------------|
+    
+###################'''
 def get_Corner_Images(img_Src, corner_Length) :
     
     height, width, channels = img_Src.shape
@@ -217,7 +230,13 @@ def get_Corner_Images(img_Src, corner_Length) :
 
 # def _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images, lo_Image_MetaData):
 def _exec_get_4_corners__Write_Log \
-(lo_Names_Of_Corner_Images, lo_Image_MetaData, lo_Image_StatsData):
+(lo_Names_Of_Corner_Images, lo_Image_MetaData, lo_Image_StatsData
+                        , dpath_Images
+                        , fname_Image
+                        , res
+                        , comment
+
+):
     
     dpath_Log = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\logs"
     
@@ -235,6 +254,21 @@ def _exec_get_4_corners__Write_Log \
                  libs.linenum()))
     
     fout_Log.write("\n")
+    
+    '''###################
+        write : meta info        
+    ###################'''
+    msg = "dpath_Images = %s" % (dpath_Images)
+    
+    fout_Log.write(msg)
+    fout_Log.write('\n')
+    
+    msg = "fname_Image = %s" % (fname_Image)
+    
+    fout_Log.write(msg)
+    fout_Log.write('\n')
+    fout_Log.write('\n')
+    
     
     # iterate
     idxOf_Images = 0
@@ -342,6 +376,35 @@ def _exec_get_4_corners__Write_Log \
         fout_Log.write('\n')
         
         '''###################
+            index of max values,
+            max values
+        ###################'''
+        idxOf_MaxVals = do_Stats['idxOf_Maxes']
+        
+        max_Vals = do_Stats['max_Vals']
+
+#         msg = "idxOf_Max_R = %d, idxOf_Max_G = %d, idxOf_Max_B = %d" % \
+        msg = "idxOf_Max_R = %d, idxOf_Max_G = %d, idxOf_Max_B = %d" % \
+                (
+                    idxOf_MaxVals[0], idxOf_MaxVals[1], idxOf_MaxVals[2]
+                 )
+#         msg = "\t".join(metaData)
+        
+        fout_Log.write(msg)
+#         fout_Log.write("\t".join(metaData))
+        fout_Log.write('\n')
+        
+        msg = "max_Vals_R = %d, max_Vals_G = %d, max_Vals_B = %d" % \
+                (
+                    max_Vals[0], max_Vals[1], max_Vals[2]
+                 )
+#         msg = "\t".join(metaData)
+        
+        fout_Log.write(msg)
+#         fout_Log.write("\t".join(metaData))
+        fout_Log.write('\n')
+        
+        '''###################
             raw data : histogram        
         ###################'''
         dat = [str(x) for x in metaData[6]]
@@ -366,6 +429,27 @@ def _exec_get_4_corners__Write_Log \
     #/for item in lo_Names_Of_Corner_Images:
 
     # separator line
+#     fout_Log.write('\n')
+    
+    '''###################
+        write : judge        
+    ###################'''
+#     fout_Log.write('\n')
+    
+#     msg = "dpath_Images = %s" % (dpath_Images)
+#     
+#     fout_Log.write(msg)
+#     fout_Log.write('\n')
+#     
+#     msg = "fname_Image = %s" % (fname_Image)
+#     
+#     fout_Log.write(msg)
+#     fout_Log.write('\n')
+    
+    
+    msg = "is_CornerOf_Green__PhotoOf_Sweets => %s (%s)" % (res, comment)
+    
+    fout_Log.write(msg)
     fout_Log.write('\n')
     
     # close file
@@ -495,6 +579,10 @@ def _exec_get_4_corners__Get_StatsData(img_Corners):
         # var
         do_StasData = {}
         
+        '''###################
+            skews        
+        ###################'''
+        
         print("[%s:%d] getting skew values..." % \
             (os.path.basename(libs.thisfile()), libs.linenum()
             ), file=sys.stderr)
@@ -507,6 +595,23 @@ def _exec_get_4_corners__Get_StatsData(img_Corners):
         
         # append
         lo_Image_StatsData.append(do_StasData)
+        
+        '''###################
+            index of max        
+        ###################'''
+#         idxOf_Max_R, idxOf_Max_G, idxOf_Max_B = lib_ip.get_IdxOf_Maxes(img_Data)
+        idxOf_Max_R, idxOf_Max_G, idxOf_Max_B, maxVal_R, maxVal_G, maxVal_B \
+                    = lib_ip.get_IdxOf_Maxes(img_Data)
+        
+        print()
+        print("[%s:%d] idxOf_Max_R = %d, idxOf_Max_G = %d, idxOf_Max_B = %d" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , idxOf_Max_R, idxOf_Max_G, idxOf_Max_B
+        ), file=sys.stderr)
+        
+        do_StasData['idxOf_Maxes'] = [idxOf_Max_R, idxOf_Max_G, idxOf_Max_B]
+        
+        do_StasData['max_Vals'] = [maxVal_R, maxVal_G, maxVal_B]
         
     #/for img in img_Corners:
 
@@ -607,107 +712,150 @@ def exec_get_4_corners(request):
     fname_Image = request.GET.get('fname_image', False)
     
     '''###################
-        get : cv instance        
+        judge        
     ###################'''
-    fpath_Image = "%s\\%s" % (dpath_Images, fname_Image)
+    res, msg, (height, width, channels) = \
+                lib_ip.is_PhotoOf__Sweets(dpath_Images, fname_Image)
+#     res, msg = lib_ip.is_PhotoOf__Sweets(dpath_Images, fname_Image)
     
-    # validate
-    res = os.path.isfile(fpath_Image)
-    
-    if res == False : #if res == True
-
-        print("[%s:%d] file NOT exist! => %s" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        , fpath_Image
-        ), file=sys.stderr)
-        
-        # set dic
-        dic['msg'] = "file NOT exist : %s" % fpath_Image
-    
-    else : #if res == True
-    
-        print("[%s:%d] file exists => %s" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        , fpath_Image
-        ), file=sys.stderr)
-        
-        # cv instance
-        img_Orig = cv2.imread(fpath_Image)
-        
-        print()
-        print("[%s:%d] cv2 image ==> loaded" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-            
-            ), file=sys.stderr)
-        
-        # convert to RGB
-        img_RGB = img_Orig
-#         img_RGB = cv2.cvtColor(img_Orig, cv2.COLOR_BGR2RGB)
-        
-        '''###################
-            get : meta data
-        ###################'''
-        # data
-        height, width, channels = img_RGB.shape
-        
-        print()
-        print("[%s:%d] height = %d, width = %d, channels = %d" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        , height, width, channels
-        ), file=sys.stderr)
-        
-        '''###################
-            get : 4 corners        
-        ###################'''
-        corner_Length = 280
-        
-        img_Corners = get_Corner_Images(img_RGB, corner_Length)
-        
-        print()
-        print("[%s:%d] len(img_Corners) = %d" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        , len(img_Corners)
-        ), file=sys.stderr)
-        
-        '''###################
-            save : images of 4 corners        
-        ###################'''
-        lo_Names_Of_Corner_Images = \
-                _exec_get_4_corners__SaveImage_4Corners(img_Corners, fname_Image)
-        
-        print()
-        print("[%s:%d] lo_Names_Of_Corner_Images =>" % \
-                (os.path.basename(libs.thisfile()), libs.linenum()
-                
-                ), file=sys.stderr)
-        print(lo_Names_Of_Corner_Images)
-        
-        '''###################
-            get : basic data
-        ###################'''
-        lo_Image_MetaData = _exec_get_4_corners__Get_MetaData(img_Corners)
-    
-        '''###################
-            get : stat data
-        ###################'''
-        lo_Image_StatsData = _exec_get_4_corners__Get_StatsData(img_Corners)
-        
-        print()
-        print("[%s:%d] lo_Image_StatsData =>" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        
-        ), file=sys.stderr)
-        
-        print(lo_Image_StatsData)
-        
-        '''###################
-            write log : file names
-        ###################'''
-        _exec_get_4_corners__Write_Log(
-                        lo_Names_Of_Corner_Images, 
-                        lo_Image_MetaData, 
-                        lo_Image_StatsData)
+#     '''###################
+#         get : cv instance        
+#     ###################'''
+#     fpath_Image = "%s\\%s" % (dpath_Images, fname_Image)
+#     
+#     # validate
+#     res = os.path.isfile(fpath_Image)
+#     
+#     if res == False : #if res == True
+# 
+#         print("[%s:%d] file NOT exist! => %s" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , fpath_Image
+#         ), file=sys.stderr)
+#         
+#         # set dic
+#         dic['msg'] = "file NOT exist : %s" % fpath_Image
+#     
+#     else : #if res == True
+#     
+#         print("[%s:%d] file exists => %s" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , fpath_Image
+#         ), file=sys.stderr)
+#         
+#         # cv instance
+#         img_Orig = cv2.imread(fpath_Image)
+#         
+#         print()
+#         print("[%s:%d] cv2 image ==> loaded" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             
+#             ), file=sys.stderr)
+#         
+#         # convert to RGB
+#         img_RGB = img_Orig
+# #         img_RGB = cv2.cvtColor(img_Orig, cv2.COLOR_BGR2RGB)
+#         
+#         '''###################
+#             get : meta data
+#         ###################'''
+#         # data
+#         height, width, channels = img_RGB.shape
+#         
+#         print()
+#         print("[%s:%d] height = %d, width = %d, channels = %d" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , height, width, channels
+#         ), file=sys.stderr)
+#         
+#         '''###################
+#             get : 4 corners        
+#         ###################'''
+#         corner_Length = 280
+#         
+#         img_Corners = lib_ip.get_Corner_Images(img_RGB, corner_Length)
+# #         img_Corners = get_Corner_Images(img_RGB, corner_Length)
+#         
+#         print()
+#         print("[%s:%d] len(img_Corners) = %d" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , len(img_Corners)
+#         ), file=sys.stderr)
+#         
+#         '''###################
+#             save : images of 4 corners        
+#         ###################'''
+#         lo_Names_Of_Corner_Images = \
+#                 _exec_get_4_corners__SaveImage_4Corners(img_Corners, fname_Image)
+#         
+#         print()
+#         print("[%s:%d] lo_Names_Of_Corner_Images =>" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 
+#                 ), file=sys.stderr)
+#         print(lo_Names_Of_Corner_Images)
+#         
+#         '''###################
+#             get : basic data
+#         ###################'''
+#         lo_Image_MetaData = _exec_get_4_corners__Get_MetaData(img_Corners)
+#     
+#         '''###################
+#             get : stat data
+#         ###################'''
+#         lo_Image_StatsData = _exec_get_4_corners__Get_StatsData(img_Corners)
+#         
+# #         print()
+# #         print("[%s:%d] lo_Image_StatsData =>" % \
+# #             (os.path.basename(libs.thisfile()), libs.linenum()
+# #             
+# #             ), file=sys.stderr)
+# #         
+# #         print(lo_Image_StatsData)
+# 
+#         '''###################
+#             filtering : a corner of green ?
+#         ###################'''
+#         # lo_Image_StatsData[0] => left bottom corner
+# #         res = lib_ip.is_CornerOf_Green(lo_Image_StatsData[0])
+#         res, comment = lib_ip.is_CornerOf_Green__PhotoOf_Sweets(lo_Image_StatsData[0])
+# #         res, comment = lib_ip.is_CornerOf_Green(lo_Image_StatsData[0])
+#         
+#         print()
+#         print("[%s:%d] is_CornerOf_Green => %s" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             , res
+#             ), file=sys.stderr)
+# 
+#         
+#         '''###################
+#             write log : file names
+#         ###################'''
+#         _exec_get_4_corners__Write_Log(
+#                         lo_Names_Of_Corner_Images, 
+#                         lo_Image_MetaData, 
+#                         lo_Image_StatsData
+#                         , dpath_Images
+#                         , fname_Image
+#                         , res
+#                         , comment
+#                         )
+# #                         lo_Image_StatsData)
 #         _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images, lo_Image_MetaData)
+        
+#         '''###################
+#             filtering : a corner of green ?
+#         ###################'''
+#         # lo_Image_StatsData[0] => left bottom corner
+# #         res = lib_ip.is_CornerOf_Green(lo_Image_StatsData[0])
+#         res, comment = lib_ip.is_CornerOf_Green__PhotoOf_Sweets(lo_Image_StatsData[0])
+# #         res, comment = lib_ip.is_CornerOf_Green(lo_Image_StatsData[0])
+#         
+#         print()
+#         print("[%s:%d] is_CornerOf_Green => %s" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             , res
+#             ), file=sys.stderr)
         
     #/if res == True
     
