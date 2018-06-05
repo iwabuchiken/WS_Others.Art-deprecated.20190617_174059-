@@ -957,6 +957,127 @@ def is_ColorName_Green(image_StatsData):
     return True, "True"
 
 #/ def is_CornerOf_Green(image_StatsData):
+'''###################
+    is_ColorName_Yellow
+    
+    description :
+        
+    
+    at : 2018/06/05 12:46:29    
+    @return: res, msg
+        res    boolean
+        msg    string ==> if res is 'False', gives info
+    
+###################'''
+def is_ColorName_Yellow(image_StatsData):
+    
+    '''###################
+        get vars : indices, max vals        
+    ###################'''
+    idxOf_Maxes = image_StatsData['idxOf_Maxes']
+    
+    print()
+    print("[%s:%d] idxOf_Maxes =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    print(idxOf_Maxes)
+    
+    max_Vals = image_StatsData['max_Vals']
+
+    print()
+    print("[%s:%d] max_Vals =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    print(max_Vals)
+    
+    '''###################
+        get vars : each color element
+        
+        R ==> real reference is blue
+        G ==> real reference is green
+        B ==> real reference is red
+        
+    ###################'''
+    # prep vars
+    idxOf_Maxes_R = idxOf_Maxes[0]
+    idxOf_Maxes_G = idxOf_Maxes[1]
+    idxOf_Maxes_B = idxOf_Maxes[2]
+
+    max_Val_R = max_Vals[0]
+    max_Val_G = max_Vals[1]
+    max_Val_B = max_Vals[2]
+
+    '''###################
+        prep vars : thresholds
+    ###################'''
+    # thresholds
+    ts_Max_Val_R = 3000
+    ts_Max_Val_G = 2000
+    ts_Max_Val_B = 2000
+    
+    ts_IdxOf_Max_R = 70 
+    ts_IdxOf_Max_G = 110 
+    ts_IdxOf_Max_B = 120 
+
+    '''###################
+        judge : max value of blue
+    ###################'''
+    # judge : index of max val
+    # 'R' ===> color element of R (data is obtained in BGR format)
+    if max_Val_R <= ts_Max_Val_R : 
+        
+        msg = "False : max_Val_R <= %d (%d)" % (ts_Max_Val_R, max_Val_R)
+        
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+    
+    '''###################
+        judge : max value of red
+    ###################'''
+    # judge : index of max val
+    # 'B' ===> color element of R (data is obtained in BGR format)
+    if max_Val_B <= ts_Max_Val_B : 
+        
+        msg = "False : max_Val_B <= %d (%d)" % (ts_Max_Val_B, max_Val_B)
+        
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+    
+    '''###################
+        judge : max value of green
+    ###################'''
+    # judge : index of max val
+    # 'B' ===> color element of R (data is obtained in BGR format)
+    if max_Val_G <= ts_Max_Val_G : 
+        
+        msg = "False : max_Val_G <= %d (%d)" % (ts_Max_Val_G, max_Val_G)
+        
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+    
+    '''###################
+        return        
+    ###################'''
+    return True, "True"
+
+#/ def is_ColorName_Yellow(image_StatsData):
 
 '''###################
     get_Corner_Images(img_Src, corner_Length)        
@@ -1162,7 +1283,7 @@ def get_Color_Name_From_StatsData(stats_Data) :
     nameOf_Color = "other"
     
     '''###################
-        judge        
+        judge : green
     ###################'''
     res, msg = is_ColorName_Green(stats_Data)
     
@@ -1171,6 +1292,20 @@ def get_Color_Name_From_StatsData(stats_Data) :
     
         nameOf_Color = "green"
         
+        return nameOf_Color
+    
+    '''###################
+        judge : yellow
+    ###################'''
+    res, msg = is_ColorName_Yellow(stats_Data)
+    
+    # green ?
+    if res == True : #if res == True
+    
+        nameOf_Color = "yellow"
+        
+        return nameOf_Color
+    
     #/if res == True
     
     '''###################
