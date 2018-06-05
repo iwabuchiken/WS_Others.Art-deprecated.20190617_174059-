@@ -559,6 +559,14 @@ def get_IdxOf_Maxes(img_Data):
 
 #/ def get_IdxOf_Maxes(img_Data):
 
+'''###################
+    is_CornerOf_Green__PhotoOf_Sweets
+    
+    @return: res, msg
+        res    boolean
+        msg    string ==> if res is 'False', gives info
+    
+###################'''
 def is_CornerOf_Green__PhotoOf_Sweets(image_StatsData):
     
     '''###################
@@ -747,6 +755,209 @@ def is_CornerOf_Green__PhotoOf_Sweets(image_StatsData):
     return True, "True"
 
 #/ def is_CornerOf_Green(image_StatsData):
+
+'''###################
+    is_ColorName_Green
+    
+    description :
+        copy of is_CornerOf_Green__PhotoOf_Sweets
+    
+    at : 2018/06/05 07:39:31
+    
+    @return: res, msg
+        res    boolean
+        msg    string ==> if res is 'False', gives info
+    
+###################'''
+def is_ColorName_Green(image_StatsData):
+    
+    '''###################
+        vars        
+    ###################'''
+    idxOf_Maxes = image_StatsData['idxOf_Maxes']
+    
+    print()
+    print("[%s:%d] idxOf_Maxes =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    print(idxOf_Maxes)
+    
+    max_Vals = image_StatsData['max_Vals']
+
+    print()
+    print("[%s:%d] max_Vals =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    print(max_Vals)
+    
+    '''###################
+        judge        
+    ###################'''
+    # prep vars
+    idxOf_Maxes_R = idxOf_Maxes[0]
+    idxOf_Maxes_G = idxOf_Maxes[1]
+    idxOf_Maxes_B = idxOf_Maxes[2]
+
+    max_Val_R = max_Vals[0]
+    max_Val_G = max_Vals[1]
+    max_Val_B = max_Vals[2]
+
+    # thresholds
+    ts_Max_Val_R = 5500
+    ts_Max_Val_G = 5500
+    ts_Max_Val_B = 500
+
+    # judge : index of max val
+    # 'B' ===> color element of R (data is obtained in BGR format)
+    if idxOf_Maxes_B > 20 : 
+        
+        msg = "False : idxOf_Maxes_B > 20 (%d)" % idxOf_Maxes_B
+        
+        print()
+#         print("[%s:%d] False : idxOf_Maxes_B > 20 (%d)" % \
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+    
+    if idxOf_Maxes_G < 30 or idxOf_Maxes_G > 80 : 
+
+#         print()
+#         print("[%s:%d] False : idxOf_Maxes_G < 30 or idxOf_Maxes_G > 80" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             ), file=sys.stderr)
+#         
+#         return False
+        
+        msg = "False : idxOf_Maxes_G < 30 or idxOf_Maxes_G > 80 (%d)" % idxOf_Maxes_G
+        
+        print()
+#         print("[%s:%d] False : idxOf_Maxes_B > 20 (%d)" % \
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+
+    if idxOf_Maxes_R < 30 or idxOf_Maxes_R > 80 : 
+        
+#         print()
+#         print("[%s:%d] False : idxOf_Maxes_R < 30 or idxOf_Maxes_R > 80" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             ), file=sys.stderr)
+#         
+#         return False
+
+        msg = "False : idxOf_Maxes_R < 30 or idxOf_Maxes_R > 80 (%d)" % idxOf_Maxes_R
+        
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+
+    # judge : max vals
+#     if max_Val_R < 5000 : 
+#     if max_Val_R > 5000 : 
+    if max_Val_R > ts_Max_Val_R : 
+        
+        
+        
+#         print()
+# #         print("[%s:%d] False : max_Val_R < 5000" % \
+#         print("[%s:%d] False : max_Val_R > 5000 (%d)" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#              , max_Val_R
+#             ), file=sys.stderr)
+#         
+#         return False
+
+        msg = "False : max_Val_R > 5000 (%d)" % max_Val_R
+        
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+
+#     if max_Val_G < 5000 : 
+#     if max_Val_G > 5000 : 
+    if max_Val_G > ts_Max_Val_G : 
+
+#         print()
+#         print("[%s:%d] False : max_Val_G > 5000" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             ), file=sys.stderr)
+#         
+#         return False
+
+        msg = "False : max_Val_G > 5000 (%d)" % max_Val_G
+        
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+
+
+    if max_Val_B < 5000 or max_Val_B > 7500 : 
+
+#         print()
+#         print("[%s:%d] False : max_Val_B < 5000 or max_Val_B > 7500" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             ), file=sys.stderr)
+#         
+#         return False
+        
+        '''###################
+            judge : index of max val ==> 0?        
+        ###################'''
+        if max_Val_B > 7500 and not idxOf_Maxes_B == 0 : #if max_Val_B > 7500 and not idxOf_Maxes_B == 0
+        
+            msg = "False : max_Val_B < 5000 or max_Val_B > 7500 (%d, idxOf_Max = %d)" \
+                    % (max_Val_B, idxOf_Maxes_B)
+            
+            print()
+            print("[%s:%d] %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                 , msg
+                ), file=sys.stderr)
+            
+            return False, msg
+            
+        #/if max_Val_B > 7500 and not idxOf_Maxes_B == 0
+        
+        
+#         msg = "False : max_Val_B < 5000 or max_Val_B > 7500 (%d)" % max_Val_B
+#         msg = "False : max_Val_B < 5000 or max_Val_B > 7500 (%d, idxOf_Max = %d)" \
+#                 % (max_Val_B, idxOf_Maxes_B)
+#         
+#         print()
+#         print("[%s:%d] %s" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#              , msg
+#             ), file=sys.stderr)
+#         
+#         return False, msg
+
+    '''###################
+        return        
+    ###################'''
+    return True, "True"
+
+#/ def is_CornerOf_Green(image_StatsData):
+
 '''###################
     get_Corner_Images(img_Src, corner_Length)        
     
@@ -781,7 +992,9 @@ def get_Corner_Images(img_Src, corner_Length, padding = 0) :
 
 # def _exec_get_4_corners__Write_Log(lo_Names_Of_Corner_Images, lo_Image_MetaData):
 
-def is_PhotoOf__Sweets(dpath_Images, fname_Image) :
+# def is_PhotoOf__Sweets(dpath_Images, fname_Image) :
+def is_PhotoOf__Sweets \
+(dpath_Images, fname_Image, flg_SaveImage = False, corner_Width = 280) :
     
     '''###################
                 
@@ -835,7 +1048,8 @@ def is_PhotoOf__Sweets(dpath_Images, fname_Image) :
     '''###################
         get : 4 corners        
     ###################'''
-    corner_Length = 280
+    corner_Length = corner_Width
+#     corner_Length = 280
     
     padding = 0
     
@@ -850,7 +1064,9 @@ def is_PhotoOf__Sweets(dpath_Images, fname_Image) :
     '''###################
         save : images of 4 corners        
     ###################'''
-    save_Image = False
+    save_Image = flg_SaveImage
+#     save_Image = True
+#     save_Image = False
     
     lo_Names_Of_Corner_Images = \
             get_4_corners__SaveImage_4Corners(img_Corners, fname_Image, save_Image)
@@ -885,11 +1101,33 @@ def is_PhotoOf__Sweets(dpath_Images, fname_Image) :
 #     res, comment = lib_ip.is_CornerOf_Green__PhotoOf_Sweets(lo_Image_StatsData[0])
     res, comment = is_CornerOf_Green__PhotoOf_Sweets(lo_Image_StatsData[0])
 
+    '''###################
+        get : color name of the corner
+    ###################'''
+    lo_Color_Names = []
+    
+    lenOf_Lo_Names_Of_Corner_Images = len(lo_Names_Of_Corner_Images)
+    
+#     for i in lenOf_Lo_Names_Of_Corner_Images:
+    for i in range(lenOf_Lo_Names_Of_Corner_Images) :
+    
+        nameOf_CornerImage = lo_Names_Of_Corner_Images[i]
+        
+        stats_Data = lo_Image_StatsData[i]
+        
+        color_Name = get_Color_Name_From_StatsData(stats_Data)
+        
+        # append
+        lo_Color_Names.append([nameOf_CornerImage, color_Name])
+        
+    #/for i in lenOf_Lo_Names_Of_Corner_Images:
+    
     print()
-    print("[%s:%d] is_CornerOf_Green => %s" % \
+    print("[%s:%d] lo_Color_Names =>" % \
         (os.path.basename(libs.thisfile()), libs.linenum()
-        , res
+        
         ), file=sys.stderr)
+    print(lo_Color_Names)
 
     '''###################
         write log : file names
@@ -915,6 +1153,34 @@ def is_PhotoOf__Sweets(dpath_Images, fname_Image) :
 #     return False, msg
     
 #/ def is_PhotoOf__Sweets(dir_path, file_name) :
+
+def get_Color_Name_From_StatsData(stats_Data) :
+    
+    '''###################
+        vars        
+    ###################'''
+    nameOf_Color = "other"
+    
+    '''###################
+        judge        
+    ###################'''
+    res, msg = is_ColorName_Green(stats_Data)
+    
+    # green ?
+    if res == True : #if res == True
+    
+        nameOf_Color = "green"
+        
+    #/if res == True
+    
+    '''###################
+        return        
+    ###################'''
+#     nameOf_Color = "other"
+    
+    return nameOf_Color
+    
+#/ def get_Color_Name_From_StatsData(stats_Data) :
 
 def get_4_corners__SaveImage_4Corners(img_Corners, fname_Image, save_Image = True) :
     

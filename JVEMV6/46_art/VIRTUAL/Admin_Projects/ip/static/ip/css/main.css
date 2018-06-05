@@ -413,6 +413,22 @@ div#layout_Links_Basic {
     
 }/*div#index_Display_Area {*/
 
+div#div_Get4Corners_Options {
+    
+    background     : BurlyWood; 
+    
+    width          : 75%;
+    
+    min-height: 50px;
+    
+    margin         : 10px;
+    
+    padding         : 10px;
+    
+}/*div#div_Get4Corners_Options {*/
+
+
+
 div#div_Curr_Basics_Button_ShowHide {
     
     margin         : 10px;

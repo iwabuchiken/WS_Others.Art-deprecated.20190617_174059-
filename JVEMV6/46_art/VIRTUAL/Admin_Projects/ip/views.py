@@ -742,10 +742,56 @@ def exec_get_4_corners(request):
     fname_Image = request.GET.get('fname_image', False)
     
     '''###################
+        get : params : save image
+    ###################'''
+    # ref : function exec_Get_4Corners(fname) :: main.js
+    flg_save_image = request.GET.get('flg_save_image', False)
+    
+    # set flag
+    flg_SaveImage = False
+    
+    if flg_save_image == "true" : #if flg_save_image
+
+        flg_SaveImage = True
+        
+    #/if flg_save_image
+    
+    #debug
+    print()
+    print("[%s:%d] flg_SaveImage => %s" % \
+    (os.path.basename(libs.thisfile()), libs.linenum()
+    , flg_SaveImage
+    ), file=sys.stderr)
+
+
+    '''###################
+        get : params : corner_width
+    ###################'''
+    # ref : function exec_Get_4Corners(fname) :: main.js
+    param_Corner_Width = request.GET.get('corner_width', False)
+    
+    #debug
+    print()
+    print("[%s:%d] param_Corner_Width => %d" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , int(param_Corner_Width)
+        ), file=sys.stderr)
+    
+    # convert
+    param_Corner_Width = int(param_Corner_Width)
+    
+    '''###################
         judge        
     ###################'''
     res, msg, (height, width, channels) = \
-                lib_ip.is_PhotoOf__Sweets(dpath_Images, fname_Image)
+                lib_ip.is_PhotoOf__Sweets(
+                        dpath_Images
+                        , fname_Image
+                        , flg_SaveImage
+                        , param_Corner_Width
+                        )
+#                 lib_ip.is_PhotoOf__Sweets(dpath_Images, fname_Image, flg_SaveImage)
+#                 lib_ip.is_PhotoOf__Sweets(dpath_Images, fname_Image)
 #     res, msg = lib_ip.is_PhotoOf__Sweets(dpath_Images, fname_Image)
 
     '''###################

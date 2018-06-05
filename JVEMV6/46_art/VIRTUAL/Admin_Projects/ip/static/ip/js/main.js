@@ -1958,6 +1958,20 @@ function ip_Basics_Index_GO(param) {
 
 function btn_IP_Get_4Corners__Open_ImageDir() {
 	
+//	//debug
+//	var tag = $('input#cb_Get4Corners_SaveImage');
+//	
+//	//ref https://stackoverflow.com/questions/4754699/how-do-i-determine-if-a-checkbox-is-checked#4754729 answered Jan 21 '11 at 2:12
+//	var val = tag.is(':checked');
+////	var val = tag.checked;
+//	
+//	alert("checkbox value => '" + val + "'");
+////	var val = tag.val();
+////	
+////	alert("checkbox value => '" + val + "'");
+//	
+//	return;
+	
 	/***************************
 		ajax
 		
@@ -2036,10 +2050,49 @@ function exec_Get_4Corners(fname) {
 	// file name
 	alert(fname);
 	
+	/***************************
+		param : checkbox
+	 ***************************/
+	//debug
+	var tag = $('input#cb_Get4Corners_SaveImage');
 	
-//	//debug
+	//ref https://stackoverflow.com/questions/4754699/how-do-i-determine-if-a-checkbox-is-checked#4754729 answered Jan 21 '11 at 2:12
+	var val = tag.is(':checked');
+	
+	var _flg_save_image = "false";
+	
+	if (val) {
+
+		_flg_save_image = "true";
+
+	} //if (val)
+
+	/***************************
+		param : input : corner width
+	 ***************************/
+	//debug
+	var tag = $('input#cb_Get4Corners_CornerImage_Width');
+	
+	var _corner_Width = tag.val();
+	
+//	alert("_corner_Width => '" + _corner_Width + "'");
+//	
+	var is_number = $.isNumeric(_corner_Width);
+	
+	// validate
+	if (is_number == false) {
+
+		alert("corner width => not numeric : '" + _corner_Width + "'");
+		
+		return;
+
+	}//if (is_number == false)
+	
+	
+//	alert("is_number => '" + is_number + "'");
+//	
 //	return;
-	
+
 	/***************************
 		ajax
 		
@@ -2049,7 +2102,13 @@ function exec_Get_4Corners(fname) {
 	//var _url = "http://127.0.0.1:8000/ip/get_4_corners/";
 	
 	// params
-	var _data = {fname_image : fname, dpath_images : dpath_Images};
+	var _data = {
+				fname_image : fname
+				, dpath_images : dpath_Images
+				, flg_save_image : _flg_save_image
+				, corner_width : _corner_Width
+	};
+	
 	
 	$.ajax({
 		
