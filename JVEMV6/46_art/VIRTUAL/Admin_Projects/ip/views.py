@@ -21,7 +21,7 @@ import subprocess, copy, re, clipboard, time, \
 
 # sys.path.append('C:/WORKS_2/WS/WS_Others.Art/JVEMV6/46_art/VIRTUAL/Admin_Projects')
 # sys.path.append('C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects')
-from libs_admin import libs, lib_ip
+from libs_admin import libs, lib_ip, cons_ip
 # from Admin_Projects.libs_admin import libs
 
 # sys.path.append('C:/WORKS_2/WS/WS_Others/prog/D-7/2_2/VIRTUAL/Admin_Projects/mm')
@@ -199,6 +199,12 @@ def get_4_corners(request):
     # set : dpath
     dic['dpath_Images'] = dpath_Images
     
+    '''###################
+        dflt : corner values        
+    ###################'''
+    dic['dflt_Corner_Width'] = cons_ip.DfltVals.get_4Corners__Corner_Width.value
+    dic['dflt_Corner_Padding'] = cons_ip.DfltVals.get_4Corners__Corner_Padding.value
+
     '''###################
         get : referer        
     ###################'''
@@ -781,6 +787,22 @@ def exec_get_4_corners(request):
     param_Corner_Width = int(param_Corner_Width)
     
     '''###################
+        get : params : corner_Padding
+    ###################'''
+    # ref : function exec_Get_4Corners(fname) :: main.js
+    param_Corner_Padding = request.GET.get('corner_Padding', False)
+    
+    #debug
+    print()
+    print("[%s:%d] param_Corner_Padding => %d" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , int(param_Corner_Padding)
+        ), file=sys.stderr)
+    
+    # convert
+    param_Corner_Padding = int(param_Corner_Padding)
+    
+    '''###################
         judge        
     ###################'''
     res, msg, (height, width, channels) = \
@@ -789,6 +811,7 @@ def exec_get_4_corners(request):
                         , fname_Image
                         , flg_SaveImage
                         , param_Corner_Width
+                        , param_Corner_Padding
                         )
 #                 lib_ip.is_PhotoOf__Sweets(dpath_Images, fname_Image, flg_SaveImage)
 #                 lib_ip.is_PhotoOf__Sweets(dpath_Images, fname_Image)

@@ -957,13 +957,138 @@ def is_ColorName_Green(image_StatsData):
     return True, "True"
 
 #/ def is_CornerOf_Green(image_StatsData):
+
+# '''###################
+#     is_ColorName_Yellow
+#     
+#     description :
+#         
+#     
+#     at : 2018/06/05 12:46:29    
+#     @return: res, msg
+#         res    boolean
+#         msg    string ==> if res is 'False', gives info
+#     
+#    deprecated : 2018/06/08 09:57:10
+#
+# ###################'''
+# def is_ColorName_Yellow(image_StatsData):
+#     
+#     '''###################
+#         get vars : indices, max vals        
+#     ###################'''
+#     idxOf_Maxes = image_StatsData['idxOf_Maxes']
+#     
+#     print()
+#     print("[%s:%d] idxOf_Maxes =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(idxOf_Maxes)
+#     
+#     max_Vals = image_StatsData['max_Vals']
+# 
+#     print()
+#     print("[%s:%d] max_Vals =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(max_Vals)
+#     
+#     '''###################
+#         get vars : each color element
+#         
+#         R ==> real reference is blue
+#         G ==> real reference is green
+#         B ==> real reference is red
+#         
+#     ###################'''
+#     # prep vars
+#     idxOf_Maxes_R = idxOf_Maxes[0]
+#     idxOf_Maxes_G = idxOf_Maxes[1]
+#     idxOf_Maxes_B = idxOf_Maxes[2]
+# 
+#     max_Val_R = max_Vals[0]
+#     max_Val_G = max_Vals[1]
+#     max_Val_B = max_Vals[2]
+# 
+#     '''###################
+#         prep vars : thresholds
+#     ###################'''
+#     # thresholds
+#     ts_Max_Val_R = 3000
+#     ts_Max_Val_G = 2000
+#     ts_Max_Val_B = 2000
+#     
+#     ts_IdxOf_Max_R = 70 
+#     ts_IdxOf_Max_G = 110 
+#     ts_IdxOf_Max_B = 120 
+# 
+#     '''###################
+#         judge : max value of blue
+#     ###################'''
+#     # judge : index of max val
+#     # 'R' ===> color element of R (data is obtained in BGR format)
+#     if max_Val_R <= ts_Max_Val_R : 
+#         
+#         msg = "False : max_Val_R <= %d (%d)" % (ts_Max_Val_R, max_Val_R)
+#         
+#         print()
+#         print("[%s:%d] %s" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#              , msg
+#             ), file=sys.stderr)
+#         
+#         return False, msg
+#     
+#     '''###################
+#         judge : max value of red
+#     ###################'''
+#     # judge : index of max val
+#     # 'B' ===> color element of R (data is obtained in BGR format)
+#     if max_Val_B <= ts_Max_Val_B : 
+#         
+#         msg = "False : max_Val_B <= %d (%d)" % (ts_Max_Val_B, max_Val_B)
+#         
+#         print()
+#         print("[%s:%d] %s" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#              , msg
+#             ), file=sys.stderr)
+#         
+#         return False, msg
+#     
+#     '''###################
+#         judge : max value of green
+#     ###################'''
+#     # judge : index of max val
+#     # 'B' ===> color element of R (data is obtained in BGR format)
+#     if max_Val_G <= ts_Max_Val_G : 
+#         
+#         msg = "False : max_Val_G <= %d (%d)" % (ts_Max_Val_G, max_Val_G)
+#         
+#         print()
+#         print("[%s:%d] %s" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#              , msg
+#             ), file=sys.stderr)
+#         
+#         return False, msg
+#     
+#     '''###################
+#         return        
+#     ###################'''
+#     return True, "True"
+# 
+# #/ def is_ColorName_Yellow(image_StatsData):
+
 '''###################
     is_ColorName_Yellow
     
     description :
         
     
-    at : 2018/06/05 12:46:29    
+    at : 2018/06/08 09:42:37    
     @return: res, msg
         res    boolean
         msg    string ==> if res is 'False', gives info
@@ -995,9 +1120,15 @@ def is_ColorName_Yellow(image_StatsData):
     '''###################
         get vars : each color element
         
-        R ==> real reference is blue
-        G ==> real reference is green
-        B ==> real reference is red
+        R
+            ==> in the sheet graph and genreted data --> 'r'
+            ==> in reality --> 'b'
+        G
+            ==> in the sheet graph and genreted data --> 'g'
+            ==> in reality --> 'g'
+        B
+            ==> in the sheet graph and genreted data --> 'b'
+            ==> in reality --> 'r'
         
     ###################'''
     # prep vars
@@ -1012,40 +1143,51 @@ def is_ColorName_Yellow(image_StatsData):
     '''###################
         prep vars : thresholds
     ###################'''
-    # thresholds
-    ts_Max_Val_R = 3000
-    ts_Max_Val_G = 2000
-    ts_Max_Val_B = 2000
+    # max values
+    # R
+#     ts_Max_Val_R__Lower = 4000
+    ts_Max_Val_R__Lower = 2500
+    ts_Max_Val_R__Upper = 5000
     
-    ts_IdxOf_Max_R = 70 
-    ts_IdxOf_Max_G = 110 
-    ts_IdxOf_Max_B = 120 
+    # G
+#     ts_Max_Val_G__Lower = 3000
+    ts_Max_Val_G__Lower = 2000
+    ts_Max_Val_G__Upper = 4000
+    
+    # B
+#     ts_Max_Val_B__Lower = 3500
+    ts_Max_Val_B__Lower = 2000
+    ts_Max_Val_B__Upper = 4500
+    
+#     ts_Max_Val_G = 2000
+#     ts_Max_Val_B = 2000
+    
+    # index of max values
+    # R
+    ts_IdxOf_Max_R__Upper = 80
+    ts_IdxOf_Max_R__Lower = 0
+     
+    # G
+    ts_IdxOf_Max_G__Upper = 220
+    ts_IdxOf_Max_G__Lower = 180
+     
+    # B
+    ts_IdxOf_Max_B__Upper = 220
+    ts_IdxOf_Max_B__Lower = 180
+     
+#     ts_IdxOf_Max_G = 110 
+#     ts_IdxOf_Max_B = 120 
 
     '''###################
-        judge : max value of blue
+        judge : max value : blue
     ###################'''
     # judge : index of max val
     # 'R' ===> color element of R (data is obtained in BGR format)
-    if max_Val_R <= ts_Max_Val_R : 
+    if max_Val_R > ts_Max_Val_R__Upper \
+        or max_Val_R < ts_Max_Val_R__Lower : 
         
-        msg = "False : max_Val_R <= %d (%d)" % (ts_Max_Val_R, max_Val_R)
-        
-        print()
-        print("[%s:%d] %s" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-             , msg
-            ), file=sys.stderr)
-        
-        return False, msg
-    
-    '''###################
-        judge : max value of red
-    ###################'''
-    # judge : index of max val
-    # 'B' ===> color element of R (data is obtained in BGR format)
-    if max_Val_B <= ts_Max_Val_B : 
-        
-        msg = "False : max_Val_B <= %d (%d)" % (ts_Max_Val_B, max_Val_B)
+        msg = "False : max_Val_R ==> out of range (max = %d, min = %d, actual = %d)" \
+                % (ts_Max_Val_R__Upper, ts_Max_Val_R__Lower, max_Val_R)
         
         print()
         print("[%s:%d] %s" % \
@@ -1056,13 +1198,15 @@ def is_ColorName_Yellow(image_StatsData):
         return False, msg
     
     '''###################
-        judge : max value of green
+        judge : max value : green
     ###################'''
     # judge : index of max val
-    # 'B' ===> color element of R (data is obtained in BGR format)
-    if max_Val_G <= ts_Max_Val_G : 
+    # 'R' ===> color element of R (data is obtained in BGR format)
+    if max_Val_G > ts_Max_Val_G__Upper \
+        or max_Val_G < ts_Max_Val_G__Lower : 
         
-        msg = "False : max_Val_G <= %d (%d)" % (ts_Max_Val_G, max_Val_G)
+        msg = "False : max_Val_G ==> out of range (max = %d, min = %d, actual = %d)" \
+                % (ts_Max_Val_G__Upper, ts_Max_Val_G__Lower, max_Val_G)
         
         print()
         print("[%s:%d] %s" % \
@@ -1072,6 +1216,59 @@ def is_ColorName_Yellow(image_StatsData):
         
         return False, msg
     
+    '''###################
+        judge : max value : red
+    ###################'''
+    # judge : index of max val
+    # 'R' ===> color element of R (data is obtained in BGR format)
+    if max_Val_B > ts_Max_Val_B__Upper \
+        or max_Val_B < ts_Max_Val_B__Lower : 
+        
+        msg = "False : max_Val_B ==> out of range (max = %d, min = %d, actual = %d)" \
+                % (ts_Max_Val_B__Upper, ts_Max_Val_B__Lower, max_Val_B)
+        
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+    
+#     '''###################
+#         judge : max value of red
+#     ###################'''
+#     # judge : index of max val
+#     # 'B' ===> color element of R (data is obtained in BGR format)
+#     if max_Val_B <= ts_Max_Val_B : 
+#         
+#         msg = "False : max_Val_B <= %d (%d)" % (ts_Max_Val_B, max_Val_B)
+#         
+#         print()
+#         print("[%s:%d] %s" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#              , msg
+#             ), file=sys.stderr)
+#         
+#         return False, msg
+#     
+#     '''###################
+#         judge : max value of green
+#     ###################'''
+#     # judge : index of max val
+#     # 'B' ===> color element of R (data is obtained in BGR format)
+#     if max_Val_G <= ts_Max_Val_G : 
+#         
+#         msg = "False : max_Val_G <= %d (%d)" % (ts_Max_Val_G, max_Val_G)
+#         
+#         print()
+#         print("[%s:%d] %s" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#              , msg
+#             ), file=sys.stderr)
+#         
+#         return False, msg
+#     
     '''###################
         return        
     ###################'''
@@ -1100,10 +1297,21 @@ def get_Corner_Images(img_Src, corner_Length, padding = 0) :
     
     clips = [
     
-        img_Src[(height - corner_Length) : height, 0 : corner_Length], # clp_LB
-        img_Src[(height - corner_Length) : height, width - corner_Length : width], # clp_RB
-        img_Src[0 : corner_Length, 0 : corner_Length], # clp_LU
-        img_Src[0 : corner_Length, width - corner_Length : width], # clp_RU
+        img_Src[(height - corner_Length) : height - padding, \
+                    0 + padding : corner_Length], # clp_LB
+        
+        img_Src[(height - corner_Length) : height - padding, \
+                    width - corner_Length : width - padding], # clp_RB
+        
+        img_Src[0 + padding : corner_Length, \
+                0 + padding : corner_Length], # clp_LU
+        
+        img_Src[0 + padding : corner_Length, \
+                width - corner_Length : width - padding], # clp_RU
+#         img_Src[(height - corner_Length) : height, 0 : corner_Length], # clp_LB
+#         img_Src[(height - corner_Length) : height, width - corner_Length : width], # clp_RB
+#         img_Src[0 : corner_Length, 0 : corner_Length], # clp_LU
+#         img_Src[0 : corner_Length, width - corner_Length : width], # clp_RU
     ]
     
     # return
@@ -1115,7 +1323,8 @@ def get_Corner_Images(img_Src, corner_Length, padding = 0) :
 
 # def is_PhotoOf__Sweets(dpath_Images, fname_Image) :
 def is_PhotoOf__Sweets \
-(dpath_Images, fname_Image, flg_SaveImage = False, corner_Width = 280) :
+(dpath_Images, fname_Image, flg_SaveImage = False, \
+    corner_Width = 280, param_Corner_Padding = 0) :
     
     '''###################
                 
@@ -1172,7 +1381,8 @@ def is_PhotoOf__Sweets \
     corner_Length = corner_Width
 #     corner_Length = 280
     
-    padding = 0
+    padding = param_Corner_Padding
+#     padding = 0
     
     img_Corners = get_Corner_Images(img_RGB, corner_Length, padding)
     
@@ -1293,6 +1503,20 @@ def get_Color_Name_From_StatsData(stats_Data) :
         nameOf_Color = "green"
         
         return nameOf_Color
+    
+    '''###################
+        judge : yellow
+    ###################'''
+    res, msg = is_ColorName_Yellow(stats_Data)
+    
+    # green ?
+    if res == True : #if res == True
+    
+        nameOf_Color = "yellow"
+        
+        return nameOf_Color
+    
+    #/if res == True
     
     '''###################
         judge : yellow

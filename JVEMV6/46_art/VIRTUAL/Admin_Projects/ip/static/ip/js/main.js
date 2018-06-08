@@ -2040,7 +2040,7 @@ function exec_Get_4Corners(fname) {
 	var t_Start = +new Date();
 	
 	/***************************
-		get : params
+		get : params : dpath_Images
 	 ***************************/
 	// dpath to images
 	var dpath_Images = $('input#ipt_IP_Get_4Corners').val();
@@ -2051,7 +2051,7 @@ function exec_Get_4Corners(fname) {
 	alert(fname);
 	
 	/***************************
-		param : checkbox
+		param : checkbox : SaveImage
 	 ***************************/
 	//debug
 	var tag = $('input#cb_Get4Corners_SaveImage');
@@ -2088,6 +2088,27 @@ function exec_Get_4Corners(fname) {
 
 	}//if (is_number == false)
 	
+	/***************************
+		param : input : corner padding
+	 ***************************/
+	//debug
+	var tag_CornerImage_Padding = $('input#cb_Get4Corners_CornerImage_Padding');
+	
+	var _corner_Padding = tag_CornerImage_Padding.val();
+	
+	alert("_corner_Padding => '" + _corner_Padding + "'");
+//	
+	var is_number = $.isNumeric(_corner_Padding);
+	
+	// validate
+	if (is_number == false) {
+		
+		alert("corner padding => not numeric : '" + _corner_Padding + "'");
+		
+		return;
+		
+	}//if (is_number == false)
+	
 	
 //	alert("is_number => '" + is_number + "'");
 //	
@@ -2107,6 +2128,7 @@ function exec_Get_4Corners(fname) {
 				, dpath_images : dpath_Images
 				, flg_save_image : _flg_save_image
 				, corner_width : _corner_Width
+				, corner_Padding : _corner_Padding
 	};
 	
 	
@@ -2190,3 +2212,14 @@ function exec_Get_4Corners(fname) {
 	});
 	
 }//exec_Get_4Corners
+
+function bt_Get4Corners_Options_ShowHide_toggle() {
+	
+	var tag = $('#div_Get4Corners_Options');
+	
+	tag.toggle();
+	
+}//bt_Get4Corners_Options_ShowHide_toggle()
+
+
+

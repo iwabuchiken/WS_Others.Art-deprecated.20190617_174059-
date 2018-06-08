@@ -202,7 +202,7 @@ table#tbl_Mm_Numbering_Actions tr td {
     
 }
 
-table#tbl_Mm_DeNumbering_Actions tr td {
+table#tbl_Get4Corners_Options tr td {
     
     background-color   : #ffffff;
     
@@ -212,7 +212,7 @@ table#tbl_Mm_DeNumbering_Actions tr td {
     
     padding    : 5px;
     
-}
+}/*tbl_Mm_DeNumbering_Actions tr td*/
 
 /*table#tbl_Curren_Gen_PeakData {*/
 table#tbl_Curren_Gen_PeakData tr td {
@@ -278,6 +278,7 @@ button.bt_Numbering_List {
     
 }
 
+
 button.bt_Numbering_List:hover {
     
     background-color: #3e8e41;
@@ -307,6 +308,19 @@ button.bt_Index_List_Action {
     
     
 }
+
+button#bt_Get4Corners_Options_ShowHide {
+    
+    font-size: 15px;
+    background-color: yellow;
+    font-weight: bold;
+    
+    padding    : 5px;
+    
+    margin-left : 30px;
+    
+    
+}/*bt_Get4Corners_Options_ShowHide*/
 
 a.a_Layout_Links_Basic {
 

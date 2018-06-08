@@ -35,15 +35,27 @@
 
 </div>
 
+<br>
+<button
+    id="bt_Get4Corners_Options_ShowHide"
+    class="bt_Basic_2_Size20"
+    onclick="bt_Get4Corners_Options_ShowHide_toggle();";
+    >
+    Hide options
+</button>
+
 <div id="div_Get4Corners_Options">
     
-    <table>
+    <table
+    
+        id="tbl_Get4Corners_Options"
+        >
     
         <tr>
             <td>
             
 			    <!-- ref https://html.com/input-type-checkbox/ -->
-			    <input type="checkbox" name="cb_Get4Corners_SaveImage" value="cb_Get4Corners_SaveImage" id="cb_Get4Corners_SaveImage">
+			    <input type="checkbox" name="cb_Get4Corners_SaveImage" value="cb_Get4Corners_SaveImage" id="cb_Get4Corners_SaveImage" checked>
 			    <label for="cb_Get4Corners_SaveImage"> Save corner images !</label>
 			    
             </td>
@@ -57,7 +69,18 @@
 			          type="inputbox" 
 			          name="cb_Get4Corners_CornerImage_Width" 
 			          id="cb_Get4Corners_CornerImage_Width"
-			          value="280"
+			          value="{{ dflt_Corner_Width }}"
+			          >
+		          
+            </td>
+            
+            <td>
+	            Corner image padding : 
+			    <input 
+			          type="inputbox" 
+			          name="cb_Get4Corners_CornerImage_Padding" 
+			          id="cb_Get4Corners_CornerImage_Padding"
+			          value="{{ dflt_Corner_Padding }}"
 			          >
 		          
             </td>
