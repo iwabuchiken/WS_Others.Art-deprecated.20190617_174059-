@@ -26,7 +26,8 @@ from scipy.stats import skew
 # sys.path.append('.')
 
 #C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\libs_admin\libs.py
-from libs_admin import libs #=> working
+from libs_admin import libs, cons_ip
+# from libs_admin import libs #=> working
 # import libs
 
 '''#########################################################
@@ -611,10 +612,10 @@ def is_CornerOf_Green__PhotoOf_Sweets(image_StatsData):
     # 'B' ===> color element of R (data is obtained in BGR format)
     if idxOf_Maxes_B > 20 : 
         
-        msg = "False : idxOf_Maxes_B > 20 (%d)" % idxOf_Maxes_B
+        msg = "False : idxOf_Max_B > 20 (%d)" % idxOf_Maxes_B
         
         print()
-#         print("[%s:%d] False : idxOf_Maxes_B > 20 (%d)" % \
+#         print("[%s:%d] False : idxOf_Max_B > 20 (%d)" % \
         print("[%s:%d] %s" % \
             (os.path.basename(libs.thisfile()), libs.linenum()
              , msg
@@ -625,16 +626,16 @@ def is_CornerOf_Green__PhotoOf_Sweets(image_StatsData):
     if idxOf_Maxes_G < 30 or idxOf_Maxes_G > 80 : 
 
 #         print()
-#         print("[%s:%d] False : idxOf_Maxes_G < 30 or idxOf_Maxes_G > 80" % \
+#         print("[%s:%d] False : idxOf_Max_G < 30 or idxOf_Maxes_G > 80" % \
 #             (os.path.basename(libs.thisfile()), libs.linenum()
 #             ), file=sys.stderr)
 #         
 #         return False
         
-        msg = "False : idxOf_Maxes_G < 30 or idxOf_Maxes_G > 80 (%d)" % idxOf_Maxes_G
+        msg = "False : idxOf_Max_G < 30 or idxOf_Maxes_G > 80 (%d)" % idxOf_Maxes_G
         
         print()
-#         print("[%s:%d] False : idxOf_Maxes_B > 20 (%d)" % \
+#         print("[%s:%d] False : idxOf_Max_B > 20 (%d)" % \
         print("[%s:%d] %s" % \
             (os.path.basename(libs.thisfile()), libs.linenum()
              , msg
@@ -645,13 +646,13 @@ def is_CornerOf_Green__PhotoOf_Sweets(image_StatsData):
     if idxOf_Maxes_R < 30 or idxOf_Maxes_R > 80 : 
         
 #         print()
-#         print("[%s:%d] False : idxOf_Maxes_R < 30 or idxOf_Maxes_R > 80" % \
+#         print("[%s:%d] False : idxOf_Max_R < 30 or idxOf_Maxes_R > 80" % \
 #             (os.path.basename(libs.thisfile()), libs.linenum()
 #             ), file=sys.stderr)
 #         
 #         return False
 
-        msg = "False : idxOf_Maxes_R < 30 or idxOf_Maxes_R > 80 (%d)" % idxOf_Maxes_R
+        msg = "False : idxOf_Max_R < 30 or idxOf_Maxes_R > 80 (%d)" % idxOf_Maxes_R
         
         print()
         print("[%s:%d] %s" % \
@@ -758,40 +759,40 @@ def is_CornerOf_Green__PhotoOf_Sweets(image_StatsData):
 
 '''###################
     is_ColorName_Green
-    
+     
     description :
         copy of is_CornerOf_Green__PhotoOf_Sweets
-    
+     
     at : 2018/06/05 07:39:31
-    
+     
     @return: res, msg
         res    boolean
         msg    string ==> if res is 'False', gives info
-    
+     
 ###################'''
 def is_ColorName_Green(image_StatsData):
-    
+     
     '''###################
         vars        
     ###################'''
     idxOf_Maxes = image_StatsData['idxOf_Maxes']
-    
+     
     print()
     print("[%s:%d] idxOf_Maxes =>" % \
         (os.path.basename(libs.thisfile()), libs.linenum()
-        
+         
         ), file=sys.stderr)
     print(idxOf_Maxes)
-    
+     
     max_Vals = image_StatsData['max_Vals']
-
+ 
     print()
     print("[%s:%d] max_Vals =>" % \
         (os.path.basename(libs.thisfile()), libs.linenum()
-        
+         
         ), file=sys.stderr)
     print(max_Vals)
-    
+     
     '''###################
         judge        
     ###################'''
@@ -799,77 +800,77 @@ def is_ColorName_Green(image_StatsData):
     idxOf_Maxes_R = idxOf_Maxes[0]
     idxOf_Maxes_G = idxOf_Maxes[1]
     idxOf_Maxes_B = idxOf_Maxes[2]
-
+ 
     max_Val_R = max_Vals[0]
     max_Val_G = max_Vals[1]
     max_Val_B = max_Vals[2]
-
+ 
     # thresholds
     ts_Max_Val_R = 5500
     ts_Max_Val_G = 5500
     ts_Max_Val_B = 500
-
+ 
     # judge : index of max val
     # 'B' ===> color element of R (data is obtained in BGR format)
     if idxOf_Maxes_B > 20 : 
-        
-        msg = "False : idxOf_Maxes_B > 20 (%d)" % idxOf_Maxes_B
-        
+         
+        msg = "False : idxOf_Max_B > 20 (%d)" % idxOf_Maxes_B
+         
         print()
-#         print("[%s:%d] False : idxOf_Maxes_B > 20 (%d)" % \
+#         print("[%s:%d] False : idxOf_Max_B > 20 (%d)" % \
         print("[%s:%d] %s" % \
             (os.path.basename(libs.thisfile()), libs.linenum()
              , msg
             ), file=sys.stderr)
-        
+         
         return False, msg
-    
+     
     if idxOf_Maxes_G < 30 or idxOf_Maxes_G > 80 : 
-
+ 
 #         print()
-#         print("[%s:%d] False : idxOf_Maxes_G < 30 or idxOf_Maxes_G > 80" % \
+#         print("[%s:%d] False : idxOf_Max_G < 30 or idxOf_Maxes_G > 80" % \
 #             (os.path.basename(libs.thisfile()), libs.linenum()
 #             ), file=sys.stderr)
 #         
 #         return False
-        
-        msg = "False : idxOf_Maxes_G < 30 or idxOf_Maxes_G > 80 (%d)" % idxOf_Maxes_G
-        
+         
+        msg = "False : idxOf_Max_G < 30 or idxOf_Maxes_G > 80 (%d)" % idxOf_Maxes_G
+         
         print()
-#         print("[%s:%d] False : idxOf_Maxes_B > 20 (%d)" % \
+#         print("[%s:%d] False : idxOf_Max_B > 20 (%d)" % \
         print("[%s:%d] %s" % \
             (os.path.basename(libs.thisfile()), libs.linenum()
              , msg
             ), file=sys.stderr)
-        
+         
         return False, msg
-
+ 
     if idxOf_Maxes_R < 30 or idxOf_Maxes_R > 80 : 
-        
+         
 #         print()
-#         print("[%s:%d] False : idxOf_Maxes_R < 30 or idxOf_Maxes_R > 80" % \
+#         print("[%s:%d] False : idxOf_Max_R < 30 or idxOf_Maxes_R > 80" % \
 #             (os.path.basename(libs.thisfile()), libs.linenum()
 #             ), file=sys.stderr)
 #         
 #         return False
-
-        msg = "False : idxOf_Maxes_R < 30 or idxOf_Maxes_R > 80 (%d)" % idxOf_Maxes_R
-        
+ 
+        msg = "False : idxOf_Max_R < 30 or idxOf_Maxes_R > 80 (%d)" % idxOf_Maxes_R
+         
         print()
         print("[%s:%d] %s" % \
             (os.path.basename(libs.thisfile()), libs.linenum()
              , msg
             ), file=sys.stderr)
-        
+         
         return False, msg
-
+ 
     # judge : max vals
 #     if max_Val_R < 5000 : 
 #     if max_Val_R > 5000 : 
     if max_Val_R > ts_Max_Val_R : 
-        
-        
-        
+         
+         
+         
 #         print()
 # #         print("[%s:%d] False : max_Val_R < 5000" % \
 #         print("[%s:%d] False : max_Val_R > 5000 (%d)" % \
@@ -878,67 +879,67 @@ def is_ColorName_Green(image_StatsData):
 #             ), file=sys.stderr)
 #         
 #         return False
-
+ 
         msg = "False : max_Val_R > 5000 (%d)" % max_Val_R
-        
+         
         print()
         print("[%s:%d] %s" % \
             (os.path.basename(libs.thisfile()), libs.linenum()
              , msg
             ), file=sys.stderr)
-        
+         
         return False, msg
-
+ 
 #     if max_Val_G < 5000 : 
 #     if max_Val_G > 5000 : 
     if max_Val_G > ts_Max_Val_G : 
-
+ 
 #         print()
 #         print("[%s:%d] False : max_Val_G > 5000" % \
 #             (os.path.basename(libs.thisfile()), libs.linenum()
 #             ), file=sys.stderr)
 #         
 #         return False
-
+ 
         msg = "False : max_Val_G > 5000 (%d)" % max_Val_G
-        
+         
         print()
         print("[%s:%d] %s" % \
             (os.path.basename(libs.thisfile()), libs.linenum()
              , msg
             ), file=sys.stderr)
-        
+         
         return False, msg
-
-
+ 
+ 
     if max_Val_B < 5000 or max_Val_B > 7500 : 
-
+ 
 #         print()
 #         print("[%s:%d] False : max_Val_B < 5000 or max_Val_B > 7500" % \
 #             (os.path.basename(libs.thisfile()), libs.linenum()
 #             ), file=sys.stderr)
 #         
 #         return False
-        
+         
         '''###################
             judge : index of max val ==> 0?        
         ###################'''
         if max_Val_B > 7500 and not idxOf_Maxes_B == 0 : #if max_Val_B > 7500 and not idxOf_Maxes_B == 0
-        
+         
             msg = "False : max_Val_B < 5000 or max_Val_B > 7500 (%d, idxOf_Max = %d)" \
                     % (max_Val_B, idxOf_Maxes_B)
-            
+             
             print()
             print("[%s:%d] %s" % \
                 (os.path.basename(libs.thisfile()), libs.linenum()
                  , msg
                 ), file=sys.stderr)
-            
+             
             return False, msg
-            
+             
         #/if max_Val_B > 7500 and not idxOf_Maxes_B == 0
-        
-        
+         
+         
 #         msg = "False : max_Val_B < 5000 or max_Val_B > 7500 (%d)" % max_Val_B
 #         msg = "False : max_Val_B < 5000 or max_Val_B > 7500 (%d, idxOf_Max = %d)" \
 #                 % (max_Val_B, idxOf_Maxes_B)
@@ -950,137 +951,13 @@ def is_ColorName_Green(image_StatsData):
 #             ), file=sys.stderr)
 #         
 #         return False, msg
-
+ 
     '''###################
         return        
     ###################'''
     return True, "True"
-
+ 
 #/ def is_CornerOf_Green(image_StatsData):
-
-# '''###################
-#     is_ColorName_Yellow
-#     
-#     description :
-#         
-#     
-#     at : 2018/06/05 12:46:29    
-#     @return: res, msg
-#         res    boolean
-#         msg    string ==> if res is 'False', gives info
-#     
-#    deprecated : 2018/06/08 09:57:10
-#
-# ###################'''
-# def is_ColorName_Yellow(image_StatsData):
-#     
-#     '''###################
-#         get vars : indices, max vals        
-#     ###################'''
-#     idxOf_Maxes = image_StatsData['idxOf_Maxes']
-#     
-#     print()
-#     print("[%s:%d] idxOf_Maxes =>" % \
-#         (os.path.basename(libs.thisfile()), libs.linenum()
-#         
-#         ), file=sys.stderr)
-#     print(idxOf_Maxes)
-#     
-#     max_Vals = image_StatsData['max_Vals']
-# 
-#     print()
-#     print("[%s:%d] max_Vals =>" % \
-#         (os.path.basename(libs.thisfile()), libs.linenum()
-#         
-#         ), file=sys.stderr)
-#     print(max_Vals)
-#     
-#     '''###################
-#         get vars : each color element
-#         
-#         R ==> real reference is blue
-#         G ==> real reference is green
-#         B ==> real reference is red
-#         
-#     ###################'''
-#     # prep vars
-#     idxOf_Maxes_R = idxOf_Maxes[0]
-#     idxOf_Maxes_G = idxOf_Maxes[1]
-#     idxOf_Maxes_B = idxOf_Maxes[2]
-# 
-#     max_Val_R = max_Vals[0]
-#     max_Val_G = max_Vals[1]
-#     max_Val_B = max_Vals[2]
-# 
-#     '''###################
-#         prep vars : thresholds
-#     ###################'''
-#     # thresholds
-#     ts_Max_Val_R = 3000
-#     ts_Max_Val_G = 2000
-#     ts_Max_Val_B = 2000
-#     
-#     ts_IdxOf_Max_R = 70 
-#     ts_IdxOf_Max_G = 110 
-#     ts_IdxOf_Max_B = 120 
-# 
-#     '''###################
-#         judge : max value of blue
-#     ###################'''
-#     # judge : index of max val
-#     # 'R' ===> color element of R (data is obtained in BGR format)
-#     if max_Val_R <= ts_Max_Val_R : 
-#         
-#         msg = "False : max_Val_R <= %d (%d)" % (ts_Max_Val_R, max_Val_R)
-#         
-#         print()
-#         print("[%s:%d] %s" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#              , msg
-#             ), file=sys.stderr)
-#         
-#         return False, msg
-#     
-#     '''###################
-#         judge : max value of red
-#     ###################'''
-#     # judge : index of max val
-#     # 'B' ===> color element of R (data is obtained in BGR format)
-#     if max_Val_B <= ts_Max_Val_B : 
-#         
-#         msg = "False : max_Val_B <= %d (%d)" % (ts_Max_Val_B, max_Val_B)
-#         
-#         print()
-#         print("[%s:%d] %s" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#              , msg
-#             ), file=sys.stderr)
-#         
-#         return False, msg
-#     
-#     '''###################
-#         judge : max value of green
-#     ###################'''
-#     # judge : index of max val
-#     # 'B' ===> color element of R (data is obtained in BGR format)
-#     if max_Val_G <= ts_Max_Val_G : 
-#         
-#         msg = "False : max_Val_G <= %d (%d)" % (ts_Max_Val_G, max_Val_G)
-#         
-#         print()
-#         print("[%s:%d] %s" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#              , msg
-#             ), file=sys.stderr)
-#         
-#         return False, msg
-#     
-#     '''###################
-#         return        
-#     ###################'''
-#     return True, "True"
-# 
-# #/ def is_ColorName_Yellow(image_StatsData):
 
 '''###################
     is_ColorName_Yellow
@@ -1146,34 +1023,47 @@ def is_ColorName_Yellow(image_StatsData):
     # max values
     # R
 #     ts_Max_Val_R__Lower = 4000
-    ts_Max_Val_R__Lower = 2500
-    ts_Max_Val_R__Upper = 5000
+    ts_Max_Val_R__Lower = cons_ip.ColorThresholds.isYellow_Max_Val_R__Lower.value
+    ts_Max_Val_R__Upper = cons_ip.ColorThresholds.isYellow_Max_Val_R__Upper.value
+#     ts_Max_Val_R__Lower = 2500
+#     ts_Max_Val_R__Upper = 5000
     
     # G
 #     ts_Max_Val_G__Lower = 3000
-    ts_Max_Val_G__Lower = 2000
-    ts_Max_Val_G__Upper = 4000
+#     ts_Max_Val_G__Lower = 2000
+#     ts_Max_Val_G__Upper = 4000
+    ts_Max_Val_G__Lower = cons_ip.ColorThresholds.isYellow_Max_Val_G__Lower.value
+    ts_Max_Val_G__Upper = cons_ip.ColorThresholds.isYellow_Max_Val_G__Upper.value
     
     # B
 #     ts_Max_Val_B__Lower = 3500
-    ts_Max_Val_B__Lower = 2000
-    ts_Max_Val_B__Upper = 4500
+#     ts_Max_Val_B__Lower = 2000
+#     ts_Max_Val_B__Upper = 4500
+    ts_Max_Val_B__Lower = cons_ip.ColorThresholds.isYellow_Max_Val_B__Lower.value
+    ts_Max_Val_B__Upper = cons_ip.ColorThresholds.isYellow_Max_Val_B__Upper.value
     
 #     ts_Max_Val_G = 2000
 #     ts_Max_Val_B = 2000
     
     # index of max values
     # R
-    ts_IdxOf_Max_R__Upper = 80
-    ts_IdxOf_Max_R__Lower = 0
-     
+    ts_IdxOf_Max_R__Upper = cons_ip.ColorThresholds.isYellow_IdxOf_Max_R__Upper.value
+    ts_IdxOf_Max_R__Lower = cons_ip.ColorThresholds.isYellow_IdxOf_Max_R__Lower.value
+#     ts_IdxOf_Max_R__Upper = -1      # -1 ==> not used
+#     ts_IdxOf_Max_R__Lower = 80
+
     # G
-    ts_IdxOf_Max_G__Upper = 220
-    ts_IdxOf_Max_G__Lower = 180
+#     ts_IdxOf_Max_G__Upper = 220
+#     ts_IdxOf_Max_G__Lower = 165
+    ts_IdxOf_Max_G__Upper = cons_ip.ColorThresholds.isYellow_IdxOf_Max_G__Upper.value
+    ts_IdxOf_Max_G__Lower = cons_ip.ColorThresholds.isYellow_IdxOf_Max_G__Lower.value
      
     # B
-    ts_IdxOf_Max_B__Upper = 220
-    ts_IdxOf_Max_B__Lower = 180
+#     ts_IdxOf_Max_B__Upper = 200
+#     ts_IdxOf_Max_B__Upper = 180
+#     ts_IdxOf_Max_B__Lower = -1      # -1 ==> not used
+    ts_IdxOf_Max_B__Upper = cons_ip.ColorThresholds.isYellow_IdxOf_Max_B__Upper.value
+    ts_IdxOf_Max_B__Lower = cons_ip.ColorThresholds.isYellow_IdxOf_Max_B__Lower.value
      
 #     ts_IdxOf_Max_G = 110 
 #     ts_IdxOf_Max_B = 120 
@@ -1234,47 +1124,310 @@ def is_ColorName_Yellow(image_StatsData):
             ), file=sys.stderr)
         
         return False, msg
+
+    '''###################
+        judge : index of max value : blue
+    ###################'''
+    # judge : index of max val
+    # 'R' ===> color element of R (data is obtained in BGR format)
+#     if idxOf_Maxes_R > ts_IdxOf_Max_R__Lower : 
+    if not (idxOf_Maxes_R < ts_IdxOf_Max_R__Lower) : 
+        
+        msg = "False : idxOf_Max_R ==> out of range (idxOf_Maxes_R = %d, ts_IdxOf_Max_R__Lower = %d)" \
+                % (idxOf_Maxes_R, ts_IdxOf_Max_R__Lower)
+        
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
     
-#     '''###################
-#         judge : max value of red
-#     ###################'''
-#     # judge : index of max val
-#     # 'B' ===> color element of R (data is obtained in BGR format)
-#     if max_Val_B <= ts_Max_Val_B : 
-#         
-#         msg = "False : max_Val_B <= %d (%d)" % (ts_Max_Val_B, max_Val_B)
-#         
-#         print()
-#         print("[%s:%d] %s" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#              , msg
-#             ), file=sys.stderr)
-#         
-#         return False, msg
-#     
-#     '''###################
-#         judge : max value of green
-#     ###################'''
-#     # judge : index of max val
-#     # 'B' ===> color element of R (data is obtained in BGR format)
-#     if max_Val_G <= ts_Max_Val_G : 
-#         
-#         msg = "False : max_Val_G <= %d (%d)" % (ts_Max_Val_G, max_Val_G)
-#         
-#         print()
-#         print("[%s:%d] %s" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#              , msg
-#             ), file=sys.stderr)
-#         
-#         return False, msg
-#     
+    
+    '''###################
+        judge : index of max value : green
+    ###################'''
+    # judge : index of max val
+    # 'R' ===> color element of R (data is obtained in BGR format)
+#     if idxOf_Maxes_R > ts_IdxOf_Max_R__Lower : 
+    if not (idxOf_Maxes_G < ts_IdxOf_Max_G__Upper \
+            and idxOf_Maxes_G > ts_IdxOf_Max_G__Lower) : 
+        
+        msg = "False : idxOf_Maxe_G ==> out of range (max = %d, min = %d, value = %d)" \
+                % (ts_IdxOf_Max_G__Upper, ts_IdxOf_Max_G__Lower, idxOf_Maxes_G)
+        
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+    
+    
+    '''###################
+        judge : index of max value : red
+    ###################'''
+    # judge : index of max val
+    # 'R' ===> color element of R (data is obtained in BGR format)
+#     if idxOf_Maxes_R > ts_IdxOf_Max_R__Lower : 
+#     if not (idxOf_Maxes_R > ts_IdxOf_Max_R__Upper) : 
+    if not (idxOf_Maxes_B > ts_IdxOf_Max_B__Upper) : 
+        
+        msg = "False : idxOf_Max_B ==> out of range (max = %d, min = %d, value = %d)" \
+                % (ts_IdxOf_Max_B__Upper, ts_IdxOf_Max_B__Lower, idxOf_Maxes_B)
+        
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+    
+    
     '''###################
         return        
     ###################'''
     return True, "True"
 
 #/ def is_ColorName_Yellow(image_StatsData):
+
+'''###################
+    is_ColorName_Red
+    
+    description :
+        
+    
+    at : 2018/06/10 12:24:45    
+    @return: res, msg
+        res    boolean
+        msg    string ==> if res is 'False', gives info
+    
+###################'''
+def is_ColorName_Red(image_StatsData):
+    
+    '''###################
+        get vars : indices, max vals        
+    ###################'''
+    idxOf_Maxes = image_StatsData['idxOf_Maxes']
+    
+    print()
+    print("[%s:%d] idxOf_Maxes =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    print(idxOf_Maxes)
+    
+    max_Vals = image_StatsData['max_Vals']
+
+    print()
+    print("[%s:%d] max_Vals =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    print(max_Vals)
+    
+    '''###################
+        get vars : each color element
+        
+        R
+            ==> in the sheet graph and genreted data --> 'r'
+            ==> in reality --> 'b'
+        G
+            ==> in the sheet graph and genreted data --> 'g'
+            ==> in reality --> 'g'
+        B
+            ==> in the sheet graph and genreted data --> 'b'
+            ==> in reality --> 'r'
+        
+    ###################'''
+    # prep vars
+    idxOf_Maxes_R = idxOf_Maxes[0]
+    idxOf_Maxes_G = idxOf_Maxes[1]
+    idxOf_Maxes_B = idxOf_Maxes[2]
+
+    max_Val_R = max_Vals[0]
+    max_Val_G = max_Vals[1]
+    max_Val_B = max_Vals[2]
+
+    '''###################
+        prep vars : thresholds
+    ###################'''
+    '''###################
+        thresholds : max values
+    ###################'''
+    # R
+    ts_Max_Val_R__Lower = cons_ip.ColorThresholds.isRed_Max_Val_R__Lower.value
+    ts_Max_Val_R__Upper = cons_ip.ColorThresholds.isRed_Max_Val_R__Upper.value
+#     ts_Max_Val_R__Lower = 2.2 * 1000
+#     ts_Max_Val_R__Upper = 3.9 * 1000
+    
+    # G
+    ts_Max_Val_G__Lower = cons_ip.ColorThresholds.isRed_Max_Val_G__Lower.value
+    ts_Max_Val_G__Upper = cons_ip.ColorThresholds.isRed_Max_Val_G__Upper.value
+
+#     ts_Max_Val_G__Lower = 2.3 * 1000
+#     ts_Max_Val_G__Upper = 3.9 * 1000
+    
+    # B
+    ts_Max_Val_B__Lower = cons_ip.ColorThresholds.isRed_Max_Val_B__Lower.value
+    ts_Max_Val_B__Upper = cons_ip.ColorThresholds.isRed_Max_Val_B__Upper.value
+    
+#     ts_Max_Val_B__Lower = 1.8 * 1000
+#     ts_Max_Val_B__Upper = 2.5 * 1000
+    
+    '''###################
+        thresholds : index of max values
+    ###################'''    
+    # R
+    ts_IdxOf_Max_R__Upper = cons_ip.ColorThresholds.isRed_IdxOf_Max_R__Upper.value
+    ts_IdxOf_Max_R__Lower = cons_ip.ColorThresholds.isRed_IdxOf_Max_R__Lower.value
+#     ts_IdxOf_Max_R__Upper = 50
+#     ts_IdxOf_Max_R__Lower = 0
+     
+    # G
+#     ts_IdxOf_Max_G__Upper = 60
+#     ts_IdxOf_Max_G__Lower = 0
+    ts_IdxOf_Max_G__Upper = cons_ip.ColorThresholds.isRed_IdxOf_Max_G__Upper.value
+    ts_IdxOf_Max_G__Lower = cons_ip.ColorThresholds.isRed_IdxOf_Max_G__Lower.value
+     
+    # B
+#     ts_IdxOf_Max_B__Upper = 200
+#     ts_IdxOf_Max_B__Lower = 150
+    ts_IdxOf_Max_B__Upper = cons_ip.ColorThresholds.isRed_IdxOf_Max_B__Upper.value
+    ts_IdxOf_Max_B__Lower = cons_ip.ColorThresholds.isRed_IdxOf_Max_B__Lower.value
+     
+    '''###################
+        judge : max value : blue
+    ###################'''
+    # judge : index of max val
+    # 'R' ===> color element of R (data is obtained in BGR format)
+    if max_Val_R > ts_Max_Val_R__Upper \
+        or max_Val_R < ts_Max_Val_R__Lower : 
+        
+        msg = "False : max_Val_R ==> out of range (max = %d, min = %d, actual = %d)" \
+                % (ts_Max_Val_R__Upper, ts_Max_Val_R__Lower, max_Val_R)
+        
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+    
+    '''###################
+        judge : max value : green
+    ###################'''
+    # judge : index of max val
+    # 'R' ===> color element of R (data is obtained in BGR format)
+    if max_Val_G > ts_Max_Val_G__Upper \
+        or max_Val_G < ts_Max_Val_G__Lower : 
+        
+        msg = "False : max_Val_G ==> out of range (max = %d, min = %d, actual = %d)" \
+                % (ts_Max_Val_G__Upper, ts_Max_Val_G__Lower, max_Val_G)
+        
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+    
+    '''###################
+        judge : max value : red
+    ###################'''
+    # judge : index of max val
+    # 'R' ===> color element of R (data is obtained in BGR format)
+    if max_Val_B > ts_Max_Val_B__Upper \
+        or max_Val_B < ts_Max_Val_B__Lower : 
+        
+        msg = "False : max_Val_B ==> out of range (max = %d, min = %d, actual = %d)" \
+                % (ts_Max_Val_B__Upper, ts_Max_Val_B__Lower, max_Val_B)
+        
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+
+    '''###################
+        judge : index of max value : blue
+    ###################'''
+    # judge : index of max val
+    # 'R' ===> color element of R (data is obtained in BGR format)
+#     if idxOf_Maxes_R > ts_IdxOf_Max_R__Lower : 
+    if not (idxOf_Maxes_R > ts_IdxOf_Max_R__Lower \
+            and idxOf_Maxes_R < ts_IdxOf_Max_R__Upper) : 
+        
+        msg = "False : idxOf_Max_R ==> out of range (max = %d, min = %d, actual = %d)" \
+                % (ts_IdxOf_Max_R__Upper, ts_IdxOf_Max_R__Lower, idxOf_Maxes_R)        
+                
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+    
+    
+    '''###################
+        judge : index of max value : green
+    ###################'''
+    # judge : index of max val
+    # 'R' ===> color element of R (data is obtained in BGR format)
+#     if idxOf_Maxes_R > ts_IdxOf_Max_R__Lower : 
+
+    if not (idxOf_Maxes_G > ts_IdxOf_Max_G__Lower \
+            and idxOf_Maxes_G < ts_IdxOf_Max_G__Upper) : 
+        
+        msg = "False : idxOf_Maxe_G ==> out of range (max = %d, min = %d, actual = %d)" \
+                % (ts_IdxOf_Max_G__Upper, ts_IdxOf_Max_G__Lower, idxOf_Maxes_G)        
+                
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+    
+    
+    '''###################
+        judge : index of max value : red
+    ###################'''
+    # judge : index of max val
+    # 'R' ===> color element of R (data is obtained in BGR format)
+#     if idxOf_Maxes_R > ts_IdxOf_Max_R__Lower : 
+#     if not (idxOf_Maxes_R > ts_IdxOf_Max_R__Upper) : 
+
+    if not (idxOf_Maxes_B > ts_IdxOf_Max_B__Lower \
+            and idxOf_Maxes_B < ts_IdxOf_Max_B__Upper) : 
+        
+        msg = "False : idxOf_Max_B ==> out of range (max = %d, min = %d, actual = %d)" \
+                % (ts_IdxOf_Max_B__Upper, ts_IdxOf_Max_B__Lower, idxOf_Maxes_B)        
+                
+        print()
+        print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+             , msg
+            ), file=sys.stderr)
+        
+        return False, msg
+    
+    
+    '''###################
+        return        
+    ###################'''
+    return True, "True"
+
+#/ def is_ColorName_Red(image_StatsData):
 
 '''###################
     get_Corner_Images(img_Src, corner_Length)        
@@ -1444,6 +1597,13 @@ def is_PhotoOf__Sweets \
     
         nameOf_CornerImage = lo_Names_Of_Corner_Images[i]
         
+        #debug
+        print()
+        print("[%s:%d] inspecting ===> %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                , nameOf_CornerImage
+                ), file=sys.stderr)
+        
         stats_Data = lo_Image_StatsData[i]
         
         color_Name = get_Color_Name_From_StatsData(stats_Data)
@@ -1485,6 +1645,15 @@ def is_PhotoOf__Sweets \
     
 #/ def is_PhotoOf__Sweets(dir_path, file_name) :
 
+'''###################
+    get_Color_Name_From_StatsData(stats_Data)
+    
+    @return: nameOf_Color :: string
+            ==> name of color
+                "green"
+                "yellow"
+                "red"
+###################'''
 def get_Color_Name_From_StatsData(stats_Data) :
     
     '''###################
@@ -1495,6 +1664,13 @@ def get_Color_Name_From_StatsData(stats_Data) :
     '''###################
         judge : green
     ###################'''
+    #debug
+    print()
+    print("[%s:%d] inspecting : green ------------" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+    
     res, msg = is_ColorName_Green(stats_Data)
     
     # green ?
@@ -1507,6 +1683,13 @@ def get_Color_Name_From_StatsData(stats_Data) :
     '''###################
         judge : yellow
     ###################'''
+    #debug
+    print()
+    print("[%s:%d] inspecting : yellow ------------" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+
     res, msg = is_ColorName_Yellow(stats_Data)
     
     # green ?
@@ -1519,14 +1702,20 @@ def get_Color_Name_From_StatsData(stats_Data) :
     #/if res == True
     
     '''###################
-        judge : yellow
+        judge : red
     ###################'''
-    res, msg = is_ColorName_Yellow(stats_Data)
+    print()
+    print("[%s:%d] inspecting : red ------------" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+
+    res, msg = is_ColorName_Red(stats_Data)
     
     # green ?
     if res == True : #if res == True
     
-        nameOf_Color = "yellow"
+        nameOf_Color = "red"
         
         return nameOf_Color
     
