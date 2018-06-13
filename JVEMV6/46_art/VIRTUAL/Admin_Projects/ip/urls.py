@@ -20,5 +20,7 @@ urlpatterns = [
     
     url(r'^exec_get_4_corners/$', views.exec_get_4_corners, name='exec_get_4_corners'),
     
+    url(r'^gen_Cake_CSV/$', views.gen_Cake_CSV, name='gen_Cake_CSV'),
+    
     
 ]
