@@ -816,6 +816,42 @@ def gen_Cake_CSV__Get_ListOf_Files(dpath_Images):
 #/ def gen_Cake_CSV__Get_ListOf_Files(dpath_Images):
     
     
+def gen_Cake_CSV__Get_ColorName_Set(\
+    dpath_Images
+   , lo_Files
+   , flg_SaveImage
+   , param_Corner_Width
+   , param_Corner_Padding
+           ):
+    
+    '''###################
+        vars        
+    ###################'''
+    lo_ColorName_Set = []
+    
+    '''###################
+        get color name set        
+    ###################'''
+    flg_SaveImage = False
+    
+    for fname in lo_Files:
+                
+        # judge
+        lo_ColorNames = lib_ip.get_ColorName_Set_From_Image(\
+                dpath_Images, fname, flg_SaveImage, \
+                param_Corner_Width, param_Corner_Padding)
+        
+    #/for fname in lo_Files:
+
+    
+    '''###################
+        return        
+    ###################'''
+    return lo_ColorName_Set
+    
+#/ def gen_Cake_CSV__Get_ColorName_Set(dpath_Images, lo_Files):
+    
+    
 def gen_Cake_CSV(request):
 
     '''###################
@@ -828,29 +864,6 @@ def gen_Cake_CSV(request):
     ###################'''
     dpath_Images, flg_SaveImage, param_Corner_Width, param_Corner_Padding \
             = gen_Cake_CSV__Get_Params(request)
-#     dpath_Images, flg_SaveImage = gen_Cake_CSV__Get_Params(request)
-    
-#     '''###################
-#         get : params
-#     ###################'''
-#     dpath_Images = request.GET.get('dpath_images', False)
-#     
-#     fname_Image = request.GET.get('fname_image', False)
-    
-#     '''###################
-#         get : params : save image
-#     ###################'''
-#     # ref : function exec_Get_4Corners(fname) :: main.js
-#     flg_save_image = request.GET.get('flg_save_image', False)
-#     
-#     # set flag
-#     flg_SaveImage = False
-#     
-#     if flg_save_image == "true" : #if flg_save_image
-# 
-#         flg_SaveImage = True
-#         
-#     #/if flg_save_image
     
     #debug
     print()
@@ -860,48 +873,10 @@ def gen_Cake_CSV(request):
 #     , flg_SaveImage
     ), file=sys.stderr)
 
-
-#     '''###################
-#         get : params : corner_width
-#     ###################'''
-#     # ref : function exec_Get_4Corners(fname) :: main.js
-#     param_Corner_Width = request.GET.get('corner_width', False)
-#     
-#     #debug
-#     print()
-#     print("[%s:%d] param_Corner_Width => %d" % \
-#         (os.path.basename(libs.thisfile()), libs.linenum()
-#         , int(param_Corner_Width)
-#         ), file=sys.stderr)
-#     
-#     # convert
-#     param_Corner_Width = int(param_Corner_Width)
-#     
-#     '''###################
-#         get : params : corner_Padding
-#     ###################'''
-#     # ref : function exec_Get_4Corners(fname) :: main.js
-#     param_Corner_Padding = request.GET.get('corner_Padding', False)
-#     
-#     #debug
-#     print()
-#     print("[%s:%d] param_Corner_Padding => %d" % \
-#         (os.path.basename(libs.thisfile()), libs.linenum()
-#         , int(param_Corner_Padding)
-#         ), file=sys.stderr)
-#     
-#     # convert
-#     param_Corner_Padding = int(param_Corner_Padding)
-#     
     '''###################
         set : vars
     ###################'''
     dic['dpath_Images'] = dpath_Images
-#     dic['fname_Image'] = fname_Image
-    
-#     dic['height'] = height
-#     dic['width'] = width
-#     dic['channels'] = channels
     
     '''###################
         get : files list
@@ -909,36 +884,11 @@ def gen_Cake_CSV(request):
     lo_Files = gen_Cake_CSV__Get_ListOf_Files(dpath_Images)
     
     
-#     dpath_Images = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6" \
-#                 + "\\46_art\\VIRTUAL\\Admin_Projects" \
-#                 + "\\ip" \
-#                 + "\\images"
-    
     print()
     print("[%s:%d] dpath_Images => %s" % \
         (os.path.basename(libs.thisfile()), libs.linenum()
         , dpath_Images
         ), file=sys.stderr)
-    
-#     fpath_Glob = "%s\\*" % (dpath_Images)
-# 
-#     #ref glob https://stackoverflow.com/questions/14798220/how-can-i-search-sub-folders-using-glob-glob-module-in-python answered Feb 10 '13 at 13:31    
-#     lo_Files = glob.glob(fpath_Glob)
-#     
-#     # files only
-#     lo_Files_Filtered = []
-#     
-#     for item in lo_Files:
-# 
-#         if os.path.isfile(item) == True : 
-#             lo_Files_Filtered.append(item)
-#         
-#     #/for item in lo_Files:
-# 
-#     # update the list
-#     lo_Files = lo_Files_Filtered
-#     
-#     lo_Files.sort()    
     
     #debug
     print()
@@ -946,6 +896,23 @@ def gen_Cake_CSV(request):
             (os.path.basename(libs.thisfile()), libs.linenum()
             , len(lo_Files)
             ), file=sys.stderr)
+    
+#     lo_ColorName_Set = gen_Cake_CSV__Get_ColorName_Set(dpath_Images, lo_Files)
+    lo_ColorName_Set = gen_Cake_CSV__Get_ColorName_Set(\
+                       dpath_Images
+                       , lo_Files
+                       , flg_SaveImage
+                       , param_Corner_Width
+                       , param_Corner_Padding)
+
+    #debug
+    print()
+    print("[%s:%d] lo_ColorName_Set =>" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+    
+    print(lo_ColorName_Set)
     
     '''###################
         get : referer        

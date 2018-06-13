@@ -1912,6 +1912,25 @@ def is_PhotoOf__Sweets \
 #/ def is_PhotoOf__Sweets(dir_path, file_name) :
 
 '''###################
+    is_PhotoOf__Sweets        
+###################'''
+def get_ColorName_Set_From_Image(\
+    dpath_Images, fname, flg_SaveImage, \
+    param_Corner_Width, param_Corner_Padding) :
+    
+    '''###################
+        vars        
+    ###################'''
+    lo_ColorNames = []
+    
+    '''###################
+        return        
+    ###################'''
+    return lo_ColorNames
+    
+#/ get_ColorName_Set_From_Image(dpath_Images, file_Name)
+
+'''###################
     func : get_NamesOf_CornerColors
     
     at    : 2018/06/12 13:07:10
