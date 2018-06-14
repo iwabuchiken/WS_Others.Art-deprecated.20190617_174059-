@@ -2309,6 +2309,27 @@ function btn_IP_Get_4Corners__Gen_CakeCSV() {
 	}//if (is_number == false)
 	
 	/***************************
+		show message
+	 ***************************/
+	var tag = $('div#div_IP_Get_4Corners_Message_Area');
+	
+	var msg = "starting ajax for 'http://127.0.0.1:8001/ip/gen_Cake_CSV/'..."
+	
+	tag.html(msg);
+
+	// message
+	tag.css("background", cname_Yellow);
+	
+	tag
+		.fadeIn(200).fadeOut(200)
+		.fadeIn(200).fadeOut(200)
+		
+		.fadeIn(200).fadeOut(200)
+		.fadeIn(200).fadeOut(200)
+		
+		.fadeIn(200);
+
+	/***************************
 		param : gen cake csv
 	 ***************************/
 	var _option = "gen_cake_csv";
@@ -2320,6 +2341,9 @@ function btn_IP_Get_4Corners__Gen_CakeCSV() {
 	 ***************************/
 	var _url = "http://127.0.0.1:8001/ip/gen_Cake_CSV/";
 	//var _url = "http://127.0.0.1:8000/ip/get_4_corners/";
+	
+	// time out (mill seconds)
+	var _timeout = 3 * 60 * 1000;
 	
 	// params
 	var _data = {
@@ -2340,7 +2364,8 @@ function btn_IP_Get_4Corners__Gen_CakeCSV() {
 	//    data: {memos: memos, image_id: image_id},
 		data: _data,
 		
-		timeout: 10000
+		timeout: _timeout
+//		timeout: 10000
 		
 	}).done(function(data, status, xhr) {
 		
@@ -2356,6 +2381,19 @@ function btn_IP_Get_4Corners__Gen_CakeCSV() {
 		// message
 		tag.css("background", cname_LightBlue);
 
+		tag
+			.fadeIn(200).fadeOut(200)
+			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200).fadeOut(200)
+			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200).fadeOut(200)
+			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200);
+
+		
 	}).fail(function(xhr, status, error) {
 		
 		/***************************

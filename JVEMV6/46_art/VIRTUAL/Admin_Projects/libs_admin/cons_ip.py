@@ -57,7 +57,8 @@ class ColorThresholds(Enum):
         thresholds : max values
     ###################'''
     # R
-    isGreen_Max_Val_R__Lower = 3.0 * 1000
+#     isGreen_Max_Val_R__Lower = 3.0 * 1000
+    isGreen_Max_Val_R__Lower = 2.6 * 1000
     isGreen_Max_Val_R__Upper = 4.1 * 1000
     
     # G
@@ -123,15 +124,17 @@ class ColorThresholds(Enum):
      
     # G
     isYellow_IdxOf_Max_G__Upper = 220
-    isYellow_IdxOf_Max_G__Lower = 145
+    isYellow_IdxOf_Max_G__Lower = 130
+#     isYellow_IdxOf_Max_G__Lower = 145
 #     isYellow_IdxOf_Max_G__Lower = 165
 #     isYellow_IdxOf_Max_G__Lower = 180
      
     # B
 #     isYellow_IdxOf_Max_B__Upper = 200
 #     isYellow_IdxOf_Max_B__Upper = 180
-    isYellow_IdxOf_Max_B__Upper = 165
-    isYellow_IdxOf_Max_B__Lower = -1      # -1 ==> not used
+#     isYellow_IdxOf_Max_B__Upper = 165
+    isYellow_IdxOf_Max_B__Upper = 240
+    isYellow_IdxOf_Max_B__Lower = 140      # -1 ==> not used
 
 class FilePaths(Enum):
     
