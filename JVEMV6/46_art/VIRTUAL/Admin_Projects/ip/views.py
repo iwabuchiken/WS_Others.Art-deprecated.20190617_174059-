@@ -838,7 +838,8 @@ def gen_Cake_CSV__Get_ColorName_Set(\
     cnt = 0
 #     maxOf_Cnt = 30
 #     maxOf_Cnt = 20
-    maxOf_Cnt = 15
+    maxOf_Cnt = 999
+#     maxOf_Cnt = 15
 #     maxOf_Cnt = 10
 #     maxOf_Cnt = 5
 #     maxOf_Cnt = 2
