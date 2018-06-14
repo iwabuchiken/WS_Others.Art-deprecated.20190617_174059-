@@ -64,7 +64,8 @@ class ColorThresholds(Enum):
     
     # G
     isGreen_Max_Val_G__Lower = 1.4 * 1000
-    isGreen_Max_Val_G__Upper = 2.8 * 1000
+    isGreen_Max_Val_G__Upper = 3.2 * 1000
+#     isGreen_Max_Val_G__Upper = 2.8 * 1000
 #     isGreen_Max_Val_G__Upper = 2.6 * 1000
     
     # B

@@ -777,21 +777,21 @@ def is_ColorName_Green(image_StatsData):
     ###################'''
     idxOf_Maxes = image_StatsData['idxOf_Maxes']
     
-    print()
-    print("[%s:%d] idxOf_Maxes =>" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        
-        ), file=sys.stderr)
-    print(idxOf_Maxes)
+#     print()
+#     print("[%s:%d] idxOf_Maxes =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(idxOf_Maxes)
     
     max_Vals = image_StatsData['max_Vals']
 
-    print()
-    print("[%s:%d] max_Vals =>" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        
-        ), file=sys.stderr)
-    print(max_Vals)
+#     print()
+#     print("[%s:%d] max_Vals =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(max_Vals)
     
     '''###################
         get vars : each color element
@@ -1201,21 +1201,21 @@ def is_ColorName_Yellow(image_StatsData):
     ###################'''
     idxOf_Maxes = image_StatsData['idxOf_Maxes']
     
-    print()
-    print("[%s:%d] idxOf_Maxes =>" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        
-        ), file=sys.stderr)
-    print(idxOf_Maxes)
+#     print()
+#     print("[%s:%d] idxOf_Maxes =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(idxOf_Maxes)
     
     max_Vals = image_StatsData['max_Vals']
 
-    print()
-    print("[%s:%d] max_Vals =>" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        
-        ), file=sys.stderr)
-    print(max_Vals)
+#     print()
+#     print("[%s:%d] max_Vals =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(max_Vals)
     
     '''###################
         get vars : each color element
@@ -1288,12 +1288,12 @@ def is_ColorName_Yellow(image_StatsData):
     ts_IdxOf_Max_B__Upper = cons_ip.ColorThresholds.isYellow_IdxOf_Max_B__Upper.value
     ts_IdxOf_Max_B__Lower = cons_ip.ColorThresholds.isYellow_IdxOf_Max_B__Lower.value
      
-    #debug
-    print() 
-    print("[%s:%d] ts_IdxOf_Max_B__Upper = %d, ts_IdxOf_Max_B__Lower = %d" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        , ts_IdxOf_Max_B__Upper, ts_IdxOf_Max_B__Lower
-        ), file=sys.stderr)
+#     #debug
+#     print() 
+#     print("[%s:%d] ts_IdxOf_Max_B__Upper = %d, ts_IdxOf_Max_B__Lower = %d" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , ts_IdxOf_Max_B__Upper, ts_IdxOf_Max_B__Lower
+#         ), file=sys.stderr)
     
 #     ts_IdxOf_Max_G = 110 
 #     ts_IdxOf_Max_B = 120 
@@ -1446,21 +1446,21 @@ def is_ColorName_Red(image_StatsData):
     ###################'''
     idxOf_Maxes = image_StatsData['idxOf_Maxes']
     
-    print()
-    print("[%s:%d] idxOf_Maxes =>" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        
-        ), file=sys.stderr)
-    print(idxOf_Maxes)
+#     print()
+#     print("[%s:%d] idxOf_Maxes =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(idxOf_Maxes)
     
     max_Vals = image_StatsData['max_Vals']
 
-    print()
-    print("[%s:%d] max_Vals =>" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        
-        ), file=sys.stderr)
-    print(max_Vals)
+#     print()
+#     print("[%s:%d] max_Vals =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(max_Vals)
     
     '''###################
         get vars : each color element
@@ -1874,7 +1874,8 @@ def is_PhotoOf__Sweets \
         
         )
     
-    print(msg, file=sys.stderr)
+#     print(msg, file=sys.stderr)
+
 #     print("[%s:%d] lo_Color_Names =>" % \
 #         (os.path.basename(libs.thisfile()), libs.linenum()
 #         
@@ -1885,7 +1886,7 @@ def is_PhotoOf__Sweets \
     
     for item in lo_Color_Names:
 
-        print(item)
+#         print(item)
 
         #debug
         msg = "%s => %s" % (item[0], item[1])

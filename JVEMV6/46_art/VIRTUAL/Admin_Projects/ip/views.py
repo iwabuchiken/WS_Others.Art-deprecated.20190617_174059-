@@ -1032,13 +1032,13 @@ def gen_Cake_CSV__Exec(request):
          
      #/for item in lo_ColorName_Set__Modified:
 
-    #debug
-    print()
-    print("[%s:%d] lo_ColorName_Set__Modified_2 =>" % \
-                (os.path.basename(libs.thisfile()), libs.linenum()
-                
-                ), file=sys.stderr)
-    print(lo_ColorName_Set__Modified_2)
+#     #debug
+#     print()
+#     print("[%s:%d] lo_ColorName_Set__Modified_2 =>" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 
+#                 ), file=sys.stderr)
+#     print(lo_ColorName_Set__Modified_2)
     
     '''###################
         write : log : lo_ColorName_Set__Modified_2
@@ -1105,209 +1105,9 @@ def gen_Cake_CSV(request):
 
     
     '''###################
-        vars        
+        get : dic, color name set        
     ###################'''
     dic, lo_ColorName_Set__Modified_2 = gen_Cake_CSV__Exec(request)
-#     dic = gen_Cake_CSV__Exec(request)
-#     
-# #     dic = {}
-# 
-#     '''###################
-#         get : params
-#     ###################'''
-#     dpath_Images, flg_SaveImage, param_Corner_Width, param_Corner_Padding \
-#             = gen_Cake_CSV__Get_Params(request)
-#     
-#     #debug
-#     print()
-#     print("[%s:%d] flg_SaveImage => %s" % \
-#     (os.path.basename(libs.thisfile()), libs.linenum()
-#     , flg_SaveImage
-# #     , flg_SaveImage
-#     ), file=sys.stderr)
-# 
-#     '''###################
-#         set : vars
-#     ###################'''
-#     dic['dpath_Images'] = dpath_Images
-#     
-#     '''###################
-#         get : files list
-#     ###################'''
-#     lo_Files = gen_Cake_CSV__Get_ListOf_Files(dpath_Images)
-#     
-#     
-#     print()
-#     print("[%s:%d] dpath_Images => %s" % \
-#         (os.path.basename(libs.thisfile()), libs.linenum()
-#         , dpath_Images
-#         ), file=sys.stderr)
-#     
-#     #debug
-#     print()
-#     print("[%s:%d] len(lo_Files) => %d" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#             , len(lo_Files)
-#             ), file=sys.stderr)
-# 
-#     '''###################
-#         get : color name set
-#     ###################'''
-# #     lo_ColorName_Set = gen_Cake_CSV__Get_ColorName_Set(dpath_Images, lo_Files)
-#     lo_ColorName_Set = gen_Cake_CSV__Get_ColorName_Set(\
-#                        dpath_Images
-#                        , lo_Files
-#                        , flg_SaveImage
-#                        , param_Corner_Width
-#                        , param_Corner_Padding)
-# 
-#     '''###################
-#         get : list of color names
-#     ###################'''
-#     lo_ColorName_Set__Modified = []
-#     
-#     for item in lo_ColorName_Set:
-# 
-#         fname = os.path.basename(item[0])
-#         
-#         colorName_Set = []
-#         
-#         for item2 in item[1]:
-#             
-#             colorName_Set.append(item2[1])
-#         
-#         # append
-#         lo_ColorName_Set__Modified.append([fname, colorName_Set])
-#         
-#     
-#     msg = "lo_ColorName_Set__Modified =>"
-#     msg_Log = "[%s / %s:%d] %s" % \
-#             (
-#             libs.get_TimeLabel_Now()
-#             , os.path.basename(libs.thisfile()), libs.linenum()
-#             , msg)
-#     
-#     libs.write_Log(msg_Log, True)
-#     
-#     # counter
-#     cntOf_Write_FileData = 1
-#     
-#     for item in lo_ColorName_Set__Modified:
-# 
-#         fname = item[0]
-#         
-#         color_Names = item[1]
-#         
-#         strOf_Fname_Block = "%d)\t%s => \t" % (cntOf_Write_FileData, fname)
-#         
-#         # increment
-#         cntOf_Write_FileData += 1
-#         
-#         # file name
-#         libs.write_Log(strOf_Fname_Block, False)
-# #         libs.write_Log(fname, False)
-# #         libs.write_Log(" => ", False)
-#         
-#         # color names
-#         strOf_Color_Names = ""
-#         
-#         for item2 in color_Names:
-#         
-#             strOf_Color_Names += item2 + " "
-#             
-#         #/for iteim2 in color_Names:
-#         
-#         libs.write_Log(strOf_Color_Names, True)
-#         
-#     #/for item in lo_ColorName_Set__Modified:
-# 
-#     '''###################
-#         get : picture genre
-#     ###################'''
-#     lo_ColorName_Set__Modified_2 = []
-#     
-#     for item in lo_ColorName_Set__Modified:
-#         
-#         fname = item[0]
-#         
-#         color_Names = item[1]
-#         
-#         color_Names_New = []
-#         
-#         for item2 in color_Names:
-#         
-#             if item2 == "other" : colName = "o"
-#             elif item2 == "red" : colName = "r"
-#             elif item2 == "yellow" : colName = "y"
-#             elif item2 == "green" : colName = "g"
-#             
-#             else : colName = "u" #=> 'unknown'
-#             
-#             color_Names_New.append(colName)
-#             
-#         #/for item2 in color_Names:
-#         
-#         # modify
-#         color_Names_New.sort()
-# #         color_Names_New = color_Names_New.sort()
-#         
-#         strOf_Color_Names_New = "".join(color_Names_New)
-#         
-#         # append
-#         lo_ColorName_Set__Modified_2.append([fname, strOf_Color_Names_New])
-# #         lo_ColorName_Set__Modified_2.append([fname, color_Names_New])
-#          
-#      #/for item in lo_ColorName_Set__Modified:
-# 
-#     #debug
-#     print()
-#     print("[%s:%d] lo_ColorName_Set__Modified_2 =>" % \
-#                 (os.path.basename(libs.thisfile()), libs.linenum()
-#                 
-#                 ), file=sys.stderr)
-#     print(lo_ColorName_Set__Modified_2)
-#     
-#     '''###################
-#         write : log : lo_ColorName_Set__Modified_2
-#     ###################'''
-#     msg = "lo_ColorName_Set__Modified_2 =>"
-#     msg_Log = "[%s / %s:%d] %s" % \
-#             (
-#             libs.get_TimeLabel_Now()
-#             , os.path.basename(libs.thisfile()), libs.linenum()
-#             , msg)
-#     
-#     libs.write_Log(msg_Log, True)
-#     
-#     # counter
-#     cntOf_Write_FileData = 1
-#     
-#     for item in lo_ColorName_Set__Modified_2:
-# 
-#         fname = item[0]
-#         
-#         color_Names = item[1]
-#         
-#         strOf_Fname_Block = "%d)\t%s => \t" % (cntOf_Write_FileData, fname)
-#         
-#         # increment
-#         cntOf_Write_FileData += 1
-#         
-#         # file name
-#         libs.write_Log(strOf_Fname_Block, False)
-# #         libs.write_Log(fname, False)
-# #         libs.write_Log(" => ", False)
-#         
-#         # color names
-#         strOf_Color_Names = ""
-#         
-#         for item2 in color_Names:
-#         
-#             strOf_Color_Names += item2 + " "
-#             
-#         #/for iteim2 in color_Names:
-#         
-#         libs.write_Log(strOf_Color_Names, True)
         
     '''###################
         ending message
