@@ -13,6 +13,11 @@ class DfltVals(Enum):
 #     get_4Corners__Corner_Width      = 280
     get_4Corners__Corner_Padding    = 20
 
+    '''###################
+        dos attack        
+    ###################'''
+    numOf_DosAttack = 0
+
 class ColorThresholds(Enum):
     
     '''######################################

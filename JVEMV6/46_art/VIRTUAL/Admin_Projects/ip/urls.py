@@ -22,5 +22,7 @@ urlpatterns = [
     
     url(r'^gen_Cake_CSV/$', views.gen_Cake_CSV, name='gen_Cake_CSV'),
     
+    url(r'^dos_attack/$', views.dos_attack, name='dos_attack'),
+    
     
 ]

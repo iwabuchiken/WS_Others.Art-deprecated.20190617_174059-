@@ -28,6 +28,10 @@ from libs_admin import libs, lib_ip, cons_ip
 # 
 # from mm.libs_mm import cons_mm, cons_fx, libs, libfx
 
+'''###################
+    vars : global        
+###################'''
+numOf_DosAttack = 0
 
 # Create your views here.
 # def index():
@@ -1376,3 +1380,26 @@ def open_image_dir(request):
 
     
 #/ def open_image_dir(request):
+def dos_attack(request): 
+    
+    '''###################
+        vars
+    ###################'''
+    dic = {}
+    
+    '''###################
+        ops        
+    ###################'''
+    numOf_DosAttack = cons_ip.DfltVals.numOf_DosAttack.value
+    
+    numOf_DosAttack += 1
+    
+    dic['time_label'] = libs.get_TimeLabel_Now()
+#     dic['numOf_DosAttack'] = numOf_DosAttack
+    
+    '''###################
+        template        
+    ###################'''
+    return render(request, 'ip/dos_attack.html', dic)
+    
+#/ def dos_attack(request): 
