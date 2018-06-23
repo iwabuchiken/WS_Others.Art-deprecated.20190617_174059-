@@ -2221,5 +2221,190 @@ function bt_Get4Corners_Options_ShowHide_toggle() {
 	
 }//bt_Get4Corners_Options_ShowHide_toggle()
 
+function btn_IP_Get_4Corners__Gen_CakeCSV() {
+	
+	/***************************
+		ajax
+		
+		ref : C:\WORKS_2\WS\Eclipse_Luna\Cake_IFM11\app\webroot\js\main.js
+	 ***************************/
+	var tag = $('div#div_IP_Get_4Corners_Message_Area');
+	
+	tag.html('');
+
+	// message
+	tag.css("background", cname_Yellow);
+	
+	/***************************
+		param : image dir
+	 ***************************/
+	var tag_Dpath_Image = $('input#ipt_IP_Get_4Corners');
+	
+	var _dpath_image = tag_Dpath_Image.val();
+//	var dpath_Image = tag_Dpath_Image.val();
+	
+	alert("_dpath_image => '" + _dpath_image + "'");
+//	alert("_dpath_Image => '" + _dpath_Image + "'");
+//	
+//	//debug
+//	return;
+
+	/***************************
+		param : checkbox : SaveImage
+	 ***************************/
+	//debug
+	var tag = $('input#cb_Get4Corners_SaveImage');
+	
+	//ref https://stackoverflow.com/questions/4754699/how-do-i-determine-if-a-checkbox-is-checked#4754729 answered Jan 21 '11 at 2:12
+	var val = tag.is(':checked');
+	
+	var _flg_save_image = "false";
+	
+	if (val) {
+	
+		_flg_save_image = "true";
+	
+	} //if (val)
+	
+	/***************************
+		param : input : corner width
+	 ***************************/
+	//debug
+	var tag = $('input#cb_Get4Corners_CornerImage_Width');
+	
+	var _corner_Width = tag.val();
+	
+	//alert("_corner_Width => '" + _corner_Width + "'");
+	//
+	var is_number = $.isNumeric(_corner_Width);
+	
+	// validate
+	if (is_number == false) {
+	
+		alert("corner width => not numeric : '" + _corner_Width + "'");
+		
+		return;
+	
+	}//if (is_number == false)
+	
+	/***************************
+		param : input : corner padding
+	 ***************************/
+	//debug
+	var tag_CornerImage_Padding = $('input#cb_Get4Corners_CornerImage_Padding');
+	
+	var _corner_Padding = tag_CornerImage_Padding.val();
+	
+//	alert("_corner_Padding => '" + _corner_Padding + "'");
+	//
+	var is_number = $.isNumeric(_corner_Padding);
+	
+	// validate
+	if (is_number == false) {
+		
+		alert("corner padding => not numeric : '" + _corner_Padding + "'");
+		
+		return;
+		
+	}//if (is_number == false)
+	
+	/***************************
+		show message
+	 ***************************/
+	var tag = $('div#div_IP_Get_4Corners_Message_Area');
+	
+	var msg = "starting ajax for 'http://127.0.0.1:8001/ip/gen_Cake_CSV/'..."
+	
+	tag.html(msg);
+
+	// message
+	tag.css("background", cname_Yellow);
+	
+	tag
+		.fadeIn(200).fadeOut(200)
+		.fadeIn(200).fadeOut(200)
+		
+		.fadeIn(200).fadeOut(200)
+		.fadeIn(200).fadeOut(200)
+		
+		.fadeIn(200);
+
+	/***************************
+		param : gen cake csv
+	 ***************************/
+	var _option = "gen_cake_csv";
+	
+	/***************************
+		ajax
+		
+		ref : C:\WORKS_2\WS\Eclipse_Luna\Cake_IFM11\app\webroot\js\main.js
+	 ***************************/
+	var _url = "http://127.0.0.1:8001/ip/gen_Cake_CSV/";
+	//var _url = "http://127.0.0.1:8000/ip/get_4_corners/";
+	
+	// time out (mill seconds)
+	var _timeout = 3 * 60 * 1000;
+	
+	// params
+	var _data = {
+//				fname_image : fname
+				option : _option
+				, dpath_images : _dpath_image
+				, flg_save_image : _flg_save_image
+				, corner_width : _corner_Width
+				, corner_Padding : _corner_Padding
+	};
+	
+	$.ajax({
+		
+		url: _url,
+		type: "GET",
+		//REF http://stackoverflow.com/questions/1916309/pass-multiple-parameters-to-jquery-ajax-call answered Dec 16 '09 at 17:37
+	//    data: {id: id},
+	//    data: {memos: memos, image_id: image_id},
+		data: _data,
+		
+		timeout: _timeout
+//		timeout: 10000
+		
+	}).done(function(data, status, xhr) {
+		
+		/***************************
+			result
+		 ***************************/
+//		alert(data);
+		
+		var tag = $('div#div_IP_Get_4Corners_Message_Area');
+		
+		tag.html(data);
+
+		// message
+		tag.css("background", cname_LightBlue);
+
+		tag
+			.fadeIn(200).fadeOut(200)
+			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200).fadeOut(200)
+			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200).fadeOut(200)
+			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200);
+
+		
+	}).fail(function(xhr, status, error) {
+		
+		/***************************
+			message
+		 ***************************/
+		alert(error);
+		
+		
+	});
+	
+}//btn_IP_Get_4Corners__Gen_CakeCSV
+
 
 

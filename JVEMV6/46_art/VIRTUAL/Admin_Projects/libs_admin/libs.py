@@ -15,6 +15,8 @@ from sympy.physics.vector.printing import params
 
 from enum import Enum
 
+from libs_admin import cons_ip
+
 '''#########################################################
     enums        
 #########################################################'''
@@ -308,4 +310,27 @@ def is_Open(filepath):
         except:
             return True
     raise NameError
+
+def write_Log(\
+      content
+#       , dpath_LogFile
+#       , fname_LogFile
+#       , fname_Main
+#       , line_Num
+      , flg_Return = True):
+    
+    fpath_Log = "%s\\%s" % \
+            (cons_ip.FilePaths.dpath_LogFile.value
+             , cons_ip.FilePaths.fname_LogFile.value)
+    
+    fout_Log = open(fpath_Log, "a")
+    
+    # header
+    fout_Log.write(content)
+    
+    # return char
+    if flg_Return == True : fout_Log.write("\n")
+    
+#/ def write_Log(dpath_LogFile, fname_LogFile, fname_Main, line_Num):
+
 

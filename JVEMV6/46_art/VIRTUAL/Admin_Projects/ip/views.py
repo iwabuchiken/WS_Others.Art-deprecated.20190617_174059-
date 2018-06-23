@@ -28,6 +28,10 @@ from libs_admin import libs, lib_ip, cons_ip
 # 
 # from mm.libs_mm import cons_mm, cons_fx, libs, libfx
 
+'''###################
+    vars : global        
+###################'''
+numOf_DosAttack = 0
 
 # Create your views here.
 # def index():
@@ -726,7 +730,473 @@ def _exec_get_4_corners__SaveImage_4Corners(img_Corners, fname_Image):
     
 #/ def _exec_get_4_corners__SaveImage_4Corners(img_Corners):
     
+def gen_Cake_CSV__Get_Params(request):
+    
+    '''###################
+        get : params
+    ###################'''
+    dpath_Images = request.GET.get('dpath_images', False)
+
+    '''###################
+        get : params : save image
+    ###################'''
+    # ref : function exec_Get_4Corners(fname) :: main.js
+    flg_save_image = request.GET.get('flg_save_image', False)
+    
+    # set flag
+    flg_SaveImage = False
+    
+    if flg_save_image == "true" : #if flg_save_image
+
+        flg_SaveImage = True
+        
+    #/if flg_save_image
+
+    '''###################
+        get : params : corner_width
+    ###################'''
+    # ref : function exec_Get_4Corners(fname) :: main.js
+    param_Corner_Width = request.GET.get('corner_width', False)
+    
+    #debug
+    print()
+    print("[%s:%d] param_Corner_Width => %d" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , int(param_Corner_Width)
+        ), file=sys.stderr)
+    
+    # convert
+    param_Corner_Width = int(param_Corner_Width)
+    
+    '''###################
+        get : params : corner_Padding
+    ###################'''
+    # ref : function exec_Get_4Corners(fname) :: main.js
+    param_Corner_Padding = request.GET.get('corner_Padding', False)
+    
+    #debug
+    print()
+    print("[%s:%d] param_Corner_Padding => %d" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , int(param_Corner_Padding)
+        ), file=sys.stderr)
+    
+    # convert
+    param_Corner_Padding = int(param_Corner_Padding)
+    
+    '''###################
+        return        
+    ###################'''
+    return dpath_Images, flg_SaveImage, param_Corner_Width, param_Corner_Padding
+
+#/ def gen_Cake_CSV__Get_Params(request):
+    
+    
+def gen_Cake_CSV__Get_ListOf_Files(dpath_Images):
+    
+    fpath_Glob = "%s\\*" % (dpath_Images)
+
+    #ref glob https://stackoverflow.com/questions/14798220/how-can-i-search-sub-folders-using-glob-glob-module-in-python answered Feb 10 '13 at 13:31    
+    lo_Files = glob.glob(fpath_Glob)
+    
+    # files only
+    lo_Files_Filtered = []
+    
+    for item in lo_Files:
+
+        if os.path.isfile(item) == True : 
+            lo_Files_Filtered.append(item)
+        
+    #/for item in lo_Files:
+
+    # update the list
+    lo_Files = lo_Files_Filtered
+    
+    lo_Files.sort()    
+    
+    # return
+    return lo_Files
+        
+#/ def gen_Cake_CSV__Get_ListOf_Files(dpath_Images):
+    
+    
+def gen_Cake_CSV__Get_ColorName_Set(\
+    dpath_Images
+   , lo_Files
+   , flg_SaveImage
+   , param_Corner_Width
+   , param_Corner_Padding
+           ):
+    
+    '''###################
+        vars        
+    ###################'''
+    lo_ColorName_Set = []
+    
+    '''###################
+        get color name set        
+    ###################'''
+#     flg_SaveImage = False
+    
+    #debug
+    cnt = 0
+#     maxOf_Cnt = 30
+#     maxOf_Cnt = 20
+    maxOf_Cnt = 999
+#     maxOf_Cnt = 15
+#     maxOf_Cnt = 10
+#     maxOf_Cnt = 5
+#     maxOf_Cnt = 2
+    
+    for fpath in lo_Files:
+#     for fname in lo_Files:
+        
+        # count
+        print()
+        print("[%s:%d] processing image ===> %d -------------------" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , cnt
+        ), file=sys.stderr)
+        
+        # judge
+        lo_ColorNames = lib_ip.get_ColorName_Set_From_Image(\
+                dpath_Images, fpath, flg_SaveImage, \
+                param_Corner_Width, param_Corner_Padding)
+        
+        # append
+        lo_ColorName_Set.append([fpath, lo_ColorNames])
+        
+        #debug
+        cnt += 1
+        
+        if cnt >= maxOf_Cnt : break #if cnt >= maxOf_Cnt
+    
+    #/for fname in lo_Files:
+
+    
+    '''###################
+        return        
+    ###################'''
+    return lo_ColorName_Set
+    
+#/ def gen_Cake_CSV__Get_ColorName_Set(dpath_Images, lo_Files):
+    
+    
+def gen_Cake_CSV__Exec(request):
+    
+    '''###################
+        vars        
+    ###################'''
+    dic = {}
+
+    '''###################
+        get : params
+    ###################'''
+    dpath_Images, flg_SaveImage, param_Corner_Width, param_Corner_Padding \
+            = gen_Cake_CSV__Get_Params(request)
+    
+    #debug
+    print()
+    print("[%s:%d] flg_SaveImage => %s" % \
+    (os.path.basename(libs.thisfile()), libs.linenum()
+    , flg_SaveImage
+#     , flg_SaveImage
+    ), file=sys.stderr)
+
+    '''###################
+        set : vars
+    ###################'''
+    dic['dpath_Images'] = dpath_Images
+    
+    '''###################
+        get : files list
+    ###################'''
+    lo_Files = gen_Cake_CSV__Get_ListOf_Files(dpath_Images)
+    
+    
+    print()
+    print("[%s:%d] dpath_Images => %s" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , dpath_Images
+        ), file=sys.stderr)
+    
+    #debug
+    print()
+    print("[%s:%d] len(lo_Files) => %d" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , len(lo_Files)
+            ), file=sys.stderr)
+
+    '''###################
+        get : color name set
+    ###################'''
+#     lo_ColorName_Set = gen_Cake_CSV__Get_ColorName_Set(dpath_Images, lo_Files)
+    lo_ColorName_Set = gen_Cake_CSV__Get_ColorName_Set(\
+                       dpath_Images
+                       , lo_Files
+                       , flg_SaveImage
+                       , param_Corner_Width
+                       , param_Corner_Padding)
+
+    '''###################
+        get : list of color names
+    ###################'''
+    lo_ColorName_Set__Modified = []
+    
+    for item in lo_ColorName_Set:
+
+        fname = os.path.basename(item[0])
+        
+        colorName_Set = []
+        
+        for item2 in item[1]:
+            
+            colorName_Set.append(item2[1])
+        
+        # append
+        lo_ColorName_Set__Modified.append([fname, colorName_Set])
+        
+    
+    msg = "lo_ColorName_Set__Modified =>"
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log(msg_Log, True)
+    
+    # counter
+    cntOf_Write_FileData = 1
+    
+    for item in lo_ColorName_Set__Modified:
+
+        fname = item[0]
+        
+        color_Names = item[1]
+        
+        strOf_Fname_Block = "%d)\t%s => \t" % (cntOf_Write_FileData, fname)
+        
+        # increment
+        cntOf_Write_FileData += 1
+        
+        # file name
+        libs.write_Log(strOf_Fname_Block, False)
+#         libs.write_Log(fname, False)
+#         libs.write_Log(" => ", False)
+        
+        # color names
+        strOf_Color_Names = ""
+        
+        for item2 in color_Names:
+        
+            strOf_Color_Names += item2 + " "
+            
+        #/for iteim2 in color_Names:
+        
+        libs.write_Log(strOf_Color_Names, True)
+        
+    #/for item in lo_ColorName_Set__Modified:
+
+    '''###################
+        get : picture genre
+    ###################'''
+    lo_ColorName_Set__Modified_2 = []
+    
+    for item in lo_ColorName_Set__Modified:
+        
+        fname = item[0]
+        
+        color_Names = item[1]
+        
+        color_Names_New = []
+        
+        for item2 in color_Names:
+        
+            if item2 == "other" : colName = "o"
+            elif item2 == "red" : colName = "r"
+            elif item2 == "yellow" : colName = "y"
+            elif item2 == "green" : colName = "g"
+            
+            else : colName = "u" #=> 'unknown'
+            
+            color_Names_New.append(colName)
+            
+        #/for item2 in color_Names:
+        
+        # modify
+        color_Names_New.sort()
+#         color_Names_New = color_Names_New.sort()
+        
+        strOf_Color_Names_New = "".join(color_Names_New)
+        
+        # append
+        lo_ColorName_Set__Modified_2.append([fname, strOf_Color_Names_New])
+#         lo_ColorName_Set__Modified_2.append([fname, color_Names_New])
+         
+     #/for item in lo_ColorName_Set__Modified:
+
+#     #debug
+#     print()
+#     print("[%s:%d] lo_ColorName_Set__Modified_2 =>" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 
+#                 ), file=sys.stderr)
+#     print(lo_ColorName_Set__Modified_2)
+    
+    '''###################
+        write : log : lo_ColorName_Set__Modified_2
+    ###################'''
+    msg = "lo_ColorName_Set__Modified_2 =>"
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log(msg_Log, True)
+    
+    # counter
+    cntOf_Write_FileData = 1
+    
+    for item in lo_ColorName_Set__Modified_2:
+
+        fname = item[0]
+        
+        color_Names = item[1]
+        
+        strOf_Fname_Block = "%d)\t%s => \t" % (cntOf_Write_FileData, fname)
+        
+        # increment
+        cntOf_Write_FileData += 1
+        
+        # file name
+        libs.write_Log(strOf_Fname_Block, False)
+#         libs.write_Log(fname, False)
+#         libs.write_Log(" => ", False)
+        
+        # color names
+        strOf_Color_Names = ""
+        
+        for item2 in color_Names:
+        
+            strOf_Color_Names += item2 + " "
+            
+        #/for iteim2 in color_Names:
+        
+        libs.write_Log(strOf_Color_Names, True)
+    
+    '''###################
+        return        
+    ###################'''
+    return dic, lo_ColorName_Set__Modified_2
+
+#/ def gen_Cake_CSV(request):
+    
+def gen_Cake_CSV(request):
+    
+    '''###################
+        title
+    ###################'''
+    msg = "gen_Cake_CSV(request) ==> starting... ======================="
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log(msg_Log, True)
+
+    
+    '''###################
+        get : dic, color name set        
+    ###################'''
+    dic, lo_ColorName_Set__Modified_2 = gen_Cake_CSV__Exec(request)
+        
+    '''###################
+        ending message
+    ###################'''
+    msg = "gen_Cake_CSV(request) ==> ending... =======================//"
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log(msg_Log, True)
+    libs.write_Log("", True)
+
+    '''###################
+        get : referer        
+    ###################'''
+    referer_MM = "http://127.0.0.1:8001/ip/get_4_corners/"
+#     referer_MM = "http://127.0.0.1:8000/ip/"
+    
+    referer_Current = request.META.get('HTTP_REFERER')
+
+    if referer_Current == referer_MM : #if referer_Current == referer_MM
+    
+        print()
+        print("[%s:%d] referer_Current == referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, 'ip/gen_cake_csv.html', dic)
+#         return render(request, 'mm/numbering.html', dic)
+        
+    else : #if referer_Current == referer_MM
+
+        print()
+        print("[%s:%d] referer_Current <> referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, 'ip/gen_cake_csv_full.html', dic)
+    
+#/ def gen_Cake_CSV(request):
+    
 def exec_get_4_corners(request):
+    
+#     '''###################
+#         gen cake csv
+#     ###################'''
+#     _option = request.GET.get('option', False)
+#     
+#     # option : gen_cake_csv
+#     if not _option == False and _option == "gen_cake_csv" : #if not _option == False and _option = "gen_cake_csv"
+# 
+#         gen_Cake_CSV(request)
+#         
+#     #/if not _option == False and _option = "gen_cake_csv"
+
+
+    
+    '''###################
+        debug        
+    ###################'''
+    msg = "exec_get_4_corners(request) ================================"
+    
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    dpath_Log = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\logs"
+    
+    fname_Log = "get_4_corners.log"
+
+    libs.write_Log(msg_Log, True)
+#     libs.write_Log(msg_Log, dpath_Log, fname_Log, True)
+    
+#     print("[%s / %s:%d] %s" % \
+#             (
+#             libs.get_TimeLabel_Now()
+#             , os.path.basename(libs.thisfile()), libs.linenum()
+#             , msg
+#             ), file=sys.stderr)
     
     '''###################
         debug
@@ -910,3 +1380,26 @@ def open_image_dir(request):
 
     
 #/ def open_image_dir(request):
+def dos_attack(request): 
+    
+    '''###################
+        vars
+    ###################'''
+    dic = {}
+    
+    '''###################
+        ops        
+    ###################'''
+    numOf_DosAttack = cons_ip.DfltVals.numOf_DosAttack.value
+    
+    numOf_DosAttack += 1
+    
+    dic['time_label'] = libs.get_TimeLabel_Now()
+#     dic['numOf_DosAttack'] = numOf_DosAttack
+    
+    '''###################
+        template        
+    ###################'''
+    return render(request, 'ip/dos_attack.html', dic)
+    
+#/ def dos_attack(request): 
