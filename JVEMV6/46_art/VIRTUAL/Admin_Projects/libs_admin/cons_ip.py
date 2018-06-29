@@ -27,22 +27,31 @@ class ColorThresholds(Enum):
         thresholds : max values
     ###################'''
     # R
-    isRed_Max_Val_R__Lower = 2.2 * 1000
-    isRed_Max_Val_R__Upper = 3.9 * 1000
+#     isRed_Max_Val_R__Lower = 2.2 * 1000
+    isRed_Max_Val_R__Lower = 2.0 * 1000
+    isRed_Max_Val_R__Upper = 4.7 * 1000
+#     isRed_Max_Val_R__Upper = 3.9 * 1000
+    
     
     # G
-    isRed_Max_Val_G__Lower = 2.3 * 1000
-    isRed_Max_Val_G__Upper = 3.9 * 1000
+#     isRed_Max_Val_G__Lower = 2.3 * 1000
+    isRed_Max_Val_G__Lower = 2.0 * 1000
+    isRed_Max_Val_G__Upper = 4.7 * 1000
+#     isRed_Max_Val_G__Upper = 3.9 * 1000
     
     # B
-    isRed_Max_Val_B__Lower = 1.8 * 1000
-    isRed_Max_Val_B__Upper = 2.5 * 1000
+    isRed_Max_Val_B__Lower = 1.6 * 1000
+#     isRed_Max_Val_B__Lower = 1.8 * 1000
+#    isRed_Max_Val_B__Upper = 2.5 * 1000
+    isRed_Max_Val_B__Upper = 3.5 * 1000
+#     isRed_Max_Val_B__Upper = 3.1 * 1000
     
     '''###################
         thresholds : index of max values
     ###################'''    
     # R
-    isRed_IdxOf_Max_R__Upper = 50
+#    isRed_IdxOf_Max_R__Upper = 50
+    isRed_IdxOf_Max_R__Upper = 70
     isRed_IdxOf_Max_R__Lower = 0
      
     # G
@@ -51,7 +60,9 @@ class ColorThresholds(Enum):
      
     # B
 #     isRed_IdxOf_Max_B__Upper = 200
-    isRed_IdxOf_Max_B__Upper = 210
+#    isRed_IdxOf_Max_B__Upper = 210
+#    isRed_IdxOf_Max_B__Upper = 230
+    isRed_IdxOf_Max_B__Upper = 250
     isRed_IdxOf_Max_B__Lower = 150
      
 
@@ -63,13 +74,16 @@ class ColorThresholds(Enum):
     ###################'''
     # R
 #     isGreen_Max_Val_R__Lower = 3.0 * 1000
-    isGreen_Max_Val_R__Lower = 2.6 * 1000
+#     isGreen_Max_Val_R__Lower = 2.6 * 1000
+    isGreen_Max_Val_R__Lower = 1.8 * 1000
     isGreen_Max_Val_R__Upper = 5.3 * 1000
 #     isGreen_Max_Val_R__Upper = 4.1 * 1000
     
     # G
     isGreen_Max_Val_G__Lower = 1.4 * 1000
-    isGreen_Max_Val_G__Upper = 3.2 * 1000
+    isGreen_Max_Val_G__Upper = 4.5 * 1000
+#     isGreen_Max_Val_G__Upper = 3.7 * 1000
+#     isGreen_Max_Val_G__Upper = 3.2 * 1000
 #     isGreen_Max_Val_G__Upper = 2.8 * 1000
 #     isGreen_Max_Val_G__Upper = 2.6 * 1000
     
@@ -84,16 +98,22 @@ class ColorThresholds(Enum):
     ###################'''    
     # R
 #     isGreen_IdxOf_Max_R__Upper = 50
-    isGreen_IdxOf_Max_R__Upper = 65
+#    isGreen_IdxOf_Max_R__Upper = 65
+    isGreen_IdxOf_Max_R__Upper = 120
     isGreen_IdxOf_Max_R__Lower = 0
      
     # G
-    isGreen_IdxOf_Max_G__Upper = 170
+#     isGreen_IdxOf_Max_G__Upper = 170
+#     isGreen_IdxOf_Max_G__Upper = 210
+#     isGreen_IdxOf_Max_G__Upper = 240
+    isGreen_IdxOf_Max_G__Upper = 255
     isGreen_IdxOf_Max_G__Lower = 80
      
     # B
 #     isGreen_IdxOf_Max_B__Upper = 200
-    isGreen_IdxOf_Max_B__Upper = 120
+#     isGreen_IdxOf_Max_B__Upper = 120
+#     isGreen_IdxOf_Max_B__Upper = 145
+    isGreen_IdxOf_Max_B__Upper = 160
     isGreen_IdxOf_Max_B__Lower = 50
      
 
@@ -106,19 +126,32 @@ class ColorThresholds(Enum):
     # max values
     # R
 #     ts_Max_Val_R__Lower = 4000
-    isYellow_Max_Val_R__Lower = 2500
-    isYellow_Max_Val_R__Upper = 5000
+#    isYellow_Max_Val_R__Lower = 2500
+#     isYellow_Max_Val_R__Lower = 2.2 * 1000
+    isYellow_Max_Val_R__Lower = 1.6 * 1000
+    isYellow_Max_Val_R__Upper = 6.4 * 1000
+#     isYellow_Max_Val_R__Upper = 5.8 * 1000
+#     isYellow_Max_Val_R__Upper = 5000
+    
     
     # G
 #     isYellow_Max_Val_G__Lower = 3000
-    isYellow_Max_Val_G__Lower = 1.6 * 1000
-    isYellow_Max_Val_G__Upper = 4000
+#    isYellow_Max_Val_G__Lower = 1.6 * 1000
+    isYellow_Max_Val_G__Lower = 1.1 * 1000
+#    isYellow_Max_Val_G__Upper = 4000
+    isYellow_Max_Val_G__Upper = 6.3 * 1000
+#     isYellow_Max_Val_G__Upper = 5.4 * 1000
+#     isYellow_Max_Val_G__Upper = 4.8 * 1000
     
     # B
 #     isYellow_Max_Val_B__Lower = 3500
 #     isYellow_Max_Val_B__Lower = 2000
-    isYellow_Max_Val_B__Lower = 1.6 * 1000
-    isYellow_Max_Val_B__Upper = 4500
+#    isYellow_Max_Val_B__Lower = 1.6 * 1000
+#     isYellow_Max_Val_B__Lower = 1.4 * 1000
+    isYellow_Max_Val_B__Lower = 1.2 * 1000
+    isYellow_Max_Val_B__Upper = 6.2 * 1000
+#     isYellow_Max_Val_B__Upper = 5.8 * 1000
+#     isYellow_Max_Val_B__Upper = 4500
     
 #     isYellow_Max_Val_G = 2000
 #     isYellow_Max_Val_B = 2000
@@ -129,10 +162,13 @@ class ColorThresholds(Enum):
     # index of max values
     # R
     isYellow_IdxOf_Max_R__Upper = -1      # -1 ==> not used
-    isYellow_IdxOf_Max_R__Lower = 80
+#    isYellow_IdxOf_Max_R__Lower = 80
+    isYellow_IdxOf_Max_R__Lower = 115
+#     isYellow_IdxOf_Max_R__Lower = 95
      
     # G
-    isYellow_IdxOf_Max_G__Upper = 220
+#     isYellow_IdxOf_Max_G__Upper = 220
+    isYellow_IdxOf_Max_G__Upper = 250
     isYellow_IdxOf_Max_G__Lower = 130
 #     isYellow_IdxOf_Max_G__Lower = 145
 #     isYellow_IdxOf_Max_G__Lower = 165
@@ -142,8 +178,44 @@ class ColorThresholds(Enum):
 #     isYellow_IdxOf_Max_B__Upper = 200
 #     isYellow_IdxOf_Max_B__Upper = 180
 #     isYellow_IdxOf_Max_B__Upper = 165
-    isYellow_IdxOf_Max_B__Upper = 240
+#     isYellow_IdxOf_Max_B__Upper = 240
+    isYellow_IdxOf_Max_B__Upper = 255
     isYellow_IdxOf_Max_B__Lower = 140      # -1 ==> not used
+
+    '''######################################
+        White
+    ######################################'''
+    '''###################
+        thresholds : index of max values
+    ###################'''    
+    isWhite_IdxOf_Max = 245
+#     isWhite_IdxOf_Max = 255
+    
+    '''###################
+        thresholds : max values
+    ###################'''
+    # R
+    isWhite_Max_Val__Lower = 14 * 1000
+#     isWhite_Max_Val__Lower = 26 * 1000
+#     isYellow_Max_Val_R__Upper = 5000
+
+    '''######################################
+        Black
+    ######################################'''
+    '''###################
+        thresholds : index of max values
+    ###################'''    
+    isBlack_IdxOf_Max = 0
+    
+    '''###################
+        thresholds : max values
+    ###################'''
+    # R
+#     isBlack_Max_Val__Lower = 21 * 1000
+    isBlack_Max_Val__Lower = 16 * 1000
+#     isBlack_Max_Val__Lower = 26 * 1000
+    
+#/ class ColorThresholds(Enum):    
 
 class FilePaths(Enum):
     
@@ -153,5 +225,130 @@ class FilePaths(Enum):
     
 #/ class ColorThresholds(Enum):
     
+class ColorNameSet(Enum):
+
+    lo_Color_Sets = [
+        
+            "oooo"
+            
+#             '''###################
+#                 r,g,y ==> each only        # 3 types
+#             ###################'''
+            , "ooor"    # UNDEFINED
+            , "gooo"    # ":m 食べた物　間食 / 砂糖菓子"
+            , "oooy"    # :m 食べた物
+            
+#             '''###################
+#                 r,g,y ==> each, 2        # 3 types
+#             ###################'''
+            , "oorr"
+            , "ggoo"    # :m 食べた物　間食 / ヨーグルト / +=
+            , "ooyy"    # delete
+
+#             '''###################
+#                 r,g,y ==> each, 3        # 3 types
+#             ###################'''
+            , "owww"    # 読みたい本
+            
+#             '''###################
+#                 r,g,y ==> each, 4        # 3 types
+#             ###################'''
+            , "aaaa"    # 読みたい本
+            , "wwww"    # 読みたい本
     
+#             '''###################
+#                 r,g,y ==> 1 each, 2 kinds        # 3 types
+#             ###################'''
+            , "goor"
+            , "gooy"
+            , "oory"    # 読んだ本
+            
+#             '''###################
+#                 r,g,y ==> 1 or 2 each, 2 kinds        # 3 types
+#             ###################'''
+            # 1 a / 2 w / 
+            , "aoww"    # 読みたい本
+            
+            # 2 a / 2 1 / 
+            , "aaow"    # 読みたい本
+            
+            
+        ]
+#     lo_Color_Sets = [
+#         
+#             "oooo"
+#             
+#             '''###################
+#                 r,g,y ==> each only        # 3 types
+#             ###################'''
+#             , "ooor"    # UNDEFINED
+#             , "gooo"    # ":m 食べた物　間食 / 砂糖菓子"
+#             , "oooy"    # :m 食べた物
+#             
+#             '''###################
+#                 r,g,y ==> each, 2        # 3 types
+#             ###################'''
+#             , "oorr"
+#             , "ggoo"    # :m 食べた物　間食 / ヨーグルト / +=
+#             , "ooyy"    # delete
+#     
+#             '''###################
+#                 r,g,y ==> 1 each, 2 kinds        # 3 types
+#             ###################'''
+#             , "goor"
+#             , "gooy"
+#             , "oory"    # 読んだ本
+#     
+#         ]
+    
+    do_Color_Sets_Memo = {
+        
+            "oooo" : ""
+
+#             '''###################
+#                 r,g,y ==> each only        # 3 types
+#             ###################'''
+            , "ooor" : "UNDEFINED"
+            , "gooo" : ":m 食べた物　間食 / 砂糖菓子or乾物菓子"
+            , "oooy" : u':m 食べた物'
+            
+#             '''###################
+#                 r,g,y ==> each, 2        # 3 types
+#             ###################'''
+#             , "oorr"
+            , "ggoo" : u':m 食べた物　間食 / ヨーグルト / += '
+            , "ooyy" : u'\'-*'
+            , "oorr" : u'UNDEFINED'
+
+#             '''###################
+#                 r,g,y ==> each, 3        # 3 types
+#             ###################'''
+            , "owww" : u':m 読みたい本 / 『』 / 著者=XXX'    # 読みたい本
+            
+#             '''###################
+#                 r,g,y ==> each, 4        # 3 types
+#             ###################'''
+            , "aaaa" : u':m 読みたい本 / 『』 / 著者=XXX'    # 読みたい本
+            , "wwww" : u':m 読みたい本 / 『』 / 著者=XXX'    # 読みたい本
+
+#             '''###################
+#                 r,g,y ==> 1 each, 2 kinds        # 3 types
+#             ###################'''
+#             , "goor"
+            , "gooy" : u'\'-*'
+            , "oory" : u':bookmemo / 読んだ本 / 『』 / 著者=XXX'
+
+#             '''###################
+#                 r,g,y ==> 1 or 2 each, 2 kinds        # 3 types
+#             ###################'''
+            , "aoww" : u':m 読みたい本 / 『』 / 著者=XXX'    # 読みたい本
+            , "aaow" : u':m 読みたい本 / 『』 / 著者=XXX'    # 読みたい本
+
+
+        }
+
+    memo_Unknown = "UNKNOWN"
+    
+    
+#/ class ColorNameSet(Enum):
     

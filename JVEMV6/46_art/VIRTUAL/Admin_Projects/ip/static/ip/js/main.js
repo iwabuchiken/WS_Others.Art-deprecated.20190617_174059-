@@ -2096,7 +2096,7 @@ function exec_Get_4Corners(fname) {
 	
 	var _corner_Padding = tag_CornerImage_Padding.val();
 	
-	alert("_corner_Padding => '" + _corner_Padding + "'");
+//	alert("_corner_Padding => '" + _corner_Padding + "'");
 //	
 	var is_number = $.isNumeric(_corner_Padding);
 	

@@ -5,13 +5,14 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django import template
+from mailbox import fcntl
 
 '''###################
     import : built-in modules        
 ###################'''
 import subprocess, copy, re, clipboard, time, \
         os, datetime, ftplib, glob, sys, cv2 \
-        , matplotlib.pyplot as plt
+        , matplotlib.pyplot as plt, codecs
 
 '''###################
     import : orig modules        
@@ -842,6 +843,7 @@ def gen_Cake_CSV__Get_ColorName_Set(\
     cnt = 0
 #     maxOf_Cnt = 30
 #     maxOf_Cnt = 20
+#    maxOf_Cnt = 5
     maxOf_Cnt = 999
 #     maxOf_Cnt = 15
 #     maxOf_Cnt = 10
@@ -881,7 +883,100 @@ def gen_Cake_CSV__Get_ColorName_Set(\
     
 #/ def gen_Cake_CSV__Get_ColorName_Set(dpath_Images, lo_Files):
     
+def gen_Cake_CSV__Gen_CSVFile(dpath_CSV, fname_CSV, lo_ColorName_Set__Modified_2):
     
+    '''###################
+        vars
+    ###################'''
+    lines = []
+    
+    cnt = 1
+    
+    '''###################
+        header
+    ###################'''
+    hdr = "no\tfile_name\tmemos"
+    
+    lines.append(hdr)
+    
+    '''###################
+        color name set        
+    ###################'''
+    for item in lo_ColorName_Set__Modified_2:
+        
+        '''###################
+            vars        
+        ###################'''
+        fname = item[0]
+        
+        '''###################
+            var : color_Names        
+            
+            e.g. "oooo" (string)
+            
+        ###################'''
+        color_Names = item[1]
+
+        '''###################
+            build : csv        
+        ###################'''
+        tmp_Line = []
+        
+        tmp_Line.append(str(cnt))
+#         tmp_Line.append(cnt)
+        tmp_Line.append(fname)
+        
+        '''###################
+            image content        
+        ###################'''
+        #debug
+        print()
+        print("[%s:%d] color_Names =>" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+        print(color_Names)
+        
+        line_Memo = lib_ip.get_Memo_From_ColorNames_Set(color_Names)
+        
+        tmp_Line.append(line_Memo)
+#         tmp_Line.append(line_Memo)
+#         tmp_Line.append("".join(color_Names))
+        
+        lines.append("\t".join(tmp_Line))
+        
+        # count
+        cnt += 1
+        
+    '''###################
+        write        
+    ###################'''
+    fpath_CSV = "%s/%s" % (dpath_CSV, fname_CSV)
+    
+    fin = codecs.open(fpath_CSV, "w", 'utf-8')
+#     fin = open(fpath_CSV, "w", 'utf-8')
+#     fin = open(fpath_CSV, "w")
+    
+    # write
+    for item in lines:
+    
+        fin.write(item)
+        fin.write("\n")
+        
+    #/for item in lines:
+
+    # close
+    fin.close()
+
+    #debug
+    print()
+    print("[%s:%d] csv written : %s" % \
+                    (os.path.basename(libs.thisfile()), libs.linenum()
+                    , fpath_CSV
+                    ), file=sys.stderr)
+    
+#/ def gen_Cake_CSV__Gen_CSVFile(dpath_CSV, fname_CSV, lo_ColorName_Set__Modified_2):
+
 def gen_Cake_CSV__Exec(request):
     
     '''###################
@@ -1017,6 +1112,8 @@ def gen_Cake_CSV__Exec(request):
             elif item2 == "red" : colName = "r"
             elif item2 == "yellow" : colName = "y"
             elif item2 == "green" : colName = "g"
+            elif item2 == "white" : colName = "w"
+            elif item2 == "black" : colName = "a"
             
             else : colName = "u" #=> 'unknown'
             
@@ -1086,6 +1183,15 @@ def gen_Cake_CSV__Exec(request):
         
         libs.write_Log(strOf_Color_Names, True)
     
+    '''###################
+        gen : CSV file
+    ###################'''
+    dpath_CSV = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\csv"
+    fname_CSV = "entries.%s.csv" % (libs.get_TimeLabel_Now())
+    
+    res = gen_Cake_CSV__Gen_CSVFile(dpath_CSV, fname_CSV, lo_ColorName_Set__Modified_2)
+    
+        
     '''###################
         return        
     ###################'''
@@ -1348,6 +1454,8 @@ def open_image_dir(request):
         build : command string        
     ###################'''
     command = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\utils\\open_image_dir.bat"
+#     command = "C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\utils\open_image_dir.bat"
+#     command = "C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images"
 #     command = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\images"
 #     command = "C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images"
 #     command = "%s\\%s" % (cons_im.FPath.DPATH_CMD_LIB_WS_CAKE_IFM11.value, action)
