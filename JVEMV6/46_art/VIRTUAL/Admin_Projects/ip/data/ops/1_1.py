@@ -62,6 +62,102 @@ def click_and_crop(event, x, y, flags, param):
     
 #/ def click_and_crop(event, x, y, flags, param):
     
+def test_2():
+
+    '''###################
+        message
+    ###################'''
+    print()
+    print("[%s:%d] test_2 =======================" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+
+        ), file=sys.stderr)
+
+    '''######################################
+        ops        
+    ######################################'''
+    dpath_Ops_Images = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\ops\\images"
+#     "C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\data\ops\images"
+
+    fname_Ops_Image = "2018-06-24_19-14-31_000.jpg"
+    
+    fpath_Ops_Image = os.path.join(dpath_Ops_Images, fname_Ops_Image)
+    
+    '''###################
+        get : image
+    ###################'''
+    # read image
+    img_Orig = cv2.imread(fpath_Ops_Image)
+    
+    img_Orig_RGB = cv2.cvtColor(img_Orig, cv2.COLOR_BGR2RGB)
+    
+    img_ForDisp = img_Orig
+    
+    # meta data
+    height, width, channels = img_ForDisp.shape
+#     height, width, channels = img_Orig.shape
+    
+    '''######################################
+        prep : window
+    ######################################'''
+    window_1 = "window"
+    
+    #ref https://qiita.com/supersaiakujin/items/54a4671142d80ca962ec
+    #ref resize window http://answers.opencv.org/question/84985/resizing-the-output-window-of-imshow-function/
+    cv2.namedWindow(window_1, cv2.WINDOW_NORMAL)
+    
+    scaling = 0.5
+    
+    win_Resize_Height = math.floor(scaling * height)
+    win_Resize_Width = math.floor(scaling * width)
+    
+    cv2.resizeWindow(window_1, win_Resize_Width, win_Resize_Height)
+#     cv2.resizeWindow(window_1, 600,600)
+    
+#     cv2.namedWindow(window_1)
+#     cv2.namedWindow('window')
+    
+    '''###################
+        mouse events
+    ###################'''
+    #ref https://www.pyimagesearch.com/2015/03/09/capturing-mouse-click-events-with-python-and-opencv/
+    cv2.setMouseCallback(window_1, click_and_crop)
+#     cv2.setMouseCallback("image", click_and_crop)
+    
+    
+
+        
+    '''###################
+        show
+    ###################'''
+#     while True :
+#         
+#         cv2.imshow(window_1, img_Orig_RGB)
+# #         cv2.imshow('window', img_Orig_RGB)
+#     #     cv2.imshow('window', img_Orig)
+#     #     cv2.imshow('window', I)
+#         
+#         cv2.waitKey(0)
+#         cv2.destroyAllWindows()
+
+    cv2.imshow('window', img_ForDisp)
+#     cv2.imshow('window', img_Orig_RGB)
+#     cv2.imshow('window', img_Orig)
+#     cv2.imshow('window', I)
+     
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    
+#     '''###################
+#         message
+#     ###################'''
+#     print()
+#     print("[%s:%d] test_2 =======================" % \
+#                     (os.path.basename(libs.thisfile()), libs.linenum()
+# 
+#                     ), file=sys.stderr)
+#/ def test_1():
+
 def test_1():
 
     '''######################################
@@ -138,7 +234,8 @@ def exec_prog():
         ops        
     ###################'''
 #     test_2()
-    test_1()
+    test_2()
+#     test_1()
     
     print("[%s:%d] exec_prog() => done" % \
             (os.path.basename(libs.thisfile()), libs.linenum()

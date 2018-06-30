@@ -309,7 +309,8 @@ class ColorNameSet(Enum):
 #             '''###################
 #                 r,g,y ==> each only        # 3 types
 #             ###################'''
-            , "ooor" : "UNDEFINED"
+#            , "ooor" : "UNDEFINED"
+            , "ooor" : u':m music / log / XXX / '
             , "gooo" : ":m 食べた物　間食 / 砂糖菓子or乾物菓子"
             , "oooy" : u':m 食べた物'
             
