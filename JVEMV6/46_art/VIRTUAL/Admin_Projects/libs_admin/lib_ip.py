@@ -1279,6 +1279,31 @@ def is_ColorName_Yellow(image_StatsData):
         
         return False, msg
     
+    '''###################
+        judge : span between indices of max valuea : B - G
+    ###################'''
+    # condition
+    spanOf_IdxOf_Maxes_BG = 50
+    
+    condition_Span__BG = (idxOf_Maxes_B - idxOf_Maxes_G) < spanOf_IdxOf_Maxes_BG
+    # judge : index of max val
+    # 'R' ===> color element of R (data is obtained in BGR format)
+#     if idxOf_Maxes_R > ts_IdxOf_Max_R__Lower : 
+#     if not (idxOf_Maxes_R > ts_IdxOf_Max_R__Upper) : 
+    if not (condition_Span__BG) : 
+#     if not (idxOf_Maxes_B > ts_IdxOf_Max_B__Upper) : 
+        
+        msg = "False : span between idxOf_Max B and G ==> out of range (idxOf_Maxes_B = %d, idxOf_Maxes_G = %d, spanOf_IdxOf_Maxes_BG = %d)" \
+                % (idxOf_Maxes_B, idxOf_Maxes_G, spanOf_IdxOf_Maxes_BG)
+#         
+#         print()
+#         print("[%s:%d] %s" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#              , msg
+#             ), file=sys.stderr)
+        
+        return False, msg
+    
     
     '''###################
         return        

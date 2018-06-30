@@ -51,7 +51,8 @@ class ColorThresholds(Enum):
     ###################'''    
     # R
 #    isRed_IdxOf_Max_R__Upper = 50
-    isRed_IdxOf_Max_R__Upper = 70
+#     isRed_IdxOf_Max_R__Upper = 70
+    isRed_IdxOf_Max_R__Upper = 91
     isRed_IdxOf_Max_R__Lower = 0
      
     # G

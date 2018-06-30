@@ -174,6 +174,7 @@ def test_1():
                 fpath_Curr = os.path.join(dpath, name_Set[0])
                 fpath_New = os.path.join(dpath, item[0])
                 
+                #ref rename https://qiita.com/clarinet758/items/307d01a6634b372e8fa9
                 os.rename(fpath_Curr, fpath_New)
                 
                 # count

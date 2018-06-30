@@ -238,6 +238,138 @@ def get_4_corners(request):
                 ), file=sys.stderr)
     
         return render(request, 'ip/get_4_corners_full.html', dic)
+
+'''###################
+    __ip_ops__gradation
+    
+    at : 2018/06/30 09:15:53
+    
+###################'''
+def __ip_ops__gradation(request):
+    
+    '''######################################
+        ops        
+    ######################################'''
+    dpath_Ops_Images = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\ops\\images"
+    fname_Ops_Image = "2018-06-24_19-14-31_000.jpg"
+    
+    fpath_Ops_Image = os.path.join(dpath_Ops_Images, fname_Ops_Image)
+    
+    '''###################
+        get : image
+    ###################'''
+    # read image
+    img_Orig = cv2.imread(fpath_Ops_Image)
+    
+    # meta data
+    height, width, channels = img_Orig.shape
+    
+    '''###################
+        return        
+    ###################'''
+    url_Path_Full = "ip/ops/ip_ops__gradation_full.html"
+    url_Path = "ip/ops/ip_ops__gradation.html"
+
+    dic = {"msg" : "gradation : ip_ops__gradation.html"}
+
+    return (url_Path_Full, url_Path, dic)
+    
+#/ def __ip_ops__gradation(request):
+    
+    
+    
+'''###################
+    ip_ops        
+###################'''
+def ip_ops(request):
+    
+    '''###################
+        params
+    ###################'''
+    request_Commands = request.GET.get('commands', False)
+    
+    '''###################
+        vars        
+    ###################'''
+    dic = {}
+
+    '''###################
+        ops
+    ###################'''
+    reqCmd_Gradation = "gradation"
+    
+    if request_Commands : #if request_Commands
+        
+        if request_Commands == reqCmd_Gradation : #if request_Commands == reqCmd_Gradation
+    
+            url_Path_Full, url_Path, dic = __ip_ops__gradation(request)
+    
+        else : #if request_Commands == reqCmd_Gradation
+        
+            url_Path_Full = "ip/ops/ip_ops_full.html"
+            url_Path = "ip/ops/ip_ops.html"
+            
+            dic['msg'] = "commands => %s" % request_Commands
+
+        
+        #/if request_Commands == reqCmd_Gradation
+    
+    
+        
+        
+    
+    else : #if request_Commands
+    
+        url_Path_Full = "ip/ops/ip_ops_full.html"
+        url_Path = "ip/ops/ip_ops.html"
+        
+        dic['msg'] = "ip_ops.html"
+
+    
+    #/if request_Commands
+        
+        
+#     url_Path_Full, url_Path, dic = __ip_ops__gradation(request)
+#     url_Path_Full = "ip/ops/ip_ops_full.html"
+#     url_Path = "ip/ops/ip_ops.html"
+#     url_Path_Full, url_Path, dic = __ip_ops__gradation(request)
+#     url_Path_Full = "ip/ops/ip_ops_full.html"
+#     url_Path = "ip/ops/ip_ops.html"
+    
+    
+    '''###################
+        get : referer        
+    ###################'''
+    referer_MM = "http://127.0.0.1:8001/ip/basics/"
+#     referer_MM = "http://127.0.0.1:8000/ip/"
+    
+    referer_Current = request.META.get('HTTP_REFERER')
+
+    if referer_Current == referer_MM : #if referer_Current == referer_MM
+    
+        print()
+        print("[%s:%d] referer_Current == referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, url_Path, dic)
+#         return render(request, 'ip/get_4_corners.html', dic)
+        
+    else : #if referer_Current == referer_MM
+
+        print()
+        print("[%s:%d] referer_Current <> referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, url_Path_Full, dic)
+#         return render(request, 'ip/get_4_corners_full.html', dic)
+
+#/ def ip_ops(request):
+    
+    
 '''###################
     get_Corner_Images(img_Src, corner_Length)        
     
