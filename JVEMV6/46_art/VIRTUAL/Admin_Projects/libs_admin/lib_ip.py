@@ -3461,3 +3461,21 @@ def get_Memo_From_ColorNames_Set(color_Names) :
     return memo
     
 #/ def get_Memo_From_ColorNames_Set(color_Names) :
+
+def test__get_Opt_IP():
+    
+    '''###################
+        get : args        
+    ###################'''
+    args = sys.argv
+    
+    print()
+    print("[%s:%d] args =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    print(args)
+
+    
+#/ def get_Opt_IP():
+

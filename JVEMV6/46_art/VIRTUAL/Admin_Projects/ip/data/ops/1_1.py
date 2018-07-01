@@ -23,7 +23,7 @@ sys.path.append('.')
 sys.path.append('..')
 sys.path.append('C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects') # libs_mm
 
-from libs_admin import libs
+from libs_admin import libs, lib_ip
 
 '''###################
     import : built-in modules        
@@ -61,7 +61,36 @@ def click_and_crop(event, x, y, flags, param):
             ), file=sys.stderr)
     
 #/ def click_and_crop(event, x, y, flags, param):
+
+def test_3():
+
+#     '''###################
+#         get : args        
+#     ###################'''
+    lib_ip.test__get_Opt_IP()
+	#ref https://stackoverflow.com/questions/4033723/how-do-i-access-command-line-arguments-in-python answered Oct 27 '10 at 13:27
+#     args = sys.argv
+#     
+#     print()
+#     print("[%s:%d] args =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(args)
+
+#/ def test_3():
+
+'''###################
+    test_2()
     
+    <description>
+        - add listener to ==> image
+        - hover on the image ==> x, y coordinates displayed in the console
+        
+        <quit program>
+        return key
+    
+###################'''
 def test_2():
 
     '''###################
@@ -234,7 +263,8 @@ def exec_prog():
         ops        
     ###################'''
 #     test_2()
-    test_2()
+    test_3()
+#     test_2()
 #     test_1()
     
     print("[%s:%d] exec_prog() => done" % \

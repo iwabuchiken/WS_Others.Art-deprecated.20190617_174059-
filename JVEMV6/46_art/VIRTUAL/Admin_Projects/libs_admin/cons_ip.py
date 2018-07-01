@@ -28,14 +28,16 @@ class ColorThresholds(Enum):
     ###################'''
     # R
 #     isRed_Max_Val_R__Lower = 2.2 * 1000
-    isRed_Max_Val_R__Lower = 2.0 * 1000
+#    isRed_Max_Val_R__Lower = 2.0 * 1000
+    isRed_Max_Val_R__Lower = 1.85 * 1000
     isRed_Max_Val_R__Upper = 4.7 * 1000
 #     isRed_Max_Val_R__Upper = 3.9 * 1000
     
     
     # G
 #     isRed_Max_Val_G__Lower = 2.3 * 1000
-    isRed_Max_Val_G__Lower = 2.0 * 1000
+#    isRed_Max_Val_G__Lower = 2.0 * 1000
+    isRed_Max_Val_G__Lower = 1.85 * 1000
     isRed_Max_Val_G__Upper = 4.7 * 1000
 #     isRed_Max_Val_G__Upper = 3.9 * 1000
     
