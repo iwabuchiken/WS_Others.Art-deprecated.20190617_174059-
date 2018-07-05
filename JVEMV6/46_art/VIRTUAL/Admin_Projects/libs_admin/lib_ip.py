@@ -3465,6 +3465,13 @@ def get_Memo_From_ColorNames_Set(color_Names) :
 def test__get_Opt_IP():
     
     '''###################
+        vars
+    ###################'''
+    lo_Args_Pairs = []
+    
+    charOf_Option_Switch = "-"
+    
+    '''###################
         get : args        
     ###################'''
     args = sys.argv
@@ -3475,6 +3482,85 @@ def test__get_Opt_IP():
         
         ), file=sys.stderr)
     print(args)
+
+    '''###################
+        validate : no option elements        
+    ###################'''
+    if len(args) < 2 : #if len(args) < 2
+
+        print()
+        print("[%s:%d] no args =>" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+        print(args)
+        
+        return lo_Args_Pairs
+        
+    #/if len(args) < 2
+    
+    '''###################
+        ops
+    ###################'''
+    # length : omit program name element
+    args_Options = args[1:]
+    
+    lenOf_Args_Options = len(args_Options)
+#     lenOf_Args = len(args)
+    
+    # each element in the args
+    for i in range(lenOf_Args_Options):
+
+        # start with : "-"
+        elem = args_Options[i]
+        
+        #ref https://stackoverflow.com/questions/8802860/checking-whether-a-string-starts-with-xxxx#8802889
+        judge = elem.startswith(charOf_Option_Switch)
+        
+        if judge == True : #if judge == True
+
+            print()
+            print("[%s:%d] option swith => %s (char is '%s', index = %d)" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                , elem, elem[1:], i
+                ), file=sys.stderr)
+            
+            '''###################
+                validate : list length --> enough
+            ###################'''
+            if (lenOf_Args_Options - 2) >= i : #if (lenOf_Args_Options - 2) >= i
+    
+                pass
+            
+            else : #if (lenOf_Args_Options - 2) >= i
+            
+                print()
+                print("[%s:%d] option-related value => not given" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                
+                ), file=sys.stderr)
+            
+            #/if (lenOf_Args_Options - 2) >= i
+    
+    
+        
+        else : #if judge == True
+        
+            pass
+        
+        #/if judge == True
+
+
+        
+    #/for i in range(lenOf_Args):
+
+    
+   
+    '''###################
+        returen        
+    ###################'''
+    return lo_Args_Pairs
+
 
     
 #/ def get_Opt_IP():
