@@ -29,23 +29,29 @@ class ColorThresholds(Enum):
     # R
 #     isRed_Max_Val_R__Lower = 2.2 * 1000
 #    isRed_Max_Val_R__Lower = 2.0 * 1000
-    isRed_Max_Val_R__Lower = 1.85 * 1000
-    isRed_Max_Val_R__Upper = 4.7 * 1000
+#    isRed_Max_Val_R__Lower = 1.85 * 1000
+    isRed_Max_Val_R__Lower = 1.70 * 1000
+    isRed_Max_Val_R__Upper = 6.0 * 1000
+#    isRed_Max_Val_R__Upper = 4.7 * 1000
 #     isRed_Max_Val_R__Upper = 3.9 * 1000
     
     
     # G
 #     isRed_Max_Val_G__Lower = 2.3 * 1000
 #    isRed_Max_Val_G__Lower = 2.0 * 1000
-    isRed_Max_Val_G__Lower = 1.85 * 1000
-    isRed_Max_Val_G__Upper = 4.7 * 1000
+#    isRed_Max_Val_G__Lower = 1.85 * 1000
+    isRed_Max_Val_G__Lower = 1.70 * 1000
+    isRed_Max_Val_G__Upper = 5.5 * 1000	#=> 20180709_060511
+#    isRed_Max_Val_G__Upper = 4.7 * 1000
 #     isRed_Max_Val_G__Upper = 3.9 * 1000
     
     # B
-    isRed_Max_Val_B__Lower = 1.6 * 1000
+#    isRed_Max_Val_B__Lower = 1.6 * 1000
+    isRed_Max_Val_B__Lower = 1.35 * 1000
 #     isRed_Max_Val_B__Lower = 1.8 * 1000
 #    isRed_Max_Val_B__Upper = 2.5 * 1000
-    isRed_Max_Val_B__Upper = 3.5 * 1000
+    isRed_Max_Val_B__Upper = 4.25 * 1000
+#    isRed_Max_Val_B__Upper = 3.5 * 1000
 #     isRed_Max_Val_B__Upper = 3.1 * 1000
     
     '''###################
@@ -152,7 +158,8 @@ class ColorThresholds(Enum):
 #    isYellow_Max_Val_B__Lower = 1.6 * 1000
 #     isYellow_Max_Val_B__Lower = 1.4 * 1000
     isYellow_Max_Val_B__Lower = 1.2 * 1000
-    isYellow_Max_Val_B__Upper = 6.2 * 1000
+    isYellow_Max_Val_B__Upper = 10.8 * 1000 #=> 20180709_064100
+#    isYellow_Max_Val_B__Upper = 6.2 * 1000
 #     isYellow_Max_Val_B__Upper = 5.8 * 1000
 #     isYellow_Max_Val_B__Upper = 4500
     
@@ -338,7 +345,7 @@ class ColorNameSet(Enum):
 #             '''###################
 #                 r,g,y ==> 1 each, 2 kinds        # 3 types
 #             ###################'''
-#             , "goor"
+            , "goor" : u'UNDEFINED'
             , "gooy" : u'\'-*'
             , "oory" : u':bookmemo / 読んだ本 / 『』 / 著者=XXX'
 

@@ -614,12 +614,12 @@ def is_CornerOf_Green__PhotoOf_Sweets(image_StatsData):
         
         msg = "False : idxOf_Max_B > 20 (%d)" % idxOf_Maxes_B
         
-        print()
+#        print()
 #         print("[%s:%d] False : idxOf_Max_B > 20 (%d)" % \
-        print("[%s:%d] %s" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-             , msg
-            ), file=sys.stderr)
+#        print("[%s:%d] %s" % \
+#            (os.path.basename(libs.thisfile()), libs.linenum()
+#             , msg
+#            ), file=sys.stderr)
         
         return False, msg
     
@@ -634,12 +634,12 @@ def is_CornerOf_Green__PhotoOf_Sweets(image_StatsData):
         
         msg = "False : idxOf_Max_G < 30 or idxOf_Maxes_G > 80 (%d)" % idxOf_Maxes_G
         
-        print()
+#        print()
 #         print("[%s:%d] False : idxOf_Max_B > 20 (%d)" % \
-        print("[%s:%d] %s" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-             , msg
-            ), file=sys.stderr)
+#        print("[%s:%d] %s" % \
+#            (os.path.basename(libs.thisfile()), libs.linenum()
+#             , msg
+#            ), file=sys.stderr)
         
         return False, msg
 
@@ -654,11 +654,11 @@ def is_CornerOf_Green__PhotoOf_Sweets(image_StatsData):
 
         msg = "False : idxOf_Max_R < 30 or idxOf_Maxes_R > 80 (%d)" % idxOf_Maxes_R
         
-        print()
-        print("[%s:%d] %s" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-             , msg
-            ), file=sys.stderr)
+#        print()
+#        print("[%s:%d] %s" % \
+#            (os.path.basename(libs.thisfile()), libs.linenum()
+#             , msg
+#            ), file=sys.stderr)
         
         return False, msg
 
@@ -680,11 +680,11 @@ def is_CornerOf_Green__PhotoOf_Sweets(image_StatsData):
 
         msg = "False : max_Val_R > 5000 (%d)" % max_Val_R
         
-        print()
-        print("[%s:%d] %s" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-             , msg
-            ), file=sys.stderr)
+#        print()
+#        print("[%s:%d] %s" % \
+#            (os.path.basename(libs.thisfile()), libs.linenum()
+#             , msg
+#            ), file=sys.stderr)
         
         return False, msg
 
@@ -701,11 +701,11 @@ def is_CornerOf_Green__PhotoOf_Sweets(image_StatsData):
 
         msg = "False : max_Val_G > 5000 (%d)" % max_Val_G
         
-        print()
-        print("[%s:%d] %s" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-             , msg
-            ), file=sys.stderr)
+#        print()
+#        print("[%s:%d] %s" % \
+#            (os.path.basename(libs.thisfile()), libs.linenum()
+#             , msg
+#            ), file=sys.stderr)
         
         return False, msg
 
@@ -727,11 +727,11 @@ def is_CornerOf_Green__PhotoOf_Sweets(image_StatsData):
             msg = "False : max_Val_B < 5000 or max_Val_B > 7500 (%d, idxOf_Max = %d)" \
                     % (max_Val_B, idxOf_Maxes_B)
             
-            print()
-            print("[%s:%d] %s" % \
-                (os.path.basename(libs.thisfile()), libs.linenum()
-                 , msg
-                ), file=sys.stderr)
+#            print()
+#            print("[%s:%d] %s" % \
+#                (os.path.basename(libs.thisfile()), libs.linenum()
+#                 , msg
+#                ), file=sys.stderr)
             
             return False, msg
             
@@ -816,11 +816,11 @@ def is_ColorName_Green(image_StatsData):
         msg = "False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = %d, idxOf_Maxes_G = %d, idxOf_Maxes_B = %d)" \
                 % (idxOf_Maxes_R, idxOf_Maxes_G, idxOf_Maxes_B)
          
-        print()
-        print("[%s:%d] %s" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-             , msg
-            ), file=sys.stderr)
+#        print()
+#        print("[%s:%d] %s" % \
+#            (os.path.basename(libs.thisfile()), libs.linenum()
+#             , msg
+#            ), file=sys.stderr)
         
         return False, msg
     
@@ -1078,11 +1078,11 @@ def is_ColorName_Yellow(image_StatsData):
         msg = "False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = %d, idxOf_Maxes_G = %d, idxOf_Maxes_B = %d)" \
                 % (idxOf_Maxes_R, idxOf_Maxes_G, idxOf_Maxes_B)
          
-        print()
-        print("[%s:%d] %s" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-             , msg
-            ), file=sys.stderr)
+#        print()
+#        print("[%s:%d] %s" % \
+#            (os.path.basename(libs.thisfile()), libs.linenum()
+#             , msg
+#            ), file=sys.stderr)
         
         return False, msg
     
@@ -1091,11 +1091,11 @@ def is_ColorName_Yellow(image_StatsData):
         msg = "False : order of idxOf_Maxes ==> incomplicit (should be : R >= G or abs(R - G) < 20 | idxOf_Maxes_R = %d, idxOf_Maxes_G = %d, idxOf_Maxes_B = %d)" \
                 % (idxOf_Maxes_R, idxOf_Maxes_G, idxOf_Maxes_B)
          
-        print()
-        print("[%s:%d] %s" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-             , msg
-            ), file=sys.stderr)
+#        print()
+#        print("[%s:%d] %s" % \
+#            (os.path.basename(libs.thisfile()), libs.linenum()
+#             , msg
+#            ), file=sys.stderr)
         
         return False, msg
     
@@ -1395,11 +1395,11 @@ def is_ColorName_White(image_StatsData):
                 % (cons_ip.ColorThresholds.isWhite_IdxOf_Max.value \
                    , idxOf_Maxes_R, idxOf_Maxes_G, idxOf_Maxes_B)
          
-        print()
-        print("[%s:%d] %s" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-             , msg
-            ), file=sys.stderr)
+#        print()
+#        print("[%s:%d] %s" % \
+#            (os.path.basename(libs.thisfile()), libs.linenum()
+#             , msg
+#            ), file=sys.stderr)
         
         return False, msg
     
@@ -1409,11 +1409,11 @@ def is_ColorName_White(image_StatsData):
                 % (cons_ip.ColorThresholds.isWhite_Max_Val__Lower.value \
                    , max_Val_R, max_Val_G, max_Val_B)
          
-        print()
-        print("[%s:%d] %s" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-             , msg
-            ), file=sys.stderr)
+#        print()
+#        print("[%s:%d] %s" % \
+#            (os.path.basename(libs.thisfile()), libs.linenum()
+#             , msg
+#            ), file=sys.stderr)
         
         return False, msg
     
@@ -1505,11 +1505,11 @@ def is_ColorName_Black(image_StatsData):
                 % (cons_ip.ColorThresholds.isWhite_IdxOf_Max.value \
                    , idxOf_Maxes_R, idxOf_Maxes_G, idxOf_Maxes_B)
          
-        print()
-        print("[%s:%d] %s" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-             , msg
-            ), file=sys.stderr)
+#        print()
+#        print("[%s:%d] %s" % \
+#            (os.path.basename(libs.thisfile()), libs.linenum()
+#             , msg
+#            ), file=sys.stderr)
         
         return False, msg
     
@@ -1519,11 +1519,11 @@ def is_ColorName_Black(image_StatsData):
                 % (cons_ip.ColorThresholds.isWhite_Max_Val__Lower.value \
                    , max_Val_R, max_Val_G, max_Val_B)
          
-        print()
-        print("[%s:%d] %s" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-             , msg
-            ), file=sys.stderr)
+#        print()
+#        print("[%s:%d] %s" % \
+#            (os.path.basename(libs.thisfile()), libs.linenum()
+#             , msg
+#            ), file=sys.stderr)
         
         return False, msg
     
@@ -2863,11 +2863,11 @@ def get_4_corners__Get_MetaData(img_Corners) :
         return        
     ###################'''
     #debug
-    print()
-    print("[%s:%d] len(lo_Image_MetaData) => %d" % \
-                        (os.path.basename(libs.thisfile()), libs.linenum()
-                        , len(lo_Image_MetaData)
-                        ), file=sys.stderr)
+#    print()
+#    print("[%s:%d] len(lo_Image_MetaData) => %d" % \
+#                        (os.path.basename(libs.thisfile()), libs.linenum()
+#                        , len(lo_Image_MetaData)
+#                        ), file=sys.stderr)
         
     return lo_Image_MetaData
 

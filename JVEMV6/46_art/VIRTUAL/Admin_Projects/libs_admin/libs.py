@@ -330,6 +330,10 @@ def write_Log(\
     
     # return char
     if flg_Return == True : fout_Log.write("\n")
+
+    # close file
+    fout_Log.close()
+    
     
 #/ def write_Log(dpath_LogFile, fname_LogFile, fname_Main, line_Num):
 

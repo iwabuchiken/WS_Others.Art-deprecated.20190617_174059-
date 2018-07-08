@@ -1062,12 +1062,12 @@ def gen_Cake_CSV__Gen_CSVFile(dpath_CSV, fname_CSV, lo_ColorName_Set__Modified_2
             image content        
         ###################'''
         #debug
-        print()
-        print("[%s:%d] color_Names =>" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
+#        print()
+#        print("[%s:%d] color_Names =>" % \
+#            (os.path.basename(libs.thisfile()), libs.linenum()
             
-            ), file=sys.stderr)
-        print(color_Names)
+#            ), file=sys.stderr)
+#        print(color_Names)
         
         line_Memo = lib_ip.get_Memo_From_ColorNames_Set(color_Names)
         
