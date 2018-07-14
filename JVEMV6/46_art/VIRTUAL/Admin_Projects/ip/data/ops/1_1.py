@@ -15,6 +15,8 @@ ref : http://aidiary.hatenablog.com/entry/20110607/1307449007
 import sys, cv2
 # from pandas.compat import str_to_bytes
 from numpy.distutils.from_template import item_re
+#ref https://stackoverflow.com/questions/3129322/how-do-i-get-monitor-resolution-in-python
+from win32api import GetSystemMetrics
 
 '''###################
     import : original files        
@@ -29,10 +31,10 @@ from libs_admin import libs, lib_ip
     import : built-in modules        
 ###################'''
 # import getopt
-import os, glob
+import os, glob, getopt, math as math
 # import inspect
 
-import math as math
+# import math as math
 
 ###############################################
 def show_Message() :
@@ -61,6 +63,364 @@ def click_and_crop(event, x, y, flags, param):
             ), file=sys.stderr)
     
 #/ def click_and_crop(event, x, y, flags, param):
+
+'''###################
+    test_5()
+    
+    <description>
+        - add listener to ==> image
+        - hover on the image ==> x, y coordinates displayed in the console
+        - use ==> argv for window size
+    
+    <Example>
+    python 1_1.py -s0.25
+        
+    <quit program>
+    return key
+    
+###################'''
+def test_5():
+
+    '''###################
+        message
+    ###################'''
+    print()
+    print("[%s:%d] test_4 =======================" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+
+        ), file=sys.stderr)
+
+    '''######################################
+        get : args
+    ##################
+    ####################'''
+    args = sys.argv[1:]
+#     args = sys.argv
+    
+    '''######################################
+        ops        
+    ######################################'''
+    dpath_Ops_Images = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\ops\\images"
+#     "C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\data\ops\images"
+
+    fname_Ops_Image = "2018-06-24_19-14-31_000.jpg"
+    
+    fpath_Ops_Image = os.path.join(dpath_Ops_Images, fname_Ops_Image)
+    
+    '''###################
+        get : image
+    ###################'''
+    # read image
+    img_Orig = cv2.imread(fpath_Ops_Image)
+    
+    img_Orig_RGB = cv2.cvtColor(img_Orig, cv2.COLOR_BGR2RGB)
+    
+    img_ForDisp = img_Orig
+    
+    # meta data
+    height, width, channels = img_ForDisp.shape
+#     height, width, channels = img_Orig.shape
+    
+    '''######################################
+        prep : window
+    ######################################'''
+    window_1 = "window"
+    
+    #ref https://qiita.com/supersaiakujin/items/54a4671142d80ca962ec
+    #ref resize window http://answers.opencv.org/question/84985/resizing-the-output-window-of-imshow-function/
+    cv2.namedWindow(window_1, cv2.WINDOW_NORMAL)
+    
+    # scaling
+    scaling = 1.0
+    
+    #debug
+    print("[%s:%d] args =>" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                
+                ), file=sys.stderr)
+    print(args)
+    
+    
+    
+    if len(args) > 0 : #if len(args) > 1
+#     if len(args) > 1 : #if len(args) > 1
+    
+        optlist, args = getopt.getopt(args, "s:")
+        
+        print("[%s:%d] optlist =>" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+        print(optlist)
+        
+        for item in optlist:
+            
+            #debug
+            print("[%s:%d] item =>" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+            print(item)
+    
+            if item[0].startswith("-s") : #if item.startswith("-s")
+    
+                scaling = float(item[1])
+#                 scaling = item[1]
+                
+                break
+                
+            #/if item.startswith("-s")
+    
+    
+            
+        #/for item in optlist:
+
+    
+    else : #if len(args) > 1
+    
+        print("[%s:%d] len(args) < 2" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+    
+    #/if len(args) > 1
+    
+    #debug
+    print("[%s:%d] scaling => %.3f" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , scaling
+            ), file=sys.stderr)
+    
+    win_Resize_Height = math.floor(scaling * height)
+    win_Resize_Width = math.floor(scaling * width)
+    
+    # validate
+    scr_W = GetSystemMetrics(0)
+    scr_H = GetSystemMetrics(1)
+    
+    if win_Resize_Width > scr_W : win_Resize_Width = scr_W
+    if win_Resize_Height > scr_H : win_Resize_Width = scr_H
+    
+    #debug
+    print("[%s:%d] win_Resize_Width = %.03f, win_Resize_Height = %.03f" % \
+                    (os.path.basename(libs.thisfile()), libs.linenum()
+                    , win_Resize_Width, win_Resize_Height
+                    ), file=sys.stderr)
+    print()
+    
+    cv2.resizeWindow(window_1, win_Resize_Width, win_Resize_Height)
+    
+    '''###################
+        mouse events
+    ###################'''
+    #ref https://www.pyimagesearch.com/2015/03/09/capturing-mouse-click-events-with-python-and-opencv/
+    cv2.setMouseCallback(window_1, click_and_crop)
+#     cv2.setMouseCallback("image", click_and_crop)
+        
+    '''###################
+        show
+    ###################'''
+
+    cv2.imshow('window', img_ForDisp)
+     
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    
+#/ def test_5():
+
+'''###################
+    test_4()
+    
+    <description>
+        - add listener to ==> image
+        - hover on the image ==> x, y coordinates displayed in the console
+        - use ==> argv for window size
+    
+    <Example>
+    python 1_1.py -s0.25
+        
+    <quit program>
+    return key
+    
+###################'''
+def test_4():
+
+    '''###################
+        message
+    ###################'''
+    print()
+    print("[%s:%d] test_4 =======================" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+
+        ), file=sys.stderr)
+
+    '''######################################
+        get : args
+    ##################
+    ####################'''
+    args = sys.argv[1:]
+#     args = sys.argv
+    
+    '''######################################
+        ops        
+    ######################################'''
+    dpath_Ops_Images = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\ops\\images"
+#     "C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\data\ops\images"
+
+    fname_Ops_Image = "2018-06-24_19-14-31_000.jpg"
+    
+    fpath_Ops_Image = os.path.join(dpath_Ops_Images, fname_Ops_Image)
+    
+    '''###################
+        get : image
+    ###################'''
+    # read image
+    img_Orig = cv2.imread(fpath_Ops_Image)
+    
+    img_Orig_RGB = cv2.cvtColor(img_Orig, cv2.COLOR_BGR2RGB)
+    
+    img_ForDisp = img_Orig
+    
+    # meta data
+    height, width, channels = img_ForDisp.shape
+#     height, width, channels = img_Orig.shape
+    
+    '''######################################
+        prep : window
+    ######################################'''
+    window_1 = "window"
+    
+    #ref https://qiita.com/supersaiakujin/items/54a4671142d80ca962ec
+    #ref resize window http://answers.opencv.org/question/84985/resizing-the-output-window-of-imshow-function/
+    cv2.namedWindow(window_1, cv2.WINDOW_NORMAL)
+    
+    # scaling
+    scaling = 1.0
+    
+    #debug
+    print("[%s:%d] args =>" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                
+                ), file=sys.stderr)
+    print(args)
+    
+    if len(args) > 0 : #if len(args) > 1
+#     if len(args) > 1 : #if len(args) > 1
+    
+        optlist, args = getopt.getopt(args, "s:")
+        
+        print("[%s:%d] optlist =>" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+        print(optlist)
+        
+        for item in optlist:
+            
+            #debug
+            print("[%s:%d] item =>" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+            print(item)
+    
+            if item[0].startswith("-s") : #if item.startswith("-s")
+    
+                scaling = float(item[1])
+#                 scaling = item[1]
+                
+                break
+                
+            #/if item.startswith("-s")
+    
+    
+            
+        #/for item in optlist:
+
+    
+    else : #if len(args) > 1
+    
+        print("[%s:%d] len(args) < 2" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+    
+    #/if len(args) > 1
+    
+    
+    
+#     scaling = 0.5
+    
+    #debug
+    print("[%s:%d] scaling => %.3f" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , scaling
+            ), file=sys.stderr)
+    
+    win_Resize_Height = math.floor(scaling * height)
+    win_Resize_Width = math.floor(scaling * width)
+    
+    # validate
+    scr_W = GetSystemMetrics(0)
+    scr_H = GetSystemMetrics(1)
+    
+    if win_Resize_Width > scr_W : win_Resize_Width = scr_W
+    if win_Resize_Height > scr_H : win_Resize_Width = scr_H
+    
+        
+        
+    
+    #debug
+    print("[%s:%d] win_Resize_Width = %.03f, win_Resize_Height = %.03f" % \
+                    (os.path.basename(libs.thisfile()), libs.linenum()
+                    , win_Resize_Width, win_Resize_Height
+                    ), file=sys.stderr)
+    print()
+    
+    cv2.resizeWindow(window_1, win_Resize_Width, win_Resize_Height)
+#     cv2.resizeWindow(window_1, 600,600)
+    
+#     cv2.namedWindow(window_1)
+#     cv2.namedWindow('window')
+    
+    '''###################
+        mouse events
+    ###################'''
+    #ref https://www.pyimagesearch.com/2015/03/09/capturing-mouse-click-events-with-python-and-opencv/
+    cv2.setMouseCallback(window_1, click_and_crop)
+#     cv2.setMouseCallback("image", click_and_crop)
+        
+    '''###################
+        show
+    ###################'''
+#     while True :
+#         
+#         cv2.imshow(window_1, img_Orig_RGB)
+# #         cv2.imshow('window', img_Orig_RGB)
+#     #     cv2.imshow('window', img_Orig)
+#     #     cv2.imshow('window', I)
+#         
+#         cv2.waitKey(0)
+#         cv2.destroyAllWindows()
+
+    cv2.imshow('window', img_ForDisp)
+#     cv2.imshow('window', img_Orig_RGB)
+#     cv2.imshow('window', img_Orig)
+#     cv2.imshow('window', I)
+     
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    
+#     '''###################
+#         message
+#     ###################'''
+#     print()
+#     print("[%s:%d] test_2 =======================" % \
+#                     (os.path.basename(libs.thisfile()), libs.linenum()
+# 
+#                     ), file=sys.stderr)
+#/ def test_1():
+
 
 def test_3():
 
@@ -152,9 +512,6 @@ def test_2():
     #ref https://www.pyimagesearch.com/2015/03/09/capturing-mouse-click-events-with-python-and-opencv/
     cv2.setMouseCallback(window_1, click_and_crop)
 #     cv2.setMouseCallback("image", click_and_crop)
-    
-    
-
         
     '''###################
         show
@@ -262,8 +619,9 @@ def exec_prog():
     '''###################
         ops        
     ###################'''
+    test_4()
 #     test_2()
-    test_3()
+#     test_3()
 #     test_2()
 #     test_1()
     
@@ -271,53 +629,7 @@ def exec_prog():
             (os.path.basename(libs.thisfile()), libs.linenum()
             
             ), file=sys.stderr)
-#     print ("[%s:%d] exec_prog" % (thisfile(), linenum()))
     
-#     #debug
-#     return
-    
-    
-#     A = 1     #振幅
-#     fs = 16000 #サンプリング周波数
-# #     fs = 8000 #サンプリング周波数
-#     f0 = 392  #周波数
-# #     f0 = 262  #周波数
-# #     f0 = 440  #周波数
-#     sec = 5   #秒
-#     
-#     phase_Param = 4
-#     
-#     phase = f0 * (phase_Param / 2)
-# #     phase = f0 * (4 / 2)
-# #     phase = f0 / 2
-#     
-#     # bin data
-#     binwave = gen_WaveData(fs, f0, phase, sec, A)
-#     
-# #     #サイン波をwavファイルとして書き出し
-#     wave_Params = (1, 2, fs, len(binwave), 'NONE', 'not compressed')
-# #     wave_Params = (1, 2, 8000, len(binwave), 'NONE', 'not compressed')
-# 
-#     '''###################
-#         dirs        
-#     ###################'''
-#     dname_Audios = "data.46_1\\audios"
-#     
-#     if not os.path.isdir(dname_Audios) : os.makedirs(dname_Audios)
-# 
-# #     fname_Out = "audio/output_%s.sin.fs-%d_f0-%d_phase-%s_sec-%d.wav" % \
-#     fname_Out = "%s\\output_%s.sin.fs-%d_f0-%d_phase-%s_sec-%d.wav" % \
-#                 (dname_Audios
-#                 , libs.get_TimeLabel_Now()
-#                 , fs, f0
-#                 , "%1.2f" % (phase_Param / 4.0) + "pi", sec)
-# #     fname_Out = "audios/output_%s.sin.fs-%d_f0-%d_phase-%s_sec-%d.wav" % \
-# #                 (libs.get_TimeLabel_Now(), fs, f0, "%1.2f" % (phase_Param / 4.0) + "pi", sec)
-# #                 (get_TimeLabel_Now(), fs, f0, "%1.2f" % (phase_Param / 4.0) + "pi", sec)
-# #     fname_Out = "audio/output_%s.sin.fs-%d_f0-%d_phase-%d_sec-%d.wav" % \
-# #                 (get_TimeLabel_Now(), fs, f0, phase, sec)
-#     
-#     save_Wave(fname_Out, wave_Params, binwave)
 #def exec_prog()
 
 '''
