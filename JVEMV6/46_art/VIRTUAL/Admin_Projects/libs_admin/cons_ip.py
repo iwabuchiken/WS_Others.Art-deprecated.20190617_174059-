@@ -225,7 +225,8 @@ class ColorThresholds(Enum):
     ###################'''
     # R
 #     isBlack_Max_Val__Lower = 21 * 1000
-    isBlack_Max_Val__Lower = 16 * 1000
+    #isBlack_Max_Val__Lower = 16 * 1000
+    isBlack_Max_Val__Lower = 15 * 1000
 #     isBlack_Max_Val__Lower = 26 * 1000
     
 #/ class ColorThresholds(Enum):    
