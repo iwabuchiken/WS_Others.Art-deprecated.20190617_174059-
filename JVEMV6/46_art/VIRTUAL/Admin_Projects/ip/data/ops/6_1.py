@@ -37,17 +37,26 @@ import os, glob, getopt, math as math, numpy as np
 # import inspect
 
 # import math as math
+refPt_Start = [-1] * 2
+refPt_End = [-1] * 2
+# refPt_Start = []
+# refPt_End = []
+
+flg_Set_Points  = ""
+POINTS_START    = "START"
+POINTS_END      = "END"
+POINTS_NEUTRAL  = "NEUTRAL"
 
 ###############################################
-def show_Message() :
-    
-    msg = '''
-    <Options>
-    -v	Volume down the amplitude --> 1.0 * v / 1000
-    -f	Base frequency ---> e.g. 262 for the A tone
-    -p	Phase of the sine curves ---> sin(2 * np.pi * f0 * n * phase / fs)'''
-    
-    print (msg)
+# def show_Message() :
+#     
+#     msg = '''
+#     <Options>
+#     -v	Volume down the amplitude --> 1.0 * v / 1000
+#     -f	Base frequency ---> e.g. 262 for the A tone
+#     -p	Phase of the sine curves ---> sin(2 * np.pi * f0 * n * phase / fs)'''
+#     
+#     print (msg)
 
 '''###################
     click_and_crop(event, x, y, flags, param)
@@ -61,13 +70,80 @@ def click_and_crop(event, x, y, flags, param):
     #ref https://www.pyimagesearch.com/2015/03/09/capturing-mouse-click-events-with-python-and-opencv/
     if event == cv2.EVENT_LBUTTONDOWN:
         
-        refPt = [(x, y)]
+        if flg_Set_Points == POINTS_START : #if flg_Set_Points == POINTS_START
+
+            refPt_Start[0] = x
+            refPt_Start[1] = y
+            
+            print()
+    #         print("[%s:%d] EVENT_LBUTTONDOWN (x = %d / y = %d)" % \
+            print("[%s:%d] EVENT_LBUTTONDOWN ==> starting point set" % \
+                    (os.path.basename(libs.thisfile()), libs.linenum()
+    #                 , x, y
+                    ), file=sys.stderr)
+            
+            print(refPt_Start)
         
-        print()
-        print("[%s:%d] EVENT_LBUTTONDOWN (x = %d / y = %d)" % \
-                (os.path.basename(libs.thisfile()), libs.linenum()
-                , x, y
-                ), file=sys.stderr)
+        elif flg_Set_Points == POINTS_END : #if flg_Set_Points == POINTS_START
+
+            refPt_End[0] = x
+            refPt_End[1] = y
+            
+            print()
+    #         print("[%s:%d] EVENT_LBUTTONDOWN (x = %d / y = %d)" % \
+            print("[%s:%d] EVENT_LBUTTONDOWN ==> ending point set" % \
+                    (os.path.basename(libs.thisfile()), libs.linenum()
+    #                 , x, y
+                    ), file=sys.stderr)
+            
+            print(refPt_End)
+        
+        
+        else : #if flg_Set_Points == POINTS_START
+        
+            print()
+            print("[%s:%d] EVENT_LBUTTONDOWN ==> unknown flag value : %s" % \
+                    (os.path.basename(libs.thisfile()), libs.linenum()
+                    , flg_Set_Points
+                    ), file=sys.stderr)
+            
+            print([x, y])
+            
+        
+        #/if flg_Set_Points == POINTS_START
+
+
+#         refPt_Start[0] = x
+#         refPt_Start[1] = y
+# #         refPt_Start = [(x, y)]
+# #         refPt = [(x, y)]
+#         
+#         print()
+# #         print("[%s:%d] EVENT_LBUTTONDOWN (x = %d / y = %d)" % \
+#         print("[%s:%d] EVENT_LBUTTONDOWN ==> starting point set" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+# #                 , x, y
+#                 ), file=sys.stderr)
+#         
+#         print(refPt_Start)
+        
+#     if event == cv2.EVENT_RBUTTONDOWN:
+#         
+# #         refPt_End = [(x, y)]
+# #         refPt = [(x, y)]
+# 
+#         refPt_End[0] = x
+#         refPt_End[1] = y
+#         
+#         print()
+# #         print("[%s:%d] EVENT_LBUTTONDOWN (x = %d / y = %d)" % \
+#         print("[%s:%d] EVENT_RBUTTONDOWN ==> ending point set" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+# #                 , x, y
+#                 ), file=sys.stderr)
+#         
+#         print(refPt_End)
+        
 #     print()
 #     print("[%s:%d] x = %d, y = %d" % \
 #             (os.path.basename(libs.thisfile()), libs.linenum()
@@ -75,6 +151,21 @@ def click_and_crop(event, x, y, flags, param):
 #             ), file=sys.stderr)
     
 #/ def click_and_crop(event, x, y, flags, param):
+
+def show_Message():
+
+    print("'q' to quit")
+    print("'x' to execute")
+    print("'h' to show this key list")
+#             print("'e' to execute")
+#             print("left click ==> set the starting point")
+#             print("right click ==> set the ending point")
+    print("'s' then left click ==> set the starting point")
+    print("'e' then right click ==> set the ending point")
+    print()
+
+#/ def show_Message():
+
 
 '''###################
     get_RGB_Vals      
@@ -375,6 +466,12 @@ def __test_1__Set_Starting_Point__Plotting(lo_Rs, lo_Gs, lo_Bs, dpath_Ops_Images
 
 def __test_1__Set_Starting_Point__Key_Inputs():
     
+    '''###################
+        vars        
+    ###################'''
+    #ref scope https://www.saltycrane.com/blog/2008/01/python-variable-scope-notes/
+    global flg_Set_Points
+    
     while True :
         
         k = cv2.waitKey(0) & 0xFF
@@ -384,13 +481,78 @@ def __test_1__Set_Starting_Point__Key_Inputs():
             
             break
         
+        elif k == ord('h'):
+            
+            show_Message()
+            
+        elif k == ord('r'):
+
+            print("[%s:%d] reset the flag...." % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                
+                ), file=sys.stderr)
+            
+            flg_Set_Points = POINTS_NEUTRAL
+            
+            print("flag is => %s" % flg_Set_Points)
+            
+        elif k == ord('x'):
+            
+            print("[%s:%d] executing...." % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                
+                ), file=sys.stderr)
+            print("refPt_Start =>")
+            print(refPt_Start)
+            print("refPt_End =>")
+            print(refPt_End)
+            
+        elif k == ord('s'):
+            
+            flg_Set_Points = POINTS_START
+            
+            print("[%s:%d] flag set ==> %s" % \
+                    (os.path.basename(libs.thisfile()), libs.linenum()
+                    , flg_Set_Points
+                    ), file=sys.stderr)
+        
+            
+        elif k == ord('e'):
+            
+            flg_Set_Points = POINTS_END
+            
+            print("[%s:%d] flag set ==> %s" % \
+                    (os.path.basename(libs.thisfile()), libs.linenum()
+                    , flg_Set_Points
+                    ), file=sys.stderr)
+        
+#         if k == ord('e'):   ### 'e' for execute
+#             
+#             print("[%s:%d] starting/ending points" % \
+#                     (os.path.basename(libs.thisfile()), libs.linenum()
+#                     
+#                     ), file=sys.stderr)
+#             print("<starting point>")
+#             print(refPt_Start)
+#             print("<ending point>")
+#             print(refPt_End)
+        
         else:
             
-            print("[%s:%d] waitKey => %d (%s) (press 'q' to quit)" % \
+            #ref str() https://stackoverflow.com/questions/3673428/convert-int-to-ascii-and-back-in-python answered Sep 9 '10 at 2:51
+#             print("[%s:%d] waitKey => %d (%s) (press 'q' to quit)" % \
+            print("[%s:%d] waitKey => %d (%s)" % \
                 (os.path.basename(libs.thisfile()), libs.linenum()
                 , k, str(chr(k))
-#                 , k, str(unichr(k))
                 ), file=sys.stderr)
+            
+            print("'q' to quit")
+            print("'x' to execute")
+#             print("'e' to execute")
+#             print("left click ==> set the starting point")
+#             print("right click ==> set the ending point")
+            print("'s' then left click ==> set the starting point")
+            print("'e' then right click ==> set the ending point")
             
             
 #     while True :
@@ -402,7 +564,7 @@ def __test_1__Set_Starting_Point__Key_Inputs():
 
 #/ def __test_1__Set_Starting_Point__Key_Inputs:
 
-def __test_1__Set_Starting_Point__Window_Ops(args, width, height, img_Sub):
+def __test_1__Set_Starting_Point__Window_Ops(args, width, height, img_Sub, img_Main):
     
     window_1 = "window"
     
@@ -448,13 +610,28 @@ def __test_1__Set_Starting_Point__Window_Ops(args, width, height, img_Sub):
         show
     ###################'''
 
-    cv2.imshow('window', img_Sub)
+    cv2.imshow('window', img_Main)
+#     cv2.imshow('window', img_Sub)
 #     cv2.imshow('window', img_ForDisp)
     
-    print("[%s:%d] waiting for key(0)....." % \
-                (os.path.basename(libs.thisfile()), libs.linenum()
-                
-                ), file=sys.stderr)
+    print("[%s:%d] key inputs ======================" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    
+    show_Message()
+#     print("'q' to quit")
+#     print("'x' to execute")
+# #             print("'e' to execute")
+# #             print("left click ==> set the starting point")
+# #             print("right click ==> set the ending point")
+#     print("'s' then left click ==> set the starting point")
+#     print("'e' then right click ==> set the ending point")
+
+#     print("[%s:%d] waiting for key(0)....." % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 
+#                 ), file=sys.stderr)
     
     '''###################
         return        
@@ -547,160 +724,23 @@ def test_1__Set_Starting_Point():
         get : RGB vals        
     ###################'''
     lo_Rs, lo_Gs, lo_Bs = get_RGB_Vals(img_Sub)
-#     lo_Rs, lo_Gs, lo_Bs = test_7__SubImage_RGB_Vals__Get_RGB_Vals(img_Sub)
-    
-#     print()
-#     print("[%s:%d] lo_Rs =>" % \
-#                 (os.path.basename(libs.thisfile()), libs.linenum()
-#                
-#                 ), file=sys.stderr)
-#     print(lo_Rs)
     
     '''###################
         plot        
     ###################'''
-#     yax_vals = [200, 100,0]
-#     plt.bar(yax_vals, lo_Rs)
-# #     plt.bar(lo_Rs, yax_vals)
-# #     plt.bar(lo_Rs)
-# #     plt.plot(lo_Rs)
-#     
-#     plt.show()
-    
     __test_1__Set_Starting_Point__Plotting(lo_Rs, lo_Gs, lo_Bs, dpath_Ops_Images)
-#     y_pos = np.arange(len(lo_Rs))
-# 
-#     performance = lo_Rs
-#     
-#     #ref https://stackoverflow.com/questions/21254472/multiple-plot-in-one-figure-in-python
-#     plt.plot(y_pos, lo_Rs, 'r-', label='lo_Rs')
-#     plt.plot(y_pos, lo_Gs, 'g-', label='lo_Gs')
-#     plt.plot(y_pos, lo_Bs, 'b-', label='lo_Bs')
-#     
-#     plt.legend(loc='best')
-#     
-#     ax = plt.gca()
-#      
-#     #ref grid https://stackoverflow.com/questions/16074392/getting-vertical-gridlines-to-appear-in-line-plot-in-matplotlib
-#     ax.grid(which='major', axis='both', linestyle='--')
-#     ax.grid(which='minor', axis='both', linestyle='--')
-#  
-#     ax.set(aspect=1,
-#            xlim=(0, len(lo_Rs)),
-#            ylim=(140, 250))
-#     
-#     fpath_Save_Image = os.path.join(dpath_Ops_Images, "plot_" + libs.get_TimeLabel_Now() + ".png")
-#     
-#     
-#     result = plt.savefig(fpath_Save_Image)
-#     
-#     print("[%s:%d] save fig => %s (%s)" % \
-#         (os.path.basename(libs.thisfile()), libs.linenum()
-#         , result, fpath_Save_Image
-#         ), file=sys.stderr)
-    
-#     plt.show()
-#     
-#     debug
-#     return
     
     '''######################################
         prep : window
     ######################################'''
 
     win_Resize_Width, win_Resize_Height, scr_W, scr_H = \
-                __test_1__Set_Starting_Point__Window_Ops(args, width, height, img_Sub)
-#     window_1 = "window"
-#     
-#     #ref https://qiita.com/supersaiakujin/items/54a4671142d80ca962ec
-#     #ref resize window http://answers.opencv.org/question/84985/resizing-the-output-window-of-imshow-function/
-#     cv2.namedWindow(window_1, cv2.WINDOW_NORMAL)
-#     
-#     '''###################
-#         get : scaling        
-#     ###################'''
-#     scaling = get_Scaling(args)
-# #     scaling = test_7__SubImage_RGB_Vals__Get_Scaling(args)
-#     
-#     win_Resize_Height = math.floor(scaling * height)
-#     win_Resize_Width = math.floor(scaling * width)
-#     
-#     # validate
-#     scr_W = GetSystemMetrics(0)
-#     scr_H = GetSystemMetrics(1)
-#     
-#     '''###################
-#         resize image        
-#     ###################'''
-#     win_Resize_Width, win_Resize_Height = resize_Image(width, height, scaling, scr_W, scr_H)
-# #     win_Resize_Width, win_Resize_Height = test_5__Resize_Image(width, height, scaling, scr_W, scr_H)
-# 
-#     '''###################
-#         disp : image
-#     ###################'''
-#     cv2.resizeWindow(window_1, win_Resize_Width, win_Resize_Height)
-#     
-#     '''###################
-#         mouse events
-#     ###################'''
-#     '''###################
-#         mouse events
-#     ###################'''
-#     #ref https://www.pyimagesearch.com/2015/03/09/capturing-mouse-click-events-with-python-and-opencv/
-#     cv2.setMouseCallback(window_1, click_and_crop)
-# #     cv2.setMouseCallback("image", click_and_crop)
-#         
-#     '''###################
-#         show
-#     ###################'''
-# 
-#     cv2.imshow('window', img_Sub)
-# #     cv2.imshow('window', img_ForDisp)
-#     
-#     print("[%s:%d] waiting for key(0)....." % \
-#                 (os.path.basename(libs.thisfile()), libs.linenum()
-#                 
-#                 ), file=sys.stderr)
-    
-#     k = cv2.waitKey(0) & 0xFF
+                __test_1__Set_Starting_Point__Window_Ops(args, width, height, img_Sub, img_ForDisp)
     
     '''###################
         key inputs        
     ###################'''
     __test_1__Set_Starting_Point__Key_Inputs()
-    
-    
-#     while True :
-#         
-#         k = cv2.waitKey(0) & 0xFF
-#     
-#         #ref https://docs.opencv.org/3.1.0/db/d5b/tutorial_py_mouse_handling.html
-#         if k == ord('q'):
-#             
-#             break
-#         
-#         else:
-#             
-#             print("[%s:%d] waitKey => %d (%s) (press 'q' to quit)" % \
-#                 (os.path.basename(libs.thisfile()), libs.linenum()
-#                 , k, str(chr(k))
-# #                 , k, str(unichr(k))
-#                 ), file=sys.stderr)
-#             
-#             
-# #     while True :
-# 
-#     print("[%s:%d] waitKey => %d" % \
-#         (os.path.basename(libs.thisfile()), libs.linenum()
-#         , k
-#         ), file=sys.stderr)
-
-#     result = cv2.waitKey(0)
-    
-#     print("[%s:%d] result => %d" % \
-#         (os.path.basename(libs.thisfile()), libs.linenum()
-#         , result
-#         ), file=sys.stderr)
     
     '''###################
         window : close        
