@@ -6,8 +6,9 @@ at : 2018/07/15 08:09:48
 
 r w && r d4
 pushd C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\data\ops
-python 6_1.py
 python 6_1.py -s1.0
+
+python 6_1.py
 
 ref : http://aidiary.hatenablog.com/entry/20110607/1307449007
 
@@ -36,6 +37,9 @@ from libs_admin import libs, lib_ip
 import os, glob, getopt, math as math, numpy as np
 # import inspect
 
+'''###################
+    constants : global        
+###################'''
 # import math as math
 refPt_Start = [-1] * 2
 refPt_End = [-1] * 2
@@ -43,9 +47,21 @@ refPt_End = [-1] * 2
 # refPt_End = []
 
 flg_Set_Points  = ""
+flg_Get_RGB_Vals  = False
+
 POINTS_START    = "START"
 POINTS_END      = "END"
 POINTS_NEUTRAL  = "NEUTRAL"
+
+KEY_INPUTS__END    = 'e'
+KEY_INPUTS__RGB    = 'g'
+KEY_INPUTS__HELP    = 'h'
+KEY_INPUTS__QUIT    = 'q'
+KEY_INPUTS__RESET    = 'r'
+KEY_INPUTS__START    = 's'
+KEY_INPUTS__EXECUTE    = 'x'
+
+FPATH_IMAGE_OUTPUT = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\ops\\images"
 
 ###############################################
 # def show_Message() :
@@ -70,6 +86,12 @@ def click_and_crop(event, x, y, flags, param):
     #ref https://www.pyimagesearch.com/2015/03/09/capturing-mouse-click-events-with-python-and-opencv/
     if event == cv2.EVENT_LBUTTONDOWN:
         
+#         #debug
+#         print("[%s:%d] type(param) => %s" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 , type(param)
+#                 ), file=sys.stderr)
+        
         if flg_Set_Points == POINTS_START : #if flg_Set_Points == POINTS_START
 
             refPt_Start[0] = x
@@ -83,6 +105,17 @@ def click_and_crop(event, x, y, flags, param):
                     ), file=sys.stderr)
             
             print(refPt_Start)
+        
+#             '''###################
+#                 RGB vals        
+#             ###################'''
+#             if flg_Get_RGB_Vals == True : #if flg_Get_RGB_Vals == True
+#             
+#                 print(param[x][y])
+                
+            #/if flg_Get_RGB_Vals == True
+            
+            
         
         elif flg_Set_Points == POINTS_END : #if flg_Set_Points == POINTS_START
 
@@ -109,54 +142,36 @@ def click_and_crop(event, x, y, flags, param):
             
             print([x, y])
             
+        '''###################
+            RGB vals
+        ###################'''
+        if flg_Get_RGB_Vals == True : #if flg_Get_RGB_Vals == True
         
-        #/if flg_Set_Points == POINTS_START
+            print("[%s:%d] RGB of the point ==>" % \
+                    (os.path.basename(libs.thisfile()), libs.linenum()
+                    
+                    ), file=sys.stderr)
+            print(param[y][x])
+#             print(param[x][y])
+            
+        #/if flg_Get_RGB_Vals == True
+        
+        
+        
+    #/if flg_Set_Points == POINTS_START
 
-
-#         refPt_Start[0] = x
-#         refPt_Start[1] = y
-# #         refPt_Start = [(x, y)]
-# #         refPt = [(x, y)]
-#         
-#         print()
-# #         print("[%s:%d] EVENT_LBUTTONDOWN (x = %d / y = %d)" % \
-#         print("[%s:%d] EVENT_LBUTTONDOWN ==> starting point set" % \
-#                 (os.path.basename(libs.thisfile()), libs.linenum()
-# #                 , x, y
-#                 ), file=sys.stderr)
-#         
-#         print(refPt_Start)
-        
-#     if event == cv2.EVENT_RBUTTONDOWN:
-#         
-# #         refPt_End = [(x, y)]
-# #         refPt = [(x, y)]
-# 
-#         refPt_End[0] = x
-#         refPt_End[1] = y
-#         
-#         print()
-# #         print("[%s:%d] EVENT_LBUTTONDOWN (x = %d / y = %d)" % \
-#         print("[%s:%d] EVENT_RBUTTONDOWN ==> ending point set" % \
-#                 (os.path.basename(libs.thisfile()), libs.linenum()
-# #                 , x, y
-#                 ), file=sys.stderr)
-#         
-#         print(refPt_End)
-        
-#     print()
-#     print("[%s:%d] x = %d, y = %d" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#             , x, y
-#             ), file=sys.stderr)
-    
 #/ def click_and_crop(event, x, y, flags, param):
 
 def show_Message():
 
-    print("'q' to quit")
-    print("'x' to execute")
-    print("'h' to show this key list")
+#     print("'q' to quit")
+#     print("'x' to execute")
+#     print("'h' to show this key list")
+    print("'g'\tset flag for getting RGB values")
+    print("'h'\tshow this key list")
+    print("'q'\tquit")
+    print("'r'\treset start/end")
+    print("'x'\texecute")
 #             print("'e' to execute")
 #             print("left click ==> set the starting point")
 #             print("right click ==> set the ending point")
@@ -430,6 +445,34 @@ def resize_Image(width, height, scaling, scr_W, scr_H):
     
 #/ def test_5():
 
+def __key_Inputs__RGB(img_ForDisp):
+    
+    global flg_Get_RGB_Vals
+    
+    if flg_Get_RGB_Vals == True : #if flg_Get_RGB_Vals == True
+
+        flg_Get_RGB_Vals = False
+        
+        print("[%s:%d] flg_Get_RGB_Vals ==> now : %s" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , flg_Get_RGB_Vals
+        ), file=sys.stderr)
+    
+    else : #if flg_Get_RGB_Vals == True
+    
+        flg_Get_RGB_Vals = True
+        
+        print("[%s:%d] flg_Get_RGB_Vals ==> now : %s" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , flg_Get_RGB_Vals
+        ), file=sys.stderr)
+    
+    #/if flg_Get_RGB_Vals == True
+
+
+
+#/ def __key_Inputs__RGB():
+
 def __test_1__Set_Starting_Point__Plotting(lo_Rs, lo_Gs, lo_Bs, dpath_Ops_Images):
     
     y_pos = np.arange(len(lo_Rs))
@@ -464,7 +507,99 @@ def __test_1__Set_Starting_Point__Plotting(lo_Rs, lo_Gs, lo_Bs, dpath_Ops_Images
         ), file=sys.stderr)
 #/ def __test_1__Set_Starting_Point__Plotting():
 
-def __test_1__Set_Starting_Point__Key_Inputs():
+# def __test_1__Set_Starting_Point__Key_Inputs():
+
+def __key_Inputs__EXECUTE(key_inputs, img_ForDisp):
+    
+    print("[%s:%d] key_inputs => '%s'" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , key_inputs
+        ), file=sys.stderr)
+#     print("refPt_Start =>")
+#     print(refPt_Start)
+#     print("refPt_End =>")
+#     print(refPt_End)
+    
+    '''###################
+        validate
+    ###################'''
+    if refPt_Start == [-1,-1] or refPt_End == [-1,-1] : #if refPt_Start == [-1,-1] or refPt_End == [-1,-1]
+    
+        print("[%s:%d] start/end points ==> not yet set" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+        
+        return
+        
+    #/if refPt_Start == [-1,-1] or refPt_End == [-1,-1]
+    
+    
+    
+    
+    '''###################
+        sub image        
+    ###################'''
+    
+    img_Sub = img_ForDisp[
+                refPt_Start[1] : refPt_End[1]
+                , refPt_Start[0] : refPt_End[0]
+#                 , refPt_Start[0] : refPt_Start[0] + 10
+#                 refPt_Start[0] : refPt_Start[0] + 10
+#                 , refPt_Start[1] : refPt_End[1]
+                          ]
+    
+    # file name
+    fname = "subimage_%s.png" % libs.get_TimeLabel_Now()
+    
+    fpath_Save_Image = os.path.join(FPATH_IMAGE_OUTPUT, fname)
+    
+    #ref save image https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_image_display/py_image_display.html
+    result = cv2.imwrite(fpath_Save_Image, img_Sub)
+    
+    print("[%s:%d] saving image ==> %s (%s)" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                , result, fpath_Save_Image
+                ), file=sys.stderr)
+    
+
+#/ def __key_Inputs__EXECUTE(key_inputs, img_ForDisp):
+    
+def __key_Inputs(key_inputs, img_ForDisp):
+    
+    '''######################################
+        dispatch        
+    ###################'''
+    '''###################
+        key : x        
+    ###################'''
+    if key_inputs == KEY_INPUTS__EXECUTE: #if key
+        
+        __key_Inputs__EXECUTE(key_inputs, img_ForDisp)
+        
+#         print("[%s:%d] key_inputs => '%s'" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             , key_inputs
+#             ), file=sys.stderr)
+#         print("refPt_Start =>")
+#         print(refPt_Start)
+#         print("refPt_End =>")
+#         print(refPt_End)
+        
+    else : #if key
+    
+        print("[%s:%d] unknown key ==> '%s'" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , key_inputs
+            ), file=sys.stderr)
+    
+    #/if key
+        
+        
+
+#/ def __key_Inputs(KEY_INPUTS__EXECUTE, img_ForDisp):
+
+def __test_1__Set_Starting_Point__Key_Inputs(img_ForDisp):
     
     '''###################
         vars        
@@ -477,15 +612,22 @@ def __test_1__Set_Starting_Point__Key_Inputs():
         k = cv2.waitKey(0) & 0xFF
     
         #ref https://docs.opencv.org/3.1.0/db/d5b/tutorial_py_mouse_handling.html
-        if k == ord('q'):
+        if k == ord(KEY_INPUTS__QUIT):
+#         if k == ord('q'):
             
             break
         
-        elif k == ord('h'):
+        elif k == ord(KEY_INPUTS__RGB):
+            
+            __key_Inputs__RGB(img_ForDisp)
+            
+        elif k == ord(KEY_INPUTS__HELP):
+#         elif k == ord('h'):
             
             show_Message()
             
-        elif k == ord('r'):
+        elif k == ord(KEY_INPUTS__RESET):
+#         elif k == ord('r'):
 
             print("[%s:%d] reset the flag...." % \
                 (os.path.basename(libs.thisfile()), libs.linenum()
@@ -496,18 +638,22 @@ def __test_1__Set_Starting_Point__Key_Inputs():
             
             print("flag is => %s" % flg_Set_Points)
             
-        elif k == ord('x'):
+#         elif k == ord('x'):
+        elif k == ord(KEY_INPUTS__EXECUTE):
             
-            print("[%s:%d] executing...." % \
-                (os.path.basename(libs.thisfile()), libs.linenum()
-                
-                ), file=sys.stderr)
-            print("refPt_Start =>")
-            print(refPt_Start)
-            print("refPt_End =>")
-            print(refPt_End)
+            __key_Inputs(KEY_INPUTS__EXECUTE, img_ForDisp)
             
-        elif k == ord('s'):
+#             print("[%s:%d] executing...." % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 
+#                 ), file=sys.stderr)
+#             print("refPt_Start =>")
+#             print(refPt_Start)
+#             print("refPt_End =>")
+#             print(refPt_End)
+            
+        elif k == ord(KEY_INPUTS__START):
+#         elif k == ord('s'):
             
             flg_Set_Points = POINTS_START
             
@@ -517,7 +663,8 @@ def __test_1__Set_Starting_Point__Key_Inputs():
                     ), file=sys.stderr)
         
             
-        elif k == ord('e'):
+        elif k == ord(KEY_INPUTS__END):
+#         elif k == ord('e'):
             
             flg_Set_Points = POINTS_END
             
@@ -546,13 +693,15 @@ def __test_1__Set_Starting_Point__Key_Inputs():
                 , k, str(chr(k))
                 ), file=sys.stderr)
             
-            print("'q' to quit")
-            print("'x' to execute")
-#             print("'e' to execute")
-#             print("left click ==> set the starting point")
-#             print("right click ==> set the ending point")
-            print("'s' then left click ==> set the starting point")
-            print("'e' then right click ==> set the ending point")
+            # message
+            show_Message()
+#             print("'q' to quit")
+#             print("'x' to execute")
+# #             print("'e' to execute")
+# #             print("left click ==> set the starting point")
+# #             print("right click ==> set the ending point")
+#             print("'s' then left click ==> set the starting point")
+#             print("'e' then right click ==> set the ending point")
             
             
 #     while True :
@@ -603,7 +752,10 @@ def __test_1__Set_Starting_Point__Window_Ops(args, width, height, img_Sub, img_M
         mouse events
     ###################'''
     #ref https://www.pyimagesearch.com/2015/03/09/capturing-mouse-click-events-with-python-and-opencv/
-    cv2.setMouseCallback(window_1, click_and_crop)
+#     cv2.setMouseCallback(window_1, click_and_crop, [img_Sub, img_Main])
+    #ref param https://docs.opencv.org/2.4/modules/highgui/doc/user_interface.html?highlight=setmousecallback
+    cv2.setMouseCallback(window_1, click_and_crop, img_Main)
+#     cv2.setMouseCallback(window_1, click_and_crop)
 #     cv2.setMouseCallback("image", click_and_crop)
         
     '''###################
@@ -740,7 +892,8 @@ def test_1__Set_Starting_Point():
     '''###################
         key inputs        
     ###################'''
-    __test_1__Set_Starting_Point__Key_Inputs()
+    __test_1__Set_Starting_Point__Key_Inputs(img_ForDisp)
+#     __test_1__Set_Starting_Point__Key_Inputs()
     
     '''###################
         window : close        
