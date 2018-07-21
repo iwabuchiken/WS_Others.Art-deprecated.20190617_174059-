@@ -93,7 +93,8 @@ class ColorThresholds(Enum):
     
     # G
     isGreen_Max_Val_G__Lower = 1.4 * 1000
-    isGreen_Max_Val_G__Upper = 4.5 * 1000
+    isGreen_Max_Val_G__Upper = 4.95 * 1000
+#    isGreen_Max_Val_G__Upper = 4.5 * 1000
 #     isGreen_Max_Val_G__Upper = 3.7 * 1000
 #     isGreen_Max_Val_G__Upper = 3.2 * 1000
 #     isGreen_Max_Val_G__Upper = 2.8 * 1000
@@ -101,7 +102,8 @@ class ColorThresholds(Enum):
     
     # B
     isGreen_Max_Val_B__Lower = 2.0 * 1000
-    isGreen_Max_Val_B__Upper = 4.3 * 1000
+    isGreen_Max_Val_B__Upper = 4.85 * 1000
+    #isGreen_Max_Val_B__Upper = 4.3 * 1000
 #     isGreen_Max_Val_B__Upper = 3.2 * 1000
     
     
@@ -180,9 +182,11 @@ class ColorThresholds(Enum):
 #     isYellow_IdxOf_Max_R__Lower = 95
      
     # G
-#     isYellow_IdxOf_Max_G__Upper = 220
+
     isYellow_IdxOf_Max_G__Upper = 250
-    isYellow_IdxOf_Max_G__Lower = 130
+    isYellow_IdxOf_Max_G__Lower = 115
+    #isYellow_IdxOf_Max_G__Lower = 130
+#     isYellow_IdxOf_Max_G__Upper = 220
 #     isYellow_IdxOf_Max_G__Lower = 145
 #     isYellow_IdxOf_Max_G__Lower = 165
 #     isYellow_IdxOf_Max_G__Lower = 180
@@ -251,6 +255,7 @@ class ColorNameSet(Enum):
             , "ooor"    # UNDEFINED
             , "gooo"    # ":m 食べた物　間食 / 砂糖菓子"
             , "oooy"    # :m 食べた物
+            , "oowy"    # :m 食べた物
             
 #             '''###################
 #                 r,g,y ==> each, 2        # 3 types
@@ -326,6 +331,8 @@ class ColorNameSet(Enum):
             , "ooor" : u':m music / log / XXX / '
             , "gooo" : ":m 食べた物　間食 / 砂糖菓子or乾物菓子"
             , "oooy" : u':m 食べた物'
+            , "oowy" : u':m 食べた物'
+            
             
 #             '''###################
 #                 r,g,y ==> each, 2        # 3 types
