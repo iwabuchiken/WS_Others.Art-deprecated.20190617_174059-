@@ -12,6 +12,8 @@ python 6_1.py
 
 ref : http://aidiary.hatenablog.com/entry/20110607/1307449007
 
+20180721_111655
+C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\data\ops\images\
 '''
 ###############################################
 import sys, cv2
@@ -494,14 +496,15 @@ def __test_1__Set_Starting_Point__Plotting(lo_Rs, lo_Gs, lo_Bs, dpath_Ops_Images
  
     ax.set(aspect=1,
            xlim=(0, len(lo_Rs)),
-           ylim=(140, 250))
+           ylim=(0, 260))
+#            ylim=(140, 250))
     
     fpath_Save_Image = os.path.join(dpath_Ops_Images, "plot_" + libs.get_TimeLabel_Now() + ".png")
     
-    
     result = plt.savefig(fpath_Save_Image)
     
-    print("[%s:%d] save fig => %s (%s)" % \
+#     print("[%s:%d] save fig => %s (%s)" % \
+    print("[%s:%d] save fig (graph) => %s (%s)" % \
         (os.path.basename(libs.thisfile()), libs.linenum()
         , result, fpath_Save_Image
         ), file=sys.stderr)
@@ -509,16 +512,7 @@ def __test_1__Set_Starting_Point__Plotting(lo_Rs, lo_Gs, lo_Bs, dpath_Ops_Images
 
 # def __test_1__Set_Starting_Point__Key_Inputs():
 
-def __key_Inputs__EXECUTE(key_inputs, img_ForDisp):
-    
-    print("[%s:%d] key_inputs => '%s'" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        , key_inputs
-        ), file=sys.stderr)
-#     print("refPt_Start =>")
-#     print(refPt_Start)
-#     print("refPt_End =>")
-#     print(refPt_End)
+def __key_Inputs__EXECUTE__Save_SubImage(img_ForDisp):
     
     '''###################
         validate
@@ -557,6 +551,125 @@ def __key_Inputs__EXECUTE(key_inputs, img_ForDisp):
     #ref save image https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_image_display/py_image_display.html
     result = cv2.imwrite(fpath_Save_Image, img_Sub)
     
+    print("[%s:%d] saving image ==> %s (%s)" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                , result, fpath_Save_Image
+                ), file=sys.stderr)
+
+    '''###################
+        return        
+    ###################'''
+    return img_Sub
+
+#/ def __key_Inputs__EXECUTE__Save_SubImage(img_ForDisp):
+    
+def __key_Inputs__EXECUTE__Gen_RGBGraph(img_Target):
+    
+    '''###################
+        get : values        
+    ###################'''
+    lo_Rs, lo_Gs, lo_Bs = get_RGB_Vals(img_Target)
+    
+    print()
+    print("[%s:%d] len(lo_Rs) => %d" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                , len(lo_Rs)
+                ), file=sys.stderr)
+    
+    '''###################
+        plot        
+    ###################'''
+    dpath_Ops_Images = FPATH_IMAGE_OUTPUT
+    
+    __test_1__Set_Starting_Point__Plotting(lo_Rs, lo_Gs, lo_Bs, dpath_Ops_Images)
+
+#/ def __key_Inputs__EXECUTE__Gen_RGBGraph(img_Target):
+    
+def __key_Inputs__EXECUTE(key_inputs, img_ForDisp):
+    
+    print("[%s:%d] key_inputs => '%s'" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , key_inputs
+        ), file=sys.stderr)
+#     print("refPt_Start =>")
+#     print(refPt_Start)
+#     print("refPt_End =>")
+#     print(refPt_End)
+    
+    '''###################
+        exec : gen sub image        
+    ###################'''
+#     img_Sub = __key_Inputs__EXECUTE__Save_SubImage(img_ForDisp)
+# 
+#     print()
+#     print("[%s:%d] type(img_Sub) => %s" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             , type(img_Sub)
+#             ), file=sys.stderr)
+#      
+#     '''###################
+#         exec : gen : RGB graph
+#     ###################'''
+#     height, width, channels = img_Sub.shape
+#      
+#     img_Target = img_Sub[
+# #                 refPt_Start[1] : refPt_End[1]
+#                 0:1
+#                 , 0 : height
+#                           ]
+# #     img_Target = img_ForDisp[
+# # #                 refPt_Start[1] : refPt_End[1]
+# #                 refPt_Start[1] : refPt_End[0]
+# #                 , refPt_Start[0] : refPt_End[0]
+# #                           ]
+#      
+#     print()
+#     print("[%s:%d] img_Target[0] =>" % \
+#                     (os.path.basename(libs.thisfile()), libs.linenum()
+#                      
+#                     ), file=sys.stderr)
+#     print(img_Target[0])
+    
+#     __key_Inputs__EXECUTE__Gen_RGBGraph(img_Target)
+# #     __key_Inputs__EXECUTE__Gen_RGBGraph(img_Sub)
+    
+    '''###################
+        validate
+    ###################'''
+    if refPt_Start == [-1,-1] or refPt_End == [-1,-1] : #if refPt_Start == [-1,-1] or refPt_End == [-1,-1]
+      
+        print("[%s:%d] start/end points ==> not yet set" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+              
+            ), file=sys.stderr)
+          
+        return
+          
+    #/if refPt_Start == [-1,-1] or refPt_End == [-1,-1]
+      
+      
+      
+      
+    '''###################
+        sub image        
+    ###################'''
+      
+    img_Sub = img_ForDisp[
+                refPt_Start[1] : refPt_End[1]
+                , refPt_Start[0] : refPt_End[0]
+#                 , refPt_Start[0] : refPt_Start[0] + 10
+#                 refPt_Start[0] : refPt_Start[0] + 10
+#                 , refPt_Start[1] : refPt_End[1]
+                          ]
+      
+    # file name
+    fname = "subimage_%s.png" % libs.get_TimeLabel_Now()
+      
+    fpath_Save_Image = os.path.join(FPATH_IMAGE_OUTPUT, fname)
+      
+    #ref save image https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_image_display/py_image_display.html
+    result = cv2.imwrite(fpath_Save_Image, img_Sub)
+      
     print("[%s:%d] saving image ==> %s (%s)" % \
                 (os.path.basename(libs.thisfile()), libs.linenum()
                 , result, fpath_Save_Image
