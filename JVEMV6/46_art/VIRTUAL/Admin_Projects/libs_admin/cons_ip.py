@@ -88,7 +88,8 @@ class ColorThresholds(Enum):
 #     isGreen_Max_Val_R__Lower = 3.0 * 1000
 #     isGreen_Max_Val_R__Lower = 2.6 * 1000
     isGreen_Max_Val_R__Lower = 1.8 * 1000
-    isGreen_Max_Val_R__Upper = 5.3 * 1000
+    isGreen_Max_Val_R__Upper = 5.4 * 1000
+    #isGreen_Max_Val_R__Upper = 5.3 * 1000
 #     isGreen_Max_Val_R__Upper = 4.1 * 1000
     
     # G
@@ -127,7 +128,8 @@ class ColorThresholds(Enum):
 #     isGreen_IdxOf_Max_B__Upper = 200
 #     isGreen_IdxOf_Max_B__Upper = 120
 #     isGreen_IdxOf_Max_B__Upper = 145
-    isGreen_IdxOf_Max_B__Upper = 160
+    #isGreen_IdxOf_Max_B__Upper = 160
+    isGreen_IdxOf_Max_B__Upper = 175
     isGreen_IdxOf_Max_B__Lower = 50
      
 
@@ -340,7 +342,8 @@ class ColorNameSet(Enum):
 #             , "oorr"
             , "ggoo" : u':m 食べた物　間食 / ヨーグルト / += '
             , "ooyy" : u'\'-*'
-            , "oorr" : u'UNDEFINED'
+            , "oorr" : u'MEMO'
+            #, "oorr" : uMEMO'UNDEFINED'
 
 #             '''###################
 #                 r,g,y ==> each, 3        # 3 types
