@@ -102,7 +102,8 @@ class ColorThresholds(Enum):
 #     isGreen_Max_Val_G__Upper = 2.6 * 1000
     
     # B
-    isGreen_Max_Val_B__Lower = 2.0 * 1000
+    #isGreen_Max_Val_B__Lower = 2.0 * 1000
+    isGreen_Max_Val_B__Lower = 1.85 * 1000
     isGreen_Max_Val_B__Upper = 4.85 * 1000
     #isGreen_Max_Val_B__Upper = 4.3 * 1000
 #     isGreen_Max_Val_B__Upper = 3.2 * 1000
@@ -154,8 +155,8 @@ class ColorThresholds(Enum):
 #     isYellow_Max_Val_G__Lower = 3000
 #    isYellow_Max_Val_G__Lower = 1.6 * 1000
     isYellow_Max_Val_G__Lower = 1.1 * 1000
-#    isYellow_Max_Val_G__Upper = 4000
     isYellow_Max_Val_G__Upper = 6.3 * 1000
+#    isYellow_Max_Val_G__Upper = 4000
 #     isYellow_Max_Val_G__Upper = 5.4 * 1000
 #     isYellow_Max_Val_G__Upper = 4.8 * 1000
     
