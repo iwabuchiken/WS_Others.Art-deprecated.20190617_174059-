@@ -619,7 +619,8 @@ def __test_2__Color_Filtering_HSV__Window_Ops(args, img_Orig):
     
 #/ def __test_2__Color_Filtering_HSV(args, width, height, img_Orig):
     
-def __test_2__Color_Filtering_HSV__Get_Metadata(args, img_Orig, time_Label):
+def __test_2__Color_Filtering_HSV__Get_Metadata(args, img_Orig, time_Label, fname_Ops_Image):
+# def __test_2__Color_Filtering_HSV__Get_Metadata(args, img_Orig, time_Label):
 # def __test_2__Color_Filtering_HSV__Get_Metadata(args, img_Orig):
     
     img_HSV = cv2.cvtColor(img_Orig, cv2.COLOR_RGB2HSV)
@@ -638,8 +639,8 @@ def __test_2__Color_Filtering_HSV__Get_Metadata(args, img_Orig, time_Label):
     x2 = x1 + width_SubImage
 #     x2 = x1 + 10
 #     x2 = x1 + 1
-    y1 = 800
-#     y1 = 0
+#     y1 = 800
+    y1 = 0
 #     y1 = 200
     y2 = height
 #     y2 = 400
@@ -670,15 +671,19 @@ def __test_2__Color_Filtering_HSV__Get_Metadata(args, img_Orig, time_Label):
     
     # file name
 #             % (libs.get_TimeLabel_Now()
-    fname = "subimage_%s.%d-%d_%d-%d.png" \
+    fname = "subimage_%s.%d-%d_%d-%d.(%s).png" \
             % (time_Label
-               , x1, x2, y1, y2)
+               , x1, x2, y1, y2
+               , fname_Ops_Image)
+#     fname = "subimage_%s.%d-%d_%d-%d.png" \
+#             % (time_Label
+#                , x1, x2, y1, y2)
       
     fpath_Save_Image = os.path.join(DPATH_IMAGE_OUTPUT, fname)
       
     #ref save image https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_image_display/py_image_display.html
     result = cv2.imwrite(fpath_Save_Image, img_Sub)
-      
+    
     print("[%s:%d] saving image ==> %s (%s)" % \
                 (os.path.basename(libs.thisfile()), libs.linenum()
                 , result, fpath_Save_Image
@@ -891,7 +896,8 @@ def test_2__Color_Filtering_HSV():
     dpath_Ops_Images = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\ops\\images"
 #     "C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\data\ops\images"
 
-    fname_Ops_Image = "2018-06-24_19-14-31_000.jpg"
+    fname_Ops_Image = "img.20180731_165432.2018-07-29_17-41-09_000.jpg.1.png"
+#     fname_Ops_Image = "2018-06-24_19-14-31_000.jpg"
     
     fpath_Ops_Image = os.path.join(dpath_Ops_Images, fname_Ops_Image)
     
@@ -938,7 +944,8 @@ def test_2__Color_Filtering_HSV():
     '''###################
         get : metadata
     ###################'''
-    __test_2__Color_Filtering_HSV__Get_Metadata(args, img_ForDisp, time_Label)
+    __test_2__Color_Filtering_HSV__Get_Metadata(args, img_ForDisp, time_Label, fname_Ops_Image)
+#     __test_2__Color_Filtering_HSV__Get_Metadata(args, img_ForDisp, time_Label)
 #     __test_2__Color_Filtering_HSV__Get_Metadata(args, img_ForDisp)
     
     '''###################
