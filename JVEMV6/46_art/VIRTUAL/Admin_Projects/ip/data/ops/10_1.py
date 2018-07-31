@@ -24,6 +24,7 @@ from numpy.distutils.from_template import item_re
 from win32api import GetSystemMetrics
 from matplotlib import pylab as plt
 from copy import deepcopy
+from _ast import If
 
 '''###################
     import : original files        
@@ -32,7 +33,8 @@ sys.path.append('.')
 sys.path.append('..')
 sys.path.append('C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects') # libs_mm
 
-from libs_admin import libs, lib_ip
+from libs_admin import libs, lib_ip, cons_ip
+# from libs_admin import libs, lib_ip
 
 '''###################
     import : built-in modules        
@@ -536,12 +538,430 @@ def test_1__Color_Filtering():
     
 #/ def test_5():
 
+def __test_2__Color_Filtering_HSV__Save_Image(args, img_Orig):
+
+    '''###################
+        prep
+    ###################'''
+    img_BGR = cv2.cvtColor(img_Orig, cv2.COLOR_RGB2BGR)
+    img_HSV = cv2.cvtColor(img_Orig, cv2.COLOR_RGB2HSV)
+    
+    img_ForDisp = img_HSV
+#     img_ForDisp = img_BGR
+#     img_ForDisp = img_Orig
+    
+    '''###################
+        save image        
+    ###################'''
+    # file name
+    file_label = "image_HSV"
+#     file_label = "image_BGR"
+#     file_label = "image_RGB"
+    
+    fname = "%s.%s.png" % (file_label, libs.get_TimeLabel_Now())
+    
+    fpath_Save_Image = os.path.join(DPATH_IMAGE_OUTPUT, fname)
+    
+    #ref save image https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_image_display/py_image_display.html
+    result = cv2.imwrite(fpath_Save_Image, img_ForDisp)
+    
+    print("[%s:%d] saving image ==> %s (%s)" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                , result, fpath_Save_Image
+                ), file=sys.stderr)
+    
+#/ def __test_2__Color_Filtering_HSV__Save_Image(args, img_Orig):
+    
+def __test_2__Color_Filtering_HSV__Window_Ops(args, img_Orig):
+    
+    '''###################
+        prep
+    ###################'''
+    img_ForDisp = img_Orig
+    
+    height, width, channels = img_ForDisp.shape
+    
+    window_1 = "window"
+    
+    #ref https://qiita.com/supersaiakujin/items/54a4671142d80ca962ec
+    #ref resize window http://answers.opencv.org/question/84985/resizing-the-output-window-of-imshow-function/
+    cv2.namedWindow(window_1, cv2.WINDOW_NORMAL)
+    
+    '''###################
+        get : scaling        
+    ###################'''
+    scaling = get_Scaling(args)
+#     scaling = test_7__SubImage_RGB_Vals__Get_Scaling(args)
+    
+    win_Resize_Height = math.floor(scaling * height)
+    win_Resize_Width = math.floor(scaling * width)
+    
+    # validate
+    scr_W = GetSystemMetrics(0)
+    scr_H = GetSystemMetrics(1)
+    
+    '''###################
+        resize image        
+    ###################'''
+    win_Resize_Width, win_Resize_Height = resize_Image(width, height, scaling, scr_W, scr_H)
+#     win_Resize_Width, win_Resize_Height = test_5__Resize_Image(width, height, scaling, scr_W, scr_H)
+
+    '''###################
+        disp : image
+    ###################'''
+    cv2.resizeWindow(window_1, win_Resize_Width, win_Resize_Height)
+    
+    '''###################
+        show
+    ###################'''
+
+    cv2.imshow('window', img_ForDisp)
+    
+#/ def __test_2__Color_Filtering_HSV(args, width, height, img_Orig):
+    
+def __test_2__Color_Filtering_HSV__Get_Metadata(args, img_Orig, time_Label):
+# def __test_2__Color_Filtering_HSV__Get_Metadata(args, img_Orig):
+    
+    img_HSV = cv2.cvtColor(img_Orig, cv2.COLOR_RGB2HSV)
+    
+    img_ForDisp = img_HSV
+    
+    height, width, channels = img_ForDisp.shape
+    
+    '''###################
+        subimage
+    ###################'''
+    width_SubImage = 1
+    
+#     x1 = 100
+    x1 = 0
+    x2 = x1 + width_SubImage
+#     x2 = x1 + 10
+#     x2 = x1 + 1
+    y1 = 800
+#     y1 = 0
+#     y1 = 200
+    y2 = height
+#     y2 = 400
+    
+    img_Sub = img_ForDisp[
+                y1 : y2       # y axis
+                , x1 : x2     # x axis
+                          ]
+    
+    #debug
+    print("[%s:%d] img_Sub[:10] =>" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+#     print(img_Sub[:10])
+
+    for i in range(10):
+            
+        print("[%s:%d] img_Sub[%d] =>" % \
+                    (os.path.basename(libs.thisfile()), libs.linenum()
+                    , i
+                    ), file=sys.stderr)
+        print(img_Sub[i])
+        
+    #/for i in range(10):
+
+    
+    
+    # file name
+#             % (libs.get_TimeLabel_Now()
+    fname = "subimage_%s.%d-%d_%d-%d.png" \
+            % (time_Label
+               , x1, x2, y1, y2)
+      
+    fpath_Save_Image = os.path.join(DPATH_IMAGE_OUTPUT, fname)
+      
+    #ref save image https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_image_display/py_image_display.html
+    result = cv2.imwrite(fpath_Save_Image, img_Sub)
+      
+    print("[%s:%d] saving image ==> %s (%s)" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                , result, fpath_Save_Image
+                ), file=sys.stderr)
+
+    
+    
+    '''###################
+        metadata : prep        
+    ###################'''
+    maxOf_H = -1
+    maxOf_S = -1
+    maxOf_V = -1
+    
+    minOf_H = 999
+    minOf_S = 999
+    minOf_V = 999
+    
+    for row in img_Sub:
+#     for row in img_ForDisp:
+        
+        for pixel in row:
+        
+            H = pixel[0]
+            S = pixel[1]
+            V = pixel[2]
+            
+            # update : max
+            if H > maxOf_H : maxOf_H = H
+            if S > maxOf_S : maxOf_S = S
+            if V > maxOf_V : maxOf_V = V
+                
+            # update : min
+            if H < minOf_H : minOf_H = H
+            if S < minOf_S : minOf_S = S
+            if V < minOf_V : minOf_V = V
+                
+            #/if H > maxOf_H
+            
+        #/for pixel in row:
+        
+    #/for row in img_ForDisp:
+
+    '''###################
+        report        
+    ###################'''
+    msg = "maxOf_H => %d, maxOf_S => %d, maxOf_V => %d" % \
+            (maxOf_H, maxOf_S, maxOf_V)
+    
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log_2(msg_Log
+                , dpath_LogFile = cons_ip.FilePaths.dpath_LogFile.value
+                , fname_LogFile = cons_ip.FilePaths.fname_LogFile__Gradation.value
+                , numOf_Return = 1)
+#                 , 1)
+
+    print("[%s:%d] maxOf_H => %d, maxOf_S => %d, maxOf_V => %d" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , maxOf_H, maxOf_S, maxOf_V
+            ), file=sys.stderr)
+    
+    print("[%s:%d] minOf_H => %d, minOf_S => %d, minOf_V => %d" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , minOf_H, minOf_S, minOf_V
+            ), file=sys.stderr)
+
+    '''###################
+        write data : H        
+    ###################'''
+    lo_H = []
+    lo_S = []
+    lo_V = []
+    
+    # get : data
+    for row in img_Sub:
+    
+        pixel = row[0]
+        
+        H = pixel[0]
+        S = pixel[1]
+        V = pixel[2]
+        
+        lo_H.append(H)
+        lo_S.append(S)
+        lo_V.append(V)
+        
+    #/for row in img_Sub:
+    
+    '''######################################
+        write : data        
+    ###################'''
+    '''###################
+        H        
+    ###################'''
+    lo_H_string = [str(x) for x in lo_H]
+    
+    msg = "\t".join(lo_H_string)
+    
+    msg_Log = "[%s / %s:%d] list of Hs =>" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            )
+    
+    libs.write_Log_2(msg_Log
+                , dpath_LogFile = cons_ip.FilePaths.dpath_LogFile.value
+                , fname_LogFile = cons_ip.FilePaths.fname_LogFile__Gradation.value
+                , numOf_Return = 1)
+#                 , numOf_Return = 0)
+    
+    msg_Log = "%s" % \
+            (
+                msg
+            )
+    
+    libs.write_Log_2(msg_Log
+                , dpath_LogFile = cons_ip.FilePaths.dpath_LogFile.value
+                , fname_LogFile = cons_ip.FilePaths.fname_LogFile__Gradation.value
+                , numOf_Return = 2)
+#                 , numOf_Return = 1)
+
+    '''###################
+        S        
+    ###################'''
+    lo_S_string = [str(x) for x in lo_S]
+    
+    msg = "\t".join(lo_S_string)
+    
+    msg_Log = "[%s / %s:%d] list of Ss =>" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            )
+    
+    libs.write_Log_2(msg_Log
+                , dpath_LogFile = cons_ip.FilePaths.dpath_LogFile.value
+                , fname_LogFile = cons_ip.FilePaths.fname_LogFile__Gradation.value
+                , numOf_Return = 1)
+#                 , numOf_Return = 0)
+    
+    msg_Log = "%s" % \
+            (
+                msg
+            )
+    
+    libs.write_Log_2(msg_Log
+                , dpath_LogFile = cons_ip.FilePaths.dpath_LogFile.value
+                , fname_LogFile = cons_ip.FilePaths.fname_LogFile__Gradation.value
+                , numOf_Return = 2)
+    
+    '''###################
+        V        
+    ###################'''
+    lo_V_string = [str(x) for x in lo_V]
+    
+    msg = "\t".join(lo_V_string)
+    
+    msg_Log = "[%s / %s:%d] list of Vs =>" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            )
+    
+    libs.write_Log_2(msg_Log
+                , dpath_LogFile = cons_ip.FilePaths.dpath_LogFile.value
+                , fname_LogFile = cons_ip.FilePaths.fname_LogFile__Gradation.value
+                , numOf_Return = 1)
+#                 , numOf_Return = 0)
+    
+    msg_Log = "%s" % \
+            (
+                msg
+            )
+    
+    libs.write_Log_2(msg_Log
+                , dpath_LogFile = cons_ip.FilePaths.dpath_LogFile.value
+                , fname_LogFile = cons_ip.FilePaths.fname_LogFile__Gradation.value
+                , numOf_Return = 2)
+    
+
+
+#/ def __test_2__Color_Filtering_HSV__Get_Metaeata(args, img_Orig):
+    
+def test_2__Color_Filtering_HSV():
+
+    '''###################
+        message
+    ###################'''
+    print()
+    print("[%s:%d] test_2__Color_Filtering_HSV =======================" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+
+        ), file=sys.stderr)
+    
+    '''######################################
+        get : args
+    ##################
+    ####################'''
+    args = sys.argv[1:]
+#     args = sys.argv
+    
+    '''######################################
+        ops        
+    ######################################'''
+    dpath_Ops_Images = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\ops\\images"
+#     "C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\data\ops\images"
+
+    fname_Ops_Image = "2018-06-24_19-14-31_000.jpg"
+    
+    fpath_Ops_Image = os.path.join(dpath_Ops_Images, fname_Ops_Image)
+    
+    '''###################
+        get : image
+    ###################'''
+    # read image
+    img_Orig = cv2.imread(fpath_Ops_Image)
+    
+    img_Orig_RGB = cv2.cvtColor(img_Orig, cv2.COLOR_BGR2RGB)
+#     img_Orig_RGB = cv2.cvtColor(img_Orig, cv2.COLOR_BGR2RGB)
+    
+    img_Orig_HSV = cv2.cvtColor(img_Orig, cv2.COLOR_BGR2RGB)
+    
+    img_ForDisp = img_Orig
+    
+    # meta data
+    height, width, channels = img_ForDisp.shape
+#     height, width, channels = img_Orig.shape
+    
+    #debug
+    print("[%s:%d] source image => %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , fname_Ops_Image
+            ), file=sys.stderr)
+    
+    print("[%s:%d] width = %d, height = %d" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , width, height
+            ), file=sys.stderr)
+    
+    '''###################
+        show image        
+    ###################'''
+    time_Label = libs.get_TimeLabel_Now()
+    
+#     __test_2__Color_Filtering_HSV__Window_Ops(args, img_Orig)
+    
+    '''###################
+        save image
+    ###################'''
+#     __test_2__Color_Filtering_HSV__Save_Image(args, img_Orig)
+    
+    '''###################
+        get : metadata
+    ###################'''
+    __test_2__Color_Filtering_HSV__Get_Metadata(args, img_ForDisp, time_Label)
+#     __test_2__Color_Filtering_HSV__Get_Metadata(args, img_ForDisp)
+    
+    '''###################
+        filtering
+    ###################'''
+#     __test_1__Color_Filtering__Exec_Filtering(img_ForDisp)
+    
+    '''###################
+        window : close        
+    ###################'''
+    cv2.waitKey(0)
+    
+    cv2.destroyAllWindows()
+    
+#/ def test_5():
+
 def exec_prog():
     
     '''###################
         ops        
     ###################'''
-    test_1__Color_Filtering()
+    test_2__Color_Filtering_HSV()
+#     test_1__Color_Filtering()
     
     print("[%s:%d] exec_prog() => done" % \
             (os.path.basename(libs.thisfile()), libs.linenum()

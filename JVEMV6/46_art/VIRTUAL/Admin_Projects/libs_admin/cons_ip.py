@@ -30,7 +30,8 @@ class ColorThresholds(Enum):
 #     isRed_Max_Val_R__Lower = 2.2 * 1000
 #    isRed_Max_Val_R__Lower = 2.0 * 1000
 #    isRed_Max_Val_R__Lower = 1.85 * 1000
-    isRed_Max_Val_R__Lower = 1.70 * 1000
+    #isRed_Max_Val_R__Lower = 1.70 * 1000
+    isRed_Max_Val_R__Lower = 1.60 * 1000
     isRed_Max_Val_R__Upper = 6.0 * 1000
 #    isRed_Max_Val_R__Upper = 4.7 * 1000
 #     isRed_Max_Val_R__Upper = 3.9 * 1000
@@ -243,6 +244,8 @@ class FilePaths(Enum):
     dpath_LogFile = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\logs"
     
     fname_LogFile = "get_4_corners.log"
+    
+    fname_LogFile__Gradation = "gradation.log"
     
 #/ class ColorThresholds(Enum):
     
