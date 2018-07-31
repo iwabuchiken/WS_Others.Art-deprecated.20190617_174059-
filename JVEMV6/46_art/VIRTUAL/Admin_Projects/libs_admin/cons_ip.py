@@ -116,7 +116,8 @@ class ColorThresholds(Enum):
     # R
 #     isGreen_IdxOf_Max_R__Upper = 50
 #    isGreen_IdxOf_Max_R__Upper = 65
-    isGreen_IdxOf_Max_R__Upper = 120
+    #isGreen_IdxOf_Max_R__Upper = 120
+    isGreen_IdxOf_Max_R__Upper = 130
     isGreen_IdxOf_Max_R__Lower = 0
      
     # G
