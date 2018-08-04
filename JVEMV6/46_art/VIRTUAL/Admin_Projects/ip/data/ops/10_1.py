@@ -689,7 +689,26 @@ def __test_2__Color_Filtering_HSV__Get_Metadata(args, img_Orig, time_Label, fnam
                 , result, fpath_Save_Image
                 ), file=sys.stderr)
 
-    
+    msg = "saving image ==> %s (%s)" %\
+                        (result, fpath_Save_Image)
+                
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+            
+    libs.write_Log_2(msg_Log
+                , dpath_LogFile = cons_ip.FilePaths.dpath_LogFile.value
+                , fname_LogFile = cons_ip.FilePaths.fname_LogFile__Gradation.value
+                , numOf_Return = 1)
+
+#     libs.write_Log(msg_Log
+#                 , True)
+# #                 , cons_fx.FPath.dpath_LogFile.value
+# #                 , cons_fx.FPath.fname_LogFile.value
+# #                 , 1)
+
     
     '''###################
         metadata : prep        
@@ -896,7 +915,9 @@ def test_2__Color_Filtering_HSV():
     dpath_Ops_Images = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\ops\\images"
 #     "C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\data\ops\images"
 
-    fname_Ops_Image = "img.20180731_165432.2018-07-29_17-41-09_000.jpg.1.png"
+    fname_Ops_Image = "img.20180728_084420.2018-07-24_05-14-26_000.jpg.1.png"
+#     fname_Ops_Image = "img.20180731_165432.2018-07-29_17-41-09_000.jpg.2.png"
+#     fname_Ops_Image = "img.20180731_165432.2018-07-29_17-41-09_000.jpg.1.png"
 #     fname_Ops_Image = "2018-06-24_19-14-31_000.jpg"
     
     fpath_Ops_Image = os.path.join(dpath_Ops_Images, fname_Ops_Image)

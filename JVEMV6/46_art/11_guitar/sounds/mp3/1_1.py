@@ -84,6 +84,14 @@ def test_1():
     
     fpath_ListFile = "%s\\%s" % (dpath, fname_ListFile)
     
+#     #debug
+#     print()
+#     print("[%s:%d] fpath_ListFile => %s" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             , fpath_ListFile
+#             ), file=sys.stderr)
+#     return
+    
     fin = open(fpath_ListFile, "r")
     
     lo_FileName_Final = []
@@ -95,12 +103,45 @@ def test_1():
     #ref strip https://hydrocul.github.io/wiki/programming_languages_diff/string/trim.html
     lo_file_Lines = [x.strip() for x in lo_file_Lines]
     
+    print()
+    print("[%s:%d] lo_file_Lines =>" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+    print(lo_file_Lines)
+    
     lo_file_Lines_Trunk = [x.split(".") for x in lo_file_Lines]
     
+    print()
+    print("[%s:%d] lo_file_Lines_Trunk =>" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+    print(lo_file_Lines_Trunk)
+
+#     return    
+
     lo_file_Lines_Trunk = [x[0] for x in lo_file_Lines_Trunk]
-    lo_file_Lines_Trunk = [x.split("_") for x in lo_file_Lines_Trunk]
-    lo_file_Lines_Trunk = [x[0] + " " + x[1] for x in lo_file_Lines_Trunk]
+
+    print()
+    print("[%s:%d] lo_file_Lines_Trunk ('x[0] for x in ...') =>" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+    print(lo_file_Lines_Trunk)
+
+    lo_file_Lines_Trunk = [x.split(" ") for x in lo_file_Lines_Trunk]
+#     lo_file_Lines_Trunk = [x.split("_") for x in lo_file_Lines_Trunk]
+    lo_file_Lines_Trunk = [x[0] + "_" + x[1] for x in lo_file_Lines_Trunk]
+#     lo_file_Lines_Trunk = [x[0] + " " + x[1] for x in lo_file_Lines_Trunk]
 #     lo_file_Lines_Trunk = [(x[0], x[1]) for x in lo_file_Lines_Trunk]
+    
+    print()
+    print("[%s:%d] lo_file_Lines_Trunk (modified) =>" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+    print(lo_file_Lines_Trunk)
     
     # zip
     lo_file_Lines = list(zip(lo_file_Lines, lo_file_Lines_Trunk))
