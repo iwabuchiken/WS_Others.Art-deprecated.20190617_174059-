@@ -3,10 +3,12 @@
     orig    : C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\libs_admin\libs.py
     at      : 2018/05/26 13:29:43
 '''
+# from sympy.matrices.densetools import row
 '''###################
     import : built-in modules        
 ###################'''
-import inspect, os, sys, cv2
+import inspect, os, sys
+# import inspect, os, sys, cv2
 
 from enum import Enum
 #ref https://stackoverflow.com/questions/415511/how-to-get-current-time-in-python "answered Jan 6 '09 at 4:59"
@@ -15,10 +17,13 @@ from time import gmtime, strftime, localtime, time
 '''###################
     import : use-installed modules        
 ###################'''
-from sympy.physics.vector.printing import params
-import numpy as np
-
+# from sympy.physics.vector.printing import params
 from scipy.stats import skew
+from sympy.matrices.densetools import row
+
+import cv2, numpy as np, matplotlib.pyplot as plt
+# import numpy as np, matplotlib.pyplot as plt
+
 
 '''###################
     import : orig modules        
@@ -1858,7 +1863,10 @@ def is_PhotoOf__Sweets \
     
     # convert to RGB
     img_RGB = img_Orig
-
+    
+    #TEST
+    get_ColorName_From_CornerImage(img_RGB, dpath_Images, fname_Image)
+    return
 
     '''###################
         get : meta data
@@ -1883,6 +1891,15 @@ def is_PhotoOf__Sweets \
     
     img_Corners = get_Corner_Images(img_RGB, corner_Length, padding)
     
+    '''###################
+        get : color name set
+        TEST
+    ###################'''
+    #TEST
+    get_ColorName_Set_From_CornerImage(img_Corners[0])
+    
+    return
+
     print()
     print("[%s:%d] len(img_Corners) = %d" % \
         (os.path.basename(libs.thisfile()), libs.linenum()
@@ -3565,3 +3582,363 @@ def test__get_Opt_IP():
     
 #/ def get_Opt_IP():
 
+def get_ColorName_Set_From_CornerImage(img_Corner):
+    
+    height, width, channels = img_Corner.shape
+    
+    msg = "height = %d, width = %d, channels = %d" %\
+                            (height, width, channels)
+                    
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log(msg_Log
+                , cons_fx.FPath.dpath_LogFile.value
+                , cons_fx.FPath.fname_LogFile.value
+                , 1)
+
+    print()
+    print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , msg_Log
+            ), file=sys.stderr)
+
+#/ def get_ColorName_Set_From_CornerImage(img_Corner):
+
+'''###################
+    @param img: RGB data        
+###################'''
+def get_StatsData_Of_Image__HSV(img, dpath_Images, fname_Image):
+# def get_StatsData_Of_Image__HSV(img):
+    
+    '''###################
+        convert : to HSV        
+    ###################'''
+    img_HSV = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
+    
+    '''###################
+        vars        
+    ###################'''
+    Hs = []
+    Ss = []
+    Vs = []
+    
+    '''###################
+        ops        
+    ###################'''
+#     #debug
+#     print("[%s:%d] img_HSV[0][:10] =>" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             
+#             ), file=sys.stderr)
+#     
+#     print(img_HSV[0][:10])
+    
+    for row in img_HSV:
+        
+        for pix in row:
+        
+            Hs.append(pix[0])
+            Ss.append(pix[1])
+            Vs.append(pix[2])
+            
+        #/for pix in row:
+        
+    #/for row in img_HSV:
+    
+    #debug
+    print()
+    print("[%s:%d] Hs[:10] =>" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+    print(Hs[:10])
+    
+    #debug : average
+    print()
+    print("[%s:%d] Hs ==> average = %.03f" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , sum(Hs) * 1.0 / len(Hs)
+        ), file=sys.stderr)
+    
+    #debug
+    val_Average, val_Variance, sd, val_Max, val_Min = get_StatsData(Hs)
+#     val_Average, val_Variance, sd = get_StatsData(Hs)
+    
+    print()
+    print("[%s:%d] val_Average = %.03f, val_Variance = %.03f, sd = %.03f" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , val_Average, val_Variance, sd
+        ), file=sys.stderr)
+    
+    '''###################
+        save : stats data        
+    ###################'''
+    msg = "file = %s / val_Average = %.04f\tval_Variance = %.04f\tsd = %.04f\tmax = %d\tmin = %d" %\
+                            (fname_Image, val_Average, val_Variance, sd, val_Max, val_Min)
+                    
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log(msg_Log, True)
+
+    
+#     #debug : plot
+#     img_Plot_Target = Hs
+# #     img_Plot_Target = Hs[:1000]
+#     
+#     rng = np.arange(len(img_Plot_Target))
+#     
+#     # reset plot
+#     plt.clf()
+#     plt.cla()
+# 
+#     
+#     plt.plot(rng, img_Plot_Target, 'r-', label='Hs')
+# #     plt.plot(rng, Hs[:100], 'r-', label='Hs')
+# #     plt.plot(rng, Hs[:100])
+# #     plt.plot(Hs)
+#     
+#     plt.legend(loc='best')
+#     
+#     ax = plt.gca()
+#      
+#     #ref grid https://stackoverflow.com/questions/16074392/getting-vertical-gridlines-to-appear-in-line-plot-in-matplotlib
+#     ax.grid(which='major', axis='both', linestyle='--')
+#     ax.grid(which='minor', axis='both', linestyle='--')
+#  
+# #     ax.set(aspect=1,
+#     ax.set(
+#            xlim=(0, len(img_Plot_Target)),
+# #            xlim=(0, len(Hs[:100])),
+# #            xlim=(0, len(lo_Rs)),
+#            ylim=(0, 250))
+#     
+#     
+#     dpath_Savefig = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\data_images"
+#     
+#     fname = "savefig.%s.%s.png" % (libs.get_TimeLabel_Now(), fname_Image)
+#     
+#     fpath_Savefig = os.path.join(dpath_Savefig, fname)
+#     
+#     plt.savefig(fpath_Savefig)
+#     
+#     print("[%s:%d] plot ==> saved (%s)" % \
+#                     (os.path.basename(libs.thisfile()), libs.linenum()
+#                     , fpath_Savefig
+#                     ), file=sys.stderr)
+#     
+#     # reset plot
+#     plt.clf()
+#     plt.cla()
+    
+    '''###################
+        return        
+    ###################'''
+    return Hs, Ss, Vs
+
+#/ def get_StatsData_Of_Image__HSV(img):
+
+'''###################
+    @param img: RGB data        
+    @return: res, msg
+###################'''
+def is_ColorName_Yellow__2(img, dpath_Images, fname_Image):
+    
+# def is_ColorName_Yellow__2(img):
+    
+    '''###################
+        get : stats        
+    ###################'''
+    Hs, Ss, Vs = get_StatsData_Of_Image__HSV(img, dpath_Images, fname_Image)
+#     Hs, Ss, Vs = get_StatsData_Of_Image__HSV(img)
+    
+    #debug
+    msg = "len(Hs) = %d, len(Ss) = %d, len(Vs) = %d" %\
+                (len(Hs), len(Ss), len(Vs))
+        
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log(msg_Log, True)
+    
+    '''###################
+        return        
+    ###################'''
+    result = False
+    
+    msg = "other"
+    
+    return result, msg
+
+#/ def is_ColorName_Yellow__2(img):
+
+'''###################
+    @return: 
+###################'''
+def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image):
+    aa
+    height, width, channels = img_Corner.shape
+    
+    '''###################
+        meta data        
+    ###################'''
+    msg = "%s" %\
+                (fname_Image)
+                    
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log(msg_Log, True)
+
+    
+#     msg = "height = %d, width = %d, channels = %d" %\
+#                             (height, width, channels)
+#                     
+#     msg_Log = "[%s / %s:%d] %s" % \
+#             (
+#             libs.get_TimeLabel_Now()
+#             , os.path.basename(libs.thisfile()), libs.linenum()
+#             , msg)
+#     
+#     libs.write_Log(msg_Log, True)
+    
+    print()
+    print("[%s:%d] %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , msg_Log
+            ), file=sys.stderr)
+
+    '''######################################
+        get : color name        
+    ###################'''
+    '''###################
+        yellow
+    ###################'''
+    res, msg = is_ColorName_Yellow__2(img_Corner, dpath_Images, fname_Image)
+#     res, msg = is_ColorName_Yellow__2(img_Corner)
+    
+    '''###################
+        return        
+    ###################'''
+    return res, msg
+    
+#/ def get_ColorName_Set_From_CornerImage(img_Corner):
+
+'''###################
+    @param lo_Data: [188, 187, 188, ...]
+    
+    @return: val_Average, val_Variance, sd
+    
+###################'''
+def get_StatsData(lo_Data):
+    
+    lenOf_LO_Data = len(lo_Data)
+    
+    print()
+    print("[%s:%d] lo_Data[:10] =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    print(lo_Data[:10])
+    
+    
+    val_Average = sum(lo_Data) * 1.0 / lenOf_LO_Data
+
+    print()
+    print("[%s:%d] val_Average =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    print(val_Average)
+    
+            #     [lib_ip.py:3837] val_Average =>
+            # 94.75623456790123
+            
+    '''###################
+        variance        
+    ###################'''
+    #ref http://www.geisya.or.jp/~mwm48961/kou3/prob_variance1.htm
+    # ２乗の平均
+    lo_Squares = [1.0 * x * x for x in lo_Data]
+#     lo_Squares = [x * x for x in lo_Data]
+#     lo_Squares = np.power(lo_Data, 2)
+#     lo_Squares = [np.power(lo_Data, 2)]
+    
+    print()
+    print("[%s:%d] lo_Squares[:10] =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    print(lo_Squares[:10])
+    
+#     print()
+#     print("[%s:%d] lo_Data[0] = %.03f, lo_Data[0] * lo_Data[0] = %.03f" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , lo_Data[0], lo_Data[0] * lo_Data[0]
+#         ), file=sys.stderr)
+# #     print(lo_Data[0] * lo_Data[0])
+    
+    
+#     print()
+#     print("[%s:%d] lo_Data[:10] =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(lo_Data[:10])
+
+    
+    avgOf_LO_Squares = sum(lo_Squares) / lenOf_LO_Data
+#     avgOf_LO_Squares = lo_Squares / lenOf_LO_Data
+
+    print()
+    print("[%s:%d] avgOf_LO_Squares =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    print(avgOf_LO_Squares)
+    
+    # variance : ２乗の平均 - 平均の二乗
+    #ref power https://docs.scipy.org/doc/numpy/reference/generated/numpy.power.html
+    val_Variance = avgOf_LO_Squares - np.power(val_Average, 2)
+    
+    print()
+    print("[%s:%d] val_Variance =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    print(val_Variance)
+    
+    '''###################
+        standard dev        
+    ###################'''
+    sd = np.sqrt(val_Variance)
+
+    
+    '''###################
+        min, max
+    ###################'''
+    val_Max = max(lo_Data)
+    val_Min = min(lo_Data)
+    
+    '''###################
+        return
+    ###################'''
+    return val_Average, val_Variance, sd, val_Max, val_Min
+#     return val_Average, val_Variance, sd
+    
+#     , val_Variance, sd
+
+#/ def get_StatsData(img):
