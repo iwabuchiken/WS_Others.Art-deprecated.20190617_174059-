@@ -1864,9 +1864,9 @@ def is_PhotoOf__Sweets \
     # convert to RGB
     img_RGB = img_Orig
     
-    #TEST
-    get_ColorName_From_CornerImage(img_RGB, dpath_Images, fname_Image)
-    return
+#     #TEST
+#     get_ColorName_From_CornerImage(img_RGB, dpath_Images, fname_Image)
+#     return
 
     '''###################
         get : meta data
@@ -1896,10 +1896,25 @@ def is_PhotoOf__Sweets \
         TEST
     ###################'''
     #TEST
-    get_ColorName_Set_From_CornerImage(img_Corners[0])
+    lenOf_Img_Corners = len(img_Corners)
+    
+    for i in range(lenOf_Img_Corners):
+
+        img = img_Corners[i]
+        
+        get_ColorName_From_CornerImage(img, dpath_Images, fname_Image, i)
+        
+        
+    #/for i in range(lenOf_Img_Corners):
     
     return
 
+#     get_ColorName_From_CornerImage(img_RGB, dpath_Images, fname_Image)
+#     return
+
+    #TEST
+#     get_ColorName_Set_From_CornerImage(img_Corners[0])
+    
     print()
     print("[%s:%d] len(img_Corners) = %d" % \
         (os.path.basename(libs.thisfile()), libs.linenum()
@@ -3783,17 +3798,28 @@ def is_ColorName_Yellow__2(img, dpath_Images, fname_Image):
 #/ def is_ColorName_Yellow__2(img):
 
 '''###################
+    @param ind: index of the img_Corner
+                |------------------------|
+                |(2)                  (3)|
+                |                        |
+                |                        |
+                |                        |
+                |(0)                  (1)|
+                |------------------------|
+
     @return: 
 ###################'''
-def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image):
-    aa
+# def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image):
+def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image, ind):
+
     height, width, channels = img_Corner.shape
     
     '''###################
         meta data        
     ###################'''
-    msg = "%s" %\
-                (fname_Image)
+    msg = "%s %d" %\
+                (fname_Image, ind)
+#                 (fname_Image)
                     
     msg_Log = "[%s / %s:%d] %s" % \
             (
