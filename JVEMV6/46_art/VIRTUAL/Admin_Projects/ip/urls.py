@@ -24,5 +24,7 @@ urlpatterns = [
     
     url(r'^dos_attack/$', views.dos_attack, name='dos_attack'),
     
+    url(r'^ip_ops/$', views.ip_ops, name='ip_ops'),
+    
     
 ]

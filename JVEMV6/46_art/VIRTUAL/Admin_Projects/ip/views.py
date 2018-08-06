@@ -5,13 +5,14 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django import template
+from mailbox import fcntl
 
 '''###################
     import : built-in modules        
 ###################'''
 import subprocess, copy, re, clipboard, time, \
         os, datetime, ftplib, glob, sys, cv2 \
-        , matplotlib.pyplot as plt
+        , matplotlib.pyplot as plt, codecs
 
 '''###################
     import : orig modules        
@@ -237,6 +238,138 @@ def get_4_corners(request):
                 ), file=sys.stderr)
     
         return render(request, 'ip/get_4_corners_full.html', dic)
+
+'''###################
+    __ip_ops__gradation
+    
+    at : 2018/06/30 09:15:53
+    
+###################'''
+def __ip_ops__gradation(request):
+    
+    '''######################################
+        ops        
+    ######################################'''
+    dpath_Ops_Images = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\ops\\images"
+    fname_Ops_Image = "2018-06-24_19-14-31_000.jpg"
+    
+    fpath_Ops_Image = os.path.join(dpath_Ops_Images, fname_Ops_Image)
+    
+    '''###################
+        get : image
+    ###################'''
+    # read image
+    img_Orig = cv2.imread(fpath_Ops_Image)
+    
+    # meta data
+    height, width, channels = img_Orig.shape
+    
+    '''###################
+        return        
+    ###################'''
+    url_Path_Full = "ip/ops/ip_ops__gradation_full.html"
+    url_Path = "ip/ops/ip_ops__gradation.html"
+
+    dic = {"msg" : "gradation : ip_ops__gradation.html"}
+
+    return (url_Path_Full, url_Path, dic)
+    
+#/ def __ip_ops__gradation(request):
+    
+    
+    
+'''###################
+    ip_ops        
+###################'''
+def ip_ops(request):
+    
+    '''###################
+        params
+    ###################'''
+    request_Commands = request.GET.get('commands', False)
+    
+    '''###################
+        vars        
+    ###################'''
+    dic = {}
+
+    '''###################
+        ops
+    ###################'''
+    reqCmd_Gradation = "gradation"
+    
+    if request_Commands : #if request_Commands
+        
+        if request_Commands == reqCmd_Gradation : #if request_Commands == reqCmd_Gradation
+    
+            url_Path_Full, url_Path, dic = __ip_ops__gradation(request)
+    
+        else : #if request_Commands == reqCmd_Gradation
+        
+            url_Path_Full = "ip/ops/ip_ops_full.html"
+            url_Path = "ip/ops/ip_ops.html"
+            
+            dic['msg'] = "commands => %s" % request_Commands
+
+        
+        #/if request_Commands == reqCmd_Gradation
+    
+    
+        
+        
+    
+    else : #if request_Commands
+    
+        url_Path_Full = "ip/ops/ip_ops_full.html"
+        url_Path = "ip/ops/ip_ops.html"
+        
+        dic['msg'] = "ip_ops.html"
+
+    
+    #/if request_Commands
+        
+        
+#     url_Path_Full, url_Path, dic = __ip_ops__gradation(request)
+#     url_Path_Full = "ip/ops/ip_ops_full.html"
+#     url_Path = "ip/ops/ip_ops.html"
+#     url_Path_Full, url_Path, dic = __ip_ops__gradation(request)
+#     url_Path_Full = "ip/ops/ip_ops_full.html"
+#     url_Path = "ip/ops/ip_ops.html"
+    
+    
+    '''###################
+        get : referer        
+    ###################'''
+    referer_MM = "http://127.0.0.1:8001/ip/basics/"
+#     referer_MM = "http://127.0.0.1:8000/ip/"
+    
+    referer_Current = request.META.get('HTTP_REFERER')
+
+    if referer_Current == referer_MM : #if referer_Current == referer_MM
+    
+        print()
+        print("[%s:%d] referer_Current == referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, url_Path, dic)
+#         return render(request, 'ip/get_4_corners.html', dic)
+        
+    else : #if referer_Current == referer_MM
+
+        print()
+        print("[%s:%d] referer_Current <> referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, url_Path_Full, dic)
+#         return render(request, 'ip/get_4_corners_full.html', dic)
+
+#/ def ip_ops(request):
+    
+    
 '''###################
     get_Corner_Images(img_Src, corner_Length)        
     
@@ -842,6 +975,7 @@ def gen_Cake_CSV__Get_ColorName_Set(\
     cnt = 0
 #     maxOf_Cnt = 30
 #     maxOf_Cnt = 20
+#    maxOf_Cnt = 5
     maxOf_Cnt = 999
 #     maxOf_Cnt = 15
 #     maxOf_Cnt = 10
@@ -881,7 +1015,100 @@ def gen_Cake_CSV__Get_ColorName_Set(\
     
 #/ def gen_Cake_CSV__Get_ColorName_Set(dpath_Images, lo_Files):
     
+def gen_Cake_CSV__Gen_CSVFile(dpath_CSV, fname_CSV, lo_ColorName_Set__Modified_2):
     
+    '''###################
+        vars
+    ###################'''
+    lines = []
+    
+    cnt = 1
+    
+    '''###################
+        header
+    ###################'''
+    hdr = "no\tfile_name\tmemos"
+    
+    lines.append(hdr)
+    
+    '''###################
+        color name set        
+    ###################'''
+    for item in lo_ColorName_Set__Modified_2:
+        
+        '''###################
+            vars        
+        ###################'''
+        fname = item[0]
+        
+        '''###################
+            var : color_Names        
+            
+            e.g. "oooo" (string)
+            
+        ###################'''
+        color_Names = item[1]
+
+        '''###################
+            build : csv        
+        ###################'''
+        tmp_Line = []
+        
+        tmp_Line.append(str(cnt))
+#         tmp_Line.append(cnt)
+        tmp_Line.append(fname)
+        
+        '''###################
+            image content        
+        ###################'''
+        #debug
+#        print()
+#        print("[%s:%d] color_Names =>" % \
+#            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+#            ), file=sys.stderr)
+#        print(color_Names)
+        
+        line_Memo = lib_ip.get_Memo_From_ColorNames_Set(color_Names)
+        
+        tmp_Line.append(line_Memo)
+#         tmp_Line.append(line_Memo)
+#         tmp_Line.append("".join(color_Names))
+        
+        lines.append("\t".join(tmp_Line))
+        
+        # count
+        cnt += 1
+        
+    '''###################
+        write        
+    ###################'''
+    fpath_CSV = "%s/%s" % (dpath_CSV, fname_CSV)
+    
+    fin = codecs.open(fpath_CSV, "w", 'utf-8')
+#     fin = open(fpath_CSV, "w", 'utf-8')
+#     fin = open(fpath_CSV, "w")
+    
+    # write
+    for item in lines:
+    
+        fin.write(item)
+        fin.write("\n")
+        
+    #/for item in lines:
+
+    # close
+    fin.close()
+
+    #debug
+    print()
+    print("[%s:%d] csv written : %s" % \
+                    (os.path.basename(libs.thisfile()), libs.linenum()
+                    , fpath_CSV
+                    ), file=sys.stderr)
+    
+#/ def gen_Cake_CSV__Gen_CSVFile(dpath_CSV, fname_CSV, lo_ColorName_Set__Modified_2):
+
 def gen_Cake_CSV__Exec(request):
     
     '''###################
@@ -1017,6 +1244,8 @@ def gen_Cake_CSV__Exec(request):
             elif item2 == "red" : colName = "r"
             elif item2 == "yellow" : colName = "y"
             elif item2 == "green" : colName = "g"
+            elif item2 == "white" : colName = "w"
+            elif item2 == "black" : colName = "a"
             
             else : colName = "u" #=> 'unknown'
             
@@ -1086,6 +1315,15 @@ def gen_Cake_CSV__Exec(request):
         
         libs.write_Log(strOf_Color_Names, True)
     
+    '''###################
+        gen : CSV file
+    ###################'''
+    dpath_CSV = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\csv"
+    fname_CSV = "entries.%s.csv" % (libs.get_TimeLabel_Now())
+    
+    res = gen_Cake_CSV__Gen_CSVFile(dpath_CSV, fname_CSV, lo_ColorName_Set__Modified_2)
+    
+        
     '''###################
         return        
     ###################'''
@@ -1348,6 +1586,8 @@ def open_image_dir(request):
         build : command string        
     ###################'''
     command = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\utils\\open_image_dir.bat"
+#     command = "C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\utils\open_image_dir.bat"
+#     command = "C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images"
 #     command = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\images"
 #     command = "C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images"
 #     command = "%s\\%s" % (cons_im.FPath.DPATH_CMD_LIB_WS_CAKE_IFM11.value, action)
