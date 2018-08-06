@@ -1907,7 +1907,7 @@ def is_PhotoOf__Sweets \
         
     #/for i in range(lenOf_Img_Corners):
     
-    return
+#     return
 
 #     get_ColorName_From_CornerImage(img_RGB, dpath_Images, fname_Image)
 #     return
@@ -3807,7 +3807,12 @@ def is_ColorName_Yellow__2(img, dpath_Images, fname_Image):
                 |(0)                  (1)|
                 |------------------------|
 
-    @return: 
+    @return: msg
+                "other"
+                "yellow"
+                "green"
+                "red"
+
 ###################'''
 # def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image):
 def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image, ind):
@@ -3859,7 +3864,8 @@ def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image, ind):
     '''###################
         return        
     ###################'''
-    return res, msg
+    return msg
+#     return res, msg
     
 #/ def get_ColorName_Set_From_CornerImage(img_Corner):
 
