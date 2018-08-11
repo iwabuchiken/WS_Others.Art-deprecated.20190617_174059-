@@ -245,7 +245,8 @@ class ColorThresholds(Enum):
     '''###################
         yellow        
     ###################'''
-    isYellow_HSV_Variance__Upper = 0.3
+    #isYellow_HSV_Variance__Upper = 0.3
+    isYellow_HSV_Variance__Upper = 0.65
     isYellow_HSV_Variance__Lower = 0.01
     
 #     isYellow_HSV_Average__Upper = 90.0
