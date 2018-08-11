@@ -1892,41 +1892,6 @@ def is_PhotoOf__Sweets \
     img_Corners = get_Corner_Images(img_RGB, corner_Length, padding)
     
     '''###################
-        get : color name set
-        TEST
-    ###################'''
-#     #TEST
-#     lenOf_Img_Corners = len(img_Corners)
-#     
-#     lo_Color_Names_2 = []
-#     
-#     for i in range(lenOf_Img_Corners):
-# 
-#         img = img_Corners[i]
-#         
-#         msg = get_ColorName_From_CornerImage(img, dpath_Images, fname_Image, i)
-#         
-#         # append
-#         lo_Color_Names_2.append([nameOf_CornerImage, color_Name])
-
-        
-    #/for i in range(lenOf_Img_Corners):
-    
-#     return
-
-#     get_ColorName_From_CornerImage(img_RGB, dpath_Images, fname_Image)
-#     return
-
-    #TEST
-#     get_ColorName_Set_From_CornerImage(img_Corners[0])
-    
-#     print()
-#     print("[%s:%d] len(img_Corners) = %d" % \
-#         (os.path.basename(libs.thisfile()), libs.linenum()
-#         , len(img_Corners)
-#         ), file=sys.stderr)
-
-    '''###################
         save : images of 4 corners        
     ###################'''
     save_Image = flg_SaveImage
@@ -1935,35 +1900,20 @@ def is_PhotoOf__Sweets \
     
     lo_Names_Of_Corner_Images = \
             get_4_corners__SaveImage_4Corners(img_Corners, fname_Image, save_Image)
-#             saveImage_4Corners(img_Corners, fname_Image, save_Image)
-#             _exec_get_4_corners__SaveImage_4Corners(img_Corners, fname_Image)
-    
-#     print()
-#     print("[%s:%d] lo_Names_Of_Corner_Images =>" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#             
-#             ), file=sys.stderr)
-#     print(lo_Names_Of_Corner_Images)
 
     '''###################
         get : basic data
     ###################'''
     lo_Image_MetaData = get_4_corners__Get_MetaData(img_Corners)
-#     lo_Image_MetaData = _exec_get_4_corners__Get_MetaData(img_Corners)
 
     '''###################
         get : stat data
     ###################'''
     lo_Image_StatsData = get_4_corners__Get_StatsData(img_Corners)
-#     lo_Image_StatsData = _exec_get_4_corners__Get_StatsData(img_Corners)
-
 
     '''###################
         filtering : a corner of green ?
     ###################'''
-    # lo_Image_StatsData[0] => left bottom corner
-#         res = lib_ip.is_CornerOf_Green(lo_Image_StatsData[0])
-#     res, comment = lib_ip.is_CornerOf_Green__PhotoOf_Sweets(lo_Image_StatsData[0])
     res, comment = is_CornerOf_Green__PhotoOf_Sweets(lo_Image_StatsData[0])
 
     '''###################
@@ -1973,7 +1923,6 @@ def is_PhotoOf__Sweets \
     
     lenOf_Lo_Names_Of_Corner_Images = len(lo_Names_Of_Corner_Images)
     
-#     for i in lenOf_Lo_Names_Of_Corner_Images:
     for i in range(lenOf_Lo_Names_Of_Corner_Images) :
     
         nameOf_CornerImage = lo_Names_Of_Corner_Images[i]
@@ -1981,7 +1930,6 @@ def is_PhotoOf__Sweets \
         #debug
         print()
         
-#         msg = "[%s:%d] inspecting ===> %s" % \
         msg = "[%s / %s:%d] inspecting ===> %s" % \
                 (
                 libs.get_TimeLabel_Now()
@@ -1991,10 +1939,6 @@ def is_PhotoOf__Sweets \
                 )
         
         print(msg, file=sys.stderr)
-#         print("[%s:%d] inspecting ===> %s" % \
-#                 (os.path.basename(libs.thisfile()), libs.linenum()
-#                 , nameOf_CornerImage
-#                 ), file=sys.stderr)
         
         #debug
         libs.write_Log(msg, True)
@@ -2008,22 +1952,12 @@ def is_PhotoOf__Sweets \
         
     #/for i in lenOf_Lo_Names_Of_Corner_Images:
     
-#     print()
-    
-#     msg = "[%s:%d] lo_Color_Names =>" % \
     msg = "[%s / %s:%d] lo_Color_Names =>" % \
         (
             libs.get_TimeLabel_Now()
             , os.path.basename(libs.thisfile()), libs.linenum()
         
         )
-    
-#     print(msg, file=sys.stderr)
-
-#     print("[%s:%d] lo_Color_Names =>" % \
-#         (os.path.basename(libs.thisfile()), libs.linenum()
-#         
-#         ), file=sys.stderr)
     
     #debug
     libs.write_Log(msg, True)
@@ -2038,8 +1972,6 @@ def is_PhotoOf__Sweets \
         libs.write_Log(msg, True)
         
     #/for item in lo_Color_Names:
-
-#     print(lo_Color_Names)
 
     '''###################
         write log : file names
@@ -4180,8 +4112,8 @@ def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image, ind):
     '''######################################
         get : color name        
     ###################'''
-    # default
-    msg = "other"
+#     # default
+#     msg = "other"
     
     '''###################
         yellow
@@ -4212,10 +4144,28 @@ def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image, ind):
     if res == True : #if res == True
     
         return msg
+    
+    '''###################
+        other
+    ###################'''
+    # debug
+    msg = "file : %s %d (%s)" %\
+                                (fname_Image, ind, msg)
+                        
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log(msg_Log, True)
 
     '''###################
         return        
     ###################'''
+    # default
+    msg = "other"
+   
     return msg
 #     return res, msg
     
