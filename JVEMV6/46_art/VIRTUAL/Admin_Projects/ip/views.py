@@ -1164,7 +1164,20 @@ def gen_Cake_CSV__Exec(request):
                        , flg_SaveImage
                        , param_Corner_Width
                        , param_Corner_Padding)
+    
+    print()
+    print("[%s:%d] lo_ColorName_Set =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    for item in lo_ColorName_Set:
+    
+        print(item)
+        
+    #/for item in lo_ColorName_Set:
 
+#     print(lo_ColorName_Set)
+    
     '''###################
         get : list of color names
     ###################'''
@@ -1350,7 +1363,7 @@ def gen_Cake_CSV(request):
         get : dic, color name set        
     ###################'''
     dic, lo_ColorName_Set__Modified_2 = gen_Cake_CSV__Exec(request)
-        
+    
     '''###################
         ending message
     ###################'''
@@ -1397,20 +1410,6 @@ def gen_Cake_CSV(request):
     
 def exec_get_4_corners(request):
     
-#     '''###################
-#         gen cake csv
-#     ###################'''
-#     _option = request.GET.get('option', False)
-#     
-#     # option : gen_cake_csv
-#     if not _option == False and _option == "gen_cake_csv" : #if not _option == False and _option = "gen_cake_csv"
-# 
-#         gen_Cake_CSV(request)
-#         
-#     #/if not _option == False and _option = "gen_cake_csv"
-
-
-    
     '''###################
         debug        
     ###################'''
@@ -1427,14 +1426,6 @@ def exec_get_4_corners(request):
     fname_Log = "get_4_corners.log"
 
     libs.write_Log(msg_Log, True)
-#     libs.write_Log(msg_Log, dpath_Log, fname_Log, True)
-    
-#     print("[%s / %s:%d] %s" % \
-#             (
-#             libs.get_TimeLabel_Now()
-#             , os.path.basename(libs.thisfile()), libs.linenum()
-#             , msg
-#             ), file=sys.stderr)
     
     '''###################
         debug
@@ -1521,9 +1512,6 @@ def exec_get_4_corners(request):
                         , param_Corner_Width
                         , param_Corner_Padding
                         )
-#                 lib_ip.is_PhotoOf__Sweets(dpath_Images, fname_Image, flg_SaveImage)
-#                 lib_ip.is_PhotoOf__Sweets(dpath_Images, fname_Image)
-#     res, msg = lib_ip.is_PhotoOf__Sweets(dpath_Images, fname_Image)
 
     '''###################
         set : vars

@@ -2163,6 +2163,7 @@ def get_ColorName_Set_From_Image(\
         get : color name of the corner
     ###################'''
     lo_Color_Names = []
+    lo_Color_Names_2 = []
     
     lenOf_Lo_Names_Of_Corner_Images = len(lo_Names_Of_Corner_Images)
     
@@ -2199,23 +2200,35 @@ def get_ColorName_Set_From_Image(\
         # append
         lo_Color_Names.append([nameOf_CornerImage, color_Name])
         
+        '''###################
+            lo_Color_Names_2        
+        ###################'''
+        img_Corner = img_Corners[i]
+        
+        dpath_Images = dpath_Images
+        fname_Image = nameOf_CornerImage
+        
+        ind = i
+
+        color_Name_2 = get_ColorName_From_CornerImage(
+                    img_Corner, dpath_Images, fname_Image, ind)
+
+        # append
+        lo_Color_Names_2.append([nameOf_CornerImage, color_Name_2])
+        
     #/for i in lenOf_Lo_Names_Of_Corner_Images:
     
-#     print()
-#     
-# #     msg = "[%s:%d] lo_Color_Names =>" % \
-#     msg = "[%s / %s:%d] lo_Color_Names =>" % \
-#         (
-#             libs.get_TimeLabel_Now()
-#             , os.path.basename(libs.thisfile()), libs.linenum()
-#         
-#         )
-#     
-#     print(msg, file=sys.stderr)
-# #     print("[%s:%d] lo_Color_Names =>" % \
-# #         (os.path.basename(libs.thisfile()), libs.linenum()
-# #         
-# #         ), file=sys.stderr)
+    #debug
+    print()
+    print("[%s:%d] lo_Color_Names_2 =>" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+    for item in lo_Color_Names_2:
+    
+        print(item)
+        
+    #/for item in lo_Color_Names_2:
     
     #debug
     libs.write_Log(msg, True)
@@ -2250,7 +2263,8 @@ def get_ColorName_Set_From_Image(\
     '''###################
         return        
     ###################'''
-    return lo_Color_Names
+    return lo_Color_Names_2
+#     return lo_Color_Names
     
 #/ get_ColorName_Set_From_Image(dpath_Images, file_Name)
 
