@@ -580,21 +580,21 @@ def is_CornerOf_Green__PhotoOf_Sweets(image_StatsData):
     ###################'''
     idxOf_Maxes = image_StatsData['idxOf_Maxes']
     
-    print()
-    print("[%s:%d] idxOf_Maxes =>" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        
-        ), file=sys.stderr)
-    print(idxOf_Maxes)
+#     print()
+#     print("[%s:%d] idxOf_Maxes =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(idxOf_Maxes)
     
     max_Vals = image_StatsData['max_Vals']
 
-    print()
-    print("[%s:%d] max_Vals =>" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        
-        ), file=sys.stderr)
-    print(max_Vals)
+#     print()
+#     print("[%s:%d] max_Vals =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(max_Vals)
     
     '''###################
         judge        
@@ -1874,11 +1874,11 @@ def is_PhotoOf__Sweets \
     # data
     height, width, channels = img_RGB.shape
     
-    print()
-    print("[%s:%d] height = %d, width = %d, channels = %d" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        , height, width, channels
-        ), file=sys.stderr)
+#     print()
+#     print("[%s:%d] height = %d, width = %d, channels = %d" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , height, width, channels
+#         ), file=sys.stderr)
 
     '''###################
         get : 4 corners        
@@ -1895,15 +1895,20 @@ def is_PhotoOf__Sweets \
         get : color name set
         TEST
     ###################'''
-    #TEST
-    lenOf_Img_Corners = len(img_Corners)
-    
-    for i in range(lenOf_Img_Corners):
+#     #TEST
+#     lenOf_Img_Corners = len(img_Corners)
+#     
+#     lo_Color_Names_2 = []
+#     
+#     for i in range(lenOf_Img_Corners):
+# 
+#         img = img_Corners[i]
+#         
+#         msg = get_ColorName_From_CornerImage(img, dpath_Images, fname_Image, i)
+#         
+#         # append
+#         lo_Color_Names_2.append([nameOf_CornerImage, color_Name])
 
-        img = img_Corners[i]
-        
-        get_ColorName_From_CornerImage(img, dpath_Images, fname_Image, i)
-        
         
     #/for i in range(lenOf_Img_Corners):
     
@@ -1915,11 +1920,11 @@ def is_PhotoOf__Sweets \
     #TEST
 #     get_ColorName_Set_From_CornerImage(img_Corners[0])
     
-    print()
-    print("[%s:%d] len(img_Corners) = %d" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        , len(img_Corners)
-        ), file=sys.stderr)
+#     print()
+#     print("[%s:%d] len(img_Corners) = %d" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , len(img_Corners)
+#         ), file=sys.stderr)
 
     '''###################
         save : images of 4 corners        
@@ -1933,12 +1938,12 @@ def is_PhotoOf__Sweets \
 #             saveImage_4Corners(img_Corners, fname_Image, save_Image)
 #             _exec_get_4_corners__SaveImage_4Corners(img_Corners, fname_Image)
     
-    print()
-    print("[%s:%d] lo_Names_Of_Corner_Images =>" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-            
-            ), file=sys.stderr)
-    print(lo_Names_Of_Corner_Images)
+#     print()
+#     print("[%s:%d] lo_Names_Of_Corner_Images =>" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             
+#             ), file=sys.stderr)
+#     print(lo_Names_Of_Corner_Images)
 
     '''###################
         get : basic data
@@ -2051,10 +2056,54 @@ def is_PhotoOf__Sweets \
                     )
 
     '''###################
+        get color names : HSV
+    ###################'''
+    lo_Color_Names_2 = []
+    
+    for i in range(lenOf_Lo_Names_Of_Corner_Images) :
+        
+        # name of the image
+        nameOf_CornerImage = lo_Names_Of_Corner_Images[i]
+        
+        # corner image
+        img = img_Corners[i]
+        
+        # inspect
+        msg = get_ColorName_From_CornerImage(img, dpath_Images, fname_Image, i)
+        
+        # append
+        lo_Color_Names_2.append([nameOf_CornerImage, msg])
+#         lo_Color_Names_2.append([nameOf_CornerImage, color_Name])
+    
+    '''###################
+        report
+    ###################'''
+    msg = "lo_Color_Names_2 =>"
+                    
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log(msg_Log, True)
+
+    for item in lo_Color_Names_2:
+
+        msg = "file = %s / color name = %s" % (item[0], item[1])
+                        
+        msg_Log = "%s" % \
+                (
+                    msg)
+        
+        libs.write_Log(msg_Log, True)
+        
+    #/for item in lo_Color_Names_2:
+
+
+    '''###################
         return        
     ###################'''
-#     msg = "done"
-    
     return res, comment, (height, width, channels)
 #     return res, comment
 #     return False, msg
@@ -3664,30 +3713,30 @@ def get_StatsData_Of_Image__HSV(img, dpath_Images, fname_Image):
         
     #/for row in img_HSV:
     
-    #debug
-    print()
-    print("[%s:%d] Hs[:10] =>" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-            
-            ), file=sys.stderr)
-    print(Hs[:10])
+#     #debug
+#     print()
+#     print("[%s:%d] Hs[:10] =>" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             
+#             ), file=sys.stderr)
+#     print(Hs[:10])
     
-    #debug : average
-    print()
-    print("[%s:%d] Hs ==> average = %.03f" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        , sum(Hs) * 1.0 / len(Hs)
-        ), file=sys.stderr)
+#     #debug : average
+#     print()
+#     print("[%s:%d] Hs ==> average = %.03f" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , sum(Hs) * 1.0 / len(Hs)
+#         ), file=sys.stderr)
     
     #debug
     val_Average, val_Variance, sd, val_Max, val_Min = get_StatsData(Hs)
 #     val_Average, val_Variance, sd = get_StatsData(Hs)
     
-    print()
-    print("[%s:%d] val_Average = %.03f, val_Variance = %.03f, sd = %.03f" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        , val_Average, val_Variance, sd
-        ), file=sys.stderr)
+#     print()
+#     print("[%s:%d] val_Average = %.03f, val_Variance = %.03f, sd = %.03f" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , val_Average, val_Variance, sd
+#         ), file=sys.stderr)
     
     '''###################
         save : stats data        
@@ -3787,11 +3836,297 @@ def is_ColorName_Yellow__2(img, dpath_Images, fname_Image):
     libs.write_Log(msg_Log, True)
     
     '''###################
+        get : Hue data
+    ###################'''
+    val_Average, val_Variance, sd, val_Max, val_Min = get_StatsData(Hs)
+    
+    '''###################
+        judge
+    ###################'''
+    # default values
+    result = False
+    msg = "other"
+
+    # variance
+    if not \
+        (val_Variance < cons_ip.ColorThresholds.isYellow_HSV_Variance__Upper.value \
+            and val_Variance > cons_ip.ColorThresholds.isYellow_HSV_Variance__Lower.value) :
+        
+#         msg = "variance --> out of range (variance = %.03f / upper = %.03f / loweer = %.03f " %\
+        msg = "yellow : variance --> out of range (variance = %.03f / upper = %.03f / lower = %.03f)" %\
+                            (val_Variance
+                             , cons_ip.ColorThresholds.isYellow_HSV_Variance__Upper.value
+                             , cons_ip.ColorThresholds.isYellow_HSV_Variance__Lower.value)
+                        
+        msg_Log = "[%s / %s:%d] %s" % \
+                (
+                libs.get_TimeLabel_Now()
+                , os.path.basename(libs.thisfile()), libs.linenum()
+                , msg)
+        
+        libs.write_Log(msg_Log, True)
+
+        
+        return result, msg
+    
+    # average
+    if not \
+        (val_Average < cons_ip.ColorThresholds.isYellow_HSV_Average__Upper.value \
+            and val_Average > cons_ip.ColorThresholds.isYellow_HSV_Average__Lower.value): #if val_Variance > cons_ip.ColorThresholds
+
+#         msg = "average --> out of range (average = %.03f / upper = %.03f / lower = %.03f " %\
+        msg = "yellow : average --> out of range (average = %.03f / upper = %.03f / lower = %.03f)" %\
+                            (val_Average
+                             , cons_ip.ColorThresholds.isYellow_HSV_Average__Upper.value
+                             , cons_ip.ColorThresholds.isYellow_HSV_Average__Lower.value)
+                        
+        msg_Log = "[%s / %s:%d] %s" % \
+                (
+                libs.get_TimeLabel_Now()
+                , os.path.basename(libs.thisfile()), libs.linenum()
+                , msg)
+        
+        libs.write_Log(msg_Log, True)
+                    
+        return result, msg
+    
+    '''###################
+        set : is yellow
+    ###################'''
+    result = True
+    msg = "yellow"
+    
+    '''###################
         return        
     ###################'''
-    result = False
+#     result = False
+#     
+#     msg = "other"
     
+    return result, msg
+
+#/ def is_ColorName_Yellow__2(img):
+
+'''###################
+    @param img: RGB data        
+    @return: res, msg
+###################'''
+def is_ColorName_Red__2(img, dpath_Images, fname_Image):
+    
+# def is_ColorName_Yellow__2(img):
+    
+    '''###################
+        get : stats        
+    ###################'''
+    Hs, Ss, Vs = get_StatsData_Of_Image__HSV(img, dpath_Images, fname_Image)
+#     Hs, Ss, Vs = get_StatsData_Of_Image__HSV(img)
+    
+    #debug
+    msg = "len(Hs) = %d, len(Ss) = %d, len(Vs) = %d" %\
+                (len(Hs), len(Ss), len(Vs))
+        
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log(msg_Log, True)
+    
+    '''###################
+        get : Hue data
+    ###################'''
+    val_Average, val_Variance, sd, val_Max, val_Min = get_StatsData(Hs)
+    
+    '''###################
+        judge
+    ###################'''
+    # default values
+    result = False
     msg = "other"
+    
+    color_Name = cons_ip.ColorNameSet.colName_Red.value
+    
+    variance_Upper = cons_ip.ColorThresholds.isRed_HSV_Variance__Upper.value
+    variance_Lower = cons_ip.ColorThresholds.isRed_HSV_Variance__Lower.value
+    
+    average_Upper = cons_ip.ColorThresholds.isRed_HSV_Average__Upper.value
+    average_Lower = cons_ip.ColorThresholds.isRed_HSV_Average__Lower.value
+    
+    # variance
+    if not \
+        (val_Variance < variance_Upper \
+            and val_Variance > variance_Lower) :
+#         (val_Variance < cons_ip.ColorThresholds.isYellow_HSV_Variance__Upper.value \
+#             and val_Variance > cons_ip.ColorThresholds.isYellow_HSV_Variance__Lower.value) :
+        
+#         msg = "variance --> out of range (variance = %.03f / upper = %.03f / loweer = %.03f " %\
+        msg = "%s : variance --> out of range (variance = %.03f / upper = %.03f / lower = %.03f)" %\
+                            ( color_Name
+                            , val_Variance
+                             , variance_Upper
+                             , variance_Lower)
+#                              , cons_ip.ColorThresholds.isYellow_HSV_Variance__Upper.value
+#                              , cons_ip.ColorThresholds.isYellow_HSV_Variance__Lower.value)
+                        
+        msg_Log = "[%s / %s:%d] %s" % \
+                (
+                libs.get_TimeLabel_Now()
+                , os.path.basename(libs.thisfile()), libs.linenum()
+                , msg)
+        
+        libs.write_Log(msg_Log, True)
+
+        
+        return result, msg
+    
+    # average
+    if not \
+        (val_Average < average_Upper \
+            and val_Average > average_Lower) :
+#         (val_Average < cons_ip.ColorThresholds.isYellow_HSV_Average__Upper.value \
+#             and val_Average > cons_ip.ColorThresholds.isYellow_HSV_Average__Lower.value): #if val_Variance > cons_ip.ColorThresholds
+
+#         msg = "average --> out of range (average = %.03f / upper = %.03f / lower = %.03f " %\
+        msg = "%s : average --> out of range (average = %.03f / upper = %.03f / lower = %.03f)" %\
+                            ( color_Name
+                            , val_Average
+                             , average_Upper
+                             , average_Lower)
+                        
+        msg_Log = "[%s / %s:%d] %s" % \
+                (
+                libs.get_TimeLabel_Now()
+                , os.path.basename(libs.thisfile()), libs.linenum()
+                , msg)
+        
+        libs.write_Log(msg_Log, True)
+                    
+        return result, msg
+    
+    '''###################
+        set : is red
+    ###################'''
+    result = True
+    msg = color_Name
+    
+    '''###################
+        return        
+    ###################'''
+#     result = False
+#     
+#     msg = "other"
+    
+    return result, msg
+
+#/ def is_ColorName_Yellow__2(img):
+
+'''###################
+    @param img: RGB data        
+    @return: res, msg
+###################'''
+def is_ColorName_Green__2(img, dpath_Images, fname_Image):
+    
+    '''###################
+        get : stats        
+    ###################'''
+    Hs, Ss, Vs = get_StatsData_Of_Image__HSV(img, dpath_Images, fname_Image)
+    
+    #debug
+    msg = "len(Hs) = %d, len(Ss) = %d, len(Vs) = %d" %\
+                (len(Hs), len(Ss), len(Vs))
+        
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log(msg_Log, True)
+    
+    '''###################
+        get : Hue data
+    ###################'''
+    val_Average, val_Variance, sd, val_Max, val_Min = get_StatsData(Hs)
+    
+    '''###################
+        judge
+    ###################'''
+    # default values
+    result = False
+    msg = "other"
+    
+    color_Name = cons_ip.ColorNameSet.colName_Green.value
+    
+    variance_Upper = cons_ip.ColorThresholds.isGreen_HSV_Variance__Upper.value
+    variance_Lower = cons_ip.ColorThresholds.isGreen_HSV_Variance__Lower.value
+    
+    average_Upper = cons_ip.ColorThresholds.isGreen_HSV_Average__Upper.value
+    average_Lower = cons_ip.ColorThresholds.isGreen_HSV_Average__Lower.value
+    
+    # variance
+    if not \
+        (val_Variance < variance_Upper \
+            and val_Variance > variance_Lower) :
+#         (val_Variance < cons_ip.ColorThresholds.isYellow_HSV_Variance__Upper.value \
+#             and val_Variance > cons_ip.ColorThresholds.isYellow_HSV_Variance__Lower.value) :
+        
+#         msg = "variance --> out of range (variance = %.03f / upper = %.03f / loweer = %.03f " %\
+        msg = "%s : variance --> out of range (variance = %.03f / upper = %.03f / lower = %.03f)" %\
+                            ( color_Name
+                            , val_Variance
+                             , variance_Upper
+                             , variance_Lower)
+#                              , cons_ip.ColorThresholds.isYellow_HSV_Variance__Upper.value
+#                              , cons_ip.ColorThresholds.isYellow_HSV_Variance__Lower.value)
+                        
+        msg_Log = "[%s / %s:%d] %s" % \
+                (
+                libs.get_TimeLabel_Now()
+                , os.path.basename(libs.thisfile()), libs.linenum()
+                , msg)
+        
+        libs.write_Log(msg_Log, True)
+
+        
+        return result, msg
+    
+    # average
+    if not \
+        (val_Average < average_Upper \
+            and val_Average > average_Lower) :
+#         (val_Average < cons_ip.ColorThresholds.isYellow_HSV_Average__Upper.value \
+#             and val_Average > cons_ip.ColorThresholds.isYellow_HSV_Average__Lower.value): #if val_Variance > cons_ip.ColorThresholds
+
+#         msg = "average --> out of range (average = %.03f / upper = %.03f / lower = %.03f " %\
+        msg = "%s : average --> out of range (average = %.03f / upper = %.03f / lower = %.03f)" %\
+                            ( color_Name
+                            , val_Average
+                             , average_Upper
+                             , average_Lower)
+                        
+        msg_Log = "[%s / %s:%d] %s" % \
+                (
+                libs.get_TimeLabel_Now()
+                , os.path.basename(libs.thisfile()), libs.linenum()
+                , msg)
+        
+        libs.write_Log(msg_Log, True)
+                    
+        return result, msg
+    
+    '''###################
+        set : is red
+    ###################'''
+    result = True
+    msg = color_Name
+    
+    '''###################
+        return        
+    ###################'''
+#     result = False
+#     
+#     msg = "other"
     
     return result, msg
 
@@ -3822,7 +4157,8 @@ def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image, ind):
     '''###################
         meta data        
     ###################'''
-    msg = "%s %d" %\
+#     msg = "%s %d" %\
+    msg = "\n%s %d" %\
                 (fname_Image, ind)
 #                 (fname_Image)
                     
@@ -3835,17 +4171,6 @@ def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image, ind):
     libs.write_Log(msg_Log, True)
 
     
-#     msg = "height = %d, width = %d, channels = %d" %\
-#                             (height, width, channels)
-#                     
-#     msg_Log = "[%s / %s:%d] %s" % \
-#             (
-#             libs.get_TimeLabel_Now()
-#             , os.path.basename(libs.thisfile()), libs.linenum()
-#             , msg)
-#     
-#     libs.write_Log(msg_Log, True)
-    
     print()
     print("[%s:%d] %s" % \
             (os.path.basename(libs.thisfile()), libs.linenum()
@@ -3855,12 +4180,39 @@ def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image, ind):
     '''######################################
         get : color name        
     ###################'''
+    # default
+    msg = "other"
+    
     '''###################
         yellow
     ###################'''
     res, msg = is_ColorName_Yellow__2(img_Corner, dpath_Images, fname_Image)
-#     res, msg = is_ColorName_Yellow__2(img_Corner)
+
+    # yellow
+    if res == True : #if res == True
     
+        return msg
+    
+    '''###################
+        red
+    ###################'''
+    res, msg = is_ColorName_Red__2(img_Corner, dpath_Images, fname_Image)
+    
+    # red
+    if res == True : #if res == True
+    
+        return msg
+
+    '''###################
+        green
+    ###################'''
+    res, msg = is_ColorName_Green__2(img_Corner, dpath_Images, fname_Image)
+    
+    # green
+    if res == True : #if res == True
+    
+        return msg
+
     '''###################
         return        
     ###################'''
@@ -3879,22 +4231,22 @@ def get_StatsData(lo_Data):
     
     lenOf_LO_Data = len(lo_Data)
     
-    print()
-    print("[%s:%d] lo_Data[:10] =>" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        
-        ), file=sys.stderr)
-    print(lo_Data[:10])
+#     print()
+#     print("[%s:%d] lo_Data[:10] =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(lo_Data[:10])
     
     
     val_Average = sum(lo_Data) * 1.0 / lenOf_LO_Data
 
-    print()
-    print("[%s:%d] val_Average =>" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        
-        ), file=sys.stderr)
-    print(val_Average)
+#     print()
+#     print("[%s:%d] val_Average =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(val_Average)
     
             #     [lib_ip.py:3837] val_Average =>
             # 94.75623456790123
@@ -3909,12 +4261,12 @@ def get_StatsData(lo_Data):
 #     lo_Squares = np.power(lo_Data, 2)
 #     lo_Squares = [np.power(lo_Data, 2)]
     
-    print()
-    print("[%s:%d] lo_Squares[:10] =>" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        
-        ), file=sys.stderr)
-    print(lo_Squares[:10])
+#     print()
+#     print("[%s:%d] lo_Squares[:10] =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(lo_Squares[:10])
     
 #     print()
 #     print("[%s:%d] lo_Data[0] = %.03f, lo_Data[0] * lo_Data[0] = %.03f" % \
@@ -3935,23 +4287,23 @@ def get_StatsData(lo_Data):
     avgOf_LO_Squares = sum(lo_Squares) / lenOf_LO_Data
 #     avgOf_LO_Squares = lo_Squares / lenOf_LO_Data
 
-    print()
-    print("[%s:%d] avgOf_LO_Squares =>" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        
-        ), file=sys.stderr)
-    print(avgOf_LO_Squares)
+#     print()
+#     print("[%s:%d] avgOf_LO_Squares =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(avgOf_LO_Squares)
     
     # variance : ２乗の平均 - 平均の二乗
     #ref power https://docs.scipy.org/doc/numpy/reference/generated/numpy.power.html
     val_Variance = avgOf_LO_Squares - np.power(val_Average, 2)
     
-    print()
-    print("[%s:%d] val_Variance =>" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        
-        ), file=sys.stderr)
-    print(val_Variance)
+#     print()
+#     print("[%s:%d] val_Variance =>" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         
+#         ), file=sys.stderr)
+#     print(val_Variance)
     
     '''###################
         standard dev        

@@ -237,6 +237,40 @@ class ColorThresholds(Enum):
     #isBlack_Max_Val__Lower = 16 * 1000
     isBlack_Max_Val__Lower = 15 * 1000
 #     isBlack_Max_Val__Lower = 26 * 1000
+
+
+    '''######################################
+        thresholds : HSV
+    ######################################'''
+    '''###################
+        yellow        
+    ###################'''
+    isYellow_HSV_Variance__Upper = 0.3
+    isYellow_HSV_Variance__Lower = 0.01
+    
+#     isYellow_HSV_Average__Upper = 90.0
+    isYellow_HSV_Average__Upper = 93.0
+    isYellow_HSV_Average__Lower = 88.0
+    
+    '''###################
+        red        
+    ###################'''
+    isRed_HSV_Variance__Upper = 0.3
+    isRed_HSV_Variance__Lower = 0.01
+    
+    isRed_HSV_Average__Upper = 124.0
+    isRed_HSV_Average__Lower = 120.0
+    
+    '''###################
+        green        
+    ###################'''
+#     isGreen_HSV_Variance__Upper = 0.3
+    isGreen_HSV_Variance__Upper = 0.38
+    isGreen_HSV_Variance__Lower = 0.01
+    
+#     isGreen_HSV_Average__Upper = 72.0
+    isGreen_HSV_Average__Upper = 75.0
+    isGreen_HSV_Average__Lower = 70.0
     
 #/ class ColorThresholds(Enum):    
 
@@ -379,6 +413,11 @@ class ColorNameSet(Enum):
 
     memo_Unknown = "UNKNOWN"
     
+    colName_Red = "red"
+    colName_Yellow = "yellow"
+    colName_Green = "green"
+    colName_White = "white"
+    colName_Black = "black"
     
 #/ class ColorNameSet(Enum):
     
