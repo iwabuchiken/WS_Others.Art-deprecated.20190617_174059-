@@ -3756,7 +3756,7 @@ def get_StatsData_Of_Image__HSV(img, dpath_Images, fname_Image):
 #/ def get_StatsData_Of_Image__HSV(img):
 
 '''###################
-    @param img: RGB data        
+    @param img: HSV data        
     @return: res, msg
 ###################'''
 def is_ColorName_Yellow__2(img, dpath_Images, fname_Image):
@@ -3854,7 +3854,7 @@ def is_ColorName_Yellow__2(img, dpath_Images, fname_Image):
 #/ def is_ColorName_Yellow__2(img):
 
 '''###################
-    @param img: RGB data        
+    @param img: HSV data        
     @return: res, msg
 ###################'''
 def is_ColorName_Red__2(img, dpath_Images, fname_Image):
@@ -3968,7 +3968,7 @@ def is_ColorName_Red__2(img, dpath_Images, fname_Image):
 #/ def is_ColorName_Yellow__2(img):
 
 '''###################
-    @param img: RGB data        
+    @param img: HSV data        
     @return: res, msg
 ###################'''
 def is_ColorName_Green__2(img, dpath_Images, fname_Image):
@@ -4041,6 +4041,117 @@ def is_ColorName_Green__2(img, dpath_Images, fname_Image):
     if not \
         (val_Average < average_Upper \
             and val_Average > average_Lower) :
+#         (val_Average < cons_ip.ColorThresholds.isYellow_HSV_Average__Upper.value \
+#             and val_Average > cons_ip.ColorThresholds.isYellow_HSV_Average__Lower.value): #if val_Variance > cons_ip.ColorThresholds
+
+#         msg = "average --> out of range (average = %.03f / upper = %.03f / lower = %.03f " %\
+        msg = "%s : average --> out of range (average = %.03f / upper = %.03f / lower = %.03f)" %\
+                            ( color_Name
+                            , val_Average
+                             , average_Upper
+                             , average_Lower)
+                        
+        msg_Log = "[%s / %s:%d] %s" % \
+                (
+                libs.get_TimeLabel_Now()
+                , os.path.basename(libs.thisfile()), libs.linenum()
+                , msg)
+        
+        libs.write_Log(msg_Log, True)
+                    
+        return result, msg
+    
+    '''###################
+        set : is red
+    ###################'''
+    result = True
+    msg = color_Name
+    
+    '''###################
+        return        
+    ###################'''
+#     result = False
+#     
+#     msg = "other"
+    
+    return result, msg
+
+#/ def is_ColorName_Yellow__2(img):
+
+'''###################
+    @param img: HSV data        
+    @return: res, msg
+###################'''
+def is_ColorName_Black__2(img, dpath_Images, fname_Image):
+    
+    '''###################
+        get : stats        
+    ###################'''
+    Hs, Ss, Vs = get_StatsData_Of_Image__HSV(img, dpath_Images, fname_Image)
+    
+    #debug
+    msg = "len(Hs) = %d, len(Ss) = %d, len(Vs) = %d" %\
+                (len(Hs), len(Ss), len(Vs))
+        
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log(msg_Log, True)
+    
+    '''###################
+        get : Hue data
+    ###################'''
+    val_Average, val_Variance, sd, val_Max, val_Min = get_StatsData(Hs)
+    
+    '''###################
+        judge
+    ###################'''
+    # default values
+    result = False
+    msg = "other"
+    
+    color_Name = cons_ip.ColorNameSet.colName_Black.value
+    
+    variance_Upper = cons_ip.ColorThresholds.isBlack_HSV_Variance__Upper.value
+    variance_Lower = cons_ip.ColorThresholds.isBlack_HSV_Variance__Lower.value
+    
+    average_Upper = cons_ip.ColorThresholds.isBlack_HSV_Average__Upper.value
+    average_Lower = cons_ip.ColorThresholds.isBlack_HSV_Average__Lower.value
+    
+    # variance
+    if not \
+        (val_Variance <= variance_Upper \
+            and val_Variance >= variance_Lower) :
+#         (val_Variance < cons_ip.ColorThresholds.isYellow_HSV_Variance__Upper.value \
+#             and val_Variance > cons_ip.ColorThresholds.isYellow_HSV_Variance__Lower.value) :
+        
+#         msg = "variance --> out of range (variance = %.03f / upper = %.03f / loweer = %.03f " %\
+        msg = "%s : variance --> out of range (variance = %.03f / upper = %.03f / lower = %.03f)" %\
+                            ( color_Name
+                            , val_Variance
+                             , variance_Upper
+                             , variance_Lower)
+#                              , cons_ip.ColorThresholds.isYellow_HSV_Variance__Upper.value
+#                              , cons_ip.ColorThresholds.isYellow_HSV_Variance__Lower.value)
+                        
+        msg_Log = "[%s / %s:%d] %s" % \
+                (
+                libs.get_TimeLabel_Now()
+                , os.path.basename(libs.thisfile()), libs.linenum()
+                , msg)
+        
+        libs.write_Log(msg_Log, True)
+
+        
+        return result, msg
+    
+    # average
+    if not \
+        (val_Average <= average_Upper \
+            and val_Average >= average_Lower) :
 #         (val_Average < cons_ip.ColorThresholds.isYellow_HSV_Average__Upper.value \
 #             and val_Average > cons_ip.ColorThresholds.isYellow_HSV_Average__Lower.value): #if val_Variance > cons_ip.ColorThresholds
 
@@ -4155,6 +4266,16 @@ def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image, ind):
     res, msg = is_ColorName_Green__2(img_Corner, dpath_Images, fname_Image)
     
     # green
+    if res == True : #if res == True
+    
+        return msg
+    
+    '''###################
+        black
+    ###################'''
+    res, msg = is_ColorName_Black__2(img_Corner, dpath_Images, fname_Image)
+    
+    # black
     if res == True : #if res == True
     
         return msg
