@@ -250,7 +250,8 @@ class ColorThresholds(Enum):
     isYellow_HSV_Variance__Lower = 0.01
     
 #     isYellow_HSV_Average__Upper = 90.0
-    isYellow_HSV_Average__Upper = 93.0
+    #isYellow_HSV_Average__Upper = 93.0
+    isYellow_HSV_Average__Upper = 97.0
     isYellow_HSV_Average__Lower = 88.0
     
     '''###################
@@ -325,7 +326,7 @@ class ColorNameSet(Enum):
 #             '''###################
 #                 r,g,y ==> 1 each, 2 kinds        # 3 types
 #             ###################'''
-            , "goor"
+            , "goor"    # :m XXX
             , "gooy"
             , "oory"    # 読んだ本
             
@@ -404,7 +405,9 @@ class ColorNameSet(Enum):
 #             '''###################
 #                 r,g,y ==> 1 each, 2 kinds        # 3 types
 #             ###################'''
-            , "goor" : u'UNDEFINED'
+            #, "goor" : u'UNDEFINED'
+            , "goor" : u':m XXX'
+            
             , "gooy" : u'\'-*'
             , "oory" : u':bookmemo / 読んだ本 / 『』 / 著者=XXX'
 
