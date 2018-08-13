@@ -6574,3 +6574,879 @@ file = img.20180813_090347.2018-08-12_18-50-04_000.jpg.1.png / color name = othe
 file = img.20180813_090347.2018-08-12_18-50-04_000.jpg.2.png / color name = other
 file = img.20180813_090347.2018-08-12_18-50-04_000.jpg.3.png / color name = green
 file = img.20180813_090347.2018-08-12_18-50-04_000.jpg.4.png / color name = other
+[20180813_092713 / views.py:1421] exec_get_4_corners(request) ================================
+[20180813_092714 / lib_ip.py:1937] inspecting ===> img.20180813_092714.2018-08-13_03-59-44_000.png.1.png
+[20180813_092714 / lib_ip.py:2523] inspecting : green ------------
+[20180813_092714 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_092714 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_092714 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_092714 / lib_ip.py:2615] inspecting : red ------------
+[20180813_092714 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 32400)
+[20180813_092715 / lib_ip.py:2655] inspecting : white ------------
+[20180813_092715 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_092715 / lib_ip.py:2693] inspecting : black ------------
+[20180813_092715 / lib_ip.py:1937] inspecting ===> img.20180813_092714.2018-08-13_03-59-44_000.png.2.png
+[20180813_092715 / lib_ip.py:2523] inspecting : green ------------
+[20180813_092715 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_092715 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_092715 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_092715 / lib_ip.py:2615] inspecting : red ------------
+[20180813_092715 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 17836)
+[20180813_092715 / lib_ip.py:2655] inspecting : white ------------
+[20180813_092715 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_092715 / lib_ip.py:2693] inspecting : black ------------
+[20180813_092715 / lib_ip.py:1937] inspecting ===> img.20180813_092714.2018-08-13_03-59-44_000.png.3.png
+[20180813_092715 / lib_ip.py:2523] inspecting : green ------------
+[20180813_092715 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_092716 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_092716 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_092716 / lib_ip.py:2615] inspecting : red ------------
+[20180813_092716 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 32400)
+[20180813_092716 / lib_ip.py:2655] inspecting : white ------------
+[20180813_092716 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_092716 / lib_ip.py:2693] inspecting : black ------------
+[20180813_092716 / lib_ip.py:1937] inspecting ===> img.20180813_092714.2018-08-13_03-59-44_000.png.4.png
+[20180813_092716 / lib_ip.py:2523] inspecting : green ------------
+[20180813_092716 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_092716 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_092716 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_092716 / lib_ip.py:2615] inspecting : red ------------
+[20180813_092716 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 17820)
+[20180813_092716 / lib_ip.py:2655] inspecting : white ------------
+[20180813_092716 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_092716 / lib_ip.py:2693] inspecting : black ------------
+[20180813_092716 / lib_ip.py:1958] lo_Color_Names =>
+img.20180813_092714.2018-08-13_03-59-44_000.png.1.png => black
+img.20180813_092714.2018-08-13_03-59-44_000.png.2.png => black
+img.20180813_092714.2018-08-13_03-59-44_000.png.3.png => black
+img.20180813_092714.2018-08-13_03-59-44_000.png.4.png => black
+[20180813_092716 lib_ip.py:2979] =============== Get 4 corners
+dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
+fname_Image = 2018-08-13_03-59-44_000.png
+
+img.20180813_092714.2018-08-13_03-59-44_000.png.1.png
+R=(0,0) G=(0,0) B=(0,0)
+skew_R = 6497.0154, skew_G = 6497.0154, skew_B = 6497.0154
+idxOf_Max_R = 0, idxOf_Max_G = 0, idxOf_Max_B = 0
+max_Vals_R = 32400, max_Vals_G = 32400, max_Vals_B = 32400
+32400	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+32400	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+32400	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_092714.2018-08-13_03-59-44_000.png.2.png
+R=(255,0) G=(255,0) B=(255,0)
+skew_R = 2190.4708, skew_G = 2190.4676, skew_B = 2258.8589
+idxOf_Max_R = 0, idxOf_Max_G = 0, idxOf_Max_B = 0
+max_Vals_R = 17836, max_Vals_G = 17836, max_Vals_B = 18196
+17836	2	4	4	15	3	2	4	5	4	5	2	5	3	4	4	6	2	0	3	8	7	5	2	6	1	4	1	11	3	2	5	4	2	13	13	1	13	1	5	15	17	10	2	0	2	3	0	3	3	3	4	13	1	1	12	0	2	0	2	9	8	14	8	1	0	0	1	1	1	11	2	1	2	3	8	1	2	5	2	22	14	7	1	1	1	1	2	0	2	0	2	0	14	3	1	2	21	1	2	10	11	2	0	2	3	0	0	1	1	0	0	4	2	2	3	2	4	1	2	10	0	2	3	3	5	3	2	1	22	1	2	2	1	2	1	11	2	2	3	5	2	1	4	6	2	8	0	0	0	0	2	3	2	1	0	4	2	0	0	2	8	1	4	1	2	1	13	0	1	0	1	1	1	0	0	0	1	0	1	1	0	2	0	0	0	1	2	2	0	360	0	180	0	1	2	0	0	1	0	0	1	2	3	4	3	0	3	15	1	2	0	0	2	4	4	4	3	3	4	4	4	12	19	2	2	0	0	2	2	10	3	11	2	3	0	2	1	3	14	1	3	10	2	1	3	3	6	5	22	6	8	32	21	15	13058
+17836	2	4	4	15	3	2	4	5	4	5	2	5	3	4	4	6	2	0	3	8	7	5	2	6	1	4	1	11	3	2	5	4	2	13	13	1	13	1	5	15	17	10	2	0	2	3	0	3	3	3	4	13	1	1	12	0	2	0	2	9	8	14	8	1	0	0	1	1	1	11	2	1	2	3	8	1	2	5	2	22	14	7	1	1	1	1	2	0	2	0	2	0	14	3	1	2	21	1	2	10	11	2	0	2	3	0	0	1	1	0	0	4	2	2	3	362	4	1	2	10	180	2	3	3	5	3	2	1	22	1	2	2	1	2	1	11	2	2	3	5	2	1	4	6	2	8	0	0	0	0	2	3	2	1	0	4	2	0	0	2	8	1	4	1	2	1	13	0	1	0	1	1	1	0	0	0	1	0	1	1	0	2	0	0	0	1	2	2	0	0	0	0	0	1	2	0	0	1	0	0	1	2	3	4	3	0	3	15	1	2	0	0	2	4	4	4	3	3	4	4	4	12	19	2	2	0	0	2	2	10	3	11	2	3	0	2	1	3	14	1	3	10	2	1	3	3	6	5	22	6	8	32	21	15	13058
+18196	2	4	4	15	3	2	4	5	184	5	2	5	3	4	4	6	2	0	3	8	7	5	2	6	1	4	1	11	3	2	5	4	2	13	13	1	13	1	5	15	17	10	2	0	2	3	0	3	3	3	4	13	1	1	12	0	2	0	2	9	8	14	8	1	0	0	1	1	1	11	2	1	2	3	8	1	2	5	2	22	14	7	1	1	1	1	2	0	2	0	2	0	14	3	1	2	21	1	2	10	11	2	0	2	3	0	0	1	1	0	0	4	2	2	3	2	4	1	2	10	0	2	3	3	5	3	2	1	22	1	2	2	1	2	1	11	2	2	3	5	2	1	4	6	2	8	0	0	0	0	2	3	2	1	0	4	2	0	0	2	8	1	4	1	2	1	13	0	1	0	1	1	1	0	0	0	1	0	1	1	0	2	0	0	0	1	2	2	0	0	0	0	0	1	2	0	0	1	0	0	1	2	3	4	3	0	3	15	1	2	0	0	2	4	4	4	3	3	4	4	4	12	19	2	2	0	0	2	2	10	3	11	2	3	0	2	1	3	14	1	3	10	2	1	3	3	6	5	22	6	8	32	21	15	13058
+
+img.20180813_092714.2018-08-13_03-59-44_000.png.3.png
+R=(0,0) G=(0,0) B=(0,0)
+skew_R = 6497.0154, skew_G = 6497.0154, skew_B = 6497.0154
+idxOf_Max_R = 0, idxOf_Max_G = 0, idxOf_Max_B = 0
+max_Vals_R = 32400, max_Vals_G = 32400, max_Vals_B = 32400
+32400	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+32400	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+32400	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_092714.2018-08-13_03-59-44_000.png.4.png
+R=(255,0) G=(255,0) B=(255,0)
+skew_R = 2270.0564, skew_G = 2270.0564, skew_B = 2336.3759
+idxOf_Max_R = 0, idxOf_Max_G = 0, idxOf_Max_B = 0
+max_Vals_R = 17820, max_Vals_G = 17820, max_Vals_B = 18180
+17820	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	360	1	179	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	67	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	13973
+17820	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	360	1	0	0	0	179	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	67	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	13973
+18180	0	0	1	0	0	0	0	0	179	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	67	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	13973
+
+is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_G < 30 or idxOf_Maxes_G > 80 (0))
+[20180813_092716 / lib_ip.py:4225] 
+2018-08-13_03-59-44_000.png 0
+[20180813_092716 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_092716 / lib_ip.py:3779] len(Hs) = 32400, len(Ss) = 32400, len(Vs) = 32400
+[20180813_092716 / lib_ip.py:3810] yellow : variance --> out of range (variance = 0.000 / upper = 0.650 / lower = 0.010)
+[20180813_092717 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_092717 / lib_ip.py:3877] len(Hs) = 32400, len(Ss) = 32400, len(Vs) = 32400
+[20180813_092717 / lib_ip.py:3921] red : variance --> out of range (variance = 0.000 / upper = 0.400 / lower = 0.010)
+[20180813_092717 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_092717 / lib_ip.py:3988] len(Hs) = 32400, len(Ss) = 32400, len(Vs) = 32400
+[20180813_092717 / lib_ip.py:4032] green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010)
+[20180813_092717 / lib_ip.py:4283] file : 2018-08-13_03-59-44_000.png 0 (green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010))
+[20180813_092717 / lib_ip.py:4225] 
+2018-08-13_03-59-44_000.png 1
+[20180813_092718 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.3000	val_Variance = 5.3100	sd = 2.3043	max = 18	min = 0
+[20180813_092718 / lib_ip.py:3779] len(Hs) = 32400, len(Ss) = 32400, len(Vs) = 32400
+[20180813_092718 / lib_ip.py:3810] yellow : variance --> out of range (variance = 5.310 / upper = 0.650 / lower = 0.010)
+[20180813_092718 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.3000	val_Variance = 5.3100	sd = 2.3043	max = 18	min = 0
+[20180813_092718 / lib_ip.py:3877] len(Hs) = 32400, len(Ss) = 32400, len(Vs) = 32400
+[20180813_092718 / lib_ip.py:3921] red : variance --> out of range (variance = 5.310 / upper = 0.400 / lower = 0.010)
+[20180813_092719 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.3000	val_Variance = 5.3100	sd = 2.3043	max = 18	min = 0
+[20180813_092719 / lib_ip.py:3988] len(Hs) = 32400, len(Ss) = 32400, len(Vs) = 32400
+[20180813_092719 / lib_ip.py:4032] green : variance --> out of range (variance = 5.310 / upper = 0.600 / lower = 0.010)
+[20180813_092719 / lib_ip.py:4283] file : 2018-08-13_03-59-44_000.png 1 (green : variance --> out of range (variance = 5.310 / upper = 0.600 / lower = 0.010))
+[20180813_092719 / lib_ip.py:4225] 
+2018-08-13_03-59-44_000.png 2
+[20180813_092719 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_092719 / lib_ip.py:3779] len(Hs) = 32400, len(Ss) = 32400, len(Vs) = 32400
+[20180813_092719 / lib_ip.py:3810] yellow : variance --> out of range (variance = 0.000 / upper = 0.650 / lower = 0.010)
+[20180813_092719 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_092720 / lib_ip.py:3877] len(Hs) = 32400, len(Ss) = 32400, len(Vs) = 32400
+[20180813_092720 / lib_ip.py:3921] red : variance --> out of range (variance = 0.000 / upper = 0.400 / lower = 0.010)
+[20180813_092720 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_092720 / lib_ip.py:3988] len(Hs) = 32400, len(Ss) = 32400, len(Vs) = 32400
+[20180813_092720 / lib_ip.py:4032] green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010)
+[20180813_092720 / lib_ip.py:4283] file : 2018-08-13_03-59-44_000.png 2 (green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010))
+[20180813_092720 / lib_ip.py:4225] 
+2018-08-13_03-59-44_000.png 3
+[20180813_092720 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.3372	val_Variance = 5.9563	sd = 2.4405	max = 18	min = 0
+[20180813_092720 / lib_ip.py:3779] len(Hs) = 32400, len(Ss) = 32400, len(Vs) = 32400
+[20180813_092721 / lib_ip.py:3810] yellow : variance --> out of range (variance = 5.956 / upper = 0.650 / lower = 0.010)
+[20180813_092721 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.3372	val_Variance = 5.9563	sd = 2.4405	max = 18	min = 0
+[20180813_092721 / lib_ip.py:3877] len(Hs) = 32400, len(Ss) = 32400, len(Vs) = 32400
+[20180813_092721 / lib_ip.py:3921] red : variance --> out of range (variance = 5.956 / upper = 0.400 / lower = 0.010)
+[20180813_092721 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.3372	val_Variance = 5.9563	sd = 2.4405	max = 18	min = 0
+[20180813_092721 / lib_ip.py:3988] len(Hs) = 32400, len(Ss) = 32400, len(Vs) = 32400
+[20180813_092721 / lib_ip.py:4032] green : variance --> out of range (variance = 5.956 / upper = 0.600 / lower = 0.010)
+[20180813_092721 / lib_ip.py:4283] file : 2018-08-13_03-59-44_000.png 3 (green : variance --> out of range (variance = 5.956 / upper = 0.600 / lower = 0.010))
+[20180813_092721 / lib_ip.py:2018] lo_Color_Names_2 =>
+file = img.20180813_092714.2018-08-13_03-59-44_000.png.1.png / color name = other
+file = img.20180813_092714.2018-08-13_03-59-44_000.png.2.png / color name = other
+file = img.20180813_092714.2018-08-13_03-59-44_000.png.3.png / color name = other
+file = img.20180813_092714.2018-08-13_03-59-44_000.png.4.png / color name = other
+[20180813_093017 / views.py:1421] exec_get_4_corners(request) ================================
+[20180813_093018 / lib_ip.py:1937] inspecting ===> img.20180813_093018.2018-08-13_03-59-44_000.png.1.png
+[20180813_093018 / lib_ip.py:2523] inspecting : green ------------
+[20180813_093018 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_093018 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_093018 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_093018 / lib_ip.py:2615] inspecting : red ------------
+[20180813_093018 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 8100)
+[20180813_093018 / lib_ip.py:2655] inspecting : white ------------
+[20180813_093018 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_093018 / lib_ip.py:2693] inspecting : black ------------
+[20180813_093018 / lib_ip.py:2715] False : max vals ==> incomplicit (should be : R,G,B > 14000 | max_Val_R = 8100, max_Val_G = 8100, max_Val_B = 8100)
+[20180813_093018 / lib_ip.py:1937] inspecting ===> img.20180813_093018.2018-08-13_03-59-44_000.png.2.png
+[20180813_093018 / lib_ip.py:2523] inspecting : green ------------
+[20180813_093018 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_093018 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_093018 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_093018 / lib_ip.py:2615] inspecting : red ------------
+[20180813_093018 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 8100)
+[20180813_093018 / lib_ip.py:2655] inspecting : white ------------
+[20180813_093018 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_093018 / lib_ip.py:2693] inspecting : black ------------
+[20180813_093018 / lib_ip.py:2715] False : max vals ==> incomplicit (should be : R,G,B > 14000 | max_Val_R = 8100, max_Val_G = 8100, max_Val_B = 8100)
+[20180813_093018 / lib_ip.py:1937] inspecting ===> img.20180813_093018.2018-08-13_03-59-44_000.png.3.png
+[20180813_093018 / lib_ip.py:2523] inspecting : green ------------
+[20180813_093018 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_093018 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_093018 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_093018 / lib_ip.py:2615] inspecting : red ------------
+[20180813_093018 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 8100)
+[20180813_093018 / lib_ip.py:2655] inspecting : white ------------
+[20180813_093018 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_093018 / lib_ip.py:2693] inspecting : black ------------
+[20180813_093018 / lib_ip.py:2715] False : max vals ==> incomplicit (should be : R,G,B > 14000 | max_Val_R = 8100, max_Val_G = 8100, max_Val_B = 8100)
+[20180813_093019 / lib_ip.py:1937] inspecting ===> img.20180813_093018.2018-08-13_03-59-44_000.png.4.png
+[20180813_093019 / lib_ip.py:2523] inspecting : green ------------
+[20180813_093019 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_093019 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_093019 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_093019 / lib_ip.py:2615] inspecting : red ------------
+[20180813_093019 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 8100)
+[20180813_093019 / lib_ip.py:2655] inspecting : white ------------
+[20180813_093019 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_093019 / lib_ip.py:2693] inspecting : black ------------
+[20180813_093019 / lib_ip.py:2715] False : max vals ==> incomplicit (should be : R,G,B > 14000 | max_Val_R = 8100, max_Val_G = 8100, max_Val_B = 8100)
+[20180813_093019 / lib_ip.py:1958] lo_Color_Names =>
+img.20180813_093018.2018-08-13_03-59-44_000.png.1.png => other
+img.20180813_093018.2018-08-13_03-59-44_000.png.2.png => other
+img.20180813_093018.2018-08-13_03-59-44_000.png.3.png => other
+img.20180813_093018.2018-08-13_03-59-44_000.png.4.png => other
+[20180813_093019 lib_ip.py:2979] =============== Get 4 corners
+dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
+fname_Image = 2018-08-13_03-59-44_000.png
+
+img.20180813_093018.2018-08-13_03-59-44_000.png.1.png
+R=(0,0) G=(0,0) B=(0,0)
+skew_R = 406.0635, skew_G = 406.0635, skew_B = 406.0635
+idxOf_Max_R = 0, idxOf_Max_G = 0, idxOf_Max_B = 0
+max_Vals_R = 8100, max_Vals_G = 8100, max_Vals_B = 8100
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_093018.2018-08-13_03-59-44_000.png.2.png
+R=(0,0) G=(0,0) B=(0,0)
+skew_R = 406.0635, skew_G = 406.0635, skew_B = 406.0635
+idxOf_Max_R = 0, idxOf_Max_G = 0, idxOf_Max_B = 0
+max_Vals_R = 8100, max_Vals_G = 8100, max_Vals_B = 8100
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_093018.2018-08-13_03-59-44_000.png.3.png
+R=(0,0) G=(0,0) B=(0,0)
+skew_R = 406.0635, skew_G = 406.0635, skew_B = 406.0635
+idxOf_Max_R = 0, idxOf_Max_G = 0, idxOf_Max_B = 0
+max_Vals_R = 8100, max_Vals_G = 8100, max_Vals_B = 8100
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_093018.2018-08-13_03-59-44_000.png.4.png
+R=(0,0) G=(0,0) B=(0,0)
+skew_R = 406.0635, skew_G = 406.0635, skew_B = 406.0635
+idxOf_Max_R = 0, idxOf_Max_G = 0, idxOf_Max_B = 0
+max_Vals_R = 8100, max_Vals_G = 8100, max_Vals_B = 8100
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_G < 30 or idxOf_Maxes_G > 80 (0))
+[20180813_093019 / lib_ip.py:4225] 
+2018-08-13_03-59-44_000.png 0
+[20180813_093019 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_093019 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_093019 / lib_ip.py:3810] yellow : variance --> out of range (variance = 0.000 / upper = 0.650 / lower = 0.010)
+[20180813_093020 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_093020 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_093020 / lib_ip.py:3921] red : variance --> out of range (variance = 0.000 / upper = 0.400 / lower = 0.010)
+[20180813_093020 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_093020 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_093020 / lib_ip.py:4032] green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010)
+[20180813_093020 / lib_ip.py:4283] file : 2018-08-13_03-59-44_000.png 0 (green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010))
+[20180813_093020 / lib_ip.py:4225] 
+2018-08-13_03-59-44_000.png 1
+[20180813_093020 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_093020 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_093021 / lib_ip.py:3810] yellow : variance --> out of range (variance = 0.000 / upper = 0.650 / lower = 0.010)
+[20180813_093021 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_093021 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_093021 / lib_ip.py:3921] red : variance --> out of range (variance = 0.000 / upper = 0.400 / lower = 0.010)
+[20180813_093021 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_093021 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_093021 / lib_ip.py:4032] green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010)
+[20180813_093021 / lib_ip.py:4283] file : 2018-08-13_03-59-44_000.png 1 (green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010))
+[20180813_093021 / lib_ip.py:4225] 
+2018-08-13_03-59-44_000.png 2
+[20180813_093021 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_093021 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_093021 / lib_ip.py:3810] yellow : variance --> out of range (variance = 0.000 / upper = 0.650 / lower = 0.010)
+[20180813_093021 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_093021 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_093021 / lib_ip.py:3921] red : variance --> out of range (variance = 0.000 / upper = 0.400 / lower = 0.010)
+[20180813_093021 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_093021 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_093021 / lib_ip.py:4032] green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010)
+[20180813_093021 / lib_ip.py:4283] file : 2018-08-13_03-59-44_000.png 2 (green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010))
+[20180813_093021 / lib_ip.py:4225] 
+2018-08-13_03-59-44_000.png 3
+[20180813_093022 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_093022 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_093022 / lib_ip.py:3810] yellow : variance --> out of range (variance = 0.000 / upper = 0.650 / lower = 0.010)
+[20180813_093022 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_093022 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_093022 / lib_ip.py:3921] red : variance --> out of range (variance = 0.000 / upper = 0.400 / lower = 0.010)
+[20180813_093022 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_093022 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_093022 / lib_ip.py:4032] green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010)
+[20180813_093022 / lib_ip.py:4283] file : 2018-08-13_03-59-44_000.png 3 (green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010))
+[20180813_093022 / lib_ip.py:2018] lo_Color_Names_2 =>
+file = img.20180813_093018.2018-08-13_03-59-44_000.png.1.png / color name = other
+file = img.20180813_093018.2018-08-13_03-59-44_000.png.2.png / color name = other
+file = img.20180813_093018.2018-08-13_03-59-44_000.png.3.png / color name = other
+file = img.20180813_093018.2018-08-13_03-59-44_000.png.4.png / color name = other
+[20180813_094220 / views.py:1421] exec_get_4_corners(request) ================================
+[20180813_094221 / lib_ip.py:1937] inspecting ===> img.20180813_094221.2018-08-13_03-59-44_000.png.1.png
+[20180813_094221 / lib_ip.py:2523] inspecting : green ------------
+[20180813_094221 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_094221 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_094221 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_094221 / lib_ip.py:2615] inspecting : red ------------
+[20180813_094221 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 8100)
+[20180813_094221 / lib_ip.py:2655] inspecting : white ------------
+[20180813_094221 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_094221 / lib_ip.py:2693] inspecting : black ------------
+[20180813_094221 / lib_ip.py:2715] False : max vals ==> incomplicit (should be : R,G,B > 14000 | max_Val_R = 8100, max_Val_G = 8100, max_Val_B = 8100)
+[20180813_094221 / lib_ip.py:1937] inspecting ===> img.20180813_094221.2018-08-13_03-59-44_000.png.2.png
+[20180813_094221 / lib_ip.py:2523] inspecting : green ------------
+[20180813_094221 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_094221 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_094221 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_094221 / lib_ip.py:2615] inspecting : red ------------
+[20180813_094221 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 8100)
+[20180813_094221 / lib_ip.py:2655] inspecting : white ------------
+[20180813_094221 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_094221 / lib_ip.py:2693] inspecting : black ------------
+[20180813_094221 / lib_ip.py:2715] False : max vals ==> incomplicit (should be : R,G,B > 14000 | max_Val_R = 8100, max_Val_G = 8100, max_Val_B = 8100)
+[20180813_094221 / lib_ip.py:1937] inspecting ===> img.20180813_094221.2018-08-13_03-59-44_000.png.3.png
+[20180813_094221 / lib_ip.py:2523] inspecting : green ------------
+[20180813_094222 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_094222 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_094222 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_094222 / lib_ip.py:2615] inspecting : red ------------
+[20180813_094222 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 8100)
+[20180813_094222 / lib_ip.py:2655] inspecting : white ------------
+[20180813_094222 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_094222 / lib_ip.py:2693] inspecting : black ------------
+[20180813_094222 / lib_ip.py:2715] False : max vals ==> incomplicit (should be : R,G,B > 14000 | max_Val_R = 8100, max_Val_G = 8100, max_Val_B = 8100)
+[20180813_094222 / lib_ip.py:1937] inspecting ===> img.20180813_094221.2018-08-13_03-59-44_000.png.4.png
+[20180813_094222 / lib_ip.py:2523] inspecting : green ------------
+[20180813_094222 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_094222 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_094222 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_094222 / lib_ip.py:2615] inspecting : red ------------
+[20180813_094222 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 8100)
+[20180813_094222 / lib_ip.py:2655] inspecting : white ------------
+[20180813_094223 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 0, idxOf_Maxes_G = 0, idxOf_Maxes_B = 0)
+[20180813_094223 / lib_ip.py:2693] inspecting : black ------------
+[20180813_094223 / lib_ip.py:2715] False : max vals ==> incomplicit (should be : R,G,B > 14000 | max_Val_R = 8100, max_Val_G = 8100, max_Val_B = 8100)
+[20180813_094223 / lib_ip.py:1958] lo_Color_Names =>
+img.20180813_094221.2018-08-13_03-59-44_000.png.1.png => other
+img.20180813_094221.2018-08-13_03-59-44_000.png.2.png => other
+img.20180813_094221.2018-08-13_03-59-44_000.png.3.png => other
+img.20180813_094221.2018-08-13_03-59-44_000.png.4.png => other
+[20180813_094223 lib_ip.py:2979] =============== Get 4 corners
+dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
+fname_Image = 2018-08-13_03-59-44_000.png
+
+img.20180813_094221.2018-08-13_03-59-44_000.png.1.png
+R=(0,0) G=(0,0) B=(0,0)
+skew_R = 406.0635, skew_G = 406.0635, skew_B = 406.0635
+idxOf_Max_R = 0, idxOf_Max_G = 0, idxOf_Max_B = 0
+max_Vals_R = 8100, max_Vals_G = 8100, max_Vals_B = 8100
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_094221.2018-08-13_03-59-44_000.png.2.png
+R=(0,0) G=(0,0) B=(0,0)
+skew_R = 406.0635, skew_G = 406.0635, skew_B = 406.0635
+idxOf_Max_R = 0, idxOf_Max_G = 0, idxOf_Max_B = 0
+max_Vals_R = 8100, max_Vals_G = 8100, max_Vals_B = 8100
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_094221.2018-08-13_03-59-44_000.png.3.png
+R=(0,0) G=(0,0) B=(0,0)
+skew_R = 406.0635, skew_G = 406.0635, skew_B = 406.0635
+idxOf_Max_R = 0, idxOf_Max_G = 0, idxOf_Max_B = 0
+max_Vals_R = 8100, max_Vals_G = 8100, max_Vals_B = 8100
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_094221.2018-08-13_03-59-44_000.png.4.png
+R=(0,0) G=(0,0) B=(0,0)
+skew_R = 406.0635, skew_G = 406.0635, skew_B = 406.0635
+idxOf_Max_R = 0, idxOf_Max_G = 0, idxOf_Max_B = 0
+max_Vals_R = 8100, max_Vals_G = 8100, max_Vals_B = 8100
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+8100	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_G < 30 or idxOf_Maxes_G > 80 (0))
+[20180813_094223 / lib_ip.py:4225] 
+2018-08-13_03-59-44_000.png 0
+[20180813_094223 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094223 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094223 / lib_ip.py:3810] yellow : variance --> out of range (variance = 0.000 / upper = 0.650 / lower = 0.010)
+[20180813_094223 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094223 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094223 / lib_ip.py:3921] red : variance --> out of range (variance = 0.000 / upper = 0.400 / lower = 0.010)
+[20180813_094224 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094224 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094224 / lib_ip.py:4032] green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010)
+[20180813_094224 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094224 / lib_ip.py:4099] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094224 / lib_ip.py:4225] 
+2018-08-13_03-59-44_000.png 1
+[20180813_094224 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094224 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094224 / lib_ip.py:3810] yellow : variance --> out of range (variance = 0.000 / upper = 0.650 / lower = 0.010)
+[20180813_094224 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094224 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094224 / lib_ip.py:3921] red : variance --> out of range (variance = 0.000 / upper = 0.400 / lower = 0.010)
+[20180813_094224 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094224 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094224 / lib_ip.py:4032] green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010)
+[20180813_094224 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094224 / lib_ip.py:4099] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094224 / lib_ip.py:4225] 
+2018-08-13_03-59-44_000.png 2
+[20180813_094224 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094225 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094225 / lib_ip.py:3810] yellow : variance --> out of range (variance = 0.000 / upper = 0.650 / lower = 0.010)
+[20180813_094225 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094225 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094225 / lib_ip.py:3921] red : variance --> out of range (variance = 0.000 / upper = 0.400 / lower = 0.010)
+[20180813_094225 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094225 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094225 / lib_ip.py:4032] green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010)
+[20180813_094225 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094225 / lib_ip.py:4099] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094225 / lib_ip.py:4225] 
+2018-08-13_03-59-44_000.png 3
+[20180813_094225 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094225 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094226 / lib_ip.py:3810] yellow : variance --> out of range (variance = 0.000 / upper = 0.650 / lower = 0.010)
+[20180813_094226 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094226 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094226 / lib_ip.py:3921] red : variance --> out of range (variance = 0.000 / upper = 0.400 / lower = 0.010)
+[20180813_094226 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094226 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094226 / lib_ip.py:4032] green : variance --> out of range (variance = 0.000 / upper = 0.600 / lower = 0.010)
+[20180813_094226 / lib_ip.py:3696] file = 2018-08-13_03-59-44_000.png / val_Average = 0.0000	val_Variance = 0.0000	sd = 0.0000	max = 0	min = 0
+[20180813_094226 / lib_ip.py:4099] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094226 / lib_ip.py:2018] lo_Color_Names_2 =>
+file = img.20180813_094221.2018-08-13_03-59-44_000.png.1.png / color name = black
+file = img.20180813_094221.2018-08-13_03-59-44_000.png.2.png / color name = black
+file = img.20180813_094221.2018-08-13_03-59-44_000.png.3.png / color name = black
+file = img.20180813_094221.2018-08-13_03-59-44_000.png.4.png / color name = black
+[20180813_094457 / views.py:1421] exec_get_4_corners(request) ================================
+[20180813_094458 / lib_ip.py:1937] inspecting ===> img.20180813_094457.2018-08-12_12-55-53_000.jpg.1.png
+[20180813_094458 / lib_ip.py:2523] inspecting : green ------------
+[20180813_094458 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 49, idxOf_Maxes_G = 71, idxOf_Maxes_B = 97)
+[20180813_094458 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_094458 / lib_ip.py:2597] False : max_Val_R ==> out of range (max = 6400, min = 1600, actual = 723)
+[20180813_094458 / lib_ip.py:2615] inspecting : red ------------
+[20180813_094458 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 723)
+[20180813_094458 / lib_ip.py:2655] inspecting : white ------------
+[20180813_094458 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 49, idxOf_Maxes_G = 71, idxOf_Maxes_B = 97)
+[20180813_094458 / lib_ip.py:2693] inspecting : black ------------
+[20180813_094458 / lib_ip.py:2715] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 49, idxOf_Maxes_G = 71, idxOf_Maxes_B = 97)
+[20180813_094458 / lib_ip.py:1937] inspecting ===> img.20180813_094457.2018-08-12_12-55-53_000.jpg.2.png
+[20180813_094458 / lib_ip.py:2523] inspecting : green ------------
+[20180813_094458 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 82, idxOf_Maxes_G = 127, idxOf_Maxes_B = 145)
+[20180813_094458 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_094458 / lib_ip.py:2597] False : max_Val_R ==> out of range (max = 6400, min = 1600, actual = 584)
+[20180813_094458 / lib_ip.py:2615] inspecting : red ------------
+[20180813_094458 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 584)
+[20180813_094458 / lib_ip.py:2655] inspecting : white ------------
+[20180813_094458 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 82, idxOf_Maxes_G = 127, idxOf_Maxes_B = 145)
+[20180813_094458 / lib_ip.py:2693] inspecting : black ------------
+[20180813_094458 / lib_ip.py:2715] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 82, idxOf_Maxes_G = 127, idxOf_Maxes_B = 145)
+[20180813_094458 / lib_ip.py:1937] inspecting ===> img.20180813_094457.2018-08-12_12-55-53_000.jpg.3.png
+[20180813_094458 / lib_ip.py:2523] inspecting : green ------------
+[20180813_094458 / lib_ip.py:2552] False : max_Val_R ==> out of range (max = 5400, min = 1800, actual = 944)
+[20180813_094458 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_094458 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R >= G or abs(R - G) < 20 | idxOf_Maxes_R = 46, idxOf_Maxes_G = 171, idxOf_Maxes_B = 121)
+[20180813_094458 / lib_ip.py:2615] inspecting : red ------------
+[20180813_094458 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 944)
+[20180813_094458 / lib_ip.py:2655] inspecting : white ------------
+[20180813_094459 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 46, idxOf_Maxes_G = 171, idxOf_Maxes_B = 121)
+[20180813_094459 / lib_ip.py:2693] inspecting : black ------------
+[20180813_094459 / lib_ip.py:2715] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 46, idxOf_Maxes_G = 171, idxOf_Maxes_B = 121)
+[20180813_094459 / lib_ip.py:1937] inspecting ===> img.20180813_094457.2018-08-12_12-55-53_000.jpg.4.png
+[20180813_094459 / lib_ip.py:2523] inspecting : green ------------
+[20180813_094459 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 34, idxOf_Maxes_G = 47, idxOf_Maxes_B = 192)
+[20180813_094459 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_094459 / lib_ip.py:2597] False : max_Val_R ==> out of range (max = 6400, min = 1600, actual = 842)
+[20180813_094459 / lib_ip.py:2615] inspecting : red ------------
+[20180813_094459 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 842)
+[20180813_094459 / lib_ip.py:2655] inspecting : white ------------
+[20180813_094459 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 34, idxOf_Maxes_G = 47, idxOf_Maxes_B = 192)
+[20180813_094459 / lib_ip.py:2693] inspecting : black ------------
+[20180813_094459 / lib_ip.py:2715] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 34, idxOf_Maxes_G = 47, idxOf_Maxes_B = 192)
+[20180813_094459 / lib_ip.py:1958] lo_Color_Names =>
+img.20180813_094457.2018-08-12_12-55-53_000.jpg.1.png => other
+img.20180813_094457.2018-08-12_12-55-53_000.jpg.2.png => other
+img.20180813_094457.2018-08-12_12-55-53_000.jpg.3.png => other
+img.20180813_094457.2018-08-12_12-55-53_000.jpg.4.png => other
+[20180813_094459 lib_ip.py:2979] =============== Get 4 corners
+dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
+fname_Image = 2018-08-12_12-55-53_000.jpg
+
+img.20180813_094457.2018-08-12_12-55-53_000.jpg.1.png
+R=(64,30) G=(88,53) B=(112,79)
+skew_R = 6.5916, skew_G = 5.7859, skew_B = 6.0107
+idxOf_Max_R = 49, idxOf_Max_G = 71, idxOf_Max_B = 97
+max_Vals_R = 723, max_Vals_G = 667, max_Vals_B = 704
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	1	2	12	16	21	28	60	65	97	164	222	326	419	499	574	676	689	685	723	683	581	450	376	255	180	117	65	44	27	15	8	8	6	4	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	2	1	4	22	17	32	43	71	103	147	226	282	385	472	538	586	646	667	652	653	546	503	423	308	253	169	122	82	46	41	19	15	13	6	4	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	4	9	12	23	26	60	68	80	139	184	268	339	423	534	568	625	664	704	657	628	532	436	334	233	202	127	86	47	36	22	15	9	4	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_094457.2018-08-12_12-55-53_000.jpg.2.png
+R=(100,52) G=(149,94) B=(165,107)
+skew_R = 3.8777, skew_G = 3.0605, skew_B = 2.6655
+idxOf_Max_R = 82, idxOf_Max_G = 127, idxOf_Max_B = 145
+max_Vals_R = 584, max_Vals_G = 569, max_Vals_B = 496
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	1	1	3	2	6	7	7	6	9	24	37	38	77	113	169	194	193	230	244	306	286	304	331	375	401	401	476	557	584	567	496	430	375	281	199	128	98	62	34	15	12	7	5	2	2	2	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	3	0	2	0	6	2	5	6	20	23	28	42	72	120	131	144	188	199	222	224	201	202	192	152	140	155	182	211	270	354	363	434	503	569	472	485	399	333	261	217	155	131	100	60	44	23	22	10	6	4	3	3	2	3	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	0	1	0	3	2	4	4	5	11	17	26	38	47	91	118	160	157	193	206	195	213	196	168	158	123	121	141	139	162	181	235	239	273	299	394	470	466	496	468	436	343	285	245	172	110	94	71	36	31	15	15	7	6	4	3	2	1	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_094457.2018-08-12_12-55-53_000.jpg.3.png
+R=(59,33) G=(182,159) B=(133,108)
+skew_R = 10.2227, skew_G = 11.1577, skew_B = 11.1931
+idxOf_Max_R = 46, idxOf_Max_G = 171, idxOf_Max_B = 121
+max_Vals_R = 944, max_Vals_G = 986, max_Vals_B = 975
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	4	3	13	21	50	100	204	334	547	717	855	925	944	874	716	620	437	329	191	100	60	30	12	8	2	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	3	5	16	28	49	100	215	320	544	756	943	948	986	890	761	591	386	277	143	70	41	15	8	5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	2	1	4	5	17	28	57	112	249	373	602	790	948	975	958	909	683	554	361	233	128	58	30	11	5	7	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_094457.2018-08-12_12-55-53_000.jpg.4.png
+R=(51,13) G=(61,26) B=(208,172)
+skew_R = 8.3486, skew_G = 8.5086, skew_B = 8.1906
+idxOf_Max_R = 34, idxOf_Max_G = 47, idxOf_Max_B = 192
+max_Vals_R = 842, max_Vals_G = 841, max_Vals_B = 814
+0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	1	1	2	6	3	10	12	18	46	71	129	188	279	377	501	697	737	842	833	755	749	551	436	337	194	150	75	49	23	16	6	4	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	1	1	2	8	4	17	24	32	58	107	168	241	349	438	615	748	783	841	837	756	667	468	350	239	150	83	46	33	20	7	4	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	1	1	2	11	9	5	30	43	60	104	193	264	365	472	582	739	814	813	793	721	681	455	339	250	141	99	55	26	14	9	6	1	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_B > 20 (97))
+[20180813_094459 / lib_ip.py:4225] 
+2018-08-12_12-55-53_000.jpg 0
+[20180813_094459 / lib_ip.py:3696] file = 2018-08-12_12-55-53_000.jpg / val_Average = 105.4693	val_Variance = 1.0737	sd = 1.0362	max = 108	min = 101
+[20180813_094459 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094459 / lib_ip.py:3810] yellow : variance --> out of range (variance = 1.074 / upper = 0.650 / lower = 0.010)
+[20180813_094500 / lib_ip.py:3696] file = 2018-08-12_12-55-53_000.jpg / val_Average = 105.4693	val_Variance = 1.0737	sd = 1.0362	max = 108	min = 101
+[20180813_094500 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094500 / lib_ip.py:3921] red : variance --> out of range (variance = 1.074 / upper = 0.400 / lower = 0.010)
+[20180813_094500 / lib_ip.py:3696] file = 2018-08-12_12-55-53_000.jpg / val_Average = 105.4693	val_Variance = 1.0737	sd = 1.0362	max = 108	min = 101
+[20180813_094500 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094500 / lib_ip.py:4032] green : variance --> out of range (variance = 1.074 / upper = 0.600 / lower = 0.010)
+[20180813_094500 / lib_ip.py:3696] file = 2018-08-12_12-55-53_000.jpg / val_Average = 105.4693	val_Variance = 1.0737	sd = 1.0362	max = 108	min = 101
+[20180813_094500 / lib_ip.py:4099] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094500 / lib_ip.py:4143] black : variance --> out of range (variance = 1.074 / upper = 0.000 / lower = 0.000)
+[20180813_094500 / lib_ip.py:4293] file : 2018-08-12_12-55-53_000.jpg 0 (black : variance --> out of range (variance = 1.074 / upper = 0.000 / lower = 0.000))
+[20180813_094500 / lib_ip.py:4225] 
+2018-08-12_12-55-53_000.jpg 1
+[20180813_094500 / lib_ip.py:3696] file = 2018-08-12_12-55-53_000.jpg / val_Average = 98.0332	val_Variance = 0.3911	sd = 0.6254	max = 100	min = 96
+[20180813_094500 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094500 / lib_ip.py:3832] yellow : average --> out of range (average = 98.033 / upper = 97.000 / lower = 88.000)
+[20180813_094500 / lib_ip.py:3696] file = 2018-08-12_12-55-53_000.jpg / val_Average = 98.0332	val_Variance = 0.3911	sd = 0.6254	max = 100	min = 96
+[20180813_094500 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094501 / lib_ip.py:3946] red : average --> out of range (average = 98.033 / upper = 124.000 / lower = 116.000)
+[20180813_094501 / lib_ip.py:3696] file = 2018-08-12_12-55-53_000.jpg / val_Average = 98.0332	val_Variance = 0.3911	sd = 0.6254	max = 100	min = 96
+[20180813_094501 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094501 / lib_ip.py:4057] green : average --> out of range (average = 98.033 / upper = 79.000 / lower = 67.000)
+[20180813_094501 / lib_ip.py:3696] file = 2018-08-12_12-55-53_000.jpg / val_Average = 98.0332	val_Variance = 0.3911	sd = 0.6254	max = 100	min = 96
+[20180813_094501 / lib_ip.py:4099] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094501 / lib_ip.py:4143] black : variance --> out of range (variance = 0.391 / upper = 0.000 / lower = 0.000)
+[20180813_094501 / lib_ip.py:4293] file : 2018-08-12_12-55-53_000.jpg 1 (black : variance --> out of range (variance = 0.391 / upper = 0.000 / lower = 0.000))
+[20180813_094501 / lib_ip.py:4225] 
+2018-08-12_12-55-53_000.jpg 2
+[20180813_094501 / lib_ip.py:3696] file = 2018-08-12_12-55-53_000.jpg / val_Average = 78.0354	val_Variance = 0.0342	sd = 0.1849	max = 79	min = 78
+[20180813_094501 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094501 / lib_ip.py:3832] yellow : average --> out of range (average = 78.035 / upper = 97.000 / lower = 88.000)
+[20180813_094501 / lib_ip.py:3696] file = 2018-08-12_12-55-53_000.jpg / val_Average = 78.0354	val_Variance = 0.0342	sd = 0.1849	max = 79	min = 78
+[20180813_094501 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094501 / lib_ip.py:3946] red : average --> out of range (average = 78.035 / upper = 124.000 / lower = 116.000)
+[20180813_094501 / lib_ip.py:3696] file = 2018-08-12_12-55-53_000.jpg / val_Average = 78.0354	val_Variance = 0.0342	sd = 0.1849	max = 79	min = 78
+[20180813_094501 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094501 / lib_ip.py:4225] 
+2018-08-12_12-55-53_000.jpg 3
+[20180813_094502 / lib_ip.py:3696] file = 2018-08-12_12-55-53_000.jpg / val_Average = 117.8152	val_Variance = 0.1507	sd = 0.3881	max = 118	min = 117
+[20180813_094502 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094502 / lib_ip.py:3832] yellow : average --> out of range (average = 117.815 / upper = 97.000 / lower = 88.000)
+[20180813_094502 / lib_ip.py:3696] file = 2018-08-12_12-55-53_000.jpg / val_Average = 117.8152	val_Variance = 0.1507	sd = 0.3881	max = 118	min = 117
+[20180813_094502 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094502 / lib_ip.py:2018] lo_Color_Names_2 =>
+file = img.20180813_094457.2018-08-12_12-55-53_000.jpg.1.png / color name = other
+file = img.20180813_094457.2018-08-12_12-55-53_000.jpg.2.png / color name = other
+file = img.20180813_094457.2018-08-12_12-55-53_000.jpg.3.png / color name = green
+file = img.20180813_094457.2018-08-12_12-55-53_000.jpg.4.png / color name = red
+[20180813_094623 / views.py:1421] exec_get_4_corners(request) ================================
+[20180813_094624 / lib_ip.py:1937] inspecting ===> img.20180813_094624.2018-08-12_19-57-07_000.jpg.1.png
+[20180813_094624 / lib_ip.py:2523] inspecting : green ------------
+[20180813_094624 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 20, idxOf_Maxes_G = 15, idxOf_Maxes_B = 15)
+[20180813_094624 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_094624 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 20, idxOf_Maxes_G = 15, idxOf_Maxes_B = 15)
+[20180813_094624 / lib_ip.py:2615] inspecting : red ------------
+[20180813_094624 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 935)
+[20180813_094624 / lib_ip.py:2655] inspecting : white ------------
+[20180813_094624 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 20, idxOf_Maxes_G = 15, idxOf_Maxes_B = 15)
+[20180813_094624 / lib_ip.py:2693] inspecting : black ------------
+[20180813_094624 / lib_ip.py:2715] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 20, idxOf_Maxes_G = 15, idxOf_Maxes_B = 15)
+[20180813_094625 / lib_ip.py:1937] inspecting ===> img.20180813_094624.2018-08-12_19-57-07_000.jpg.2.png
+[20180813_094625 / lib_ip.py:2523] inspecting : green ------------
+[20180813_094625 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 46, idxOf_Maxes_G = 173, idxOf_Maxes_B = 205)
+[20180813_094625 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_094625 / lib_ip.py:2597] False : max_Val_R ==> out of range (max = 6400, min = 1600, actual = 1070)
+[20180813_094625 / lib_ip.py:2615] inspecting : red ------------
+[20180813_094625 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 1070)
+[20180813_094625 / lib_ip.py:2655] inspecting : white ------------
+[20180813_094625 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 46, idxOf_Maxes_G = 173, idxOf_Maxes_B = 205)
+[20180813_094625 / lib_ip.py:2693] inspecting : black ------------
+[20180813_094625 / lib_ip.py:2715] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 46, idxOf_Maxes_G = 173, idxOf_Maxes_B = 205)
+[20180813_094625 / lib_ip.py:1937] inspecting ===> img.20180813_094624.2018-08-12_19-57-07_000.jpg.3.png
+[20180813_094625 / lib_ip.py:2523] inspecting : green ------------
+[20180813_094625 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 22, idxOf_Maxes_G = 19, idxOf_Maxes_B = 23)
+[20180813_094625 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_094625 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 22, idxOf_Maxes_G = 19, idxOf_Maxes_B = 23)
+[20180813_094625 / lib_ip.py:2615] inspecting : red ------------
+[20180813_094625 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 923)
+[20180813_094625 / lib_ip.py:2655] inspecting : white ------------
+[20180813_094625 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 22, idxOf_Maxes_G = 19, idxOf_Maxes_B = 23)
+[20180813_094625 / lib_ip.py:2693] inspecting : black ------------
+[20180813_094625 / lib_ip.py:2715] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 22, idxOf_Maxes_G = 19, idxOf_Maxes_B = 23)
+[20180813_094626 / lib_ip.py:1937] inspecting ===> img.20180813_094624.2018-08-12_19-57-07_000.jpg.4.png
+[20180813_094626 / lib_ip.py:2523] inspecting : green ------------
+[20180813_094626 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 18, idxOf_Maxes_G = 14, idxOf_Maxes_B = 13)
+[20180813_094626 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_094626 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 18, idxOf_Maxes_G = 14, idxOf_Maxes_B = 13)
+[20180813_094626 / lib_ip.py:2615] inspecting : red ------------
+[20180813_094626 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 1049)
+[20180813_094626 / lib_ip.py:2655] inspecting : white ------------
+[20180813_094626 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 18, idxOf_Maxes_G = 14, idxOf_Maxes_B = 13)
+[20180813_094626 / lib_ip.py:2693] inspecting : black ------------
+[20180813_094626 / lib_ip.py:2715] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 18, idxOf_Maxes_G = 14, idxOf_Maxes_B = 13)
+[20180813_094626 / lib_ip.py:1958] lo_Color_Names =>
+img.20180813_094624.2018-08-12_19-57-07_000.jpg.1.png => other
+img.20180813_094624.2018-08-12_19-57-07_000.jpg.2.png => other
+img.20180813_094624.2018-08-12_19-57-07_000.jpg.3.png => other
+img.20180813_094624.2018-08-12_19-57-07_000.jpg.4.png => other
+[20180813_094626 lib_ip.py:2979] =============== Get 4 corners
+dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
+fname_Image = 2018-08-12_19-57-07_000.jpg
+
+img.20180813_094624.2018-08-12_19-57-07_000.jpg.1.png
+R=(35,9) G=(30,4) B=(30,4)
+skew_R = 9.9917, skew_G = 10.3331, skew_B = 10.6449
+idxOf_Max_R = 20, idxOf_Max_G = 15, idxOf_Max_B = 15
+max_Vals_R = 935, max_Vals_G = 939, max_Vals_B = 968
+0	0	0	0	0	0	0	0	0	3	5	7	23	71	135	228	354	562	695	829	935	909	889	744	549	432	282	199	119	58	31	17	15	5	2	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	1	3	12	22	66	106	221	390	528	747	903	939	920	867	704	605	374	283	184	118	45	37	14	4	3	3	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	2	3	5	19	33	113	172	304	530	661	821	968	964	910	820	553	451	308	203	114	72	30	19	13	6	2	4	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_094624.2018-08-12_19-57-07_000.jpg.2.png
+R=(58,34) G=(183,162) B=(217,196)
+skew_R = 12.9043, skew_G = 11.2720, skew_B = 11.7749
+idxOf_Max_R = 46, idxOf_Max_G = 173, idxOf_Max_B = 205
+max_Vals_R = 1070, max_Vals_G = 975, max_Vals_B = 1037
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	7	9	20	48	96	186	347	548	867	992	1070	1043	926	797	510	317	174	86	34	13	5	2	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	5	7	15	52	93	202	350	604	787	892	899	975	944	819	609	404	230	128	51	19	10	5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	7	12	40	96	218	334	546	786	1019	1037	946	857	755	582	417	228	115	70	26	5	2	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_094624.2018-08-12_19-57-07_000.jpg.3.png
+R=(36,8) G=(34,6) B=(40,10)
+skew_R = 9.1016, skew_G = 8.8437, skew_B = 6.6548
+idxOf_Max_R = 22, idxOf_Max_G = 19, idxOf_Max_B = 23
+max_Vals_R = 923, max_Vals_G = 855, max_Vals_B = 722
+0	0	0	0	0	0	0	0	1	1	4	15	23	51	111	147	266	379	558	681	809	873	923	794	683	543	417	291	241	118	67	49	31	11	8	3	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	2	2	3	14	25	51	98	174	277	438	533	741	802	855	830	839	669	527	409	273	198	141	93	40	31	17	7	9	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0	3	8	21	31	57	91	149	247	297	418	528	634	683	722	710	718	606	539	454	345	257	198	134	99	67	32	21	20	4	4	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_094624.2018-08-12_19-57-07_000.jpg.4.png
+R=(32,7) G=(28,4) B=(27,4)
+skew_R = 11.4278, skew_G = 11.6560, skew_B = 11.5612
+idxOf_Max_R = 18, idxOf_Max_G = 14, idxOf_Max_B = 13
+max_Vals_R = 1049, max_Vals_G = 1020, max_Vals_B = 1047
+0	0	0	0	0	0	0	1	2	6	19	54	113	207	387	602	814	978	1049	967	816	664	483	351	237	145	98	46	33	18	6	2	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	4	8	20	57	126	270	451	726	910	1017	1020	942	776	559	428	313	196	120	77	41	19	14	3	1	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	1	15	23	66	134	255	502	697	899	1047	1009	913	758	602	419	301	185	122	79	34	20	12	4	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_G < 30 or idxOf_Maxes_G > 80 (15))
+[20180813_094626 / lib_ip.py:4225] 
+2018-08-12_19-57-07_000.jpg 0
+[20180813_094626 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 112.2812	val_Variance = 6644.3098	sd = 81.5126	max = 176	min = 0
+[20180813_094626 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094626 / lib_ip.py:3810] yellow : variance --> out of range (variance = 6644.310 / upper = 0.650 / lower = 0.010)
+[20180813_094627 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 112.2812	val_Variance = 6644.3098	sd = 81.5126	max = 176	min = 0
+[20180813_094627 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094627 / lib_ip.py:3921] red : variance --> out of range (variance = 6644.310 / upper = 0.400 / lower = 0.010)
+[20180813_094627 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 112.2812	val_Variance = 6644.3098	sd = 81.5126	max = 176	min = 0
+[20180813_094627 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094627 / lib_ip.py:4032] green : variance --> out of range (variance = 6644.310 / upper = 0.600 / lower = 0.010)
+[20180813_094627 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 112.2812	val_Variance = 6644.3098	sd = 81.5126	max = 176	min = 0
+[20180813_094627 / lib_ip.py:4099] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094627 / lib_ip.py:4143] black : variance --> out of range (variance = 6644.310 / upper = 0.000 / lower = 0.000)
+[20180813_094627 / lib_ip.py:4293] file : 2018-08-12_19-57-07_000.jpg 0 (black : variance --> out of range (variance = 6644.310 / upper = 0.000 / lower = 0.000))
+[20180813_094627 / lib_ip.py:4225] 
+2018-08-12_19-57-07_000.jpg 1
+[20180813_094627 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 96.0027	val_Variance = 0.0074	sd = 0.0860	max = 97	min = 95
+[20180813_094627 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094627 / lib_ip.py:3810] yellow : variance --> out of range (variance = 0.007 / upper = 0.650 / lower = 0.010)
+[20180813_094627 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 96.0027	val_Variance = 0.0074	sd = 0.0860	max = 97	min = 95
+[20180813_094627 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094628 / lib_ip.py:3921] red : variance --> out of range (variance = 0.007 / upper = 0.400 / lower = 0.010)
+[20180813_094628 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 96.0027	val_Variance = 0.0074	sd = 0.0860	max = 97	min = 95
+[20180813_094628 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094628 / lib_ip.py:4032] green : variance --> out of range (variance = 0.007 / upper = 0.600 / lower = 0.010)
+[20180813_094628 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 96.0027	val_Variance = 0.0074	sd = 0.0860	max = 97	min = 95
+[20180813_094628 / lib_ip.py:4099] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094628 / lib_ip.py:4143] black : variance --> out of range (variance = 0.007 / upper = 0.000 / lower = 0.000)
+[20180813_094628 / lib_ip.py:4293] file : 2018-08-12_19-57-07_000.jpg 1 (black : variance --> out of range (variance = 0.007 / upper = 0.000 / lower = 0.000))
+[20180813_094628 / lib_ip.py:4225] 
+2018-08-12_19-57-07_000.jpg 2
+[20180813_094628 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 135.8977	val_Variance = 393.5583	sd = 19.8383	max = 174	min = 0
+[20180813_094628 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094628 / lib_ip.py:3810] yellow : variance --> out of range (variance = 393.558 / upper = 0.650 / lower = 0.010)
+[20180813_094628 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 135.8977	val_Variance = 393.5583	sd = 19.8383	max = 174	min = 0
+[20180813_094628 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094628 / lib_ip.py:3921] red : variance --> out of range (variance = 393.558 / upper = 0.400 / lower = 0.010)
+[20180813_094628 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 135.8977	val_Variance = 393.5583	sd = 19.8383	max = 174	min = 0
+[20180813_094628 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094628 / lib_ip.py:4032] green : variance --> out of range (variance = 393.558 / upper = 0.600 / lower = 0.010)
+[20180813_094628 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 135.8977	val_Variance = 393.5583	sd = 19.8383	max = 174	min = 0
+[20180813_094628 / lib_ip.py:4099] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094628 / lib_ip.py:4143] black : variance --> out of range (variance = 393.558 / upper = 0.000 / lower = 0.000)
+[20180813_094628 / lib_ip.py:4293] file : 2018-08-12_19-57-07_000.jpg 2 (black : variance --> out of range (variance = 393.558 / upper = 0.000 / lower = 0.000))
+[20180813_094628 / lib_ip.py:4225] 
+2018-08-12_19-57-07_000.jpg 3
+[20180813_094629 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 81.7693	val_Variance = 7026.6047	sd = 83.8248	max = 176	min = 0
+[20180813_094629 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094629 / lib_ip.py:3810] yellow : variance --> out of range (variance = 7026.605 / upper = 0.650 / lower = 0.010)
+[20180813_094629 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 81.7693	val_Variance = 7026.6047	sd = 83.8248	max = 176	min = 0
+[20180813_094629 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094629 / lib_ip.py:3921] red : variance --> out of range (variance = 7026.605 / upper = 0.400 / lower = 0.010)
+[20180813_094629 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 81.7693	val_Variance = 7026.6047	sd = 83.8248	max = 176	min = 0
+[20180813_094629 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094629 / lib_ip.py:4032] green : variance --> out of range (variance = 7026.605 / upper = 0.600 / lower = 0.010)
+[20180813_094629 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 81.7693	val_Variance = 7026.6047	sd = 83.8248	max = 176	min = 0
+[20180813_094629 / lib_ip.py:4099] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_094629 / lib_ip.py:4143] black : variance --> out of range (variance = 7026.605 / upper = 0.000 / lower = 0.000)
+[20180813_094629 / lib_ip.py:4293] file : 2018-08-12_19-57-07_000.jpg 3 (black : variance --> out of range (variance = 7026.605 / upper = 0.000 / lower = 0.000))
+[20180813_094629 / lib_ip.py:2018] lo_Color_Names_2 =>
+file = img.20180813_094624.2018-08-12_19-57-07_000.jpg.1.png / color name = other
+file = img.20180813_094624.2018-08-12_19-57-07_000.jpg.2.png / color name = other
+file = img.20180813_094624.2018-08-12_19-57-07_000.jpg.3.png / color name = other
+file = img.20180813_094624.2018-08-12_19-57-07_000.jpg.4.png / color name = other
+[20180813_095019 / views.py:1421] exec_get_4_corners(request) ================================
+[20180813_095021 / lib_ip.py:1937] inspecting ===> img.20180813_095021.2018-08-12_19-57-07_000.jpg.1.png
+[20180813_095021 / lib_ip.py:2523] inspecting : green ------------
+[20180813_095021 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 20, idxOf_Maxes_G = 15, idxOf_Maxes_B = 15)
+[20180813_095021 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_095021 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 20, idxOf_Maxes_G = 15, idxOf_Maxes_B = 15)
+[20180813_095021 / lib_ip.py:2615] inspecting : red ------------
+[20180813_095021 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 935)
+[20180813_095021 / lib_ip.py:2655] inspecting : white ------------
+[20180813_095021 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 20, idxOf_Maxes_G = 15, idxOf_Maxes_B = 15)
+[20180813_095021 / lib_ip.py:2693] inspecting : black ------------
+[20180813_095021 / lib_ip.py:2715] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 20, idxOf_Maxes_G = 15, idxOf_Maxes_B = 15)
+[20180813_095021 / lib_ip.py:1937] inspecting ===> img.20180813_095021.2018-08-12_19-57-07_000.jpg.2.png
+[20180813_095021 / lib_ip.py:2523] inspecting : green ------------
+[20180813_095021 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 46, idxOf_Maxes_G = 173, idxOf_Maxes_B = 205)
+[20180813_095021 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_095021 / lib_ip.py:2597] False : max_Val_R ==> out of range (max = 6400, min = 1600, actual = 1070)
+[20180813_095021 / lib_ip.py:2615] inspecting : red ------------
+[20180813_095021 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 1070)
+[20180813_095021 / lib_ip.py:2655] inspecting : white ------------
+[20180813_095021 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 46, idxOf_Maxes_G = 173, idxOf_Maxes_B = 205)
+[20180813_095021 / lib_ip.py:2693] inspecting : black ------------
+[20180813_095021 / lib_ip.py:2715] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 46, idxOf_Maxes_G = 173, idxOf_Maxes_B = 205)
+[20180813_095021 / lib_ip.py:1937] inspecting ===> img.20180813_095021.2018-08-12_19-57-07_000.jpg.3.png
+[20180813_095021 / lib_ip.py:2523] inspecting : green ------------
+[20180813_095022 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 22, idxOf_Maxes_G = 19, idxOf_Maxes_B = 23)
+[20180813_095022 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_095022 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 22, idxOf_Maxes_G = 19, idxOf_Maxes_B = 23)
+[20180813_095022 / lib_ip.py:2615] inspecting : red ------------
+[20180813_095022 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 923)
+[20180813_095022 / lib_ip.py:2655] inspecting : white ------------
+[20180813_095022 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 22, idxOf_Maxes_G = 19, idxOf_Maxes_B = 23)
+[20180813_095022 / lib_ip.py:2693] inspecting : black ------------
+[20180813_095022 / lib_ip.py:2715] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 22, idxOf_Maxes_G = 19, idxOf_Maxes_B = 23)
+[20180813_095022 / lib_ip.py:1937] inspecting ===> img.20180813_095021.2018-08-12_19-57-07_000.jpg.4.png
+[20180813_095022 / lib_ip.py:2523] inspecting : green ------------
+[20180813_095022 / lib_ip.py:2552] False : order of idxOf_Maxes ==> incomplicit (should be : G > R > B | idxOf_Maxes_R = 18, idxOf_Maxes_G = 14, idxOf_Maxes_B = 13)
+[20180813_095022 / lib_ip.py:2567] inspecting : yellow ------------
+[20180813_095022 / lib_ip.py:2597] False : order of idxOf_Maxes ==> incomplicit (should be : R,G > B | idxOf_Maxes_R = 18, idxOf_Maxes_G = 14, idxOf_Maxes_B = 13)
+[20180813_095022 / lib_ip.py:2615] inspecting : red ------------
+[20180813_095022 / lib_ip.py:2639] False : max_Val_R ==> out of range (max = 6000, min = 1600, actual = 1049)
+[20180813_095022 / lib_ip.py:2655] inspecting : white ------------
+[20180813_095022 / lib_ip.py:2677] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 18, idxOf_Maxes_G = 14, idxOf_Maxes_B = 13)
+[20180813_095022 / lib_ip.py:2693] inspecting : black ------------
+[20180813_095022 / lib_ip.py:2715] False : order of idxOf_Maxes ==> incomplicit (should be : R,G,B == 245 | idxOf_Maxes_R = 18, idxOf_Maxes_G = 14, idxOf_Maxes_B = 13)
+[20180813_095022 / lib_ip.py:1958] lo_Color_Names =>
+img.20180813_095021.2018-08-12_19-57-07_000.jpg.1.png => other
+img.20180813_095021.2018-08-12_19-57-07_000.jpg.2.png => other
+img.20180813_095021.2018-08-12_19-57-07_000.jpg.3.png => other
+img.20180813_095021.2018-08-12_19-57-07_000.jpg.4.png => other
+[20180813_095022 lib_ip.py:2979] =============== Get 4 corners
+dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
+fname_Image = 2018-08-12_19-57-07_000.jpg
+
+img.20180813_095021.2018-08-12_19-57-07_000.jpg.1.png
+R=(35,9) G=(30,4) B=(30,4)
+skew_R = 9.9917, skew_G = 10.3331, skew_B = 10.6449
+idxOf_Max_R = 20, idxOf_Max_G = 15, idxOf_Max_B = 15
+max_Vals_R = 935, max_Vals_G = 939, max_Vals_B = 968
+0	0	0	0	0	0	0	0	0	3	5	7	23	71	135	228	354	562	695	829	935	909	889	744	549	432	282	199	119	58	31	17	15	5	2	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	1	3	12	22	66	106	221	390	528	747	903	939	920	867	704	605	374	283	184	118	45	37	14	4	3	3	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	2	3	5	19	33	113	172	304	530	661	821	968	964	910	820	553	451	308	203	114	72	30	19	13	6	2	4	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_095021.2018-08-12_19-57-07_000.jpg.2.png
+R=(58,34) G=(183,162) B=(217,196)
+skew_R = 12.9043, skew_G = 11.2720, skew_B = 11.7749
+idxOf_Max_R = 46, idxOf_Max_G = 173, idxOf_Max_B = 205
+max_Vals_R = 1070, max_Vals_G = 975, max_Vals_B = 1037
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	7	9	20	48	96	186	347	548	867	992	1070	1043	926	797	510	317	174	86	34	13	5	2	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	5	7	15	52	93	202	350	604	787	892	899	975	944	819	609	404	230	128	51	19	10	5	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	7	12	40	96	218	334	546	786	1019	1037	946	857	755	582	417	228	115	70	26	5	2	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_095021.2018-08-12_19-57-07_000.jpg.3.png
+R=(36,8) G=(34,6) B=(40,10)
+skew_R = 9.1016, skew_G = 8.8437, skew_B = 6.6548
+idxOf_Max_R = 22, idxOf_Max_G = 19, idxOf_Max_B = 23
+max_Vals_R = 923, max_Vals_G = 855, max_Vals_B = 722
+0	0	0	0	0	0	0	0	1	1	4	15	23	51	111	147	266	379	558	681	809	873	923	794	683	543	417	291	241	118	67	49	31	11	8	3	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	2	2	3	14	25	51	98	174	277	438	533	741	802	855	830	839	669	527	409	273	198	141	93	40	31	17	7	9	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	0	0	0	0	0	0	3	8	21	31	57	91	149	247	297	418	528	634	683	722	710	718	606	539	454	345	257	198	134	99	67	32	21	20	4	4	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+img.20180813_095021.2018-08-12_19-57-07_000.jpg.4.png
+R=(32,7) G=(28,4) B=(27,4)
+skew_R = 11.4278, skew_G = 11.6560, skew_B = 11.5612
+idxOf_Max_R = 18, idxOf_Max_G = 14, idxOf_Max_B = 13
+max_Vals_R = 1049, max_Vals_G = 1020, max_Vals_B = 1047
+0	0	0	0	0	0	0	1	2	6	19	54	113	207	387	602	814	978	1049	967	816	664	483	351	237	145	98	46	33	18	6	2	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	4	8	20	57	126	270	451	726	910	1017	1020	942	776	559	428	313	196	120	77	41	19	14	3	1	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+0	0	0	0	1	15	23	66	134	255	502	697	899	1047	1009	913	758	602	419	301	185	122	79	34	20	12	4	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+
+is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_G < 30 or idxOf_Maxes_G > 80 (15))
+[20180813_095022 / lib_ip.py:4225] 
+2018-08-12_19-57-07_000.jpg 0
+[20180813_095022 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 112.2812	val_Variance = 6644.3098	sd = 81.5126	max = 176	min = 0
+[20180813_095022 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_095023 / lib_ip.py:3810] yellow : variance --> out of range (variance = 6644.310 / upper = 0.650 / lower = 0.002)
+[20180813_095023 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 112.2812	val_Variance = 6644.3098	sd = 81.5126	max = 176	min = 0
+[20180813_095023 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_095023 / lib_ip.py:3921] red : variance --> out of range (variance = 6644.310 / upper = 0.400 / lower = 0.002)
+[20180813_095023 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 112.2812	val_Variance = 6644.3098	sd = 81.5126	max = 176	min = 0
+[20180813_095023 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_095023 / lib_ip.py:4032] green : variance --> out of range (variance = 6644.310 / upper = 0.600 / lower = 0.002)
+[20180813_095024 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 112.2812	val_Variance = 6644.3098	sd = 81.5126	max = 176	min = 0
+[20180813_095024 / lib_ip.py:4099] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_095024 / lib_ip.py:4143] black : variance --> out of range (variance = 6644.310 / upper = 0.000 / lower = 0.000)
+[20180813_095024 / lib_ip.py:4293] file : 2018-08-12_19-57-07_000.jpg 0 (black : variance --> out of range (variance = 6644.310 / upper = 0.000 / lower = 0.000))
+[20180813_095024 / lib_ip.py:4225] 
+2018-08-12_19-57-07_000.jpg 1
+[20180813_095024 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 96.0027	val_Variance = 0.0074	sd = 0.0860	max = 97	min = 95
+[20180813_095024 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_095024 / lib_ip.py:4225] 
+2018-08-12_19-57-07_000.jpg 2
+[20180813_095024 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 135.8977	val_Variance = 393.5583	sd = 19.8383	max = 174	min = 0
+[20180813_095024 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_095024 / lib_ip.py:3810] yellow : variance --> out of range (variance = 393.558 / upper = 0.650 / lower = 0.002)
+[20180813_095024 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 135.8977	val_Variance = 393.5583	sd = 19.8383	max = 174	min = 0
+[20180813_095024 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_095024 / lib_ip.py:3921] red : variance --> out of range (variance = 393.558 / upper = 0.400 / lower = 0.002)
+[20180813_095024 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 135.8977	val_Variance = 393.5583	sd = 19.8383	max = 174	min = 0
+[20180813_095024 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_095024 / lib_ip.py:4032] green : variance --> out of range (variance = 393.558 / upper = 0.600 / lower = 0.002)
+[20180813_095024 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 135.8977	val_Variance = 393.5583	sd = 19.8383	max = 174	min = 0
+[20180813_095025 / lib_ip.py:4099] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_095025 / lib_ip.py:4143] black : variance --> out of range (variance = 393.558 / upper = 0.000 / lower = 0.000)
+[20180813_095025 / lib_ip.py:4293] file : 2018-08-12_19-57-07_000.jpg 2 (black : variance --> out of range (variance = 393.558 / upper = 0.000 / lower = 0.000))
+[20180813_095025 / lib_ip.py:4225] 
+2018-08-12_19-57-07_000.jpg 3
+[20180813_095025 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 81.7693	val_Variance = 7026.6047	sd = 83.8248	max = 176	min = 0
+[20180813_095025 / lib_ip.py:3779] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_095025 / lib_ip.py:3810] yellow : variance --> out of range (variance = 7026.605 / upper = 0.650 / lower = 0.002)
+[20180813_095025 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 81.7693	val_Variance = 7026.6047	sd = 83.8248	max = 176	min = 0
+[20180813_095025 / lib_ip.py:3877] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_095025 / lib_ip.py:3921] red : variance --> out of range (variance = 7026.605 / upper = 0.400 / lower = 0.002)
+[20180813_095025 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 81.7693	val_Variance = 7026.6047	sd = 83.8248	max = 176	min = 0
+[20180813_095025 / lib_ip.py:3988] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_095025 / lib_ip.py:4032] green : variance --> out of range (variance = 7026.605 / upper = 0.600 / lower = 0.002)
+[20180813_095025 / lib_ip.py:3696] file = 2018-08-12_19-57-07_000.jpg / val_Average = 81.7693	val_Variance = 7026.6047	sd = 83.8248	max = 176	min = 0
+[20180813_095025 / lib_ip.py:4099] len(Hs) = 8100, len(Ss) = 8100, len(Vs) = 8100
+[20180813_095025 / lib_ip.py:4143] black : variance --> out of range (variance = 7026.605 / upper = 0.000 / lower = 0.000)
+[20180813_095025 / lib_ip.py:4293] file : 2018-08-12_19-57-07_000.jpg 3 (black : variance --> out of range (variance = 7026.605 / upper = 0.000 / lower = 0.000))
+[20180813_095025 / lib_ip.py:2018] lo_Color_Names_2 =>
+file = img.20180813_095021.2018-08-12_19-57-07_000.jpg.1.png / color name = other
+file = img.20180813_095021.2018-08-12_19-57-07_000.jpg.2.png / color name = yellow
+file = img.20180813_095021.2018-08-12_19-57-07_000.jpg.3.png / color name = other
+file = img.20180813_095021.2018-08-12_19-57-07_000.jpg.4.png / color name = other

@@ -247,7 +247,8 @@ class ColorThresholds(Enum):
     ###################'''
     #isYellow_HSV_Variance__Upper = 0.3
     isYellow_HSV_Variance__Upper = 0.65
-    isYellow_HSV_Variance__Lower = 0.01
+    isYellow_HSV_Variance__Lower = 0.002
+#     isYellow_HSV_Variance__Lower = 0.01
     
 #     isYellow_HSV_Average__Upper = 90.0
     #isYellow_HSV_Average__Upper = 93.0
@@ -259,7 +260,8 @@ class ColorThresholds(Enum):
     ###################'''
 #     isRed_HSV_Variance__Upper = 0.3
     isRed_HSV_Variance__Upper = 0.40
-    isRed_HSV_Variance__Lower = 0.01
+    isRed_HSV_Variance__Lower = 0.002
+#     isRed_HSV_Variance__Lower = 0.01
     
     isRed_HSV_Average__Upper = 124.0
     isRed_HSV_Average__Lower = 116.0
@@ -271,13 +273,23 @@ class ColorThresholds(Enum):
 #     isGreen_HSV_Variance__Upper = 0.3
     #isGreen_HSV_Variance__Upper = 0.38
     isGreen_HSV_Variance__Upper = 0.60
-    isGreen_HSV_Variance__Lower = 0.01
+    isGreen_HSV_Variance__Lower = 0.002
+#     isGreen_HSV_Variance__Lower = 0.01
     
 #     isGreen_HSV_Average__Upper = 72.0
 #     isGreen_HSV_Average__Upper = 75.0
     isGreen_HSV_Average__Upper = 79.0
     isGreen_HSV_Average__Lower = 67.0
 #     isGreen_HSV_Average__Lower = 70.0
+    
+    '''###################
+        black        
+    ###################'''
+    isBlack_HSV_Variance__Upper = 0.00
+    isBlack_HSV_Variance__Lower = 0.00
+    
+    isBlack_HSV_Average__Upper = 0.0
+    isBlack_HSV_Average__Lower = 0.0
     
 #/ class ColorThresholds(Enum):    
 
