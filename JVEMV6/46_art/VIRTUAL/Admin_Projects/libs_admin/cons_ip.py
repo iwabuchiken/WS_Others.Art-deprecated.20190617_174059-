@@ -9,9 +9,11 @@ from enum import Enum
 
 class DfltVals(Enum):
     
-    get_4Corners__Corner_Width      = 200
+    #get_4Corners__Corner_Width      = 200
+    get_4Corners__Corner_Width      = 100
 #     get_4Corners__Corner_Width      = 280
-    get_4Corners__Corner_Padding    = 20
+    #get_4Corners__Corner_Padding    = 20
+    get_4Corners__Corner_Padding    = 10
 
     '''###################
         dos attack        
@@ -278,7 +280,8 @@ class ColorThresholds(Enum):
     
 #     isGreen_HSV_Average__Upper = 72.0
 #     isGreen_HSV_Average__Upper = 75.0
-    isGreen_HSV_Average__Upper = 79.0
+    #isGreen_HSV_Average__Upper = 79.0
+    isGreen_HSV_Average__Upper = 83.0
     isGreen_HSV_Average__Lower = 67.0
 #     isGreen_HSV_Average__Lower = 70.0
     
