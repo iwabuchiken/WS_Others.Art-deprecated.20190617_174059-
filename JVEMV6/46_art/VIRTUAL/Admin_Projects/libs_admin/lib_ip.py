@@ -3794,9 +3794,11 @@ def is_ColorName_Yellow__2(img, dpath_Images, fname_Image):
     msg = "other"
 
     # variance
+#        (val_Variance < cons_ip.ColorThresholds.isYellow_HSV_Variance__Upper.value \
+#            and val_Variance > cons_ip.ColorThresholds.isYellow_HSV_Variance__Lower.value) :
     if not \
-        (val_Variance < cons_ip.ColorThresholds.isYellow_HSV_Variance__Upper.value \
-            and val_Variance > cons_ip.ColorThresholds.isYellow_HSV_Variance__Lower.value) :
+        (val_Variance <= cons_ip.ColorThresholds.isYellow_HSV_Variance__Upper.value \
+            and val_Variance >= cons_ip.ColorThresholds.isYellow_HSV_Variance__Lower.value) :
         
 #         msg = "variance --> out of range (variance = %.03f / upper = %.03f / loweer = %.03f " %\
         msg = "yellow : variance --> out of range (variance = %.03f / upper = %.03f / lower = %.03f)" %\

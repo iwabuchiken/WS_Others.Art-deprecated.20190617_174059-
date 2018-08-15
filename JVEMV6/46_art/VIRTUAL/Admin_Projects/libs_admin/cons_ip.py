@@ -249,19 +249,22 @@ class ColorThresholds(Enum):
     ###################'''
     #isYellow_HSV_Variance__Upper = 0.3
     isYellow_HSV_Variance__Upper = 0.65
-    isYellow_HSV_Variance__Lower = 0.002
+    isYellow_HSV_Variance__Lower = 0.0
+    #isYellow_HSV_Variance__Lower = 0.002
 #     isYellow_HSV_Variance__Lower = 0.01
     
 #     isYellow_HSV_Average__Upper = 90.0
     #isYellow_HSV_Average__Upper = 93.0
-    isYellow_HSV_Average__Upper = 97.0
+    #isYellow_HSV_Average__Upper = 97.0
+    isYellow_HSV_Average__Upper = 98.0
     isYellow_HSV_Average__Lower = 88.0
     
     '''###################
         red        
     ###################'''
 #     isRed_HSV_Variance__Upper = 0.3
-    isRed_HSV_Variance__Upper = 0.40
+    #isRed_HSV_Variance__Upper = 0.40
+    isRed_HSV_Variance__Upper = 0.43
     isRed_HSV_Variance__Lower = 0.002
 #     isRed_HSV_Variance__Lower = 0.01
     
