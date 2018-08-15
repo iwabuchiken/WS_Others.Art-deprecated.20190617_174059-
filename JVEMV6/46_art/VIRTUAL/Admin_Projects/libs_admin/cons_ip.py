@@ -277,7 +277,8 @@ class ColorThresholds(Enum):
     ###################'''
 #     isGreen_HSV_Variance__Upper = 0.3
     #isGreen_HSV_Variance__Upper = 0.38
-    isGreen_HSV_Variance__Upper = 0.60
+    #isGreen_HSV_Variance__Upper = 0.60
+    isGreen_HSV_Variance__Upper = 0.75
     isGreen_HSV_Variance__Lower = 0.002
 #     isGreen_HSV_Variance__Lower = 0.01
     
@@ -285,7 +286,8 @@ class ColorThresholds(Enum):
 #     isGreen_HSV_Average__Upper = 75.0
     #isGreen_HSV_Average__Upper = 79.0
     isGreen_HSV_Average__Upper = 83.0
-    isGreen_HSV_Average__Lower = 67.0
+    isGreen_HSV_Average__Lower = 58.0
+    #isGreen_HSV_Average__Lower = 67.0
 #     isGreen_HSV_Average__Lower = 70.0
     
     '''###################
