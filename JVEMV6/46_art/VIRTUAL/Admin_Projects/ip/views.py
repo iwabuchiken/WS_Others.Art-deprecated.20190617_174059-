@@ -1165,16 +1165,16 @@ def gen_Cake_CSV__Exec(request):
                        , param_Corner_Width
                        , param_Corner_Padding)
     
-    print()
-    print("[%s:%d] lo_ColorName_Set =>" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        
-        ), file=sys.stderr)
-    for item in lo_ColorName_Set:
-    
-        print(item)
-        
-    #/for item in lo_ColorName_Set:
+#    print()
+#    print("[%s:%d] lo_ColorName_Set =>" % \
+#        (os.path.basename(libs.thisfile()), libs.linenum()
+#        
+#        ), file=sys.stderr)
+#    for item in lo_ColorName_Set:
+#    
+#        print(item)
+#        
+#    #/for item in lo_ColorName_Set:
 
 #     print(lo_ColorName_Set)
     
