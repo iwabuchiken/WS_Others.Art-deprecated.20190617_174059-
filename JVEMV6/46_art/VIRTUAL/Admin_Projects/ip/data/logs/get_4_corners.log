@@ -9916,6 +9916,8 @@ file = img.20180816_064400.2018-08-15_14-30-12_000.jpg.1.png / color name = gree
 file = img.20180816_064400.2018-08-15_14-30-12_000.jpg.2.png / color name = green
 file = img.20180816_064400.2018-08-15_14-30-12_000.jpg.3.png / color name = other
 file = img.20180816_064400.2018-08-15_14-30-12_000.jpg.4.png / color name = other
+
+
 [20180818_152950 / views.py:1356] gen_Cake_CSV(request) ==> starting... =======================
 [20180818_152952 / lib_ip.py:2183] inspecting ===> img.20180818_152952.2018-08-16_07-19-58_000.jpg.1.png
 [20180818_152952 / lib_ip.py:2523] inspecting : green ------------
