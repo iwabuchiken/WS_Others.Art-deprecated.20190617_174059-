@@ -982,6 +982,11 @@ def gen_Cake_CSV__Get_ColorName_Set(\
 #     maxOf_Cnt = 5
 #     maxOf_Cnt = 2
     
+    '''###################
+        time        
+    ###################'''
+    time_Exec_Start = time.time()
+    
     for fpath in lo_Files:
 #     for fname in lo_Files:
         
@@ -1007,7 +1012,25 @@ def gen_Cake_CSV__Get_ColorName_Set(\
     
     #/for fname in lo_Files:
 
+
+    '''###################
+        time        
+    ###################'''
+    time_Exec_Elapsed = time.time() - time_Exec_Start
+
+    #msg = "gen csv => complete (%s)(elapsed = %02.3f sec)" % \
+    msg = "gen csv => complete (%s)(elapsed = %02.3f sec / %d files / %02.3f sec per file)" % \
+                (libs.get_TimeLabel_Now(), time_Exec_Elapsed, len(lo_Files), time_Exec_Elapsed / len(lo_Files))
+                #(libs.get_TimeLabel_Now(), time_Exec_Elapsed)
+                
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
     
+    libs.write_Log(msg_Log, True)
+
     '''###################
         return        
     ###################'''
