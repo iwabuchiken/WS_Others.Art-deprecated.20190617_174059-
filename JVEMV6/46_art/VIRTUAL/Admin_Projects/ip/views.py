@@ -1227,7 +1227,7 @@ def gen_Cake_CSV__Exec(request):
             , os.path.basename(libs.thisfile()), libs.linenum()
             , msg)
     
-    libs.write_Log(msg_Log, True)
+#    libs.write_Log(msg_Log, True)
     
     # counter
     cntOf_Write_FileData = 1

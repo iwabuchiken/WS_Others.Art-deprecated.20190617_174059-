@@ -1941,7 +1941,7 @@ def is_PhotoOf__Sweets \
         print(msg, file=sys.stderr)
         
         #debug
-        libs.write_Log(msg, True)
+#        libs.write_Log(msg, True)
         
         stats_Data = lo_Image_StatsData[i]
         
@@ -2526,7 +2526,7 @@ def get_Color_Name_From_StatsData(stats_Data) :
             
 #     print(msg, file=sys.stderr)
     
-    libs.write_Log(msg, True)
+#    libs.write_Log(msg, True)
     
 #     print("[%s:%d] inspecting : green ------------" % \
 #             (os.path.basename(libs.thisfile()), libs.linenum()
@@ -2553,7 +2553,7 @@ def get_Color_Name_From_StatsData(stats_Data) :
                     , msg
                 )
             
-        libs.write_Log(msg, True)
+#        libs.write_Log(msg, True)
     
     '''###################
         judge : yellow
@@ -2571,7 +2571,7 @@ def get_Color_Name_From_StatsData(stats_Data) :
 #     print(msg, file=sys.stderr)
 
 
-    libs.write_Log(msg, True)
+#    libs.write_Log(msg, True)
     
 #     print("[%s:%d] inspecting : yellow ------------" % \
 #             (os.path.basename(libs.thisfile()), libs.linenum()
@@ -2598,7 +2598,7 @@ def get_Color_Name_From_StatsData(stats_Data) :
                     , msg
                 )
             
-        libs.write_Log(msg, True)
+#        libs.write_Log(msg, True)
         
     
     #/if res == True
@@ -2616,7 +2616,7 @@ def get_Color_Name_From_StatsData(stats_Data) :
             
             )
             
-    libs.write_Log(msg, True)
+    #libs.write_Log(msg, True)
 #     libs.write_Log(msg, dpath_Log, fname_Log, True)
 
 
@@ -2640,7 +2640,7 @@ def get_Color_Name_From_StatsData(stats_Data) :
                     , msg
                 )
             
-        libs.write_Log(msg, True)
+        #libs.write_Log(msg, True)
     
     #/if res == True
     
@@ -2656,7 +2656,7 @@ def get_Color_Name_From_StatsData(stats_Data) :
             
             )
             
-    libs.write_Log(msg, True)
+    #libs.write_Log(msg, True)
 
     res, msg = is_ColorName_White(stats_Data)
     
@@ -2678,7 +2678,7 @@ def get_Color_Name_From_StatsData(stats_Data) :
                     , msg
                 )
             
-        libs.write_Log(msg, True)
+        #libs.write_Log(msg, True)
     
     #/if res == True
     
@@ -2694,7 +2694,7 @@ def get_Color_Name_From_StatsData(stats_Data) :
             
             )
             
-    libs.write_Log(msg, True)
+    #libs.write_Log(msg, True)
 
     res, msg = is_ColorName_Black(stats_Data)
     
@@ -2716,7 +2716,7 @@ def get_Color_Name_From_StatsData(stats_Data) :
                     , msg
                 )
             
-        libs.write_Log(msg, True)
+        #libs.write_Log(msg, True)
     
     #/if res == True
     
@@ -3083,9 +3083,9 @@ def get_4_corners__Write_Log(
                  )
 #         msg = "\t".join(metaData)
         
-        fout_Log.write(msg)
+        #fout_Log.write(msg)
 #         fout_Log.write("\t".join(metaData))
-        fout_Log.write('\n')
+        #fout_Log.write('\n')
         
         '''###################
             skews        
@@ -3096,9 +3096,9 @@ def get_4_corners__Write_Log(
                  )
 #         msg = "\t".join(metaData)
         
-        fout_Log.write(msg)
+        #fout_Log.write(msg)
 #         fout_Log.write("\t".join(metaData))
-        fout_Log.write('\n')
+        #fout_Log.write('\n')
         
         '''###################
             index of max values,
@@ -3115,9 +3115,9 @@ def get_4_corners__Write_Log(
                  )
 #         msg = "\t".join(metaData)
         
-        fout_Log.write(msg)
+        #fout_Log.write(msg)
 #         fout_Log.write("\t".join(metaData))
-        fout_Log.write('\n')
+        #fout_Log.write('\n')
         
         msg = "max_Vals_R = %d, max_Vals_G = %d, max_Vals_B = %d" % \
                 (
@@ -3125,9 +3125,9 @@ def get_4_corners__Write_Log(
                  )
 #         msg = "\t".join(metaData)
         
-        fout_Log.write(msg)
+        #fout_Log.write(msg)
 #         fout_Log.write("\t".join(metaData))
-        fout_Log.write('\n')
+        #fout_Log.write('\n')
         
         '''###################
             raw data : histogram        
@@ -3135,21 +3135,21 @@ def get_4_corners__Write_Log(
         dat = [str(x) for x in metaData[6]]
         msg = "\t".join(dat)
 #         msg = "\t".join(metaData[6])
-        fout_Log.write(msg)
-        fout_Log.write('\n')
+        #fout_Log.write(msg)
+        #fout_Log.write('\n')
         
         dat = [str(x) for x in metaData[7]]
         msg = "\t".join(dat)
-        fout_Log.write(msg)
-        fout_Log.write('\n')
+        #fout_Log.write(msg)
+        #fout_Log.write('\n')
         
         dat = [str(x) for x in metaData[8]]
         msg = "\t".join(dat)
-        fout_Log.write(msg)
-        fout_Log.write('\n')
+        #fout_Log.write(msg)
+        #fout_Log.write('\n')
         
         
-        fout_Log.write('\n')
+        #fout_Log.write('\n')
         
     #/for item in lo_Names_Of_Corner_Images:
 
