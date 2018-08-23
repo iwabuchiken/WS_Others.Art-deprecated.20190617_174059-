@@ -1038,7 +1038,11 @@ def gen_Cake_CSV__Get_ColorName_Set(\
     
 #/ def gen_Cake_CSV__Get_ColorName_Set(dpath_Images, lo_Files):
     
-def gen_Cake_CSV__Gen_CSVFile(dpath_CSV, fname_CSV, lo_ColorName_Set__Modified_2):
+def gen_Cake_CSV__Gen_CSVFile(\
+      dpath_CSV, fname_CSV
+      , lo_ColorName_Set__Modified_2
+      , dpath_Images):
+# def gen_Cake_CSV__Gen_CSVFile(dpath_CSV, fname_CSV, lo_ColorName_Set__Modified_2):
     
     '''###################
         vars
@@ -1097,8 +1101,55 @@ def gen_Cake_CSV__Gen_CSVFile(dpath_CSV, fname_CSV, lo_ColorName_Set__Modified_2
         tmp_Line.append(line_Memo)
 #         tmp_Line.append(line_Memo)
 #         tmp_Line.append("".join(color_Names))
+
+        '''###################
+            exif : gps data        
+        ###################'''
+        fpath_Image = os.path.join(dpath_Images, fname)
         
+        data_GPS = lib_ip.get_GPS_Data(fpath_Image)
+        
+        # tuple --> to list
+        data_GPS_Lat = [str(x) for x in data_GPS[0]]  # N,S
+        data_GPS_Longi = [str(x) for x in data_GPS[1]] # E,W
+#         data_GPS_Lat = [x for x in data_GPS[0]]  # N,S
+#         data_GPS_Longi = [x for x in data_GPS[1]] # E,W
+        
+        # build text
+        gps_Lat = "-".join(data_GPS_Lat)
+        gps_Longi = "-".join(data_GPS_Longi)
+        
+        # add to csv line
+        tmp_Line.append("%s %s" % (gps_Lat, gps_Longi))
+#         tmp_Line.append("\t%s %s" % (gps_Lat, gps_Longi))
+#         lines.append("\t%s %s" % (gps_Lat, gps_Longi))
+        
+        '''###################
+            append
+        ###################'''
         lines.append("\t".join(tmp_Line))
+        
+#         '''###################
+#             exif : gps data        
+#         ###################'''
+#         fpath_Image = os.path.join(dpath_Images, fname)
+#         
+#         data_GPS = lib_ip.get_GPS_Data(fpath_Image)
+#         
+#         # tuple --> to list
+#         data_GPS_Lat = [str(x) for x in data_GPS[0]]  # N,S
+#         data_GPS_Longi = [str(x) for x in data_GPS[1]] # E,W
+# #         data_GPS_Lat = [x for x in data_GPS[0]]  # N,S
+# #         data_GPS_Longi = [x for x in data_GPS[1]] # E,W
+#         
+#         # build text
+#         gps_Lat = "-".join(data_GPS_Lat)
+#         gps_Longi = "-".join(data_GPS_Longi)
+#         
+#         # add to csv line
+#         lines.append("\t%s %s" % (gps_Lat, gps_Longi))
+
+
         
         # count
         cnt += 1
@@ -1162,6 +1213,12 @@ def gen_Cake_CSV__Exec(request):
         get : files list
     ###################'''
     lo_Files = gen_Cake_CSV__Get_ListOf_Files(dpath_Images)
+    
+#     print()
+#     print("[%s:%d] lo_Files[0] => %s" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , lo_Files[0]
+#         ), file=sys.stderr)
     
     
     print()
@@ -1319,6 +1376,14 @@ def gen_Cake_CSV__Exec(request):
             , os.path.basename(libs.thisfile()), libs.linenum()
             , msg)
     
+#     #debug
+#     print()
+#     print("[%s:%d] lo_ColorName_Set__Modified_2[0] =>" % \
+#                         (os.path.basename(libs.thisfile()), libs.linenum()
+#                         
+#                         ), file=sys.stderr)
+#     print(lo_ColorName_Set__Modified_2[0])
+    
     libs.write_Log(msg_Log, True)
     
     # counter
@@ -1357,7 +1422,11 @@ def gen_Cake_CSV__Exec(request):
     dpath_CSV = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\csv"
     fname_CSV = "entries.%s.csv" % (libs.get_TimeLabel_Now())
     
-    res = gen_Cake_CSV__Gen_CSVFile(dpath_CSV, fname_CSV, lo_ColorName_Set__Modified_2)
+    res = gen_Cake_CSV__Gen_CSVFile(
+                dpath_CSV, fname_CSV
+                , lo_ColorName_Set__Modified_2
+                , dpath_Images)
+#     res = gen_Cake_CSV__Gen_CSVFile(dpath_CSV, fname_CSV, lo_ColorName_Set__Modified_2)
     
         
     '''###################

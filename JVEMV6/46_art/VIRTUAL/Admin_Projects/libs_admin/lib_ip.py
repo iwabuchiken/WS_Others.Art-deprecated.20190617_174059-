@@ -15,7 +15,7 @@ from enum import Enum
 from time import gmtime, strftime, localtime, time
 
 '''###################
-    import : use-installed modules        
+    import : user-installed modules        
 ###################'''
 # from sympy.physics.vector.printing import params
 from scipy.stats import skew
@@ -24,6 +24,8 @@ from sympy.matrices.densetools import row
 import cv2, numpy as np, matplotlib.pyplot as plt
 # import numpy as np, matplotlib.pyplot as plt
 
+from PIL import Image
+from PIL.ExifTags import TAGS
 
 '''###################
     import : orig modules        
@@ -2218,16 +2220,16 @@ def get_ColorName_Set_From_Image(\
         
     #/for i in lenOf_Lo_Names_Of_Corner_Images:
     
-    #debug
-    print()
-    print("[%s:%d] lo_Color_Names_2 =>" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-            
-            ), file=sys.stderr)
-    for item in lo_Color_Names_2:
-    
-        print(item)
-        
+#     #debug
+#     print()
+#     print("[%s:%d] lo_Color_Names_2 =>" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             
+#             ), file=sys.stderr)
+#     for item in lo_Color_Names_2:
+#     
+#         print(item)
+#         
     #/for item in lo_Color_Names_2:
     
     #debug
@@ -3221,6 +3223,10 @@ def get_4_corners__Write_Log__V2(
     fout_Log.write('\n')
     fout_Log.write('\n')
     
+    '''###################
+        return (forced)        
+    ###################'''
+    return
     
     # iterate
     idxOf_Images = 0
@@ -4413,3 +4419,105 @@ def get_StatsData(lo_Data):
 #     , val_Variance, sd
 
 #/ def get_StatsData(img):
+
+'''###################
+    
+    @param file: file pull path
+    
+    @return: dictionary
+
+    ref https://www.lifewithpython.com/2014/12/python-extract-exif-data-like-data-from-images.html        
+###################'''
+def get_exif_of_image(file):
+    """Get EXIF of an image if exists.
+
+    指定した画像のEXIFデータを取り出す関数
+    @return exif_table Exif データを格納した辞書
+    """
+    im = Image.open(file)
+
+    # Exif データを取得
+    # 存在しなければそのまま終了 空の辞書を返す
+    try:
+        exif = im._getexif()
+    except AttributeError:
+        return {}
+
+    # タグIDそのままでは人が読めないのでデコードして
+    # テーブルに格納する
+    exif_table = {}
+    for tag_id, value in exif.items():
+        tag = TAGS.get(tag_id, tag_id)
+        exif_table[tag] = value
+
+    return exif_table
+
+'''###################
+    
+    get_GPS_Data(fpath_Image)
+    
+    @return: tuple
+             => (('N', 35, 35, 24.14), ('E', 139, 34, 48.01))
+    
+    @param fpath_Image: file full path
+    
+    @example file : C:\WORKS_2\WS\WS_Cake_IFM11\iphone_to_upload\2018-08-22_15-42-10_000.jpg
+    
+    [ops_1.py:126] dicOf_Exif['GPSInfo'] =>
+        {1: 'N', 2: ((35, 1), (35, 1), (2414, 100)), 3: 'E', 4: ((139, 1), (34, 1), (480
+        1, 100)), 5: b'\x00', 6: (24268, 387), 7: ((6, 1), (42, 1), (900, 100)), 12: 'K'
+        , 13: (0, 1), 16: 'T', 17: (80093, 231), 23: 'T', 24: (80093, 231), 29: '2018:08
+        :22', 31: (10, 1)}        
+###################'''
+def get_GPS_Data(fpath_Image):
+    
+    dicOf_Exif = get_exif_of_image(fpath_Image)# def get_GPS_Data():
+    
+    gps_Info = dicOf_Exif['GPSInfo']
+    
+    '''###################
+        lat, longi        
+    ###################'''
+    txt_Lat = "%s=" % (gps_Info[1])
+    txt_Longi = "%s=" % (gps_Info[3])
+
+    '''###################
+        values
+    ###################'''
+    vals_Lat = gps_Info[2]
+    
+    txt_Lat += "%d-%d-%.02f" % \
+            (vals_Lat[0][0], vals_Lat[1][0], vals_Lat[2][0] * 1.0 / vals_Lat[2][1])
+#             (vals_Lat[0][0], vals_Lat[1][0])
+
+    vals_Longi = gps_Info[4]
+    
+    txt_Longi += "%d-%d-%.02f" % \
+            (vals_Longi[0][0], vals_Longi[1][0], vals_Longi[2][0] * 1.0 / vals_Longi[2][1])
+
+#     txt_Longi += "%d-%d-" % \
+#             (vals_Longi[0][0], vals_Longi[1][0])
+
+    
+    '''###################
+        tuples
+    ###################'''
+    data_Lat = (gps_Info[1], vals_Lat[0][0], vals_Lat[1][0], vals_Lat[2][0] * 1.0 / vals_Lat[2][1])
+    data_Longi = (gps_Info[3], vals_Longi[0][0], vals_Longi[1][0], vals_Longi[2][0] * 1.0 / vals_Longi[2][1])
+    
+    data_Final = (data_Lat, data_Longi)
+    
+    '''###################
+        report        
+    ###################'''
+    print("[%s:%d] txt_Lat = %s, txt_Longi = %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , txt_Lat, txt_Longi
+            ), file=sys.stderr)
+    
+    '''###################
+        return        
+    ###################'''
+    return data_Final
+    
+#/ def get_GPS_Data(fpath_Image):
