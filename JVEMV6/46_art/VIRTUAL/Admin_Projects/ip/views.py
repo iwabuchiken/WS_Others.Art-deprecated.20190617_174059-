@@ -1054,7 +1054,8 @@ def gen_Cake_CSV__Gen_CSVFile(\
     '''###################
         header
     ###################'''
-    hdr = "no\tfile_name\tmemos"
+    hdr = "no\tfile_name\tmemos\tGPS"
+#     hdr = "no\tfile_name\tmemos"
     
     lines.append(hdr)
     
@@ -1109,18 +1110,36 @@ def gen_Cake_CSV__Gen_CSVFile(\
         
         data_GPS = lib_ip.get_GPS_Data(fpath_Image)
         
-        # tuple --> to list
-        data_GPS_Lat = [str(x) for x in data_GPS[0]]  # N,S
-        data_GPS_Longi = [str(x) for x in data_GPS[1]] # E,W
-#         data_GPS_Lat = [x for x in data_GPS[0]]  # N,S
-#         data_GPS_Longi = [x for x in data_GPS[1]] # E,W
+        # validate
+        if not data_GPS == False : #if not data_GPS == False
+
+            # tuple --> to list
+            data_GPS_Lat = [str(x) for x in data_GPS[0]]  # N,S
+            data_GPS_Longi = [str(x) for x in data_GPS[1]] # E,W
+            
+            # build text
+            gps_Lat = "-".join(data_GPS_Lat)
+            gps_Longi = "-".join(data_GPS_Longi)
+            
+            # add to csv line
+            tmp_Line.append("%s %s" % (gps_Lat, gps_Longi))
+    
+        #/if not data_GPS == False
+
+
         
-        # build text
-        gps_Lat = "-".join(data_GPS_Lat)
-        gps_Longi = "-".join(data_GPS_Longi)
-        
-        # add to csv line
-        tmp_Line.append("%s %s" % (gps_Lat, gps_Longi))
+#         # tuple --> to list
+#         data_GPS_Lat = [str(x) for x in data_GPS[0]]  # N,S
+#         data_GPS_Longi = [str(x) for x in data_GPS[1]] # E,W
+# #         data_GPS_Lat = [x for x in data_GPS[0]]  # N,S
+# #         data_GPS_Longi = [x for x in data_GPS[1]] # E,W
+#         
+#         # build text
+#         gps_Lat = "-".join(data_GPS_Lat)
+#         gps_Longi = "-".join(data_GPS_Longi)
+#         
+#         # add to csv line
+#         tmp_Line.append("%s %s" % (gps_Lat, gps_Longi))
 #         tmp_Line.append("\t%s %s" % (gps_Lat, gps_Longi))
 #         lines.append("\t%s %s" % (gps_Lat, gps_Longi))
         

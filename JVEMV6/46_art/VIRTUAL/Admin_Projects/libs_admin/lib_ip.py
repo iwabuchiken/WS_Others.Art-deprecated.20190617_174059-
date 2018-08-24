@@ -4458,6 +4458,9 @@ def get_exif_of_image(file):
     
     @return: tuple
              => (('N', 35, 35, 24.14), ('E', 139, 34, 48.01))
+             
+             False
+             => no key "GPSInfo"
     
     @param fpath_Image: file full path
     
@@ -4470,9 +4473,38 @@ def get_exif_of_image(file):
         :22', 31: (10, 1)}        
 ###################'''
 def get_GPS_Data(fpath_Image):
+
+    #debug
+    print()
+    print("[%s:%d] getting GPS data for ... : %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , fpath_Image
+            ), file=sys.stderr)
     
     dicOf_Exif = get_exif_of_image(fpath_Image)# def get_GPS_Data():
     
+    '''###################
+        validate : GPSInfo
+    ###################'''
+    if not "GPSInfo" in dicOf_Exif : #if not "GPSInfo" in dicOf_Exif
+        
+        msg = "no key 'GPSInfo' for file : %s" %\
+                                        (fpath_Image)
+                                
+        msg_Log = "[%s / %s:%d] %s" % \
+                        (
+                        libs.get_TimeLabel_Now()
+                        , os.path.basename(libs.thisfile()), libs.linenum()
+                        , msg)
+                
+        libs.write_Log(msg_Log, True)
+        
+        return False
+        
+    #/if not "GPSInfo" in dicOf_Exif
+            
+            
+    # get data
     gps_Info = dicOf_Exif['GPSInfo']
     
     '''###################
