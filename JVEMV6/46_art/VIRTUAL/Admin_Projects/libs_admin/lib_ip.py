@@ -3909,8 +3909,10 @@ def is_ColorName_Red__2(img, dpath_Images, fname_Image):
     
     # variance
     if not \
-        (val_Variance < variance_Upper \
-            and val_Variance > variance_Lower) :
+        (val_Variance <= variance_Upper \
+            and val_Variance >= variance_Lower) :
+#        (val_Variance < variance_Upper \
+#            and val_Variance > variance_Lower) :
 #         (val_Variance < cons_ip.ColorThresholds.isYellow_HSV_Variance__Upper.value \
 #             and val_Variance > cons_ip.ColorThresholds.isYellow_HSV_Variance__Lower.value) :
         
@@ -4020,8 +4022,11 @@ def is_ColorName_Green__2(img, dpath_Images, fname_Image):
     
     # variance
     if not \
-        (val_Variance < variance_Upper \
-            and val_Variance > variance_Lower) :
+        (val_Variance <= variance_Upper \
+            and val_Variance >= variance_Lower) :
+#        (val_Variance < variance_Upper \
+#            and val_Variance > variance_Lower) :
+
 #         (val_Variance < cons_ip.ColorThresholds.isYellow_HSV_Variance__Upper.value \
 #             and val_Variance > cons_ip.ColorThresholds.isYellow_HSV_Variance__Lower.value) :
         
