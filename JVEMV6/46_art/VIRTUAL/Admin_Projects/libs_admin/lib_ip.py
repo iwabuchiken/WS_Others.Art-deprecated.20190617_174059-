@@ -2045,7 +2045,11 @@ def is_PhotoOf__Sweets \
 #/ def is_PhotoOf__Sweets(dir_path, file_name) :
 
 '''###################
-    is_PhotoOf__Sweets        
+    get_ColorName_Set_From_Image
+    
+    @return: color name
+            e.g. "others", "yellow"
+    
 ###################'''
 def get_ColorName_Set_From_Image(\
     dpath_Images, fpath, flg_SaveImage, \
@@ -2088,6 +2092,87 @@ def get_ColorName_Set_From_Image(\
     
         # cv instance
     img_Orig = cv2.imread(fpath_Image)
+
+#     '''###################
+#         validate : image obtained
+#     ###################'''
+#     #ref https://stackoverflow.com/questions/541390/extracting-extension-from-filename-in-python#541394
+#     filename, file_extension = os.path.splitext('/path/to/somefile.ext')
+#     
+#     if file_extension == ".mov" \
+#         or file_extension == ".MOV" : #if file_extension == 
+#         
+#         msg = "NOT an image file : '%s'\nreturning default 'others'" %\
+#                                 (fpath_Image)
+#                          
+#         msg_Log = "[%s / %s:%d] %s" % \
+#                 (
+#                 libs.get_TimeLabel_Now()
+#                 , os.path.basename(libs.thisfile()), libs.linenum()
+#                 , msg)
+#          
+#         libs.write_Log(msg_Log, True)
+#          
+#         print()
+#         print("[%s:%d] %s" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , msg_Log
+#         ), file=sys.stderr)
+#          
+#         # return default
+#         return "others"
+#     #/if file_extension == 
+
+
+    
+#    #ref https://stackoverflow.com/questions/17198466/none-python-error-bug#17198511
+#     if isinstance(img_Orig, type(None)) : #if img_Orig == None
+#         
+#         msg = "file NOT obtained (NoneType) : '%s'\nreturning default 'others'" %\
+#                                 (fpath_Image)
+#                         
+#         msg_Log = "[%s / %s:%d] %s" % \
+#                 (
+#                 libs.get_TimeLabel_Now()
+#                 , os.path.basename(libs.thisfile()), libs.linenum()
+#                 , msg)
+#         
+#         libs.write_Log(msg_Log, True)
+#         
+#         print()
+#         print("[%s:%d] %s" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , msg_Log
+#         ), file=sys.stderr)
+#         
+#         # return default
+#         return "others"
+#         
+#     if not img_Orig.all() : #if img_Orig == None
+# #     if (img_Orig == None) : #if img_Orig == None
+# #     if img_Orig == None : #if img_Orig == None
+#     
+#         msg = "file NOT obtained (all() returns False) : '%s'\nreturning default 'others'" %\
+#                                 (fpath_Image)
+#                         
+#         msg_Log = "[%s / %s:%d] %s" % \
+#                 (
+#                 libs.get_TimeLabel_Now()
+#                 , os.path.basename(libs.thisfile()), libs.linenum()
+#                 , msg)
+#         
+#         libs.write_Log(msg_Log, True)
+#         
+#         print()
+#         print("[%s:%d] %s" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , msg_Log
+#         ), file=sys.stderr)
+#         
+#         # return default
+#         return "others"
+#         
+#     #/if img_Orig == None
     
     print()
     print("[%s:%d] cv2 image ==> loaded" % \
@@ -2095,6 +2180,9 @@ def get_ColorName_Set_From_Image(\
         
         ), file=sys.stderr)
     
+    '''###################
+        set : RGB
+    ###################'''
     # convert to RGB
     img_RGB = img_Orig
 

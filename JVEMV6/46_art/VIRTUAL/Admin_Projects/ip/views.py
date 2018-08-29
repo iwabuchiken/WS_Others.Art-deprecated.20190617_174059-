@@ -1255,6 +1255,25 @@ def gen_Cake_CSV__Exec(request):
 
     '''###################
         get : color name set
+        
+        [
+            [
+                "C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images",
+                [
+                    [
+                        "2018-08-21_23-28-01_000.1.mov",
+                        "others"
+                    ],
+                    [
+                        "2018-08-21_23-28-01_000.2.mov",
+                        "others"
+                    ],
+                    ...
+                ],
+                ...
+            ],
+            ...
+        ]
     ###################'''
 #     lo_ColorName_Set = gen_Cake_CSV__Get_ColorName_Set(dpath_Images, lo_Files)
     lo_ColorName_Set = gen_Cake_CSV__Get_ColorName_Set(\
