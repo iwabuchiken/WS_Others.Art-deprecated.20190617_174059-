@@ -270,7 +270,8 @@ class ColorThresholds(Enum):
 #     isRed_HSV_Variance__Lower = 0.01
     
     isRed_HSV_Average__Upper = 124.0
-    isRed_HSV_Average__Lower = 116.0
+    isRed_HSV_Average__Lower = 115.0
+    #isRed_HSV_Average__Lower = 116.0
 #     isRed_HSV_Average__Lower = 120.0
     
     '''###################
