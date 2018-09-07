@@ -256,7 +256,8 @@ class ColorThresholds(Enum):
 #     isYellow_HSV_Average__Upper = 90.0
     #isYellow_HSV_Average__Upper = 93.0
     #isYellow_HSV_Average__Upper = 97.0
-    isYellow_HSV_Average__Upper = 98.0
+    #isYellow_HSV_Average__Upper = 98.0
+    isYellow_HSV_Average__Upper = 99.2
     isYellow_HSV_Average__Lower = 88.0
     
     '''###################
@@ -339,6 +340,7 @@ class ColorNameSet(Enum):
 #                 r,g,y ==> each, 3        # 3 types
 #             ###################'''
             , "owww"    # 読みたい本
+            , "aaao"    # 読みたい本
             
 #             '''###################
 #                 r,g,y ==> each, 4        # 3 types
@@ -418,6 +420,7 @@ class ColorNameSet(Enum):
 #                 r,g,y ==> each, 3        # 3 types
 #             ###################'''
             , "owww" : u':m 読みたい本 / 『』 / 著者=XXX'    # 読みたい本
+            , "aaao" : u':m 読みたい本 / 『』 / 著者=XXX'    # 読みたい本
             
 #             '''###################
 #                 r,g,y ==> each, 4        # 3 types
