@@ -335,6 +335,7 @@ class ColorNameSet(Enum):
             , "oorr"
             , "ggoo"    # :m 食べた物　間食 / ヨーグルト / +=
             , "ooyy"    # delete
+            , "aaoo"    # 読みたい本
 
 #             '''###################
 #                 r,g,y ==> each, 3        # 3 types
@@ -415,6 +416,7 @@ class ColorNameSet(Enum):
             , "ooyy" : u'\'-*'
             , "oorr" : u'MEMO'
             #, "oorr" : uMEMO'UNDEFINED'
+            , "aaoo" : u':m 読みたい本 / 『』 / 著者=XXX'    # 読みたい本
 
 #             '''###################
 #                 r,g,y ==> each, 3        # 3 types
