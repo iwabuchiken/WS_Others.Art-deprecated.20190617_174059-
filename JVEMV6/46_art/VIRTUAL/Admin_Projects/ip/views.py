@@ -1031,6 +1031,7 @@ def gen_Cake_CSV__Get_ColorName_Set(\
     
     libs.write_Log(msg_Log, True)
 
+
     '''###################
         return        
     ###################'''
@@ -1477,6 +1478,14 @@ def gen_Cake_CSV__Exec(request):
 def gen_Cake_CSV(request):
     
     '''###################
+        set : log file name
+    ###################'''
+#     tlabel = libs.get_TimeLabel_Now()
+#     fname_Log = "get_4_corners.%s.log" % (tlabel)
+# 
+#     cons_ip.FilePaths.fname_LogFile.value = fname_Log
+    
+    '''###################
         title
     ###################'''
     msg = "gen_Cake_CSV(request) ==> starting... ======================="
@@ -1487,6 +1496,19 @@ def gen_Cake_CSV(request):
             , msg)
     
     libs.write_Log(msg_Log, True)
+
+#     msg = "message" %\
+#                             (vars)
+                    
+#     tlabel = libs.get_TimeLabel_Now()
+#     fname_Log = "get_4_corners.%s.log" % (tlabel)
+    
+#     fpath_Log = cons_fx.FPath.dpath_LogFile.value
+    
+#     libs.write_Log(msg_Log
+#                                 , fpath_Log
+#                                 , fname_Log
+#                                 , 1)
 
     
     '''###################

@@ -227,11 +227,11 @@ def get_opt_2(arg_ary, keychars = None):
              
     return result
 
-'''
+'''###################
     @param string_type
             serial    "20160604_193404"
             basic     "2016/06/04 19:34:04"
-'''
+###################'''
 def get_TimeLabel_Now(string_type="serial", mili=False):
 # def get_TimeLabel_Now(string_type="serial"):
     

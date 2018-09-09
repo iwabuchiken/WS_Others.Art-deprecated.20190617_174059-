@@ -3280,9 +3280,13 @@ def get_4_corners__Write_Log__V2(
                     , res
                     ) :
     
-    dpath_Log = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\logs"
-    
-    fname_Log = "get_4_corners.log"
+    dpath_Log = cons_ip.FilePaths.dpath_LogFile.value
+
+    fname_Log = cons_ip.FilePaths.fname_LogFile.value
+#     fname_Log = cons_fx.FPath.fname_LogFile.value
+#     dpath_Log = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\logs"
+#     
+#     fname_Log = "get_4_corners.log"
     
     fpath_Log = "%s\\%s" % (dpath_Log, fname_Log)
     

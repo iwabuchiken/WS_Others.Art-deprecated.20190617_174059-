@@ -4,8 +4,77 @@
     at      : 2018/06/08 10:10:11
 '''
 
+'''###################
+    import : built-in modules        
+###################'''
+import sys, os
+
 #!C:\WORKS_2\Programs\Python\Python_3.5.1\python.exe
 from enum import Enum
+from time import gmtime, strftime, localtime, time
+
+'''###################
+    import : orig modules        
+###################'''
+# sys.path.append('C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects')
+# from libs_admin import libs
+
+'''###################
+    @param string_type
+            serial    "20160604_193404"
+            basic     "2016/06/04 19:34:04"
+###################'''
+def get_TimeLabel_Now(string_type="serial", mili=False):
+# def get_TimeLabel_Now(string_type="serial"):
+    
+#     t = time.time()
+    t = time()
+    
+#     str = strftime("%Y%m%d_%H%M%S", t)
+#     str = strftime("%Y%m%d_%H%M%S", localtime())
+
+    '''###################
+        build string        
+    ###################'''
+    if string_type == "serial" : #if string_type == "serial"
+    
+        str = strftime("%Y%m%d_%H%M%S", localtime(t))
+    
+    elif string_type == "basic" : #if string_type == "serial"
+    
+        str = strftime("%Y/%m/%d %H:%M:%S", localtime(t))
+    
+    else : #if string_type == "serial"
+    
+        str = strftime("%Y/%m/%d %H:%M:%S", localtime(t))
+    
+    #/if string_type == "serial"
+    
+    
+#     str = strftime("%Y%m%d_%H%M%S", localtime(t))
+    
+    #ref https://stackoverflow.com/questions/5998245/get-current-time-in-milliseconds-in-python "answered May 13 '11 at 22:21"
+    if mili == True :
+
+        if string_type == "serial" : #if string_type == "serial"
+            
+            str = "%s_%03d" % (str, int(t % 1 * 1000))
+        
+        else : #if string_type == "serial"
+        
+            str = "%s.%03d" % (str, int(t % 1 * 1000))
+
+        #ref decimal value https://stackoverflow.com/questions/30090072/get-decimal-part-of-a-float-number-in-python "answered May 7 '15 at 1:56"          
+#         str = "%s_%03d" % (str, int(t % 1 * 1000))
+    
+    return str
+    
+    #ref https://stackoverflow.com/questions/415511/how-to-get-current-time-in-python "answered Jan 6 '09 at 4:59"
+#     return strftime("%Y%m%d_%H%M%S", localtime())
+#     return strftime("%Y%m%d_%H%M%S", gmtime())
+    
+#]]get_TimeLabel_Now():
+
 
 class DfltVals(Enum):
     
@@ -309,7 +378,9 @@ class FilePaths(Enum):
     
     dpath_LogFile = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\logs"
     
-    fname_LogFile = "get_4_corners.log"
+    fname_LogFile = "get_4_corners.%s.log" % get_TimeLabel_Now()
+#     fname_LogFile = "get_4_corners.%s.log" % libs.get_TimeLabel_Now()
+#     fname_LogFile = "get_4_corners.log"
     
     fname_LogFile__Gradation = "gradation.log"
     
