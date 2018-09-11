@@ -10676,3 +10676,12 @@ fname_Image = img.20180910_062746.2018-09-09_20-09-41_000.jpg.4.png
 dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
 fname_Image = img.20180910_062750.2018-09-09_22-19-43_000.jpg.4.png
 
+[20180912_070548 lib_ip.py:3069] =============== Get 4 corners
+dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
+fname_Image = 2018-09-10_15-06-36_000.jpg
+
+img.20180912_070547.2018-09-10_15-06-36_000.jpg.1.png
+img.20180912_070547.2018-09-10_15-06-36_000.jpg.2.png
+img.20180912_070547.2018-09-10_15-06-36_000.jpg.3.png
+img.20180912_070547.2018-09-10_15-06-36_000.jpg.4.png
+is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_G < 30 or idxOf_Maxes_G > 80 (11))
