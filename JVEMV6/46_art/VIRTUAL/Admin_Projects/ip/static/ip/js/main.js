@@ -2406,5 +2406,97 @@ function btn_IP_Get_4Corners__Gen_CakeCSV() {
 	
 }//btn_IP_Get_4Corners__Gen_CakeCSV
 
+function btn_IP_Get_4Corners__Prep_Gen_CakeCSV() {
+	
+	/***************************
+		show message
+	 ***************************/
+	var tag = $('div#div_IP_Get_4Corners_Message_Area');
+	
+	var msg = "starting ajax for 'http://127.0.0.1:8001/ip/prep_gen_Cake_CSV/'..."
+//		var msg = "starting ajax for 'http://127.0.0.1:8001/ip/gen_Cake_CSV/'..."
+		
+		tag.html(msg);
+	
+	// message
+	tag.css("background", cname_Yellow);
+	
+	tag
+	.fadeIn(200).fadeOut(200)
+	.fadeIn(200).fadeOut(200)
+	
+	.fadeIn(200).fadeOut(200)
+	.fadeIn(200).fadeOut(200)
+	
+	.fadeIn(200);
+	
+	/***************************
+		param : gen cake csv
+	 ***************************/
+	var _option = "prep_gen_cake_csv";
+	
+	/***************************
+		ajax
+		
+		ref : C:\WORKS_2\WS\Eclipse_Luna\Cake_IFM11\app\webroot\js\main.js
+	 ***************************/
+	var _url = "http://127.0.0.1:8001/ip/prep_gen_Cake_CSV/";
+	//var _url = "http://127.0.0.1:8000/ip/get_4_corners/";
+	
+	// time out (mill seconds)
+	var _timeout = 3 * 60 * 1000;
+	
+	
+	$.ajax({
+		
+		url: _url,
+		type: "GET",
+		//REF http://stackoverflow.com/questions/1916309/pass-multiple-parameters-to-jquery-ajax-call answered Dec 16 '09 at 17:37
+		//    data: {id: id},
+		//    data: {memos: memos, image_id: image_id},
+//		data: _data,
+		
+		timeout: _timeout
+//		timeout: 10000
+		
+	}).done(function(data, status, xhr) {
+		
+		/***************************
+			result
+		 ***************************/
+//		alert(data);
+		
+		var tag = $('div#div_IP_Get_4Corners_Message_Area');
+		
+		tag.html(data);
+		
+		// message
+		tag.css("background", cname_LightBlue);
+		
+		tag
+		.fadeIn(200).fadeOut(200)
+		.fadeIn(200).fadeOut(200)
+		
+		.fadeIn(200).fadeOut(200)
+		.fadeIn(200).fadeOut(200)
+		
+		.fadeIn(200).fadeOut(200)
+		.fadeIn(200).fadeOut(200)
+		
+		.fadeIn(200);
+		
+		
+	}).fail(function(xhr, status, error) {
+		
+		/***************************
+			message
+		 ***************************/
+		alert(error);
+		
+		
+	});
+	
+}//btn_IP_Get_4Corners__Prep_Gen_CakeCSV
+
 
 

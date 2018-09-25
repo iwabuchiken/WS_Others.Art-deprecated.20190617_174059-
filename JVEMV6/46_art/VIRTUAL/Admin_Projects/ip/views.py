@@ -12,7 +12,7 @@ from mailbox import fcntl
 ###################'''
 import subprocess, copy, re, clipboard, time, \
         os, datetime, ftplib, glob, sys, cv2 \
-        , matplotlib.pyplot as plt, codecs
+        , matplotlib.pyplot as plt, codecs, shutil
 
 '''###################
     import : orig modules        
@@ -1760,6 +1760,155 @@ def open_image_dir(request):
 
     
 #/ def open_image_dir(request):
+
+def prep_gen_Cake_CSV(request):
+    
+    '''###################
+        vars        
+    ###################'''
+    dic = {}
+
+    '''###################
+        ops
+    ###################'''
+    '''###################
+        ops : delete image files
+    ###################'''
+    '''###################
+        get : files list
+    ###################'''
+    dpath_Images = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6" \
+                + "\\46_art\\VIRTUAL\\Admin_Projects" \
+                + "\\ip" \
+                + "\\images"
+    
+    fpath_Glob = "%s\\*" % (dpath_Images)
+
+    #ref glob https://stackoverflow.com/questions/14798220/how-can-i-search-sub-folders-using-glob-glob-module-in-python answered Feb 10 '13 at 13:31    
+    lo_Files = glob.glob(fpath_Glob)
+    
+    # files only
+    lo_Files_Filtered = []
+    
+    for item in lo_Files:
+
+#         if os.path.isfile(dpath_Images + "\\" + item) == True : 
+        if os.path.isfile(item) == True : 
+            lo_Files_Filtered.append(item)
+        
+    #/for item in lo_Files:
+
+    # update the list
+    lo_Files = lo_Files_Filtered
+    
+    lo_Files.sort()
+    
+#     #debug
+#     print("[%s:%d] lo_Files =>" % \
+#                         (os.path.basename(libs.thisfile()), libs.linenum()
+#                         
+#                         ), file=sys.stderr)
+#     print(lo_Files)
+
+    '''###################
+        move files
+    ###################'''
+    dpath_Dest = "%s\\storage_images" % dpath_Images
+    
+    # counter
+    cntOf_Move = 0
+    
+    for item in lo_Files:
+        
+        # file name
+        fname = os.path.basename(item)
+        
+        fpath_Src = "%s\\%s" % (dpath_Images, fname)
+        fpath_Dst = "%s\\%s" % (dpath_Dest, fname)
+        
+        #ref https://stackoverflow.com/questions/8858008/how-to-move-a-file-in-python answered Jan 13 '12 at 22:19
+        shutil.move(fpath_Src, fpath_Dst)
+        
+        # count
+        cntOf_Move += 1
+        
+    #/for item in lo_Files:
+    
+    #debug
+    print("[%s:%d] cntOf_Move => %d" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , cntOf_Move
+            ), file=sys.stderr)
+
+    '''###################
+        copy
+    ###################'''
+    '''###################
+        get : files list
+    ###################'''
+    dpath_Images_Copy_Src = "C:\\WORKS_2\\WS\\WS_Cake_IFM11\\iphone"
+    
+    fpath_Glob = "%s\\*" % (dpath_Images_Copy_Src)
+
+    #ref glob https://stackoverflow.com/questions/14798220/how-can-i-search-sub-folders-using-glob-glob-module-in-python answered Feb 10 '13 at 13:31    
+    lo_Files = glob.glob(fpath_Glob)
+    
+    # files only
+    lo_Files_Filtered = []
+    
+    for item in lo_Files:
+
+#         if os.path.isfile(dpath_Images + "\\" + item) == True : 
+        if os.path.isfile(item) == True : 
+            lo_Files_Filtered.append(item)
+        
+    #/for item in lo_Files:
+
+    # update the list
+    lo_Files = lo_Files_Filtered
+    
+    lo_Files.sort()
+    
+    '''###################
+        copy files
+    ###################'''
+#     dpath_Dest = "%s\\storage_images" % dpath_Images
+#     aa
+    # counter
+    cntOf_Copy = 0
+    
+    for item in lo_Files:
+        
+        # file name
+        fname = os.path.basename(item)
+        
+        fpath_Src = "%s\\%s" % (dpath_Images_Copy_Src, fname)
+        fpath_Dst = "%s\\%s" % (dpath_Images, fname)
+#         fpath_Dst = "%s\\%s" % (dpath_Dest, fname)
+        
+        #ref https://stackoverflow.com/questions/8858008/how-to-move-a-file-in-python answered Jan 13 '12 at 22:19
+        shutil.copyfile(fpath_Src, fpath_Dst)
+#         shutil.move(fpath_Src, fpath_Dst)
+        
+        # count
+        cntOf_Copy += 1
+        
+    #/for item in lo_Files:
+    
+    #debug
+    print("[%s:%d] cntOf_Copy => %d" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , cntOf_Copy
+            ), file=sys.stderr)
+    
+    '''###################
+        render
+    ###################'''
+    return render(request, 'ip/prep_gen_Cake_CSV.html', dic)
+
+    
+#/ def prep_gen_Cake_CSV(request):
+
 def dos_attack(request): 
     
     '''###################

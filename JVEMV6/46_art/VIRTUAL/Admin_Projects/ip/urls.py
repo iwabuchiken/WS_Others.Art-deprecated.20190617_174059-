@@ -26,5 +26,7 @@ urlpatterns = [
     
     url(r'^ip_ops/$', views.ip_ops, name='ip_ops'),
     
+    # 20180925_064955
+    url(r'^prep_gen_Cake_CSV/$', views.prep_gen_Cake_CSV, name='prep_gen_Cake_CSV'),
     
 ]
