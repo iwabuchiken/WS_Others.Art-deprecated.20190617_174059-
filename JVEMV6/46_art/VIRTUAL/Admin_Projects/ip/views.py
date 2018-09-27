@@ -1887,7 +1887,8 @@ def prep_gen_Cake_CSV(request):
 #         fpath_Dst = "%s\\%s" % (dpath_Dest, fname)
         
         #ref https://stackoverflow.com/questions/8858008/how-to-move-a-file-in-python answered Jan 13 '12 at 22:19
-        shutil.copyfile(fpath_Src, fpath_Dst)
+        shutil.copy(fpath_Src, fpath_Dst)
+        #shutil.copyfile(fpath_Src, fpath_Dst)
 #         shutil.move(fpath_Src, fpath_Dst)
         
         # count
