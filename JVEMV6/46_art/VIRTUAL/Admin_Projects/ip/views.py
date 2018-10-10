@@ -86,6 +86,152 @@ def test(request):
 #     return HttpResponse(html)
 # #     return HttpResponse("Hello Django (new urls.py file)")
 
+def _anims__Load_LO_Actions():
+    
+    dpath_List = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data"
+
+    fname_List = "anims_listof_commands.dat"
+    
+    fpath_List = os.path.join(dpath_List, fname_List)
+    
+    f = open(fpath_List, "r")
+
+    # header line
+    f.readline()
+    
+    # body lines
+    lines = f.readlines()
+    
+    # close file
+    f.close()
+    
+    lo_Commands = []
+    
+    # build list
+    for item in lines:
+
+        lo_Commands.append(item.split("\t")[1:])
+        
+    #/for item in lines:
+    
+    #debug
+    print()
+    print("[%s:%d] lo_Commands =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    print(lo_Commands)
+    
+    return lo_Commands
+    
+#/ def _anims__Load_LO_Actions()(request):
+
+
+def anims_JS(request):
+    
+    '''###################
+        time        
+    ###################'''
+    time_Exec_Start = time.time()
+    
+    '''###################
+        vars
+    ###################'''
+    dic = {
+        
+        "message" : ""
+        , "message_2" : ""
+        }
+    
+    render_Page = 'ip/anims/plain_anims.html'
+    
+    '''###################
+        time        
+    ###################'''
+    time_Exec_Elapsed = time.time() - time_Exec_Start
+
+    dic['message_2'] += "(time = %s) (elapsed = %02.3f sec)" % \
+                        (libs.get_TimeLabel_Now(), time_Exec_Elapsed)
+
+
+    '''###################
+        render
+    ###################'''
+    return render(request, render_Page, dic)
+    
+    
+#/ def anims_JS(request):
+    
+    
+def anims(request):
+    
+    now = datetime.datetime.now()
+
+
+    action = "anims"
+    message = "yes"
+
+    page_Title = "IP / anims"
+
+    dic = {
+            'action' : action, 
+            "message" : message, 
+#             "lo_Commands" : lo_Commands,
+            "page_Title" : page_Title,
+    }
+#     dic = {'action' : action, "message" : message, "lo_Commands" : lo_Commands}
+
+#     dic = {message : _message}
+
+    '''###################
+        list of commands
+    ###################'''
+    lo_Commands = _anims__Load_LO_Actions()
+#     lo_Commands = [
+#          
+#         ["move_leaves", "image sequence for moving leaves"],
+#          
+#         ["???", "unknown"],
+#     ]
+     
+     
+    # set var
+    dic["lo_Commands"] = lo_Commands
+    
+    dic["count"] = 0
+
+    '''###################
+        get : referer        
+    ###################'''
+    referer_MM = "http://127.0.0.1:8000/ip/"
+    
+    referer_Current = request.META.get('HTTP_REFERER')
+
+    if referer_Current == referer_MM : #if referer_Current == referer_MM
+    
+        print()
+        print("[%s:%d] referer_Current == referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, 'ip/anims/anims.html', dic)
+#         return render(request, 'ip/basics.html', dic)
+#         return render(request, 'mm/numbering.html', dic)
+        
+    else : #if referer_Current == referer_MM
+
+        print()
+        print("[%s:%d] referer_Current <> referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, 'ip/anims/anims_full.html', dic)
+#         return render(request, 'ip/basics_full.html', dic)
+
+#/ anims
+
 def basics(request):
     
     now = datetime.datetime.now()

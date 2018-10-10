@@ -1414,6 +1414,144 @@ function curr_Index_LinkTo(_param) {
 	
 }//function mm_Index_LinkTo(_param) {
 
+function _anims_Action_LinkTo__1() {
+	
+	/***************************
+		prep
+	 ***************************/
+	var _url = "http://127.0.0.1:8001/ip/anims_JS/";
+	//var _url = "http://127.0.0.1:8000/im/actions";
+	
+	/***************************
+		param
+	 ***************************/
+//	var _data;
+//	
+//	//ref multiple conditions https://stackoverflow.com/questions/8710442/how-to-specify-multiple-conditions-in-an-if-statement-in-javascript answered Jan 3 '12 at 9:58
+//	if ((_param == "11-0") || 
+//			(_param == "10-1")) {
+//	//	if (_param == "11-0") {
+//	
+//		_data = {action : _param, update : _update};
+//	
+//	} else {
+//	
+//		_data = {action : _param};
+//	
+//	}//if (_param == "11-0")
+	
+	$.ajax({
+		
+	    url: _url,
+	    type: "GET",
+	    //REF http://stackoverflow.com/questions/1916309/pass-multiple-parameters-to-jquery-ajax-call answered Dec 16 '09 at 17:37
+	//    data: {id: id},
+	//    data: {memos: memos, image_id: image_id},
+//	    data: _data,
+	    
+	    timeout: 10000
+	    
+	}).done(function(data, status, xhr) {
+		
+		/***************************
+			Log
+		 ***************************/
+		var msg = "ajax ==> done";
+		
+		var elem = $('div#div_IP_Anims__Log_Area');
+		
+		elem.html(msg);
+
+		elem
+			.fadeIn(200).fadeOut(200)
+			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200);
+			
+		/***************************
+			Message
+		 ***************************/
+		var msg = "ajax ==> done";
+		
+		var elem = $('div#div_IP_Basics_Message_Area');
+		
+		elem.html(data);
+		
+		elem
+			.fadeIn(200).fadeOut(200)
+			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200);
+		
+	}).fail(function(xhr, status, error) {
+		
+		alert(xhr.status);
+		
+	});	
+
+}
+
+function anims_Action(_param) {
+	
+//	//debug
+//	alert("!!param is => '" + _param + "'");
+//	return;
+
+	/***************************
+		message
+	 ***************************/
+	var msg = "ajax starting for id '" + _param + "'";
+	
+	var elem = $('div#div_IP_Anims__Log_Area');
+	
+	elem.html(msg);
+	
+	elem
+			.fadeIn(200).fadeOut(200)
+			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200).fadeOut(200)
+//			.fadeIn(200).fadeOut(200)
+//			
+//			.fadeIn(200).fadeOut(200)
+//			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200);
+	
+//	elem.css("background", cname_Yellow);
+
+	/***************************
+		dispatch
+	 ***************************/
+	//ref https://www.w3schools.com/jsref/jsref_parseInt.asp
+	var index = parseInt(_param);
+	
+	if (index == 1) {	// 1	"move_leaves"
+		
+		_anims_Action_LinkTo__1();
+		
+//	else if (index == 1) {	//[1, "De-numbering"]
+//		
+//		_curr_Index_LinkTo__1();
+//		
+//	} else if (index == 2) {	//[2, "Build history"]
+//		
+//		_curr_Index_LinkTo__2();
+//		
+	} else {
+		
+		alert("unknown index => " + _param);
+		
+	}
+	
+	
+	
+}//function mm_Index_LinkTo(_param) {
+
 function curr_Index_GO() {
 	
 //	alert("curr index");
@@ -1651,6 +1789,16 @@ function curr_Show_Basics_Table_Commands() {
 	
 	//ref toggle https://api.jquery.com/toggle/
 	$('#div_IP_Basics_ListOf_Actions').toggle();
+	
+}//function curr_Show_Basics_Table_Commands() {
+
+function bt_ShowHide_Areas(_id_name) {
+	
+//	alert("show");
+	
+	//ref toggle https://api.jquery.com/toggle/
+	$("#" + _id_name).toggle();
+//	$('#div_IP_Basics_ListOf_Actions').toggle();
 	
 }//function curr_Show_Basics_Table_Commands() {
 
