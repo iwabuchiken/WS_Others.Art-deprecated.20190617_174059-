@@ -18,6 +18,17 @@ table#tbl_Im_Actions {
     margin     : 10px;
 }
 
+table#tbl_IP_Anims_Actions__Body {
+    
+    /*border     : 1;*/
+    /*border     : 1px solid black;*/
+    /* ref template for css files https://stackoverflow.com/questions/7900575/how-to-add-css-autocomplete-to-eclipse */
+    /*ref table border http://www.html.am/html-codes/tables/table-border.cfm*/
+    border     : 1px solid #aaaaaa;
+    
+    margin     : 10px;
+}
+
 table#tbl_IP_Get_4Corners td {
     
     /*border     : 1;*/
@@ -127,6 +138,22 @@ table#tbl_Im_Actions__Header tr th {
     padding    : 5px;
     
 }
+table#tbl_IP_Anims_Actions__Header tr th {
+    
+    /*ref https://www.w3schools.com/CSSref/pr_background-color.asp*/
+    background-color   : #22ffff;
+    
+    width              : 100px;
+    
+    /*background-color   : #22ffff;*/
+    
+    text-align     : center;
+    
+    border     : 1px solid #aaaaaa;
+    
+    padding    : 5px;
+    
+}
 
 table#tbl_Mm_Numbering_Actions tr th {
     
@@ -164,6 +191,40 @@ table#tbl_Im_Actions tr td {
     
     padding    : 5px;
     
+}
+
+table#tbl_IP_Anims_Actions__Body tr td {
+    
+    
+    text-align     : left;
+    
+    border     : 1px solid #aaaaaa;
+    
+    padding    : 5px;
+    
+}
+
+td.tbl_IP_Anims_Actions__Body__Col_SN {
+	
+    /*background-color   : #aaaaaa;*/
+    
+    text-align     : center;
+    
+    color       : blue;
+    
+    font-weight        : 800;
+	
+}
+
+tr.tbl_IP_Anims_Actions__Body__TR_COLOR {
+	
+	/* https://www.tagindex.com/color/color_name.html color name */
+    background-color   : lightskyblue;
+    
+    text-align     : center;
+    
+    color       : black;
+	
 }
 
 table#tbl_Im_Actions__Body tr td {
@@ -426,6 +487,54 @@ div#layout_Links_Basic {
     margin         : 10px;
     
 }/*div#index_Display_Area {*/
+
+div#div_IP_Anims__Log_Area {
+	
+	/* #D4ACAD îñä` http://irononamae.web.fc2.com/colorlist/wa.html */
+    background     : #D4ACAD; 
+    
+    width          : 75%;
+    /*aa*/
+    min-height: 30px;
+    
+    margin         : 10px;
+    
+    padding         : 10px;
+    
+	
+}
+
+div#div_IP_Basics_Message_Area {
+	
+	/* #BADCAD îññGîKÅiÇ§Ç∑Ç‡Ç¶Ç¨Åj http://irononamae.web.fc2.com/colorlist/wa.html */
+    background     : #BADCAD; 
+    
+    width          : 75%;
+    /*aa*/
+    min-height: 30px;
+    
+    margin         : 10px;
+    
+    padding         : 10px;
+    
+	
+}
+
+div#div_IP_Anims_Result_Area {
+	
+	/* #BADCAD ñ‹ñYëêÅiÇÌÇ∑ÇÍÇ»ÇÆÇ≥Åj http://irononamae.web.fc2.com/colorlist/wa.html */
+    background     : #89C3EB; 
+    
+    width          : 75%;
+    /*aa*/
+    min-height: 30px;
+    
+    margin         : 10px;
+    
+    padding         : 10px;
+    
+	
+}
 
 div#div_Get4Corners_Options {
     
@@ -909,6 +1018,21 @@ label.lbl_Curr_UpdownPatterns {
     width      : 200px;
     
     padding    : 5px;
+    
+}
+
+label.lbl_div_IP_Anims__Log_Area {
+    
+    background: Gold;
+    /*background: LemonChiffon;*/
+    
+    display    : block;
+    
+    width      : 180px;
+    
+    padding    : 5px;
+    
+    margin  : 10px;
     
 }
 

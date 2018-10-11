@@ -10730,3 +10730,39 @@ img.20181004_060354.2018-10-03_23-14-17_000.jpg.2.png
 img.20181004_060354.2018-10-03_23-14-17_000.jpg.3.png
 img.20181004_060354.2018-10-03_23-14-17_000.jpg.4.png
 is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_B > 20 (39))
+[20181010_075216 lib_ip.py:3069] =============== Get 4 corners
+dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
+fname_Image = 2018-10-08_19-33-24_000.jpg
+
+img.20181010_075215.2018-10-08_19-33-24_000.jpg.1.png
+img.20181010_075215.2018-10-08_19-33-24_000.jpg.2.png
+img.20181010_075215.2018-10-08_19-33-24_000.jpg.3.png
+img.20181010_075215.2018-10-08_19-33-24_000.jpg.4.png
+is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_G < 30 or idxOf_Maxes_G > 80 (0))
+[20181010_075342 lib_ip.py:3069] =============== Get 4 corners
+dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
+fname_Image = 2018-10-10_07-20-02_000.jpg
+
+img.20181010_075340.2018-10-10_07-20-02_000.jpg.1.png
+img.20181010_075340.2018-10-10_07-20-02_000.jpg.2.png
+img.20181010_075340.2018-10-10_07-20-02_000.jpg.3.png
+img.20181010_075340.2018-10-10_07-20-02_000.jpg.4.png
+is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_B > 20 (76))
+[20181011_073717 lib_ip.py:3069] =============== Get 4 corners
+dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
+fname_Image = 2018-10-10_17-15-48_000.jpg
+
+img.20181011_073715.2018-10-10_17-15-48_000.jpg.1.png
+img.20181011_073715.2018-10-10_17-15-48_000.jpg.2.png
+img.20181011_073715.2018-10-10_17-15-48_000.jpg.3.png
+img.20181011_073715.2018-10-10_17-15-48_000.jpg.4.png
+is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_B > 20 (79))
+[20181011_074427 lib_ip.py:3069] =============== Get 4 corners
+dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
+fname_Image = 2018-10-10_17-15-48_000.jpg
+
+img.20181011_074425.2018-10-10_17-15-48_000.jpg.1.png
+img.20181011_074425.2018-10-10_17-15-48_000.jpg.2.png
+img.20181011_074425.2018-10-10_17-15-48_000.jpg.3.png
+img.20181011_074425.2018-10-10_17-15-48_000.jpg.4.png
+is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_B > 20 (79))

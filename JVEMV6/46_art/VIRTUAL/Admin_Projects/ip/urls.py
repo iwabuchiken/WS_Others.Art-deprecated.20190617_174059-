@@ -29,4 +29,10 @@ urlpatterns = [
     # 20180925_064955
     url(r'^prep_gen_Cake_CSV/$', views.prep_gen_Cake_CSV, name='prep_gen_Cake_CSV'),
     
+    # 20181010_084804
+    url(r'^anims/$', views.anims, name='anims'),
+    
+    # 20181010_120542
+    url(r'^anims_JS/$', views.anims_JS, name='anims_JS'),
+    
 ]

@@ -1,3 +1,12 @@
+'''###################
+
+
+data dir
+start C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\data
+    
+###################'''
+
+
 # from django.shortcuts import render
 '''###################
     django modules
@@ -12,7 +21,7 @@ from mailbox import fcntl
 ###################'''
 import subprocess, copy, re, clipboard, time, \
         os, datetime, ftplib, glob, sys, cv2 \
-        , matplotlib.pyplot as plt, codecs, shutil
+        , matplotlib.pyplot as plt, codecs, shutil, numpy as np
 
 '''###################
     import : orig modules        
@@ -85,6 +94,343 @@ def test(request):
 
 #     return HttpResponse(html)
 # #     return HttpResponse("Hello Django (new urls.py file)")
+
+def _anims__Load_LO_Actions():
+    
+    dpath_List = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data"
+
+    fname_List = "anims_listof_commands.dat"
+    
+    fpath_List = os.path.join(dpath_List, fname_List)
+    
+    f = open(fpath_List, "r")
+
+    # header line
+    f.readline()
+    
+    # body lines
+    lines = f.readlines()
+    
+    # close file
+    f.close()
+    
+    lo_Commands = []
+    
+    # build list
+    for item in lines:
+
+        lo_Commands.append(item.split("\t")[1:])
+        
+    #/for item in lines:
+    
+    #debug
+    print()
+    print("[%s:%d] lo_Commands =>" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        
+        ), file=sys.stderr)
+    print(lo_Commands)
+    
+    return lo_Commands
+    
+#/ def _anims__Load_LO_Actions()(request):
+
+
+def _anims_JS__1_Move_Leaves__Test_1_Resize__exec(angle, scale, img, center, fpath_Dst):
+    
+#     angle_45 = 45
+#     scale = 1.0
+
+    (h, w) = img.shape[:2]
+#     center = (365, 203)
+#     center = (w / 2, h / 2)
+    
+    M = cv2.getRotationMatrix2D(center, angle, scale)
+    rotated = cv2.warpAffine(img, M, (h, w))
+    
+#     tokens = fname_Image_File.split(".")
+#     fname_Dst = "%s.%s.(rotate=%d).%s.%s" \
+#             % (tokens[0], tokens[1], angle_45, libs.get_TimeLabel_Now(), tokens[2])
+    
+#     fpath_Image_File__Dst = os.path.join(dpath_Image_File, fname_Dst)
+    
+    cv2.imwrite(fpath_Dst, rotated)
+    
+#/ def _anims_JS__1_Move_Leaves__Test_1_Resize__exec():
+    
+def _anims_JS__1_Move_Leaves__Test_1_Resize():
+
+    '''###################
+        prep        
+    ###################'''
+    dpath_Image_File = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\data_images"
+    
+    fname_Image_File = "leaf-2.1.png"   # orig : C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\6_visual-arts\4_animations\1_\5_\images
+    
+    fpath_Image_File = os.path.join(dpath_Image_File, fname_Image_File)
+    
+    print("[%s:%d] fpath_Image_File = %s (exists = %s)" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , fpath_Image_File, os.path.isfile(fpath_Image_File)
+        ), file=sys.stderr)
+    
+    '''###################
+        op        
+    ###################'''
+    '''###################
+        img : read
+    ###################'''
+    #ref http://peaceandhilightandpython.hatenablog.com/entry/2016/01/09/214333
+    #ref alpha channel http://opencv.blog.jp/python/alpha_channel
+    img = cv2.imread(fpath_Image_File, cv2.IMREAD_UNCHANGED)
+#     img = cv2.imread(fpath_Image_File)
+#     img = cv2.imread(fpath_Image_File, cv2.IMREAD_COLOR)
+    
+#     orgHeight, orgWidth = img.shape[:2]
+#     size = (int(orgWidth/2), int(orgHeight/2))
+# #     size = (int(orgHeight/2), int(orgWidth/2))
+#     
+# #     size = (orgHeight/2, orgWidth/2)
+#     
+#     halfImg = cv2.resize(img, size)
+#     
+#     tokens = fname_Image_File.split(".")
+#     fname_Half = "%s.%s.(half).%s.%s" \
+#             % (tokens[0], tokens[1], libs.get_TimeLabel_Now(), tokens[2])
+# 
+#     cv2.imwrite(os.path.join(dpath_Image_File, fname_Half), halfImg)
+#     cv2.imwrite('half.jpg', halfImg)
+    
+    '''###################
+        rotate        
+    ###################'''
+    tokens = fname_Image_File.split(".")
+    (h, w) = img.shape[:2]
+     
+    tlabel = libs.get_TimeLabel_Now()
+#     
+#     for i in range(0, 10):
+# #     for i in range(0, 5):
+#         
+#         angle = i * 5
+#         scale = 1.0
+#         
+#         #ref radians https://docs.scipy.org/doc/numpy/reference/generated/numpy.radians.html
+#         span = int((370 - w / 2) * np.sin(np.radians(angle)))
+#         span_w = int((370 - w / 2) * np.cos(np.radians(angle)))
+#         
+#         center = (w / 2 + span_w, h / 2 + span)
+# #         center = (w / 2, h / 2 + span)
+# #         center = (w / 2, h / 2 - span)
+# #         (h, w) = img.shape[:2]
+# #         center = (w / 2, h / 2)
+#     
+#         fname_Dst = "%s.%s.(rotate=%d).%s.(center=%d,%d).%s" \
+#                 % (tokens[0], tokens[1], angle, tlabel, center[0], center[1], tokens[2])
+# #                 % (tokens[0], tokens[1], angle, tlabel, tokens[2])
+# #                 % (tokens[0], tokens[1], angle, libs.get_TimeLabel_Now(), tokens[2])
+#          
+#         fpath_Dst = os.path.join(dpath_Image_File, fname_Dst)
+#         
+#         _anims_JS__1_Move_Leaves__Test_1_Resize__exec(angle, scale, img, center, fpath_Dst)
+#         
+#         
+#     #/for i in range(0, 10):
+
+    '''###################
+        move image        
+    ###################'''
+    #ref https://stackoverflow.com/questions/23464495/fastest-way-to-move-image-in-opencv
+    fname_Dst = "%s.%s.(moved).%s.%s" \
+        % (tokens[0], tokens[1], tlabel, tokens[2])
+        
+    fpath_Dst = os.path.join(dpath_Image_File, fname_Dst)
+    
+    print("[%s:%d] fname_Dst => %s" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , fname_Dst
+        ), file=sys.stderr)
+    
+    img_Partial = img[150 : 270, 300 : 420]  # h, w
+#     img_Partial = img[0 : 100, 0 : 50]  # h, w
+#     img_Partial = img[cv2.Rect(0, 0, 100, 100)]
+#     img_Partial = img(cv2.Rect(0, 0, 100, 100))
+    
+    cv2.imwrite(fpath_Dst, img_Partial)
+#     cv2.imwrite(fname_Dst, img_Partial)
+    
+    
+#     #ref https://www.tutorialkart.com/opencv/python/opencv-python-rotate-image/#opencv-python-rotate-image
+#     angle_45 = 45
+#     scale = 1.0
+#     aa
+#     (h, w) = img.shape[:2]
+#     center = (365, 203)
+# #     center = (w / 2, h / 2)
+#     
+#     M = cv2.getRotationMatrix2D(center, angle_45, scale)
+#     rotated_45 = cv2.warpAffine(img, M, (h, w))
+# #     rotated90 = cv2.warpAffine(img, M, (h, w))
+#     
+#     tokens = fname_Image_File.split(".")
+#     fname_Dst = "%s.%s.(rotate=%d).%s.%s" \
+#             % (tokens[0], tokens[1], angle_45, libs.get_TimeLabel_Now(), tokens[2])
+#     
+#     fpath_Image_File__Dst = os.path.join(dpath_Image_File, fname_Dst)
+#     
+#     cv2.imwrite(fpath_Image_File__Dst, rotated_45)
+    
+    
+#/ def _anims_JS__1_Move_Leaves__Test_1_Resize():
+    
+def _anims_JS__1_Move_Leaves(request):
+    
+    '''###################
+        ops
+    ###################'''
+    _anims_JS__1_Move_Leaves__Test_1_Resize()
+    
+    '''###################
+        return        
+    ###################'''
+    status = 1
+    
+    msg = "OK"
+    
+    return (status, msg)
+    
+#/ def _anims_JS__1_Move_Leaves(request):
+    
+def anims_JS(request):
+    
+    '''###################
+        time        
+    ###################'''
+    time_Exec_Start = time.time()
+    
+    '''###################
+        vars
+    ###################'''
+    dic = {
+        
+        "message" : ""
+        , "message_2" : ""
+        }
+    
+    render_Page = 'ip/anims/plain_anims.html'
+    
+    '''###################
+        params
+    ###################'''
+    param = request.GET.get('param', False)
+    
+    #debug
+#     print("[%s:%d] param => %s" % \
+    print("[%s:%d] param => %s ============================" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , param
+            ), file=sys.stderr)
+
+    '''###################
+        dispatch
+    ###################'''
+    if param == cons_ip.Anims_Params.PARAM__1_MOVE_LEAVES.value : #if param == cons_fx.Tester.lo_Actions__BUSL__IDs[0].value
+        '''###################
+            PARAM__1_MOVE_LEAVES        
+        ###################'''
+        # call func
+        (status, msg) = _anims_JS__1_Move_Leaves(request)
+
+        dic['message'] += "move leaves"
+        
+        dic['message_2'] += "status = %d / msg = '%s'" % (status, msg)
+
+    '''###################
+        time        
+    ###################'''
+    time_Exec_Elapsed = time.time() - time_Exec_Start
+
+    dic['message_2'] += "(time = %s) (elapsed = %02.3f sec)" % \
+                        (libs.get_TimeLabel_Now(), time_Exec_Elapsed)
+
+
+    '''###################
+        render
+    ###################'''
+    return render(request, render_Page, dic)
+    
+    
+#/ def anims_JS(request):
+    
+    
+def anims(request):
+    
+    now = datetime.datetime.now()
+
+
+    action = "anims"
+    message = "yes"
+
+    page_Title = "IP / anims"
+
+    dic = {
+            'action' : action, 
+            "message" : message, 
+#             "lo_Commands" : lo_Commands,
+            "page_Title" : page_Title,
+    }
+#     dic = {'action' : action, "message" : message, "lo_Commands" : lo_Commands}
+
+#     dic = {message : _message}
+
+    '''###################
+        list of commands
+    ###################'''
+    lo_Commands = _anims__Load_LO_Actions()
+#     lo_Commands = [
+#          
+#         ["move_leaves", "image sequence for moving leaves"],
+#          
+#         ["???", "unknown"],
+#     ]
+     
+     
+    # set var
+    dic["lo_Commands"] = lo_Commands
+    
+    dic["count"] = 0
+
+    '''###################
+        get : referer        
+    ###################'''
+    referer_MM = "http://127.0.0.1:8000/ip/"
+    
+    referer_Current = request.META.get('HTTP_REFERER')
+
+    if referer_Current == referer_MM : #if referer_Current == referer_MM
+    
+        print()
+        print("[%s:%d] referer_Current == referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, 'ip/anims/anims.html', dic)
+#         return render(request, 'ip/basics.html', dic)
+#         return render(request, 'mm/numbering.html', dic)
+        
+    else : #if referer_Current == referer_MM
+
+        print()
+        print("[%s:%d] referer_Current <> referer_MM (current = %s / referer = %s" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                ,referer_Current, referer_MM
+                ), file=sys.stderr)
+    
+        return render(request, 'ip/anims/anims_full.html', dic)
+#         return render(request, 'ip/basics_full.html', dic)
+
+#/ anims
 
 def basics(request):
     
