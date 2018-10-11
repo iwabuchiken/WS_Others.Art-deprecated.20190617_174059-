@@ -1414,7 +1414,7 @@ function curr_Index_LinkTo(_param) {
 	
 }//function mm_Index_LinkTo(_param) {
 
-function _anims_Action_LinkTo__1() {
+function _anims_Action_LinkTo__1(_param) {
 	
 	/***************************
 		prep
@@ -1425,8 +1425,12 @@ function _anims_Action_LinkTo__1() {
 	/***************************
 		param
 	 ***************************/
-//	var _data;
-//	
+	var _data = {
+			
+			param : _param
+			
+	};
+	
 //	//ref multiple conditions https://stackoverflow.com/questions/8710442/how-to-specify-multiple-conditions-in-an-if-statement-in-javascript answered Jan 3 '12 at 9:58
 //	if ((_param == "11-0") || 
 //			(_param == "10-1")) {
@@ -1447,7 +1451,7 @@ function _anims_Action_LinkTo__1() {
 	    //REF http://stackoverflow.com/questions/1916309/pass-multiple-parameters-to-jquery-ajax-call answered Dec 16 '09 at 17:37
 	//    data: {id: id},
 	//    data: {memos: memos, image_id: image_id},
-//	    data: _data,
+	    data: _data,
 	    
 	    timeout: 10000
 	    
@@ -1525,14 +1529,23 @@ function anims_Action(_param) {
 //	elem.css("background", cname_Yellow);
 
 	/***************************
+		params
+			==> see : cons_ip :: Anims_Params
+			
+	 ***************************/
+	var param_1_move_leaves = "1";
+	
+	
+	/***************************
 		dispatch
 	 ***************************/
 	//ref https://www.w3schools.com/jsref/jsref_parseInt.asp
-	var index = parseInt(_param);
+//	var index = parseInt(_param);
 	
-	if (index == 1) {	// 1	"move_leaves"
+//	if (index == 1) {	// 1	"move_leaves"
+	if (_param == param_1_move_leaves) {	// 1	"move_leaves"
 		
-		_anims_Action_LinkTo__1();
+		_anims_Action_LinkTo__1(_param);
 		
 //	else if (index == 1) {	//[1, "De-numbering"]
 //		

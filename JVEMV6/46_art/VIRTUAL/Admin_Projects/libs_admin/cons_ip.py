@@ -529,3 +529,11 @@ class ColorNameSet(Enum):
     
 #/ class ColorNameSet(Enum):
     
+class Anims_Params(Enum):
+    
+    '''###################
+        main        
+    ###################'''
+    PARAM__1_MOVE_LEAVES = "1"
+    
+#/ class Anims_Params(Enum):
