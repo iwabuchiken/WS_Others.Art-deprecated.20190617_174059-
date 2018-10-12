@@ -138,6 +138,13 @@ table#tbl_Im_Actions__Header tr th {
     padding    : 5px;
     
 }
+
+table#tbl_IP_Anims_Actions__Header {
+	
+	margin     : 10px;
+	
+}
+	
 table#tbl_IP_Anims_Actions__Header tr th {
     
     /*ref https://www.w3schools.com/CSSref/pr_background-color.asp*/
@@ -309,6 +316,7 @@ button.bt_Basic_2_Size20 {
     
     padding    : 5px;
     
+    margin      : 10px;
     
 }
 
@@ -535,6 +543,42 @@ div#div_IP_Anims_Result_Area {
     
 	
 }
+
+div#div_IP_Anims_Options_Area {
+	
+	/* #BADCAD 勿忘草（わすれなぐさ） http://irononamae.web.fc2.com/colorlist/wa.html */
+    background     : white; 
+    
+    width          : 85%;
+
+    /*min-height: 30px;*/
+    height          : 250px;
+    
+    margin         : 10px;
+    
+    padding         : 10px;
+   
+    overflow       :scroll;
+	
+}/*div#div_IP_Anims_Options_Area*/
+
+div#div_IP_Anims_ListOf_Actions {
+	
+	/* #BADCAD 勿忘草（わすれなぐさ） http://irononamae.web.fc2.com/colorlist/wa.html */
+    background     : white; 
+    
+    width          : 85%;
+
+    /*min-height: 30px;*/
+    height          : 200px;
+    
+    margin         : 10px;
+    
+    /*padding         : 10px;*/
+   
+    overflow       :scroll;
+	
+}/*div#div_IP_Anims_ListOf_Actions*/
 
 div#div_Get4Corners_Options {
     
