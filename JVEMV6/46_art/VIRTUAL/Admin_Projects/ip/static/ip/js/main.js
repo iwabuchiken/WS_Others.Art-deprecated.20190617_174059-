@@ -1421,6 +1421,27 @@ function _anims_Action_LinkTo__1(_param) {
 	 ***************************/
 	var _url = "http://127.0.0.1:8001/ip/anims_JS/";
 	//var _url = "http://127.0.0.1:8000/im/actions";
+
+	/***************************
+		params : options values
+	 ***************************/
+//	var tag_option_tick_move_x = $('input#in_anims_options_tick_move_x');
+	var _option_loc_start_X = $('input#in_anims_options_loc_start_x').val();
+	
+//	var tag_option_tick_move_y = $('input#in_anims_options_tick_move_y');
+//	var _option_tick_move_Y = tag_option_tick_move_y.val();
+	var _option_loc_start_Y = $('input#in_anims_options_loc_start_y').val();
+	
+	var _opt_rotate_Start = $('input#in_anims_options_rotate_start').val();
+	var _opt_rotate_End = $('input#in_anims_options_rotate_end').val();
+
+	//debug
+//	alert("_option_tick_move_X * 2 => " + (_option_tick_move_X * 2));
+//	alert("_option_tick_move_Y * 2 => " + (_option_tick_move_Y * 2));
+	//ref number https://www.w3schools.com/jsref/jsref_number.asp
+//	alert("_option_loc_start_Y * 2 => " + (Number(_option_loc_start_Y) * 2));
+//	alert("_option_tick_move_Y * 2 => " + (Number(_option_tick_move_Y) * 2));
+//	return;
 	
 	/***************************
 		param
@@ -1428,6 +1449,13 @@ function _anims_Action_LinkTo__1(_param) {
 	var _data = {
 			
 			param : _param
+			
+			, option_loc_start_X : _option_loc_start_X
+			, option_loc_start_Y : _option_loc_start_Y
+//			, option_tick_move_Y : _option_tick_move_Y
+			
+			, opt_rotate_Start : _opt_rotate_Start
+			, opt_rotate_End : _opt_rotate_End
 			
 	};
 	
@@ -1535,6 +1563,21 @@ function anims_Action(_param) {
 	 ***************************/
 	var param_1_move_leaves = "1";
 	
+//	/***************************
+//		params : options values
+//	 ***************************/
+//	var tag_option_tick_move_x = $('input#in_anims_options_tick_move_x');
+//	var option_tick_move_X = tag_option_tick_move_x.val();
+//	
+//	var tag_option_tick_move_y = $('input#in_anims_options_tick_move_y');
+//	var option_tick_move_Y = tag_option_tick_move_y.val();
+//	
+//	var opt_rotate_Start = $('input#in_anims_options_rotate_Start').val();
+//	var opt_rotate_End = $('input#in_anims_options_rotate_End').val();
+	
+//	alert("tag_option_tick_move_x => " + tag_option_tick_move_x.val());
+//	
+//	return;
 	
 	/***************************
 		dispatch

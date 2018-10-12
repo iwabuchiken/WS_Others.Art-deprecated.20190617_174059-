@@ -158,7 +158,7 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize__exec(angle, scale, img, center, fpa
     
 #/ def _anims_JS__1_Move_Leaves__Test_1_Resize__exec():
     
-def _anims_JS__1_Move_Leaves__Test_1_Resize():
+def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
 
     '''###################
         prep        
@@ -173,6 +173,30 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize():
         (os.path.basename(libs.thisfile()), libs.linenum()
         , fpath_Image_File, os.path.isfile(fpath_Image_File)
         ), file=sys.stderr)
+
+    '''###################
+        prep : params
+            main.js :: _anims_Action_LinkTo__1(_param)
+            , option_tick_move_X : _option_tick_move_X
+            , option_tick_move_Y : _option_tick_move_Y
+            
+            , opt_rotate_Start : _opt_rotate_Start
+            , opt_rotate_End : _opt_rotate_End
+
+    ###################'''
+    param_Loc_Start_X = request.GET.get('option_loc_start_X', False)
+    param_Loc_Start_Y = request.GET.get('option_loc_start_Y', False)
+    
+    # modify
+    # ref tertiary https://stackoverflow.com/questions/394809/does-python-have-a-ternary-conditional-operator
+    param_Loc_Start_X = 100 if (param_Loc_Start_X == False) else int(param_Loc_Start_X)
+    param_Loc_Start_Y = 100 if (param_Loc_Start_Y == False) else int(param_Loc_Start_Y)
+    
+    print("[%s:%d] param_Loc_Start_X = %d, param_Loc_Start_Y = %d" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , param_Loc_Start_X, param_Loc_Start_Y
+        ), file=sys.stderr)
+    #abcde
     
     '''###################
         op        
@@ -251,7 +275,8 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize():
         , fname_Dst
         ), file=sys.stderr)
     
-    img_Partial = img[150 : 270, 300 : 420]  # h, w
+    img_Partial = img[param_Loc_Start_Y : 270, param_Loc_Start_X : 420]  # h, w
+#     img_Partial = img[150 : 270, 300 : 420]  # h, w
 #     img_Partial = img[0 : 100, 0 : 50]  # h, w
 #     img_Partial = img[cv2.Rect(0, 0, 100, 100)]
 #     img_Partial = img(cv2.Rect(0, 0, 100, 100))
@@ -288,7 +313,7 @@ def _anims_JS__1_Move_Leaves(request):
     '''###################
         ops
     ###################'''
-    _anims_JS__1_Move_Leaves__Test_1_Resize()
+    _anims_JS__1_Move_Leaves__Test_1_Resize(request)
     
     '''###################
         return        

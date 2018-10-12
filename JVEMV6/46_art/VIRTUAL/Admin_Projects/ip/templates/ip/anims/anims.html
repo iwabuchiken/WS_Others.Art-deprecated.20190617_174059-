@@ -12,12 +12,28 @@ Anims
     
 </div><!-- <div id="div_IP_Basics_Button_ShowHide"> -->
 
-<div id="div_IP_Basics_ListOf_Actions">
+<div id="div_IP_Anims_ListOf_Actions">
 
     {% include 'ip/partials/anims/index_table.html' %}
 
 
 </div><!-- <div id="div_Basics_ListOf_Actions"> -->
+
+<hr>
+<button onclick="bt_ShowHide_Areas('div_IP_Anims_Options_Area')"
+    class="bt_Basic_2_Size20"
+    
+    >
+    Show / Hide
+</button>
+    
+    Options
+
+<div id="div_IP_Anims_Options_Area">
+
+	{% include 'ip/partials/anims/_anims_options.html' %}
+	
+</div>
 
 <hr>
 
