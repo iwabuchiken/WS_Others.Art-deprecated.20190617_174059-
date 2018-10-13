@@ -187,15 +187,21 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
     param_Loc_Start_X = request.GET.get('option_loc_start_X', False)
     param_Loc_Start_Y = request.GET.get('option_loc_start_Y', False)
     
+    param_Cut_Width = request.GET.get('opt_cut_width', False)
+    param_Cut_Height = request.GET.get('opt_cut_height', False)
+    
     # modify
     # ref tertiary https://stackoverflow.com/questions/394809/does-python-have-a-ternary-conditional-operator
-    param_Loc_Start_X = 100 if (param_Loc_Start_X == False) else int(param_Loc_Start_X)
-    param_Loc_Start_Y = 100 if (param_Loc_Start_Y == False) else int(param_Loc_Start_Y)
+    param_Loc_Start_X = 0 if (param_Loc_Start_X == False) else int(param_Loc_Start_X)
+    param_Loc_Start_Y = 0 if (param_Loc_Start_Y == False) else int(param_Loc_Start_Y)
     
-    print("[%s:%d] param_Loc_Start_X = %d, param_Loc_Start_Y = %d" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        , param_Loc_Start_X, param_Loc_Start_Y
-        ), file=sys.stderr)
+    param_Cut_Width = 100 if (param_Cut_Width == False) else int(param_Cut_Width)
+    param_Cut_Height = 100 if (param_Cut_Height == False) else int(param_Cut_Height)
+    
+#     print("[%s:%d] param_Loc_Start_X = %d, param_Loc_Start_Y = %d" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , param_Loc_Start_X, param_Loc_Start_Y
+#         ), file=sys.stderr)
     #abcde
     
     '''###################
@@ -275,7 +281,12 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
         , fname_Dst
         ), file=sys.stderr)
     
-    img_Partial = img[param_Loc_Start_Y : 270, param_Loc_Start_X : 420]  # h, w
+    img_Partial = img[
+                param_Loc_Start_Y : param_Loc_Start_Y + param_Cut_Height
+                , param_Loc_Start_X : param_Loc_Start_X + param_Cut_Width
+                
+                ]  # h, w
+#     img_Partial = img[param_Loc_Start_Y : 270, param_Loc_Start_X : 420]  # h, w
 #     img_Partial = img[150 : 270, 300 : 420]  # h, w
 #     img_Partial = img[0 : 100, 0 : 50]  # h, w
 #     img_Partial = img[cv2.Rect(0, 0, 100, 100)]
@@ -288,7 +299,7 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
 #     #ref https://www.tutorialkart.com/opencv/python/opencv-python-rotate-image/#opencv-python-rotate-image
 #     angle_45 = 45
 #     scale = 1.0
-#     aa
+
 #     (h, w) = img.shape[:2]
 #     center = (365, 203)
 # #     center = (w / 2, h / 2)
@@ -2129,6 +2140,56 @@ def open_image_dir(request):
 
     return render(request, 'ip/open_image_dir.html', dic)
 
+    
+#/ def open_image_dir(request):
+
+def open_dir(request):
+    
+    '''###################
+        params
+    ###################'''
+    param = request.GET.get('param', False)
+    
+    print("[%s:%d] param => %s" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , param
+        ), file=sys.stderr)
+    
+    '''###################
+        vars        
+    ###################'''
+    dic = {}
+    
+    print()
+    print("[%s:%d] opening dir..." % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+
+    '''###################
+        build : command string        
+    ###################'''
+    command = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\utils\\open_anims_log_dir.bat"
+
+    cmd_Full = [command]  #=> 
+
+    print()
+    print("[%s:%d] command => %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , command
+            ), file=sys.stderr)
+
+    '''###################
+        subprocess        
+    ###################'''
+    #ref https://stackoverflow.com/questions/13525882/tasklist-output answered Nov 23 '12 at 9:36
+    res = subprocess.call(cmd_Full)
+#     res = subprocess.check_output(cmd_Full)
+
+    '''###################
+        render
+    ###################'''
+    return render(request, 'ip/anims/plain_anims.html', dic)
     
 #/ def open_image_dir(request):
 

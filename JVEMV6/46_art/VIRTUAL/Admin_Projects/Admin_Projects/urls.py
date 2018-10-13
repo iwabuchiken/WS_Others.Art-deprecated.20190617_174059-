@@ -21,4 +21,7 @@ urlpatterns = [
     
     url(r'^ip/', include('ip.urls')),
     
+    # 20181013_075619
+    url(r'^anims/', include('anims.urls')),
+    
 ]
