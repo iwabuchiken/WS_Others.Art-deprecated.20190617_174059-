@@ -1419,8 +1419,7 @@ function _anims_Action_LinkTo__1(_param) {
 	/***************************
 		prep
 	 ***************************/
-	var _url = "http://127.0.0.1:8001/anims/anims_JS/";
-//	var _url = "http://127.0.0.1:8001/ip/anims_JS/";
+	var _url = "http://127.0.0.1:8001/ip/anims_JS/";
 	//var _url = "http://127.0.0.1:8000/im/actions";
 
 	/***************************
@@ -1436,8 +1435,6 @@ function _anims_Action_LinkTo__1(_param) {
 	var _opt_rotate_Start = $('input#in_anims_options_rotate_start').val();
 	var _opt_rotate_End = $('input#in_anims_options_rotate_end').val();
 
-	
-	
 	/***************************
 		param
 	 ***************************/

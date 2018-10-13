@@ -35,4 +35,7 @@ urlpatterns = [
     # 20181010_120542
     url(r'^anims_JS/$', views.anims_JS, name='anims_JS'),
     
+    # 20181013_071822
+    url(r'^open_dir/$', views.open_dir, name='open_dir'),
+    
 ]

@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'ip',
+    'anims',
     
     #ref https://stackoverflow.com/questions/43357687/django-python-rest-framework-no-access-control-allow-origin-header-is-present#44615874 answered Jul 28 '17 at 14:40
     'corsheaders',
