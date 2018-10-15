@@ -1435,7 +1435,10 @@ function _anims_Action_LinkTo__1(_param) {
 	
 	var _opt_rotate_Start = $('input#in_anims_options_rotate_start').val();
 	var _opt_rotate_End = $('input#in_anims_options_rotate_end').val();
+	var _opt_rotate_Tick = $('input#in_anims_options_rotate_tick').val();
 
+//	alert("_opt_rotate_Tick => " + _opt_rotate_Tick);
+//	return;
 	
 	
 	/***************************
@@ -1451,6 +1454,7 @@ function _anims_Action_LinkTo__1(_param) {
 			
 			, opt_rotate_Start : _opt_rotate_Start
 			, opt_rotate_End : _opt_rotate_End
+			, opt_rotate_Tick : _opt_rotate_Tick
 			
 			, opt_cut_width : _opt_cut_width
 			, opt_cut_height : _opt_cut_height

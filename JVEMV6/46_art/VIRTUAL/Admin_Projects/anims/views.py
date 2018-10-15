@@ -332,6 +332,14 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
     param_Cut_Width = request.GET.get('opt_cut_width', False)
     param_Cut_Height = request.GET.get('opt_cut_height', False)
     
+    param_Rotate_Start = request.GET.get('opt_rotate_Start', False)
+    param_Rotate_End = request.GET.get('opt_rotate_End', False)
+    param_Rotate_Tick = request.GET.get('opt_rotate_Tick', False)
+    
+    print("[%s:%d] param_Rotate_Tick => %s" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , param_Rotate_Tick
+        ), file=sys.stderr)
     # modify
     # ref tertiary https://stackoverflow.com/questions/394809/does-python-have-a-ternary-conditional-operator
     param_Loc_Start_X = 0 if (param_Loc_Start_X == False) else int(param_Loc_Start_X)
@@ -339,6 +347,12 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
     
     param_Cut_Width = 100 if (param_Cut_Width == False) else int(param_Cut_Width)
     param_Cut_Height = 100 if (param_Cut_Height == False) else int(param_Cut_Height)
+    
+    param_Rotate_Start = 0 if (param_Rotate_Start == False) else int(param_Rotate_Start)
+    param_Rotate_End = 45 if (param_Rotate_End == False) else int(param_Rotate_End)
+    param_Rotate_Tick = 5 if (param_Rotate_Tick == False) else int(param_Rotate_Tick)
+    
+    
     
     
     print("[%s:%d] param_Cut_Width = %d, param_Cut_Height = %d" % \
@@ -381,67 +395,101 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
     '''###################
         rotate        
     ###################'''
-    #abcde
     tokens = fname_Image_File.split(".")
     (h, w) = img.shape[:2]
-     
+    
     tlabel = libs.get_TimeLabel_Now()
-#     
-#     for i in range(0, 10):
-# #     for i in range(0, 5):
-#         
-#         angle = i * 5
-#         scale = 1.0
-#         
-#         #ref radians https://docs.scipy.org/doc/numpy/reference/generated/numpy.radians.html
-#         span = int((370 - w / 2) * np.sin(np.radians(angle)))
-#         span_w = int((370 - w / 2) * np.cos(np.radians(angle)))
-#         
-#         center = (w / 2 + span_w, h / 2 + span)
-# #         center = (w / 2, h / 2 + span)
-# #         center = (w / 2, h / 2 - span)
-# #         (h, w) = img.shape[:2]
-# #         center = (w / 2, h / 2)
-#     
-#         fname_Dst = "%s.%s.(rotate=%d).%s.(center=%d,%d).%s" \
-#                 % (tokens[0], tokens[1], angle, tlabel, center[0], center[1], tokens[2])
-# #                 % (tokens[0], tokens[1], angle, tlabel, tokens[2])
-# #                 % (tokens[0], tokens[1], angle, libs.get_TimeLabel_Now(), tokens[2])
-#          
-#         fpath_Dst = os.path.join(dpath_Image_File, fname_Dst)
-#         
-#         _anims_JS__1_Move_Leaves__Test_1_Resize__exec(angle, scale, img, center, fpath_Dst)
-#         
-#         
-#     #/for i in range(0, 10):
 
-    '''###################
-        move image        
-    ###################'''
-    #ref https://stackoverflow.com/questions/23464495/fastest-way-to-move-image-in-opencv
-    fname_Dst = "%s.%s.(moved).%s.%s" \
-        % (tokens[0], tokens[1], tlabel, tokens[2])
+    # paths
+    dir_Tmp = tlabel
+    
+    dpath_Tmp = os.path.join(dpath_Image_File, dir_Tmp)
+    
+    #ref mkdir https://www.tutorialspoint.com/python/os_mkdir.htm
+    if not os.path.isdir(dpath_Tmp) :
+        os.mkdir(dpath_Tmp)
         
-    fpath_Dst = os.path.join(dpath_Image_File, fname_Dst)
+#     
+    #ref step https://www.pythoncentral.io/pythons-range-function-explained/
+#     for i in range(param_Rotate_Start, param_Rotate_End):
+    for i in range(param_Rotate_Start, param_Rotate_End, param_Rotate_Tick):
+#     for i in range(0, 10):
+#     for i in range(0, 5):
+         
+#         angle = i * 5
+        angle = i
+        scale = 1.0
+         
+        #ref radians https://docs.scipy.org/doc/numpy/reference/generated/numpy.radians.html
+        span = int((370 - w / 2) * np.sin(np.radians(angle)))
+        span_w = int((370 - w / 2) * np.cos(np.radians(angle)))
+         
+        center = (w / 2 + span_w, h / 2 + span)
+#         center = (w / 2, h / 2 + span)
+#         center = (w / 2, h / 2 - span)
+#         (h, w) = img.shape[:2]
+#         center = (w / 2, h / 2)
+        
+        
+#         # paths
+#         dir_Tmp = tlabel
+#         
+#         dpath_Tmp = os.path.join(dpath_Image_File, dir_Tmp)
+#         
+#         #ref mkdir https://www.tutorialspoint.com/python/os_mkdir.htm
+#         if not os.path.isdir(dpath_Tmp) :
+#             os.mkdir(dpath_Tmp)
+#         
+        
+        fname_Dst = "%s.%s.(rotate=%d).%s.(center=%d,%d).%s" \
+                % (tokens[0], tokens[1], angle, tlabel, center[0], center[1], tokens[2])
+#                 % (tokens[0], tokens[1], angle, tlabel, tokens[2])
+#                 % (tokens[0], tokens[1], angle, libs.get_TimeLabel_Now(), tokens[2])
+          
+        fpath_Dst = os.path.join(dpath_Image_File, dir_Tmp, fname_Dst)
+#         fpath_Dst = os.path.join(dpath_Image_File, fname_Dst)
+         
+        _anims_JS__1_Move_Leaves__Test_1_Resize__exec(angle, scale, img, center, fpath_Dst)
     
-    print("[%s:%d] fname_Dst => %s" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        , fname_Dst
-        ), file=sys.stderr)
+    '''###################
+        return        
+    ###################'''
+    status = 1
     
-    img_Partial = img[
-                param_Loc_Start_Y : param_Loc_Start_Y + param_Cut_Height
-                , param_Loc_Start_X : param_Loc_Start_X + param_Cut_Width
-                
-                ]  # h, w
-#     img_Partial = img[param_Loc_Start_Y : 270, param_Loc_Start_X : 420]  # h, w
-#     img_Partial = img[150 : 270, 300 : 420]  # h, w
-#     img_Partial = img[0 : 100, 0 : 50]  # h, w
-#     img_Partial = img[cv2.Rect(0, 0, 100, 100)]
-#     img_Partial = img(cv2.Rect(0, 0, 100, 100))
+    msg = "file created at : %s" % dpath_Tmp
     
-    cv2.imwrite(fpath_Dst, img_Partial)
-#     cv2.imwrite(fname_Dst, img_Partial)
+    return (status, msg)
+         
+         
+    #/for i in range(0, 10):
+
+#     '''###################
+#         move image        
+#     ###################'''
+#     #ref https://stackoverflow.com/questions/23464495/fastest-way-to-move-image-in-opencv
+#     fname_Dst = "%s.%s.(moved).%s.%s" \
+#         % (tokens[0], tokens[1], tlabel, tokens[2])
+#         
+#     fpath_Dst = os.path.join(dpath_Image_File, fname_Dst)
+#     
+#     print("[%s:%d] fname_Dst => %s" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , fname_Dst
+#         ), file=sys.stderr)
+#     
+#     img_Partial = img[
+#                 param_Loc_Start_Y : param_Loc_Start_Y + param_Cut_Height
+#                 , param_Loc_Start_X : param_Loc_Start_X + param_Cut_Width
+#                 
+#                 ]  # h, w
+# #     img_Partial = img[param_Loc_Start_Y : 270, param_Loc_Start_X : 420]  # h, w
+# #     img_Partial = img[150 : 270, 300 : 420]  # h, w
+# #     img_Partial = img[0 : 100, 0 : 50]  # h, w
+# #     img_Partial = img[cv2.Rect(0, 0, 100, 100)]
+# #     img_Partial = img(cv2.Rect(0, 0, 100, 100))
+#     
+#     cv2.imwrite(fpath_Dst, img_Partial)
+# #     cv2.imwrite(fname_Dst, img_Partial)
     
     
 #     #ref https://www.tutorialkart.com/opencv/python/opencv-python-rotate-image/#opencv-python-rotate-image
@@ -472,19 +520,20 @@ def _anims_JS__1_Move_Leaves(request):
     '''###################
         tests
     ###################'''
-    test_OpenCV__NewImage()
+#     test_OpenCV__NewImage()
     
     '''###################
         ops
     ###################'''
+    (status, msg) = _anims_JS__1_Move_Leaves__Test_1_Resize(request)
 #     _anims_JS__1_Move_Leaves__Test_1_Resize(request)
     
     '''###################
         return        
     ###################'''
-    status = 1
-    
-    msg = "OK"
+#     status = 1
+#     
+#     msg = "OK"
     
     return (status, msg)
     
