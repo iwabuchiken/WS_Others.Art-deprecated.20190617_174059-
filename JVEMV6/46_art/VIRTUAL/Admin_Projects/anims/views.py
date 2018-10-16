@@ -302,21 +302,6 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize__exec(angle, scale, img, center, fpa
 def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
 
     '''###################
-        prep        
-    ###################'''
-    dpath_Image_File = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\anims\\data\\data_images"
-#     dpath_Image_File = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\data_images"
-    
-    fname_Image_File = "leaf-2.1.png"   # orig : C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\6_visual-arts\4_animations\1_\5_\images
-    
-    fpath_Image_File = os.path.join(dpath_Image_File, fname_Image_File)
-    
-    print("[%s:%d] fpath_Image_File = %s (exists = %s)" % \
-        (os.path.basename(libs.thisfile()), libs.linenum()
-        , fpath_Image_File, os.path.isfile(fpath_Image_File)
-        ), file=sys.stderr)
-
-    '''###################
         prep : params
             main.js :: _anims_Action_LinkTo__1(_param)
             , option_tick_move_X : _option_tick_move_X
@@ -328,6 +313,9 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
     ###################'''
     param_Loc_Start_X = request.GET.get('option_loc_start_X', False)
     param_Loc_Start_Y = request.GET.get('option_loc_start_Y', False)
+    
+    param_Source_Dir = request.GET.get('opt_source_Dir', False)
+    param_Source_File = request.GET.get('opt_source_File', False)
     
     param_Cut_Width = request.GET.get('opt_cut_width', False)
     param_Cut_Height = request.GET.get('opt_cut_height', False)
@@ -352,8 +340,19 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
     param_Rotate_End = 45 if (param_Rotate_End == False) else int(param_Rotate_End)
     param_Rotate_Tick = 5 if (param_Rotate_Tick == False) else int(param_Rotate_Tick)
     
+    param_Source_Dir = cons_ip.FilePaths.dpath_Anims_Image_Files.value \
+                    if (param_Source_Dir == False) else param_Source_Dir
     
+    param_Source_File = cons_ip.FilePaths.fname_Anims_Image_Files.value \
+                    if (param_Source_File == False) else param_Source_File
     
+
+    print("[%s:%d] param_Source_Dir = %s\nparam_Source_File = %s" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , param_Source_Dir, param_Source_File
+            ), file=sys.stderr)
+    
+    #aa
     
     print("[%s:%d] param_Cut_Width = %d, param_Cut_Height = %d" % \
             (os.path.basename(libs.thisfile()), libs.linenum()
@@ -364,6 +363,24 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
 #         (os.path.basename(libs.thisfile()), libs.linenum()
 #         , param_Loc_Start_X, param_Loc_Start_Y
 #         ), file=sys.stderr)
+
+    '''###################
+        prep        
+    ###################'''
+    dpath_Image_File = param_Source_Dir
+#     dpath_Image_File = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\anims\\data\\data_images"
+#     dpath_Image_File = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\data_images"
+    
+    fname_Image_File = param_Source_File
+#     fname_Image_File = "leaf-2.1.png"   # orig : C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\6_visual-arts\4_animations\1_\5_\images
+    
+    fpath_Image_File = os.path.join(dpath_Image_File, fname_Image_File)
+    
+    print("[%s:%d] fpath_Image_File = %s (exists = %s)" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , fpath_Image_File, os.path.isfile(fpath_Image_File)
+        ), file=sys.stderr)
+
     
     '''###################
         op        
@@ -397,6 +414,8 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
     ###################'''
     tokens = fname_Image_File.split(".")
     (h, w) = img.shape[:2]
+    
+    tokens_2 = os.path.splitext(fname_Image_File)
     
     tlabel = libs.get_TimeLabel_Now()
 
@@ -440,9 +459,10 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
 #         if not os.path.isdir(dpath_Tmp) :
 #             os.mkdir(dpath_Tmp)
 #         
-        
-        fname_Dst = "%s.%s.(rotate=%d).%s.(center=%d,%d).%s" \
-                % (tokens[0], tokens[1], angle, tlabel, center[0], center[1], tokens[2])
+        fname_Dst = "%s.(rotate=%d).%s.(center=%d,%d).%s" \
+                % (tokens_2[0], angle, tlabel, center[0], center[1], tokens_2[1])
+#         fname_Dst = "%s.%s.(rotate=%d).%s.(center=%d,%d).%s" \
+#                 % (tokens[0], tokens[1], angle, tlabel, center[0], center[1], tokens[2])
 #                 % (tokens[0], tokens[1], angle, tlabel, tokens[2])
 #                 % (tokens[0], tokens[1], angle, libs.get_TimeLabel_Now(), tokens[2])
           

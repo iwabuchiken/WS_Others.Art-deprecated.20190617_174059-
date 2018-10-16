@@ -1436,6 +1436,9 @@ function _anims_Action_LinkTo__1(_param) {
 	var _opt_rotate_Start = $('input#in_anims_options_rotate_start').val();
 	var _opt_rotate_End = $('input#in_anims_options_rotate_end').val();
 	var _opt_rotate_Tick = $('input#in_anims_options_rotate_tick').val();
+	
+	var _opt_source_Dir = $('input#in_anims_options_source_dir').val();
+	var _opt_source_File = $('input#in_anims_options_source_file').val();
 
 //	alert("_opt_rotate_Tick => " + _opt_rotate_Tick);
 //	return;
@@ -1458,6 +1461,9 @@ function _anims_Action_LinkTo__1(_param) {
 			
 			, opt_cut_width : _opt_cut_width
 			, opt_cut_height : _opt_cut_height
+			
+			, opt_source_Dir : _opt_source_Dir
+			, opt_source_File : _opt_source_File
 			
 	};
 	
