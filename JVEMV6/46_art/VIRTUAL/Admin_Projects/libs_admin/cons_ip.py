@@ -384,6 +384,13 @@ class FilePaths(Enum):
     
     fname_LogFile__Gradation = "gradation.log"
     
+    '''###################
+        anims        
+    ###################'''
+    dpath_Anims_Image_Files = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\anims\\data\\data_images"
+    
+    fname_Anims_Image_Files = "leaf-2.1.png"
+    
 #/ class ColorThresholds(Enum):
     
 class ColorNameSet(Enum):
