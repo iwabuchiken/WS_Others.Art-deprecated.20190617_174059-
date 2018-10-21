@@ -352,8 +352,6 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
             , param_Source_Dir, param_Source_File
             ), file=sys.stderr)
     
-    #aa
-    
     print("[%s:%d] param_Cut_Width = %d, param_Cut_Height = %d" % \
             (os.path.basename(libs.thisfile()), libs.linenum()
             , param_Cut_Width, param_Cut_Height
@@ -559,6 +557,30 @@ def _anims_JS__1_Move_Leaves(request):
     
 #/ def _anims_JS__1_Move_Leaves(request):
     
+def _anims_JS__2_Move_Leaves__V2(request):
+    
+    '''###################
+        tests
+    ###################'''
+#     test_OpenCV__NewImage()
+    
+    '''###################
+        ops
+    ###################'''
+#     (status, msg) = _anims_JS__1_Move_Leaves__Test_1_Resize(request)
+#     _anims_JS__1_Move_Leaves__Test_1_Resize(request)
+    
+    '''###################
+        return        
+    ###################'''
+    status = 1
+     
+    msg = "_anims_JS__2_Move_Leaves__V2"
+    
+    return (status, msg)
+    
+#/ def _anims_JS__2_Move_Leaves__V2(request):
+    
 def anims_JS(request):
     
     '''###################
@@ -603,6 +625,25 @@ def anims_JS(request):
         
         dic['message_2'] += "status = %d / msg = '%s'" % (status, msg)
 
+    elif param == cons_ip.Anims_Params.PARAM__2_MOVE_LEAVES__V2.value : #if param == cons_fx.Tester.lo_Actions__BUSL__IDs[0].value
+        '''###################
+            PARAM__1_MOVE_LEAVES__V2        
+        ###################'''
+        # call func
+#         (status, msg) = (1, "PARAM__2_MOVE_LEAVES__V2")
+        (status, msg) = _anims_JS__2_Move_Leaves__V2(request)
+        
+        dic['message'] += "move leaves"
+        
+        dic['message_2'] += "status = %d / msg = '%s'" % (status, msg)
+        
+    else :
+        (status, msg) = (1, "unknown param : '%s'" % param)
+
+        dic['message'] += "unknown param"
+        
+        dic['message_2'] += "status = %d / msg = '%s'" % (status, msg)
+    
     '''###################
         time        
     ###################'''

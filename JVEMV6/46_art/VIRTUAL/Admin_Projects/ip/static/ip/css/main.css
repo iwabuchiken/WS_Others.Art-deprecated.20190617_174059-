@@ -496,6 +496,16 @@ div#layout_Links_Basic {
     
 }/*div#index_Display_Area {*/
 
+div#tbl_Anims_MoveLeaves_Options {
+	
+	/*ref https://stackoverflow.com/questions/916528/how-can-i-hide-a-td-tag-using-inline-javascript-or-css */
+	/*visibility: hidden*/
+	
+	/*ref https://stackoverflow.com/questions/16271972/hiding-a-div-by-default#16272029 */
+	display        : none;
+	
+}/*tbl_Anims_MoveLeaves_Options*/
+
 div#div_IP_Anims__Log_Area {
 	
 	/* #D4ACAD ”–Š` http://irononamae.web.fc2.com/colorlist/wa.html */

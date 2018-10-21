@@ -1535,6 +1535,129 @@ function _anims_Action_LinkTo__1(_param) {
 
 }
 
+function _anims_Action_LinkTo__2(_param) {
+	
+	/***************************
+		prep
+	 ***************************/
+	var _url = "http://127.0.0.1:8001/anims/anims_JS/";
+//	var _url = "http://127.0.0.1:8001/ip/anims_JS/";
+	//var _url = "http://127.0.0.1:8000/im/actions";
+	
+	/***************************
+		params : options values
+	 ***************************/
+	var _option_loc_start_X = $('input#in_anims_move_leaves_v2_options_loc_start_x').val();
+	var _option_loc_start_Y = $('input#in_anims_move_leaves_v2_options_loc_start_y').val();
+	
+	var _option_loc_end_X = $('input#in_anims_move_leaves_v2_options_loc_end_x').val();
+	var _option_loc_end_Y = $('input#in_anims_move_leaves_v2_options_loc_end_y').val();
+	
+//	var _opt_cut_width = $('input#in_anims_options_cut_width').val();
+//	var _opt_cut_height = $('input#in_anims_options_cut_height').val();
+	
+	
+	var _opt_rotate_Start = $('input#in_anims_options_rotate_start').val();
+	var _opt_rotate_End = $('input#in_anims_options_rotate_end').val();
+	var _opt_rotate_Tick = $('input#in_anims_options_rotate_tick').val();
+	
+	var _opt_source_Dir = $('input#in_anims_options_source_dir').val();
+	var _opt_source_File = $('input#in_anims_options_source_file').val();
+	
+//	alert("_opt_rotate_Tick => " + _opt_rotate_Tick);
+//	return;
+	
+	
+	/***************************
+		param
+	 ***************************/
+	var _data = {
+			
+			param : _param
+			
+			, option_loc_start_X : _option_loc_start_X
+			, option_loc_start_Y : _option_loc_start_Y
+			
+			, option_loc_end_X : _option_loc_end_X
+			, option_loc_end_Y : _option_loc_end_Y
+			
+			, opt_rotate_Start : _opt_rotate_Start
+			, opt_rotate_End : _opt_rotate_End
+			, opt_rotate_Tick : _opt_rotate_Tick
+			
+			, opt_source_Dir : _opt_source_Dir
+			, opt_source_File : _opt_source_File
+			
+	};
+	
+//	//ref multiple conditions https://stackoverflow.com/questions/8710442/how-to-specify-multiple-conditions-in-an-if-statement-in-javascript answered Jan 3 '12 at 9:58
+//	if ((_param == "11-0") || 
+//			(_param == "10-1")) {
+//	//	if (_param == "11-0") {
+//	
+//		_data = {action : _param, update : _update};
+//	
+//	} else {
+//	
+//		_data = {action : _param};
+//	
+//	}//if (_param == "11-0")
+	
+	$.ajax({
+		
+		url: _url,
+		type: "GET",
+		//REF http://stackoverflow.com/questions/1916309/pass-multiple-parameters-to-jquery-ajax-call answered Dec 16 '09 at 17:37
+		//    data: {id: id},
+		//    data: {memos: memos, image_id: image_id},
+		data: _data,
+		
+		timeout: 10000
+		
+	}).done(function(data, status, xhr) {
+		
+		/***************************
+			Log
+		 ***************************/
+		var msg = "ajax ==> done";
+		
+		var elem = $('div#div_IP_Anims__Log_Area');
+		
+		elem.html(msg);
+		
+		elem
+		.fadeIn(200).fadeOut(200)
+		.fadeIn(200).fadeOut(200)
+		
+		.fadeIn(200).fadeOut(200)
+		
+		.fadeIn(200);
+		
+		/***************************
+			Message
+		 ***************************/
+		var msg = "ajax ==> done";
+		
+		var elem = $('div#div_IP_Basics_Message_Area');
+		
+		elem.html(data);
+		
+		elem
+		.fadeIn(200).fadeOut(200)
+		.fadeIn(200).fadeOut(200)
+		
+		.fadeIn(200).fadeOut(200)
+		
+		.fadeIn(200);
+		
+	}).fail(function(xhr, status, error) {
+		
+		alert(xhr.status);
+		
+	});	
+	
+}//function _anims_Action_LinkTo__2(_param)
+
 function anims_Action(_param) {
 	
 //	//debug
@@ -1570,6 +1693,7 @@ function anims_Action(_param) {
 			
 	 ***************************/
 	var param_1_move_leaves = "1";
+	var param_2_move_leaves = "2";
 	
 //	/***************************
 //		params : options values
@@ -1598,6 +1722,10 @@ function anims_Action(_param) {
 		
 		_anims_Action_LinkTo__1(_param);
 		
+	} else if (_param == param_2_move_leaves) {	// 1	"move_leaves"
+			
+		_anims_Action_LinkTo__2(_param);
+			
 //	else if (index == 1) {	//[1, "De-numbering"]
 //		
 //		_curr_Index_LinkTo__1();
