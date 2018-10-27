@@ -425,6 +425,8 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
     #ref mkdir https://www.tutorialspoint.com/python/os_mkdir.htm
     if not os.path.isdir(dpath_Tmp) :
         os.mkdir(dpath_Tmp)
+
+#aa
         
 #     
     #ref step https://www.pythoncentral.io/pythons-range-function-explained/
@@ -581,6 +583,126 @@ def _anims_JS__2_Move_Leaves__V2(request):
     
 #/ def _anims_JS__2_Move_Leaves__V2(request):
     
+def _anims_JS__3_Clusters(request):
+    
+    '''###################
+        tests
+    ###################'''
+#     test_OpenCV__NewImage()
+    
+    '''###################
+        ops
+    ###################'''
+    '''###################
+        prep        
+    ###################'''
+#     dpath_Image_File = param_Source_Dir
+    dpath_Image_File = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\anims\\data\\data_images"
+#     dpath_Image_File = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\data_images"
+    
+#     fname_Image_File = param_Source_File
+#     fname_Image_File = "leaf-2.1.png"   # orig : C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\6_visual-arts\4_animations\1_\5_\images
+    fname_Image_File = "2018-10-25_05-27-52_000.jpg"   # orig : 
+    
+    fpath_Image_File = os.path.join(dpath_Image_File, fname_Image_File)
+    
+    print("[%s:%d] fpath_Image_File = %s (exists = %s)" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , fpath_Image_File, os.path.isfile(fpath_Image_File)
+        ), file=sys.stderr)
+
+            # [views.py:608] fpath_Image_File = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRT
+            # UAL\Admin_Projects\anims\data\data_images\2018-10-25_05-27-52_000.jpg (exists =
+            # True)
+
+    '''###################
+        img : read
+    ###################'''
+    #ref http://peaceandhilightandpython.hatenablog.com/entry/2016/01/09/214333
+    #ref alpha channel http://opencv.blog.jp/python/alpha_channel
+    img = cv2.imread(fpath_Image_File, cv2.IMREAD_UNCHANGED)
+    
+    img_BGR = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+    img_HSV = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
+    img_HSV_BGR = cv2.cvtColor(img_HSV, cv2.COLOR_RGB2BGR)
+    
+    #aa
+    '''###################
+        paths
+    ###################'''
+    tokens = fname_Image_File.split(".")
+    (h, w) = img.shape[:2]
+    
+    tokens_2 = os.path.splitext(fname_Image_File)
+    
+    tlabel = libs.get_TimeLabel_Now()
+
+    # paths
+    dir_Tmp = tlabel
+    
+    dpath_Tmp = os.path.join(dpath_Image_File, dir_Tmp)
+    
+    #ref mkdir https://www.tutorialspoint.com/python/os_mkdir.htm
+    if not os.path.isdir(dpath_Tmp) :
+        os.mkdir(dpath_Tmp)
+        
+        print("[%s:%d] dir => created : '%s'" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , dpath_Tmp
+        ), file=sys.stderr)
+
+    else :
+
+        print("[%s:%d] dir => exists : '%s'" % \
+        (os.path.basename(libs.thisfile()), libs.linenum()
+        , dpath_Tmp
+        ), file=sys.stderr)
+        
+
+    '''###################
+        TEST : copy image to the new dir
+    ###################'''
+#     fname_Dst = "%s.(rotate=%d).%s.(center=%d,%d).%s" \
+#     fname_Dst = "%s.(%s).%s" \
+    fname_Dst = "%s.(BGR).(%s)%s" \
+            % (tokens_2[0], tlabel, tokens_2[1])
+    fname_Dst_HSV = "%s.(HSV).(%s)%s" \
+            % (tokens_2[0], tlabel, tokens_2[1])
+    fname_Dst_HSV_BGR = "%s.(HSV_BGR).(%s)%s" \
+            % (tokens_2[0], tlabel, tokens_2[1])
+      
+    fpath_Dst = os.path.join(dpath_Image_File, dir_Tmp, fname_Dst)
+    fpath_Dst__HSV = os.path.join(dpath_Image_File, dir_Tmp, fname_Dst_HSV)
+    fpath_Dst__HSV_BGR = os.path.join(dpath_Image_File, dir_Tmp, fname_Dst_HSV_BGR)
+    
+    
+    res = cv2.imwrite(fpath_Dst, img_BGR)        
+    res = cv2.imwrite(fpath_Dst__HSV, img_HSV)        
+    res = cv2.imwrite(fpath_Dst__HSV_BGR, img_HSV_BGR)        
+#     res = cv2.imwrite(fpath_Dst, img)        
+#     cv2.imwrite(fpath_Dst, rotated)        
+
+    print("[%s:%d] cv2.imwrite => '%s'" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , res
+            ), file=sys.stderr)
+
+    '''###################
+        return        
+    ###################'''
+    status = 1
+     
+    msg = "_anims_JS__3_Clusters"
+    
+    print("[%s:%d] msg => '%s'" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , msg
+            ), file=sys.stderr)
+    
+    return (status, msg)
+    
+#/ def _anims_JS__3_Clusters(request):
+    
 def anims_JS(request):
     
     '''###################
@@ -634,6 +756,19 @@ def anims_JS(request):
         (status, msg) = _anims_JS__2_Move_Leaves__V2(request)
         
         dic['message'] += "move leaves"
+        
+        dic['message_2'] += "status = %d / msg = '%s'" % (status, msg)
+        
+    elif param == cons_ip.Anims_Params.PARAM__3_CLUSTERS.value : #if param == cons_fx.Tester.lo_Actions__BUSL__IDs[0].value
+        '''###################
+            PARAM__3_CLUSTERS        
+        ###################'''
+        # call func
+#         (status, msg) = (1, "PARAM__2_MOVE_LEAVES__V2")
+        (status, msg) = _anims_JS__3_Clusters(request)
+#         (status, msg) = _anims_JS__2_Move_Leaves__V2(request)
+        
+        dic['message'] += "clusters"
         
         dic['message_2'] += "status = %d / msg = '%s'" % (status, msg)
         

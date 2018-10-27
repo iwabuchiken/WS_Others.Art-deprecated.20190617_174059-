@@ -1658,6 +1658,87 @@ function _anims_Action_LinkTo__2(_param) {
 	
 }//function _anims_Action_LinkTo__2(_param)
 
+function _anims_Action_LinkTo__3(_param) {
+	
+	//debug
+	console.log("_anims_Action_LinkTo__3(_param) --> starting...");
+	
+	/***************************
+		prep
+	 ***************************/
+	var _url = "http://127.0.0.1:8001/anims/anims_JS/";
+	
+	/***************************
+		params : options values
+	 ***************************/
+//	var _option_loc_start_X = $('input#in_anims_move_leaves_v2_options_loc_start_x').val();
+	
+	/***************************
+		param
+	 ***************************/
+	var _data = {
+			
+			param : _param
+			
+//			, option_loc_start_X : _option_loc_start_X
+			
+	};
+	
+	$.ajax({
+		
+		url: _url,
+		type: "GET",
+		//REF http://stackoverflow.com/questions/1916309/pass-multiple-parameters-to-jquery-ajax-call answered Dec 16 '09 at 17:37
+		//    data: {id: id},
+		//    data: {memos: memos, image_id: image_id},
+		data: _data,
+		
+		timeout: 10000
+		
+	}).done(function(data, status, xhr) {
+		
+		/***************************
+			Log
+		 ***************************/
+		var msg = "ajax ==> done";
+		
+		var elem = $('div#div_IP_Anims__Log_Area');
+		
+		elem.html(msg);
+		
+		elem
+			.fadeIn(200).fadeOut(200)
+			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200);
+		
+		/***************************
+			Message
+		 ***************************/
+		var msg = "ajax ==> done";
+		
+		var elem = $('div#div_IP_Basics_Message_Area');
+		
+		elem.html(data);
+		
+		elem
+			.fadeIn(200).fadeOut(200)
+			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200).fadeOut(200)
+			
+			.fadeIn(200);
+		
+	}).fail(function(xhr, status, error) {
+		
+		alert(xhr.status);
+		
+	});	
+	
+}//function _anims_Action_LinkTo__3(_param)
+
 function anims_Action(_param) {
 	
 //	//debug
@@ -1695,21 +1776,11 @@ function anims_Action(_param) {
 	var param_1_move_leaves = "1";
 	var param_2_move_leaves = "2";
 	
+	var param_2_clusters = "3";
+	
 //	/***************************
 //		params : options values
 //	 ***************************/
-//	var tag_option_tick_move_x = $('input#in_anims_options_tick_move_x');
-//	var option_tick_move_X = tag_option_tick_move_x.val();
-//	
-//	var tag_option_tick_move_y = $('input#in_anims_options_tick_move_y');
-//	var option_tick_move_Y = tag_option_tick_move_y.val();
-//	
-//	var opt_rotate_Start = $('input#in_anims_options_rotate_Start').val();
-//	var opt_rotate_End = $('input#in_anims_options_rotate_End').val();
-	
-//	alert("tag_option_tick_move_x => " + tag_option_tick_move_x.val());
-//	
-//	return;
 	
 	/***************************
 		dispatch
@@ -1726,6 +1797,10 @@ function anims_Action(_param) {
 			
 		_anims_Action_LinkTo__2(_param);
 			
+	} else if (_param == param_2_clusters) {	// 1	"move_leaves"
+		
+		_anims_Action_LinkTo__3(_param);
+		
 //	else if (index == 1) {	//[1, "De-numbering"]
 //		
 //		_curr_Index_LinkTo__1();
