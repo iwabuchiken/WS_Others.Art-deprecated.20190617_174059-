@@ -426,9 +426,6 @@ def _anims_JS__1_Move_Leaves__Test_1_Resize(request):
     if not os.path.isdir(dpath_Tmp) :
         os.mkdir(dpath_Tmp)
 
-#aa
-        
-#     
     #ref step https://www.pythoncentral.io/pythons-range-function-explained/
 #     for i in range(param_Rotate_Start, param_Rotate_End):
     for i in range(param_Rotate_Start, param_Rotate_End, param_Rotate_Tick):
@@ -583,6 +580,159 @@ def _anims_JS__2_Move_Leaves__V2(request):
     
 #/ def _anims_JS__2_Move_Leaves__V2(request):
     
+def _anims_JS__3_Clusters__Clusters(request, cv_Img, fpath_Dst__Sub):
+    
+    img_Tmp = cv_Img
+#     img_Tmp = copy.deepcopy(cv_Img)
+    
+    a = 200
+#     a = 100
+#     a = 50
+#     a = 20
+    
+    '''###################
+        processing        
+    ###################'''
+    print("[%s:%d] cv_Img[0][0] =>" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                
+                ), file=sys.stderr)
+    
+    cntOf_Row = 0
+    cntOf_Pixels = 0
+    
+    flg_Break = False
+    
+    print("[%s:%d] message" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            
+            ), file=sys.stderr)
+    print(cv_Img[0][0])
+    
+#     for row in cv_Img:
+    for row in img_Tmp:
+         
+        for col in row:
+            
+#             print("[%s:%d] col[0] = %d, col[1] = %d, col[2] = %d" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 , col[0], col[1], col[2]
+#                 ), file=sys.stderr)
+            
+#             col[0] = 255 - col[0]
+#             col[1] = 255 - col[1]
+#             col[2] = 255 - col[2]
+            col[0] = int(col[0] / a) * a
+            col[1] = int(col[1] / a) * a
+            col[2] = int(col[2] / a) * a
+#             col[0] = 50
+#             col[1] = 50
+#             col[2] = 50
+
+#             print("[%s:%d] (processed) col[0] = %d, col[1] = %d, col[2] = %d" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 , col[0], col[1], col[2]
+#                 ), file=sys.stderr)
+         
+#             # count
+#             cntOf_Pixels += 1
+#             
+#             print("[%s:%d] cntOf_Pixels => %d" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 , cntOf_Pixels
+#                 ), file=sys.stderr)
+#             
+#             
+#             if cntOf_Pixels > 10 : #if cntOf_Pixels > 10
+#                 
+#                 flg_Break = True
+#                 
+#                 break
+                
+             #/if cntOf_Pixels > 10
+            
+            
+         
+        #/for col in row:
+        
+#         # debug
+#         if flg_Break == True : #if flg_Break == True
+#         
+#             break
+#             
+#         #/if flg_Break == True
+#         
+#         # count
+#         cntOf_Row += 1
+#          
+#         if cntOf_Row % 100 == 0 : #if cntOf_Row % 100 == 0
+#          
+#             print("[%s:%d] cntOf_Row => %d" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 , cntOf_Row
+#                 ), file=sys.stderr)
+#              
+#         #/if cntOf_Row % 100 == 0
+         
+ 
+ 
+    print("[%s:%d] processing --> done" % \
+                (os.path.basename(libs.thisfile()), libs.linenum()
+                 
+                ), file=sys.stderr)
+
+    '''###################
+        save : image
+    ###################'''
+    res = cv2.imwrite(fpath_Dst__Sub, img_Tmp)
+    
+    print("[%s:%d] save image => %s (%s)" % \
+            (os.path.basename(libs.thisfile()), libs.linenum()
+            , res, fpath_Dst__Sub
+            ), file=sys.stderr)
+    
+    #/for row in cv_Img:
+
+    
+#     print("[%s:%d] cv_Img[0][0] =>" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 
+#                 ), file=sys.stderr)
+#     
+#     print(cv_Img[0][0])
+# 
+# #     print("[%s:%d] cv_Img[0][0][0] =>" % \
+# #                 (os.path.basename(libs.thisfile()), libs.linenum()
+# #                 
+# #                 ), file=sys.stderr)
+# #     
+# #     print(cv_Img[0][0][0])
+#     
+#     R_New = int(cv_Img[0][0][0] / a) * a
+#     G_New = int(cv_Img[0][0][1] / a) * a
+#     B_New = int(cv_Img[0][0][2] / a) * a
+# #     R_New = (cv_Img[0][0][0] % a) * a
+# #     G_New = (cv_Img[0][0][1] % a) * a
+# #     B_New = (cv_Img[0][0][2] % a) * a
+#     
+#     print("[%s:%d] R_New = %d, G_New = %d, B_New = %d" % \
+#         (os.path.basename(libs.thisfile()), libs.linenum()
+#         , R_New, G_New, B_New
+#         ), file=sys.stderr)
+#     
+#     cv_Img[0][0][0] = R_New
+#     cv_Img[0][0][1] = G_New
+#     cv_Img[0][0][2] = B_New
+#     
+#     print("[%s:%d] cv_Img[0][0](processed) =>" % \
+#                 (os.path.basename(libs.thisfile()), libs.linenum()
+#                 
+#                 ), file=sys.stderr)
+#     
+#     print(cv_Img[0][0])
+    
+#/ def _anims_JS__3_Clusters__Clusters(request):
+    
 def _anims_JS__3_Clusters(request):
     
     '''###################
@@ -602,7 +752,8 @@ def _anims_JS__3_Clusters(request):
     
 #     fname_Image_File = param_Source_File
 #     fname_Image_File = "leaf-2.1.png"   # orig : C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\6_visual-arts\4_animations\1_\5_\images
-    fname_Image_File = "2018-10-25_05-27-52_000.jpg"   # orig : 
+#     fname_Image_File = "2018-10-25_05-27-52_000.jpg"   # orig : 
+    fname_Image_File = "2018-10-25_05-27-52_000.(404x303).jpg"   # orig : 
     
     fpath_Image_File = os.path.join(dpath_Image_File, fname_Image_File)
     
@@ -625,8 +776,36 @@ def _anims_JS__3_Clusters(request):
     img_BGR = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
     img_HSV = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
     img_HSV_BGR = cv2.cvtColor(img_HSV, cv2.COLOR_RGB2BGR)
+
+#aa
+    '''###################
+        subimage
+    ###################'''
+    orgHeight, orgWidth = img.shape[:2]
+#     param_Start_X = 2437
+#     param_Start_Y = 217
+#     
+#     param_End_X = 2537
+#     param_End_Y = 317
+#     param_Start_X = 237
+#     param_Start_Y = 150
+#     
+#     param_End_X = 257
+#     param_End_Y = 160
+    param_Start_X = 0
+    param_Start_Y = 0
     
-    #aa
+    param_End_X = orgWidth - 1
+    param_End_Y = orgHeight - 1
+    
+    #ref lib_ip :: get_Corner_Images
+    img_Sub = img[
+                    param_Start_Y : param_End_Y
+                    , param_Start_X : param_End_X
+                  ]
+#     img_Sub = img[(height - corner_Length) : height - padding, \
+#                     0 + padding : corner_Length], # clp_LB
+    
     '''###################
         paths
     ###################'''
@@ -664,29 +843,50 @@ def _anims_JS__3_Clusters(request):
     ###################'''
 #     fname_Dst = "%s.(rotate=%d).%s.(center=%d,%d).%s" \
 #     fname_Dst = "%s.(%s).%s" \
-    fname_Dst = "%s.(BGR).(%s)%s" \
+    fname_Dst_Orig = "%s.(orig).(%s)%s" \
+            % (tokens_2[0], tlabel, tokens_2[1])
+    fname_Dst_BGR = "%s.(BGR).(%s)%s" \
             % (tokens_2[0], tlabel, tokens_2[1])
     fname_Dst_HSV = "%s.(HSV).(%s)%s" \
             % (tokens_2[0], tlabel, tokens_2[1])
     fname_Dst_HSV_BGR = "%s.(HSV_BGR).(%s)%s" \
             % (tokens_2[0], tlabel, tokens_2[1])
+            
+    fname_Dst_Sub = "%s.(sub.%d,%d-%d,%d).(%s)%s" \
+            % (tokens_2[0]
+               , param_Start_X, param_Start_Y
+               , param_End_X, param_End_Y
+               , tlabel, tokens_2[1])
       
-    fpath_Dst = os.path.join(dpath_Image_File, dir_Tmp, fname_Dst)
+    fpath_Dst__Orig = os.path.join(dpath_Image_File, dir_Tmp, fname_Dst_Orig)
+    fpath_Dst__BGR = os.path.join(dpath_Image_File, dir_Tmp, fname_Dst_BGR)
     fpath_Dst__HSV = os.path.join(dpath_Image_File, dir_Tmp, fname_Dst_HSV)
     fpath_Dst__HSV_BGR = os.path.join(dpath_Image_File, dir_Tmp, fname_Dst_HSV_BGR)
+    fpath_Dst__Sub = os.path.join(dpath_Image_File, dir_Tmp, fname_Dst_Sub)
     
     
-    res = cv2.imwrite(fpath_Dst, img_BGR)        
-    res = cv2.imwrite(fpath_Dst__HSV, img_HSV)        
-    res = cv2.imwrite(fpath_Dst__HSV_BGR, img_HSV_BGR)        
-#     res = cv2.imwrite(fpath_Dst, img)        
-#     cv2.imwrite(fpath_Dst, rotated)        
+# #     res = cv2.imwrite(fpath_Dst, img_BGR)        
+#     res = cv2.imwrite(fpath_Dst__Orig, img)
+#     res = cv2.imwrite(fpath_Dst__BGR, img_BGR)        
+#     res = cv2.imwrite(fpath_Dst__HSV, img_HSV)        
+#     res = cv2.imwrite(fpath_Dst__HSV_BGR, img_HSV_BGR)        
+#     res = cv2.imwrite(fpath_Dst__Sub, img_Sub)        
+# #     res = cv2.imwrite(fpath_Dst, img)        
+# #     cv2.imwrite(fpath_Dst, rotated)        
+# 
+#     print("[%s:%d] cv2.imwrite => '%s'" % \
+#             (os.path.basename(libs.thisfile()), libs.linenum()
+#             , res
+#             ), file=sys.stderr)
 
-    print("[%s:%d] cv2.imwrite => '%s'" % \
-            (os.path.basename(libs.thisfile()), libs.linenum()
-            , res
-            ), file=sys.stderr)
-
+    '''###################
+        clusters
+    ###################'''
+    _anims_JS__3_Clusters__Clusters(request, img_Sub, fpath_Dst__Sub)
+#     _anims_JS__3_Clusters__Clusters(request, img, fpath_Dst__Sub)
+#     _anims_JS__3_Clusters__Clusters(request, img_Sub, fpath_Dst__Sub)
+    #aa
+    
     '''###################
         return        
     ###################'''
