@@ -229,9 +229,16 @@
       <yoffset>6</yoffset>
       <offsetType>spatium</offsetType>
       <name>Lyrics Odd Lines</name>
-      <family>FreeSerif</family>
-      <size>11</size>
+      <family>Arial</family>
+      <size>9</size>
+      <bold>1</bold>
       <sizeIsSpatiumDependent>1</sizeIsSpatiumDependent>
+      <foregroundColor r="114" g="114" b="0" a="255"/>
+      <frameWidthS>0.2</frameWidthS>
+      <paddingWidthS>0.1</paddingWidthS>
+      <frameRound>25</frameRound>
+      <frameColor r="114" g="114" b="0" a="255"/>
+      <circle>1</circle>
       </TextStyle>
     <TextStyle>
       <halign>center</halign>
