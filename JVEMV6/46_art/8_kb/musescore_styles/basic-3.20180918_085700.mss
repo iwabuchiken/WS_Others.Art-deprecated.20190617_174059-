@@ -247,9 +247,16 @@
       <yoffset>6</yoffset>
       <offsetType>spatium</offsetType>
       <name>Lyrics Even Lines</name>
-      <family>FreeSerif</family>
-      <size>11</size>
+      <family>Arial</family>
+      <size>10</size>
+      <bold>1</bold>
       <sizeIsSpatiumDependent>1</sizeIsSpatiumDependent>
+      <foregroundColor r="139" g="0" b="0" a="255"/>
+      <frameWidthS>0.2</frameWidthS>
+      <paddingWidthS>0</paddingWidthS>
+      <frameRound>25</frameRound>
+      <frameColor r="139" g="0" b="0" a="255"/>
+      <circle>1</circle>
       </TextStyle>
     <TextStyle>
       <halign>center</halign>
