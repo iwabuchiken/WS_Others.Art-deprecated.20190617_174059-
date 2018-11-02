@@ -3,9 +3,9 @@
   <Style>
     <staffUpperBorder>11</staffUpperBorder>
     <staffLowerBorder>7</staffLowerBorder>
-    <staffDistance>9</staffDistance>
-    <akkoladeDistance>7.6</akkoladeDistance>
-    <minSystemDistance>10.5</minSystemDistance>
+    <staffDistance>12</staffDistance>
+    <akkoladeDistance>9</akkoladeDistance>
+    <minSystemDistance>14.5</minSystemDistance>
     <maxSystemDistance>15</maxSystemDistance>
     <lyricsDistance>2</lyricsDistance>
     <lyricsMinBottomDistance>4</lyricsMinBottomDistance>
@@ -46,7 +46,7 @@
     <barAccidentalDistance>0.3</barAccidentalDistance>
     <multiMeasureRestMargin>1.2</multiMeasureRestMargin>
     <noteBarDistance>1</noteBarDistance>
-    <measureSpacing>1.2</measureSpacing>
+    <measureSpacing>2</measureSpacing>
     <staffLineWidth>0.08</staffLineWidth>
     <ledgerLineWidth>0.16</ledgerLineWidth>
     <ledgerLineLength>0.6</ledgerLineLength>
@@ -64,7 +64,7 @@
     <propertyDistanceStem>1.8</propertyDistanceStem>
     <propertyDistance>1</propertyDistance>
     <articulationMag>1</articulationMag>
-    <lastSystemFillLimit>0.3</lastSystemFillLimit>
+    <lastSystemFillLimit>0.7</lastSystemFillLimit>
     <hairpinY>7.5</hairpinY>
     <hairpinHeight>1.2</hairpinHeight>
     <hairpinContHeight>0.5</hairpinContHeight>
