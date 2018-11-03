@@ -4320,7 +4320,8 @@ def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image, ind):
         meta data        
     ###################'''
 #     msg = "%s %d" %\
-    msg = "\n%s %d" %\
+    #msg = "\n%s %d" %\
+    msg = "\n%s %d ---------------------" %\
                 (fname_Image, ind)
 #                 (fname_Image)
                     

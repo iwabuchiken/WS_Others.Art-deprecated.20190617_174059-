@@ -350,7 +350,8 @@ class ColorThresholds(Enum):
 #     isGreen_HSV_Variance__Upper = 0.3
     #isGreen_HSV_Variance__Upper = 0.38
     #isGreen_HSV_Variance__Upper = 0.60
-    isGreen_HSV_Variance__Upper = 0.75
+    # isGreen_HSV_Variance__Upper = 0.75
+    isGreen_HSV_Variance__Upper = 0.76	# 20181103_085711
     isGreen_HSV_Variance__Lower = 0.0
     #isGreen_HSV_Variance__Lower = 0.002
 #     isGreen_HSV_Variance__Lower = 0.01
