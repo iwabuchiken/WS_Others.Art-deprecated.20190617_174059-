@@ -407,6 +407,8 @@ class ColorNameSet(Enum):
             , "gooo"    # ":m 食べた物　間食 / 砂糖菓子"
             , "oooy"    # :m 食べた物
             , "oowy"    # :m 食べた物
+            , "aooy"    # :m 食べた物
+            , "aaoy"    # :m 食べた物
             
 #             '''###################
 #                 r,g,y ==> each, 2        # 3 types
@@ -485,6 +487,8 @@ class ColorNameSet(Enum):
             , "gooo" : ":m 食べた物　間食 / 砂糖菓子or乾物菓子"
             , "oooy" : u':m 食べた物'
             , "oowy" : u':m 食べた物'
+            , "aooy" : u':m 食べた物'
+            , "aaoy" : u':m 食べた物'
             
             
 #             '''###################
