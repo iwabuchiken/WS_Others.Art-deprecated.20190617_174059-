@@ -235,10 +235,9 @@
       <sizeIsSpatiumDependent>1</sizeIsSpatiumDependent>
       <foregroundColor r="114" g="114" b="0" a="255"/>
       <frameWidthS>0.2</frameWidthS>
-      <paddingWidthS>0.1</paddingWidthS>
+      <paddingWidthS>0.3</paddingWidthS>
       <frameRound>25</frameRound>
       <frameColor r="114" g="114" b="0" a="255"/>
-      <circle>1</circle>
       </TextStyle>
     <TextStyle>
       <halign>center</halign>
@@ -253,7 +252,7 @@
       <sizeIsSpatiumDependent>1</sizeIsSpatiumDependent>
       <foregroundColor r="139" g="0" b="0" a="255"/>
       <frameWidthS>0.2</frameWidthS>
-      <paddingWidthS>0</paddingWidthS>
+      <paddingWidthS>0.2</paddingWidthS>
       <frameRound>25</frameRound>
       <frameColor r="139" g="0" b="0" a="255"/>
       <circle>1</circle>
