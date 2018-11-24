@@ -250,12 +250,11 @@
       <size>10</size>
       <bold>1</bold>
       <sizeIsSpatiumDependent>1</sizeIsSpatiumDependent>
-      <foregroundColor r="139" g="0" b="0" a="255"/>
+      <foregroundColor r="179" g="0" b="0" a="255"/>
       <frameWidthS>0.2</frameWidthS>
-      <paddingWidthS>0.2</paddingWidthS>
+      <paddingWidthS>0.3</paddingWidthS>
       <frameRound>25</frameRound>
-      <frameColor r="139" g="0" b="0" a="255"/>
-      <circle>1</circle>
+      <frameColor r="179" g="0" b="0" a="255"/>
       </TextStyle>
     <TextStyle>
       <halign>center</halign>
