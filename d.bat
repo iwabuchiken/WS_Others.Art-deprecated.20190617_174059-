@@ -10,6 +10,8 @@ taskkill /f /im audacity.exe
 
 taskkill /f /im wmplayer.exe
 
+taskkill /f /im filezilla.exe
+
 REM taskkill /f /im blender.exe
 REM taskkill /f /im blender-app.exe
 

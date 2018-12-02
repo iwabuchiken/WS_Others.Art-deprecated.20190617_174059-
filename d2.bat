@@ -18,6 +18,7 @@ taskkill /im thunderbird.exe
 echo killing chrome.exe
 taskkill /im chrome.exe
 
+taskkill /f /im filezilla.exe
 
 exit
 
