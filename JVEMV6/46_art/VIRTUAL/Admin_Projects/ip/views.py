@@ -1472,14 +1472,6 @@ def gen_Cake_CSV__Gen_CSVFile(\
         '''###################
             image content        
         ###################'''
-        #debug
-#        print()
-#        print("[%s:%d] color_Names =>" % \
-#            (os.path.basename(libs.thisfile()), libs.linenum()
-            
-#            ), file=sys.stderr)
-#        print(color_Names)
-        
         line_Memo = lib_ip.get_Memo_From_ColorNames_Set(color_Names)
         
         tmp_Line.append(line_Memo)
@@ -1531,28 +1523,6 @@ def gen_Cake_CSV__Gen_CSVFile(\
         ###################'''
         lines.append("\t".join(tmp_Line))
         
-#         '''###################
-#             exif : gps data        
-#         ###################'''
-#         fpath_Image = os.path.join(dpath_Images, fname)
-#         
-#         data_GPS = lib_ip.get_GPS_Data(fpath_Image)
-#         
-#         # tuple --> to list
-#         data_GPS_Lat = [str(x) for x in data_GPS[0]]  # N,S
-#         data_GPS_Longi = [str(x) for x in data_GPS[1]] # E,W
-# #         data_GPS_Lat = [x for x in data_GPS[0]]  # N,S
-# #         data_GPS_Longi = [x for x in data_GPS[1]] # E,W
-#         
-#         # build text
-#         gps_Lat = "-".join(data_GPS_Lat)
-#         gps_Longi = "-".join(data_GPS_Longi)
-#         
-#         # add to csv line
-#         lines.append("\t%s %s" % (gps_Lat, gps_Longi))
-
-
-        
         # count
         cnt += 1
         
@@ -1562,8 +1532,6 @@ def gen_Cake_CSV__Gen_CSVFile(\
     fpath_CSV = "%s/%s" % (dpath_CSV, fname_CSV)
     
     fin = codecs.open(fpath_CSV, "w", 'utf-8')
-#     fin = open(fpath_CSV, "w", 'utf-8')
-#     fin = open(fpath_CSV, "w")
     
     # write
     for item in lines:
@@ -1666,19 +1634,6 @@ def gen_Cake_CSV__Exec(request):
                        , param_Corner_Width
                        , param_Corner_Padding)
     
-#    print()
-#    print("[%s:%d] lo_ColorName_Set =>" % \
-#        (os.path.basename(libs.thisfile()), libs.linenum()
-#        
-#        ), file=sys.stderr)
-#    for item in lo_ColorName_Set:
-#    
-#        print(item)
-#        
-#    #/for item in lo_ColorName_Set:
-
-#     print(lo_ColorName_Set)
-    
     '''###################
         get : list of color names
     ###################'''
@@ -1755,9 +1710,13 @@ def gen_Cake_CSV__Exec(request):
         for item2 in color_Names:
         
             if item2 == "other" : colName = "o"
+            
             elif item2 == "red" : colName = "r"
             elif item2 == "yellow" : colName = "y"
             elif item2 == "green" : colName = "g"
+            
+            elif item2 == "blue" : colName = "b"
+            
             elif item2 == "white" : colName = "w"
             elif item2 == "black" : colName = "a"
             
@@ -1769,24 +1728,14 @@ def gen_Cake_CSV__Exec(request):
         
         # modify
         color_Names_New.sort()
-#         color_Names_New = color_Names_New.sort()
         
         strOf_Color_Names_New = "".join(color_Names_New)
         
         # append
         lo_ColorName_Set__Modified_2.append([fname, strOf_Color_Names_New])
-#         lo_ColorName_Set__Modified_2.append([fname, color_Names_New])
          
      #/for item in lo_ColorName_Set__Modified:
 
-#     #debug
-#     print()
-#     print("[%s:%d] lo_ColorName_Set__Modified_2 =>" % \
-#                 (os.path.basename(libs.thisfile()), libs.linenum()
-#                 
-#                 ), file=sys.stderr)
-#     print(lo_ColorName_Set__Modified_2)
-    
     '''###################
         write : log : lo_ColorName_Set__Modified_2
     ###################'''
@@ -1796,14 +1745,6 @@ def gen_Cake_CSV__Exec(request):
             libs.get_TimeLabel_Now()
             , os.path.basename(libs.thisfile()), libs.linenum()
             , msg)
-    
-#     #debug
-#     print()
-#     print("[%s:%d] lo_ColorName_Set__Modified_2[0] =>" % \
-#                         (os.path.basename(libs.thisfile()), libs.linenum()
-#                         
-#                         ), file=sys.stderr)
-#     print(lo_ColorName_Set__Modified_2[0])
     
     libs.write_Log(msg_Log, True)
     
@@ -1823,8 +1764,6 @@ def gen_Cake_CSV__Exec(request):
         
         # file name
         libs.write_Log(strOf_Fname_Block, False)
-#         libs.write_Log(fname, False)
-#         libs.write_Log(" => ", False)
         
         # color names
         strOf_Color_Names = ""
@@ -1847,8 +1786,6 @@ def gen_Cake_CSV__Exec(request):
                 dpath_CSV, fname_CSV
                 , lo_ColorName_Set__Modified_2
                 , dpath_Images)
-#     res = gen_Cake_CSV__Gen_CSVFile(dpath_CSV, fname_CSV, lo_ColorName_Set__Modified_2)
-    
         
     '''###################
         return        
@@ -1879,20 +1816,6 @@ def gen_Cake_CSV(request):
     
     libs.write_Log(msg_Log, True)
 
-#     msg = "message" %\
-#                             (vars)
-                    
-#     tlabel = libs.get_TimeLabel_Now()
-#     fname_Log = "get_4_corners.%s.log" % (tlabel)
-    
-#     fpath_Log = cons_fx.FPath.dpath_LogFile.value
-    
-#     libs.write_Log(msg_Log
-#                                 , fpath_Log
-#                                 , fname_Log
-#                                 , 1)
-
-    
     '''###################
         get : dic, color name set        
     ###################'''

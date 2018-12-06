@@ -371,8 +371,8 @@ class ColorThresholds(Enum):
     isBlue_HSV_Variance__Upper = 0.25
     isBlue_HSV_Variance__Lower = 0.01
     
-    isBlue_HSV_Average__Upper = 11.00
-    isBlue_HSV_Average__Lower = 13.30
+    isBlue_HSV_Average__Upper = 13.30
+    isBlue_HSV_Average__Lower = 11.00
     
     '''###################
         pink
@@ -418,37 +418,63 @@ class ColorNameSet(Enum):
 
     lo_Color_Sets = [
         
-            "oooo"
+            "oooo"  # other
+            
+#             '''######################################
+#                 r,g,y ==> each only        # 3 types
+#             ######################################'''
+#             '''###################
+#                 r : red
+#             ###################'''
+            , "ooor"    # kb
+            , "oorr"
             
 #             '''###################
-#                 r,g,y ==> each only        # 3 types
+#                 b : blue
 #             ###################'''
-            , "ooor"    # UNDEFINED
+            , "booo"
+            , "bboo"
+    
+#             '''###################
+#                 g : green
+#             ###################'''
             , "gooo"    # ":m 食べた物　間食 / 砂糖菓子"
-            , "oooy"    # :m 食べた物
-            , "oowy"    # :m 食べた物
-            , "aooy"    # :m 食べた物
-            , "aaoy"    # :m 食べた物
+            , "ggoo"    # :m 食べた物　間食 / ヨーグルト / +=
             
+#             '''###################
+#                 y : yellow
+#             ###################'''
+            , "oooy"    # :m 食べた物
+            , "ooyy"    # delete
+
+    
+#             '''###################
+#                 a : black
+#             ###################'''
+            , "aaaa"    # 読みたい本
+            , "aaao"    # 読みたい本
+            , "aaoo"    # 読みたい本
+            
+#             '''###################
+#                 w : white
+#             ###################'''
+            , "wwww"    # 読みたい本
+            , "owww"    # 読みたい本
+    
 #             '''###################
 #                 r,g,y ==> each, 2        # 3 types
 #             ###################'''
-            , "oorr"
-            , "ggoo"    # :m 食べた物　間食 / ヨーグルト / +=
-            , "ooyy"    # delete
-            , "aaoo"    # 読みたい本
+            , "oowy"    # :m 食べた物
+            , "aooy"    # :m 食べた物
+            , "aaoy"    # :m 食べた物
 
 #             '''###################
 #                 r,g,y ==> each, 3        # 3 types
 #             ###################'''
-            , "owww"    # 読みたい本
-            , "aaao"    # 読みたい本
             
 #             '''###################
 #                 r,g,y ==> each, 4        # 3 types
 #             ###################'''
-            , "aaaa"    # 読みたい本
-            , "wwww"    # 読みたい本
     
 #             '''###################
 #                 r,g,y ==> 1 each, 2 kinds        # 3 types
@@ -467,33 +493,7 @@ class ColorNameSet(Enum):
             , "aaow"    # 読みたい本
             
             
-        ]
-#     lo_Color_Sets = [
-#         
-#             "oooo"
-#             
-#             '''###################
-#                 r,g,y ==> each only        # 3 types
-#             ###################'''
-#             , "ooor"    # UNDEFINED
-#             , "gooo"    # ":m 食べた物　間食 / 砂糖菓子"
-#             , "oooy"    # :m 食べた物
-#             
-#             '''###################
-#                 r,g,y ==> each, 2        # 3 types
-#             ###################'''
-#             , "oorr"
-#             , "ggoo"    # :m 食べた物　間食 / ヨーグルト / +=
-#             , "ooyy"    # delete
-#     
-#             '''###################
-#                 r,g,y ==> 1 each, 2 kinds        # 3 types
-#             ###################'''
-#             , "goor"
-#             , "gooy"
-#             , "oory"    # 読んだ本
-#     
-#         ]
+        ]#lo_Color_Sets = [
     
     do_Color_Sets_Memo = {
         
@@ -510,6 +510,11 @@ class ColorNameSet(Enum):
             , "aooy" : u':m 食べた物'
             , "aaoy" : u':m 食べた物'
             
+#             '''###################
+#                 b : blue
+#             ###################'''
+            , "booo" : ":m X-X*X RES / 245 / 『相対性理論』　メラー　永田恒夫、伊藤大介、訳 / p.XX"
+            , "bboo" : "UNDEFINED : blue"
             
 #             '''###################
 #                 r,g,y ==> each, 2        # 3 types
@@ -549,7 +554,7 @@ class ColorNameSet(Enum):
             , "aaow" : u':m 読みたい本 / 『』 / 著者=XXX'    # 読みたい本
 
 
-        }
+        }#do_Color_Sets_Memo = {
 
     memo_Unknown = "UNKNOWN"
     
@@ -558,6 +563,8 @@ class ColorNameSet(Enum):
     colName_Green = "green"
     colName_White = "white"
     colName_Black = "black"
+    
+    colName_Blue = "blue"   # symbol : "b"
     
 #/ class ColorNameSet(Enum):
     

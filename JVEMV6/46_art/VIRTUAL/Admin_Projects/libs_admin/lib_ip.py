@@ -768,7 +768,8 @@ def is_CornerOf_Green__PhotoOf_Sweets(image_StatsData):
     is_ColorName_Green
      
     description :
-        copy of is_CornerOf_Green__PhotoOf_Sweets
+        1. copy of is_CornerOf_Green__PhotoOf_Sweets
+        2. using RGB values for judgement
      
     at : 2018/06/05 07:39:31
      
@@ -3499,50 +3500,8 @@ def get_4_corners__Write_Log__V2(
 ###################'''
 def get_Memo_From_ColorNames_Set(color_Names) :
     
-#     color_Names.sort()
-
     #ref https://stackoverflow.com/questions/15046242/how-to-sort-the-letters-in-a-string-alphabetically-in-python
     str_ColorNames = ''.join(sorted(color_Names))
-    
-    #ref enum : get values : https://qiita.com/methane/items/8612bdefd8fa4238cc44    
-    
-#     print()
-#     print("[%s:%d] str_ColorNames => %s" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#             , str_ColorNames
-#             ), file=sys.stderr)
-#     
-#     print()
-#     print("[%s:%d] cons_ip.ColorNameSet.lo_Color_Sets.value =>" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#             
-#             ), file=sys.stderr)
-#     
-#     print(cons_ip.ColorNameSet.lo_Color_Sets.value)
-#     
-#     print()
-#     print("[%s:%d] cons_ip.ColorNameSet.lo_Color_Sets =>" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#             
-#             ), file=sys.stderr)
-#     
-#     print(cons_ip.ColorNameSet.lo_Color_Sets)
-#     print(type(cons_ip.ColorNameSet.lo_Color_Sets))
-#     
-#     print()
-#     print("[%s:%d] cons_ip.ColorNameSet.lo_Color_Sets => iterate" % \
-#             (os.path.basename(libs.thisfile()), libs.linenum()
-#             
-#             ), file=sys.stderr)
-#     
-#     for item in cons_ip.ColorNameSet.lo_Color_Sets.value:
-#         
-#         print(item)
-        
-    #/for item in cons_ip.ColorNameSet.lo_Color_Sets.value:
-
-    
-#     str_ColorNames = "".join(color_Names)
     
     memo = ""
     
@@ -4070,6 +4029,9 @@ def is_ColorName_Red__2(img, dpath_Images, fname_Image):
 #/ def is_ColorName_Yellow__2(img):
 
 '''###################
+    <descriptions>
+        1. using RGB values for judgement 
+
     @param img: HSV data        
     @return: res, msg
 ###################'''
@@ -4182,6 +4144,112 @@ def is_ColorName_Green__2(img, dpath_Images, fname_Image):
     return result, msg
 
 #/ def is_ColorName_Yellow__2(img):
+
+'''###################
+    <descriptions>
+        1. using RGB values for judgement 
+
+    @param img: HSV data        
+    @return: res, msg
+###################'''
+def is_ColorName_Blue__2(img, dpath_Images, fname_Image):
+    
+    '''###################
+        get : stats        
+    ###################'''
+    Hs, Ss, Vs = get_StatsData_Of_Image__HSV(img, dpath_Images, fname_Image)
+    
+    #debug
+    msg = "len(Hs) = %d, len(Ss) = %d, len(Vs) = %d" %\
+                (len(Hs), len(Ss), len(Vs))
+        
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log(msg_Log, True)
+    
+    '''###################
+        get : Hue data
+    ###################'''
+    val_Average, val_Variance, sd, val_Max, val_Min = get_StatsData(Hs)
+    
+    '''###################
+        judge
+    ###################'''
+    # default values
+    result = False
+    msg = "other"
+    
+    color_Name = cons_ip.ColorNameSet.colName_Blue.value
+    
+    variance_Upper = cons_ip.ColorThresholds.isBlue_HSV_Variance__Upper.value
+    variance_Lower = cons_ip.ColorThresholds.isBlue_HSV_Variance__Lower.value
+    
+    average_Upper = cons_ip.ColorThresholds.isBlue_HSV_Average__Upper.value
+    average_Lower = cons_ip.ColorThresholds.isBlue_HSV_Average__Lower.value
+    
+    # variance
+    if not \
+        (val_Variance <= variance_Upper \
+            and val_Variance >= variance_Lower) :
+        
+        msg = "%s : variance --> out of range (variance = %.03f / upper = %.03f / lower = %.03f)" %\
+                            ( color_Name
+                            , val_Variance
+                             , variance_Upper
+                             , variance_Lower)
+                        
+        msg_Log = "[%s / %s:%d] %s" % \
+                (
+                libs.get_TimeLabel_Now()
+                , os.path.basename(libs.thisfile()), libs.linenum()
+                , msg)
+        
+        libs.write_Log(msg_Log, True)
+
+        
+        return result, msg
+    
+    # average
+    if not \
+        (val_Average < average_Upper \
+            and val_Average > average_Lower) :
+
+        msg = "%s : average --> out of range (average = %.03f / upper = %.03f / lower = %.03f)" %\
+                            ( color_Name
+                            , val_Average
+                             , average_Upper
+                             , average_Lower)
+                        
+        msg_Log = "[%s / %s:%d] %s" % \
+                (
+                libs.get_TimeLabel_Now()
+                , os.path.basename(libs.thisfile()), libs.linenum()
+                , msg)
+        
+        libs.write_Log(msg_Log, True)
+                    
+        return result, msg
+    
+    '''###################
+        set : is red
+    ###################'''
+    result = True
+    msg = color_Name
+    
+    '''###################
+        return        
+    ###################'''
+#     result = False
+#     
+#     msg = "other"
+    
+    return result, msg
+
+#/ is_ColorName_Blue__2(img, dpath_Images, fname_Image)
 
 '''###################
     @param img: HSV data        
@@ -4370,7 +4438,17 @@ def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image, ind):
         green
     ###################'''
     res, msg = is_ColorName_Green__2(img_Corner, dpath_Images, fname_Image)
+
+    # green
+    if res == True : #if res == True
     
+        return msg
+    
+    '''###################
+        green
+    ###################'''
+    res, msg = is_ColorName_Blue__2(img_Corner, dpath_Images, fname_Image)
+
     # green
     if res == True : #if res == True
     
