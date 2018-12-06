@@ -414,7 +414,7 @@
       <offsetType>spatium</offsetType>
       <name>System</name>
       <family>FreeSerif</family>
-      <size>10</size>
+      <size>9</size>
       <bold>1</bold>
       <sizeIsSpatiumDependent>1</sizeIsSpatiumDependent>
       <foregroundColor r="71" g="142" b="0" a="255"/>
@@ -452,14 +452,14 @@
       <offsetType>spatium</offsetType>
       <name>Rehearsal Mark</name>
       <family>FreeSerif</family>
-      <size>11</size>
+      <size>15</size>
       <bold>1</bold>
       <sizeIsSpatiumDependent>1</sizeIsSpatiumDependent>
-      <foregroundColor r="145" g="152" b="14" a="255"/>
+      <foregroundColor r="55" g="57" b="4" a="255"/>
       <frameWidthS>0.2</frameWidthS>
       <paddingWidthS>0.5</paddingWidthS>
       <frameRound>45</frameRound>
-      <frameColor r="145" g="152" b="14" a="255"/>
+      <frameColor r="84" g="88" b="7" a="255"/>
       <systemFlag>1</systemFlag>
       </TextStyle>
     <TextStyle>
