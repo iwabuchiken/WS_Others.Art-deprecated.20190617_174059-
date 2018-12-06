@@ -365,6 +365,26 @@ class ColorThresholds(Enum):
 #     isGreen_HSV_Average__Lower = 70.0
     
     '''###################
+        blue
+        ref : https://docs.google.com/spreadsheets/d/1K0hGC_FFcnUhNEgWi2wYSeDBk0F4dDpSh0y5Dg1DOjE/edit#gid=0
+    ###################'''
+    isBlue_HSV_Variance__Upper = 0.25
+    isBlue_HSV_Variance__Lower = 0.01
+    
+    isBlue_HSV_Average__Upper = 11.00
+    isBlue_HSV_Average__Lower = 13.30
+    
+    '''###################
+        pink
+        ref : https://docs.google.com/spreadsheets/d/1K0hGC_FFcnUhNEgWi2wYSeDBk0F4dDpSh0y5Dg1DOjE/edit#gid=0
+    ###################'''
+    isPink_HSV_Variance__Upper = 0.40
+    isPink_HSV_Variance__Lower = 0.18
+    
+    isPink_HSV_Average__Upper = 134.70
+    isPink_HSV_Average__Lower = 131.00
+    
+    '''###################
         black        
     ###################'''
     isBlack_HSV_Variance__Upper = 0.00
