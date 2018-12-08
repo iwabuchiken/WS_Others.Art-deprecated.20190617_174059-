@@ -368,10 +368,15 @@ class ColorThresholds(Enum):
         blue
         ref : https://docs.google.com/spreadsheets/d/1K0hGC_FFcnUhNEgWi2wYSeDBk0F4dDpSh0y5Dg1DOjE/edit#gid=0
     ###################'''
-    isBlue_HSV_Variance__Upper = 0.25
+    #isBlue_HSV_Variance__Upper = 0.25
+    #isBlue_HSV_Variance__Upper = 0.270	# 20181208_094922
+    isBlue_HSV_Variance__Upper = 0.7000	# 20181209_071939
+    
     isBlue_HSV_Variance__Lower = 0.01
     
-    isBlue_HSV_Average__Upper = 13.30
+    #isBlue_HSV_Average__Upper = 13.30
+    isBlue_HSV_Average__Upper = 17.00	# 20181208_094215
+    
     isBlue_HSV_Average__Lower = 11.00
     
     '''###################
