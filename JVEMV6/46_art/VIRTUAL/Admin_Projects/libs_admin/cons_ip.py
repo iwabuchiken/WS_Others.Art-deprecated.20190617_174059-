@@ -370,7 +370,8 @@ class ColorThresholds(Enum):
     ###################'''
     #isBlue_HSV_Variance__Upper = 0.25
     #isBlue_HSV_Variance__Upper = 0.270	# 20181208_094922
-    isBlue_HSV_Variance__Upper = 0.7000	# 20181209_071939
+    #isBlue_HSV_Variance__Upper = 0.7000	# 20181209_071939
+    isBlue_HSV_Variance__Upper = 0.930	# 20181214_063434
     
     isBlue_HSV_Variance__Lower = 0.01
     
@@ -378,7 +379,8 @@ class ColorThresholds(Enum):
     isBlue_HSV_Average__Upper = 17.00	# 20181208_094215
     
     #isBlue_HSV_Average__Lower = 11.00
-    isBlue_HSV_Average__Lower = 9.500	# 20181212_064030
+    #isBlue_HSV_Average__Lower = 9.500	# 20181212_064030
+    isBlue_HSV_Average__Lower = 8.850	# 20181214_063812
     
     '''###################
         pink
