@@ -327,7 +327,8 @@ class ColorThresholds(Enum):
     #isYellow_HSV_Average__Upper = 97.0
     #isYellow_HSV_Average__Upper = 98.0
     isYellow_HSV_Average__Upper = 99.2
-    isYellow_HSV_Average__Lower = 88.0
+    isYellow_HSV_Average__Lower = 85.500 # 20181217_112606
+    #isYellow_HSV_Average__Lower = 88.0
     
     '''###################
         red        

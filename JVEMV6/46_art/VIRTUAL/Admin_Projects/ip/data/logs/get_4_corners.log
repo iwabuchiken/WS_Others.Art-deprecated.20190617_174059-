@@ -11000,3 +11000,30 @@ img.20181215_070135.2018-12-14_17-46-46_000.jpg.2.png
 img.20181215_070135.2018-12-14_17-46-46_000.jpg.3.png
 img.20181215_070135.2018-12-14_17-46-46_000.jpg.4.png
 is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_B > 20 (194))
+[20181217_111545 lib_ip.py:3070] =============== Get 4 corners
+dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
+fname_Image = 2018-12-16_16-23-26_000.jpg
+
+img.20181217_111542.2018-12-16_16-23-26_000.jpg.1.png
+img.20181217_111542.2018-12-16_16-23-26_000.jpg.2.png
+img.20181217_111542.2018-12-16_16-23-26_000.jpg.3.png
+img.20181217_111542.2018-12-16_16-23-26_000.jpg.4.png
+is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_B > 20 (100))
+[20181217_111810 lib_ip.py:3070] =============== Get 4 corners
+dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
+fname_Image = 2018-12-16_16-23-26_000.jpg
+
+img.20181217_111808.2018-12-16_16-23-26_000.jpg.1.png
+img.20181217_111808.2018-12-16_16-23-26_000.jpg.2.png
+img.20181217_111808.2018-12-16_16-23-26_000.jpg.3.png
+img.20181217_111808.2018-12-16_16-23-26_000.jpg.4.png
+is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_B > 20 (100))
+[20181217_112718 lib_ip.py:3070] =============== Get 4 corners
+dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
+fname_Image = 2018-12-16_16-23-26_000.jpg
+
+img.20181217_112716.2018-12-16_16-23-26_000.jpg.1.png
+img.20181217_112716.2018-12-16_16-23-26_000.jpg.2.png
+img.20181217_112716.2018-12-16_16-23-26_000.jpg.3.png
+img.20181217_112716.2018-12-16_16-23-26_000.jpg.4.png
+is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_B > 20 (100))
