@@ -377,11 +377,10 @@ class ColorThresholds(Enum):
     isBlue_HSV_Variance__Lower = 0.01
     
     #isBlue_HSV_Average__Upper = 13.30
-    isBlue_HSV_Average__Upper = 17.00	# 20181208_094215
-    
+    isBlue_HSV_Average__Upper = 17.00	# 20181208_094215    
+    isBlue_HSV_Average__Lower = 8.850	# 20181214_063812
     #isBlue_HSV_Average__Lower = 11.00
     #isBlue_HSV_Average__Lower = 9.500	# 20181212_064030
-    isBlue_HSV_Average__Lower = 8.850	# 20181214_063812
     
     '''###################
         pink
