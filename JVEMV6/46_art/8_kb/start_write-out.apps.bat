@@ -9,15 +9,15 @@ start C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\8_kb\start_write-out.apps.filezi
 REM call C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\8_kb\start_write-out.apps.filezilla.bat
 
 REM ***************************************
-REM 	musescore
-REM ***************************************
-start C:\WORKS_2\Programs\musescore\musescore_2.3.2\bin\MuseScore.exe
-
-REM ***************************************
 REM 	domino
 REM ***************************************
 pushd C:\WORKS_2\Programs\Domino143
 start Domino.exe
+
+REM ***************************************
+REM 	musescore
+REM ***************************************
+start C:\WORKS_2\Programs\musescore\musescore_2.3.2\bin\MuseScore.exe
 
 REM ***************************************
 REM 	browser
