@@ -626,7 +626,8 @@ class ColorNameSet(Enum):
 #                 blue, red
 #             ######################################'''
             #, "boor" : ":diary / diary / 20181206 / (K,C,P,R,)"
-            , "boor" : ":diary / diary / 20181206 / (K;C;P;R;)"
+            #, "boor" : ":diary / diary / 20181206 / (K;C;P;R;)"
+            , "boor" : ":diary / diary / 20181206 / (K*C*P*R*)"	# 20181229_085109
 
 #             '''######################################
 #                 blue, yellow
