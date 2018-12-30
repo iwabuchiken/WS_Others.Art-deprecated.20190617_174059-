@@ -548,8 +548,7 @@ class ColorNameSet(Enum):
 #                 red
 #             ###################'''
 #            , "ooor" : "UNDEFINED"
-            #, "ooor" : u':m music / log / XXX / '
-            , "ooor" : u':m music / log / kb / '	# 20181231_072022
+            , "ooor" : u':m music / log / XXX / '
 
 #             '''###################
 #                 green
