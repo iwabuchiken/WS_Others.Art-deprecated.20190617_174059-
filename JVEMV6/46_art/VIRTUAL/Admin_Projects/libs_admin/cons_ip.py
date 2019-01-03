@@ -476,6 +476,13 @@ class ColorNameSet(Enum):
 #                 blue red
 #             ###################'''
             , "boor"    # :diary / diary / 20181206 / (K,C,P,R,)
+
+#             '''###################
+#                 blue green
+#             ###################'''
+            , "bgoo"    # :m RES 1-3*3 / free# JVEMV6 44#5.1_2X / 44. currency / 5. ea tools / 1. first / memo
+
+
 #             '''###################
 #                 blue yellow
 #             ###################'''
@@ -629,6 +636,12 @@ class ColorNameSet(Enum):
             #, "boor" : ":diary / diary / 20181206 / (K,C,P,R,)"
             #, "boor" : ":diary / diary / 20181206 / (K;C;P;R;)"
             , "boor" : ":diary / diary / 20181206 / (K*C*P*R*)"	# 20181229_085109
+
+#             '''###################
+#                 blue green
+#             ###################'''
+            , "bgoo" : ":m RES 1-3*3 / free# JVEMV6 44#5.1_2X / 44. currency / 5. ea tools / 1. first / memo"
+
 
 #             '''######################################
 #                 blue, yellow
