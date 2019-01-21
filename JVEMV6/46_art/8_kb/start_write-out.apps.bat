@@ -11,8 +11,8 @@ REM call C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\8_kb\start_write-out.apps.fil
 REM ***************************************
 REM 	domino
 REM ***************************************
-pushd C:\WORKS_2\Programs\Domino143
-start Domino.exe
+REM pushd C:\WORKS_2\Programs\Domino143
+REM start Domino.exe
 
 REM ***************************************
 REM 	musescore
