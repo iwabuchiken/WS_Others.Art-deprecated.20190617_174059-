@@ -230,7 +230,7 @@
       <offsetType>spatium</offsetType>
       <name>Lyrics Odd Lines</name>
       <family>Arial</family>
-      <size>9</size>
+      <size>10</size>
       <bold>1</bold>
       <sizeIsSpatiumDependent>1</sizeIsSpatiumDependent>
       <foregroundColor r="114" g="114" b="0" a="255"/>
@@ -414,7 +414,7 @@
       <offsetType>spatium</offsetType>
       <name>System</name>
       <family>FreeSerif</family>
-      <size>9</size>
+      <size>11</size>
       <bold>1</bold>
       <sizeIsSpatiumDependent>1</sizeIsSpatiumDependent>
       <foregroundColor r="71" g="142" b="0" a="255"/>
