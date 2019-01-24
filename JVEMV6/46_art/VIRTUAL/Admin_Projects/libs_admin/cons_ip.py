@@ -580,7 +580,7 @@ class ColorNameSet(Enum):
             , "bboo" : ":m X-X*X RES / 245 / 『不完全性定理』　ゲーデル　林晋、八杉満利子 / p.XX"
             , "ggoo" : u':m 食べた物　間食 / ヨーグルト / += '
             , "ooyy" : u'\'-*'
-            , "oorr" : u'MEMO'
+            #, "oorr" : u'MEMO'
             
             , "oowy" : u':m 食べた物'
             , "aooy" : u':m 食べた物'
