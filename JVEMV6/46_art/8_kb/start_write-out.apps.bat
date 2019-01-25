@@ -17,7 +17,9 @@ REM start Domino.exe
 REM ***************************************
 REM 	musescore
 REM ***************************************
-start C:\WORKS_2\Programs\musescore\musescore_2.3.2\bin\MuseScore.exe
+REM start C:\WORKS_2\Programs\musescore\musescore_2.3.2\bin\MuseScore.exe
+pushd C:\WORKS_2\Programs\musescore\musescore_3.0.1\bin
+start MuseScore.exe
 
 REM ***************************************
 REM 	browser
@@ -27,3 +29,4 @@ start C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\8_kb\start_web_pages.bat
 REM pause
 
 exit
+
