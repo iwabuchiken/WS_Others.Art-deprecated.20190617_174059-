@@ -360,7 +360,8 @@ class ColorThresholds(Enum):
 #     isGreen_HSV_Average__Upper = 72.0
 #     isGreen_HSV_Average__Upper = 75.0
     #isGreen_HSV_Average__Upper = 79.0
-    isGreen_HSV_Average__Upper = 83.0
+    #isGreen_HSV_Average__Upper = 83.0
+    isGreen_HSV_Average__Upper = 85.0	# 20190127_075112
     isGreen_HSV_Average__Lower = 58.0
     #isGreen_HSV_Average__Lower = 67.0
 #     isGreen_HSV_Average__Lower = 70.0
