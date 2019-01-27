@@ -27,7 +27,7 @@ REM 	browser
 REM ***************************************
 start C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\8_kb\start_web_pages.bat
 
-REM pause
+pause
 
 exit
 
