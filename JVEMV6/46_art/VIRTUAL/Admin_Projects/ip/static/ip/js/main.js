@@ -2716,7 +2716,7 @@ function btn_IP_Get_4Corners__Gen_CakeCSV() {
 	var _dpath_image = tag_Dpath_Image.val();
 //	var dpath_Image = tag_Dpath_Image.val();
 	
-	alert("_dpath_image => '" + _dpath_image + "'");
+	//alert("_dpath_image => '" + _dpath_image + "'");
 //	alert("_dpath_Image => '" + _dpath_Image + "'");
 //	
 //	//debug
