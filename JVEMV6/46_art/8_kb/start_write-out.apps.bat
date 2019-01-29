@@ -20,7 +20,7 @@ REM ***************************************
 REM start C:\WORKS_2\Programs\musescore\musescore_2.3.2\bin\MuseScore.exe
 pushd C:\WORKS_2\Programs\musescore\musescore_3.0.1\bin
 REM start MuseScore.exe
-start MuseScore3.exe
+REM start MuseScore3.exe
 
 REM ***************************************
 REM 	browser
