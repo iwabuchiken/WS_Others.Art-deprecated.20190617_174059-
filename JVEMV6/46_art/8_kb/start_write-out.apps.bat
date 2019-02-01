@@ -18,7 +18,8 @@ REM ***************************************
 REM 	musescore
 REM ***************************************
 REM start C:\WORKS_2\Programs\musescore\musescore_2.3.2\bin\MuseScore.exe
-pushd C:\WORKS_2\Programs\musescore\musescore_3.0.1\bin
+REM pushd C:\WORKS_2\Programs\musescore\musescore_3.0.1\bin
+pushd C:\WORKS_2\Programs\musescore\ms_3.0.2.5315\bin
 REM start MuseScore.exe
 start MuseScore3.exe
 
