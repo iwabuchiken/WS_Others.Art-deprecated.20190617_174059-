@@ -2,6 +2,7 @@
 
 echo killing MuseScore.exe
 taskkill /im MuseScore.exe
+taskkill /im MuseScore3.exe
 
 echo killing wish.exe
 taskkill /im wish.exe
