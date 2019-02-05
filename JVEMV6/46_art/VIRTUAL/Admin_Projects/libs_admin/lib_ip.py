@@ -4252,6 +4252,112 @@ def is_ColorName_Blue__2(img, dpath_Images, fname_Image):
 #/ is_ColorName_Blue__2(img, dpath_Images, fname_Image)
 
 '''###################
+    <descriptions>
+        1. using RGB values for judgement 
+
+    @param img: HSV data        
+    @return: res, msg
+###################'''
+def is_ColorName_Pink__2(img, dpath_Images, fname_Image):
+    
+    '''###################
+        get : stats        
+    ###################'''
+    Hs, Ss, Vs = get_StatsData_Of_Image__HSV(img, dpath_Images, fname_Image)
+    
+    #debug
+    msg = "len(Hs) = %d, len(Ss) = %d, len(Vs) = %d" %\
+                (len(Hs), len(Ss), len(Vs))
+        
+    msg_Log = "[%s / %s:%d] %s" % \
+            (
+            libs.get_TimeLabel_Now()
+            , os.path.basename(libs.thisfile()), libs.linenum()
+            , msg)
+    
+    libs.write_Log(msg_Log, True)
+    
+    '''###################
+        get : Hue data
+    ###################'''
+    val_Average, val_Variance, sd, val_Max, val_Min = get_StatsData(Hs)
+    
+    '''###################
+        judge
+    ###################'''
+    # default values
+    result = False
+    msg = "other"
+    
+    color_Name = cons_ip.ColorNameSet.colName_Pink.value
+    
+    variance_Upper = cons_ip.ColorThresholds.isPink_HSV_Variance__Upper.value
+    variance_Lower = cons_ip.ColorThresholds.isPink_HSV_Variance__Lower.value
+    
+    average_Upper = cons_ip.ColorThresholds.isPink_HSV_Average__Upper.value
+    average_Lower = cons_ip.ColorThresholds.isPink_HSV_Average__Lower.value
+    
+    # variance
+    if not \
+        (val_Variance <= variance_Upper \
+            and val_Variance >= variance_Lower) :
+        
+        msg = "%s : variance --> out of range (variance = %.03f / upper = %.03f / lower = %.03f)" %\
+                            ( color_Name
+                            , val_Variance
+                             , variance_Upper
+                             , variance_Lower)
+                        
+        msg_Log = "[%s / %s:%d] %s" % \
+                (
+                libs.get_TimeLabel_Now()
+                , os.path.basename(libs.thisfile()), libs.linenum()
+                , msg)
+        
+        libs.write_Log(msg_Log, True)
+
+        
+        return result, msg
+    
+    # average
+    if not \
+        (val_Average < average_Upper \
+            and val_Average > average_Lower) :
+
+        msg = "%s : average --> out of range (average = %.03f / upper = %.03f / lower = %.03f)" %\
+                            ( color_Name
+                            , val_Average
+                             , average_Upper
+                             , average_Lower)
+                        
+        msg_Log = "[%s / %s:%d] %s" % \
+                (
+                libs.get_TimeLabel_Now()
+                , os.path.basename(libs.thisfile()), libs.linenum()
+                , msg)
+        
+        libs.write_Log(msg_Log, True)
+                    
+        return result, msg
+    
+    '''###################
+        set : is red
+    ###################'''
+    result = True
+    msg = color_Name
+    
+    '''###################
+        return        
+    ###################'''
+#     result = False
+#     
+#     msg = "other"
+    
+    return result, msg
+
+#/ is_ColorName_Pink__2(img, dpath_Images, fname_Image)
+
+'''###################
     @param img: HSV data        
     @return: res, msg
 ###################'''
@@ -4445,9 +4551,19 @@ def get_ColorName_From_CornerImage(img_Corner, dpath_Images, fname_Image, ind):
         return msg
     
     '''###################
-        green
+        blue
     ###################'''
     res, msg = is_ColorName_Blue__2(img_Corner, dpath_Images, fname_Image)
+
+    # green
+    if res == True : #if res == True
+    
+        return msg
+    
+    '''###################
+        pink
+    ###################'''
+    res, msg = is_ColorName_Pink__2(img_Corner, dpath_Images, fname_Image)
 
     # green
     if res == True : #if res == True
@@ -4524,7 +4640,7 @@ def get_StatsData(lo_Data):
         variance        
     ###################'''
     #ref http://www.geisya.or.jp/~mwm48961/kou3/prob_variance1.htm
-    # ２乗の平均
+    # �ｼ剃ｹ励�ｮ蟷ｳ蝮�
     lo_Squares = [1.0 * x * x for x in lo_Data]
 #     lo_Squares = [x * x for x in lo_Data]
 #     lo_Squares = np.power(lo_Data, 2)
@@ -4563,7 +4679,7 @@ def get_StatsData(lo_Data):
 #         ), file=sys.stderr)
 #     print(avgOf_LO_Squares)
     
-    # variance : ２乗の平均 - 平均の二乗
+    # variance : �ｼ剃ｹ励�ｮ蟷ｳ蝮� - 蟷ｳ蝮�縺ｮ莠御ｹ�
     #ref power https://docs.scipy.org/doc/numpy/reference/generated/numpy.power.html
     val_Variance = avgOf_LO_Squares - np.power(val_Average, 2)
     
@@ -4607,20 +4723,20 @@ def get_StatsData(lo_Data):
 def get_exif_of_image(file):
     """Get EXIF of an image if exists.
 
-    指定した画像のEXIFデータを取り出す関数
-    @return exif_table Exif データを格納した辞書
+    謖�螳壹＠縺溽判蜒上�ｮEXIF繝�繝ｼ繧ｿ繧貞叙繧雁�ｺ縺咎未謨ｰ
+    @return exif_table Exif 繝�繝ｼ繧ｿ繧呈�ｼ邏阪＠縺溯ｾ樊嶌
     """
     im = Image.open(file)
 
-    # Exif データを取得
-    # 存在しなければそのまま終了 空の辞書を返す
+    # Exif 繝�繝ｼ繧ｿ繧貞叙蠕�
+    # 蟄伜惠縺励↑縺代ｌ縺ｰ縺昴�ｮ縺ｾ縺ｾ邨ゆｺ� 遨ｺ縺ｮ霎樊嶌繧定ｿ斐☆
     try:
         exif = im._getexif()
     except AttributeError:
         return {}
 
-    # タグIDそのままでは人が読めないのでデコードして
-    # テーブルに格納する
+    # 繧ｿ繧ｰID縺昴�ｮ縺ｾ縺ｾ縺ｧ縺ｯ莠ｺ縺瑚ｪｭ繧√↑縺�縺ｮ縺ｧ繝�繧ｳ繝ｼ繝峨＠縺ｦ
+    # 繝�繝ｼ繝悶Ν縺ｫ譬ｼ邏阪☆繧�
     exif_table = {}
     for tag_id, value in exif.items():
         tag = TAGS.get(tag_id, tag_id)

@@ -1720,6 +1720,8 @@ def gen_Cake_CSV__Exec(request):
             elif item2 == "white" : colName = "w"
             elif item2 == "black" : colName = "a"
             
+            elif item2 == "pink" : colName = "p"
+            
             else : colName = "u" #=> 'unknown'
             
             color_Names_New.append(colName)

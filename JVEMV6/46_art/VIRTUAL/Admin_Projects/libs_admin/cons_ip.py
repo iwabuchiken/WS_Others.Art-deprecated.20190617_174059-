@@ -387,11 +387,15 @@ class ColorThresholds(Enum):
         pink
         ref : https://docs.google.com/spreadsheets/d/1K0hGC_FFcnUhNEgWi2wYSeDBk0F4dDpSh0y5Dg1DOjE/edit#gid=0
     ###################'''
-    isPink_HSV_Variance__Upper = 0.40
+    #isPink_HSV_Variance__Upper = 0.40
+    isPink_HSV_Variance__Upper = 0.75   # 20190205_153002
     isPink_HSV_Variance__Lower = 0.18
     
-    isPink_HSV_Average__Upper = 134.70
-    isPink_HSV_Average__Lower = 131.00
+    #isPink_HSV_Average__Upper = 134.70
+    isPink_HSV_Average__Upper = 136.0   # 20190205_152345
+    isPink_HSV_Average__Lower = 127.9   # 20190205_153437
+    #isPink_HSV_Average__Lower = 129.5   # 20190205_150749
+    #isPink_HSV_Average__Lower = 131.00
     
     '''###################
         black        
@@ -585,7 +589,7 @@ class ColorNameSet(Enum):
 #             '''###################
 #                 p : pink
 #             ###################'''
-            , "ooop" : "m 記録 / お酒"
+            , "ooop" : ":m 記録 / お酒"
 
 #             '''######################################
 #                 2 letters
@@ -674,6 +678,7 @@ class ColorNameSet(Enum):
     colName_Black = "black"
     
     colName_Blue = "blue"   # symbol : "b"
+    colName_Pink = "pink"   # symbol : "p"
     
 #/ class ColorNameSet(Enum):
     
