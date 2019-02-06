@@ -389,7 +389,8 @@ class ColorThresholds(Enum):
     ###################'''
     #isPink_HSV_Variance__Upper = 0.40
     isPink_HSV_Variance__Upper = 0.75   # 20190205_153002
-    isPink_HSV_Variance__Lower = 0.18
+    isPink_HSV_Variance__Lower = 0.03	# 20190206_100002
+    #isPink_HSV_Variance__Lower = 0.18
     
     #isPink_HSV_Average__Upper = 134.70
     isPink_HSV_Average__Upper = 136.0   # 20190205_152345
