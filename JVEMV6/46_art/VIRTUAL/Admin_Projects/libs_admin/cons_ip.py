@@ -466,6 +466,7 @@ class ColorNameSet(Enum):
 #                 p : pink
 #             ###################'''
             , "ooop"    # :m 記録 / お酒
+            , "oopp"    # : ":m to-write / diary"            
             , "ooyy"    # delete
 
     
@@ -592,6 +593,7 @@ class ColorNameSet(Enum):
 #                 p : pink
 #             ###################'''
             , "ooop" : ":m 記録 / お酒"
+            , "oopp" : ":m to-write / diary"
 
 #             '''######################################
 #                 2 letters
