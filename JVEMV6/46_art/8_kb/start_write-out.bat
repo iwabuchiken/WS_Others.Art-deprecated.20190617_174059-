@@ -16,6 +16,6 @@ REM *******************************
 REM call C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\8_kb\start_write-out.apps.bat
 start C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\8_kb\start_write-out.apps.bat
 
-pause
+REM pause
 
 exit
