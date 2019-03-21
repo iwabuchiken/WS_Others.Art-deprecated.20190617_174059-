@@ -1426,7 +1426,7 @@ def gen_Cake_CSV__Gen_CSVFile(\
       , lo_ColorName_Set__Modified_2
       , dpath_Images):
 # def gen_Cake_CSV__Gen_CSVFile(dpath_CSV, fname_CSV, lo_ColorName_Set__Modified_2):
-    
+    #_20190322_074835
     '''###################
         vars
     ###################'''
@@ -1437,7 +1437,9 @@ def gen_Cake_CSV__Gen_CSVFile(\
     '''###################
         header
     ###################'''
-    hdr = "no\tfile_name\tmemos\tGPS"
+    #_20190322_075440
+    #hdr = "no\tfile_name\tmemos\tGPS"
+    hdr = "no\tfile_name\tmemos\t\t\tGPS"	# 20190322_075500
 #     hdr = "no\tfile_name\tmemos"
     
     lines.append(hdr)
@@ -1496,7 +1498,10 @@ def gen_Cake_CSV__Gen_CSVFile(\
             gps_Lat = "-".join(data_GPS_Lat)
             gps_Longi = "-".join(data_GPS_Longi)
             
+            #_20190322_075014
             # add to csv line
+            tmp_Line.append("\t")
+            
             tmp_Line.append("%s %s" % (gps_Lat, gps_Longi))
     
         #/if not data_GPS == False
@@ -1781,6 +1786,7 @@ def gen_Cake_CSV__Exec(request):
     '''###################
         gen : CSV file
     ###################'''
+    #_20190322_074746
     dpath_CSV = "C:\\WORKS_2\\WS\\WS_Others.Art\\JVEMV6\\46_art\\VIRTUAL\\Admin_Projects\\ip\\data\\csv"
     fname_CSV = "entries.%s.csv" % (libs.get_TimeLabel_Now())
     
