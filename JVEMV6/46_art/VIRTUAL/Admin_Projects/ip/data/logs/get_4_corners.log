@@ -11351,3 +11351,12 @@ img.20190224_100106.2019-02-22_13-34-20_000.jpg.2.png
 img.20190224_100106.2019-02-22_13-34-20_000.jpg.3.png
 img.20190224_100106.2019-02-22_13-34-20_000.jpg.4.png
 is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_B > 20 (66))
+[20190326_095514 lib_ip.py:3070] =============== Get 4 corners
+dpath_Images = C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\VIRTUAL\Admin_Projects\ip\images
+fname_Image = 2019-03-26_08-39-40_000.jpg
+
+img.20190326_095512.2019-03-26_08-39-40_000.jpg.1.png
+img.20190326_095512.2019-03-26_08-39-40_000.jpg.2.png
+img.20190326_095512.2019-03-26_08-39-40_000.jpg.3.png
+img.20190326_095512.2019-03-26_08-39-40_000.jpg.4.png
+is_CornerOf_Green__PhotoOf_Sweets => False (False : idxOf_Max_B > 20 (49))
