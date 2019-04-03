@@ -1,0 +1,44 @@
+REM @ECHO OFF
+
+REM *************************************
+REM 	browser
+REM *************************************
+pushd "C:\Program Files (x86)\Google\Chrome\Application"
+
+start chrome.exe https://audio.online-convert.com/convert-to-mp3
+start chrome.exe "http://benfranklin.chips.jp/cake_apps/Cake_IFM11/images/index_2?filter_memo=jve+46%234&RBs_AND_OR_Memo=AND&sort=file_name&direction=desc"
+
+REM pushd "C:\Program Files (x86)\MT4 Gaitame Finest Company Limited"
+REM start terminal.exe
+
+REM *************************************
+REM 	folders
+REM *************************************
+start C:\WORKS_2\WS\WS_Others.Art\JVEMV6\46_art\4_dtm
+
+REM *************************************
+REM 	MuLab
+REM *************************************
+pushd "C:\WORKS_2\Programs\freeware\music,sound\MuLab (64 bit)"
+start MuLab.exe
+
+REM *************************************
+REM 	git
+REM *************************************
+pushd C:\WORKS_2\WS\WS_Others.Art
+call C:\WORKS_2\batches\s.bat
+
+REM start start_git.bat
+
+REM *************************************
+REM 	console
+REM *************************************
+REM pushd C:\WORKS_2\Utils\shortcuts\proj_FX
+REM start start_command_prompot.(1).bat
+REM start "start_command_prompot.(1).bat"
+REM call "start_command_prompot.(1).bat"
+REM call start_command_prompot.(2).bat
+
+REM pause
+
+exit
