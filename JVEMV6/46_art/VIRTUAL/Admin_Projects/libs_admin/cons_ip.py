@@ -621,7 +621,7 @@ class ColorNameSet(Enum):
             , "oowy" : u':m 食べた物'
             , "aooy" : u':m 食べた物'
             , "aaoy" : u':m 食べた物'
-            , "aaoo" : u':m 読みたい本 / 『』 / 著者=XXX'    # 読みたい本            
+            , "aaoo" : u':m 読みたい本 / 『XXX』 / 著者=XXX'    # 読みたい本            
 
 #             '''###################
 #                 red : black
@@ -669,7 +669,7 @@ class ColorNameSet(Enum):
             
             , "aggo" : u':m 食べた物　間食 / ヨーグルト / +='	# 20181215_070822
             
-            , "oory" : u':bookmemo / 読んだ本 / 『』 / 著者=XXX'
+            , "oory" : u':bookmemo / 読んだ本 / 『XXX』 / 著者=XXX'
 
 #             '''###################
 #                 r,g,y ==> 1 or 2 each, 2 kinds        # 3 types
