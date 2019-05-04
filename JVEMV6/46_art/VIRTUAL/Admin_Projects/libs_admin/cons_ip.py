@@ -584,7 +584,8 @@ class ColorNameSet(Enum):
 #             ###################'''
 #           #, "ooor" : "UNDEFINED"
             #, "ooor" : u':m music / log / XXX / '
-            , "ooor" : u':m music / log / kb / XXX'	# 20181231_072022
+            #, "ooor" : u':m music / log / kb / XXX'	# 20181231_072022
+            , "ooor" : u':m music / log / kb / s.1:XXX s.2:XXX s.3:XXX'	# 20190505_075300
             , "oorr" : ":m X-X*X RES / 245 / 『量子力学　I』　朝永 / p.XX"	# 朝永	# 20190113_063411
 
 #             '''###################
