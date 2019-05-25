@@ -21,6 +21,8 @@ taskkill /im chrome.exe
 
 taskkill /f /im filezilla.exe
 
+taskkill /f /im sakura.exe
+
 exit
 
 REM pause
