@@ -692,7 +692,8 @@ class ColorNameSet(Enum):
             #, "boor" : ":diary / diary / 20181206 / (K*C*P*R*)"	# 20181229_085109
             #, "boor" : ":diary / diary / 20190211 / (K*C*P*R*)"	# 20190128_062550
             #, "boor" : ":diary / diary / 20190314 / (K*C*P*R*)"	# 20190314_082519
-            , "boor" : ":diary / diary / 20190403 / (K*C*P*R*)"	# 20190403_073227
+            #, "boor" : ":diary / diary / 20190403 / (K*C*P*R*)"	# 20190403_073227
+            , "boor" : ":diary / memo;diary / 201905XX / (K*C*P*R*J*)"	# 20190530_090842
 
 #             '''###################
 #                 blue green
