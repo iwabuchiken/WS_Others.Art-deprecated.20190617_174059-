@@ -7,6 +7,8 @@ pushd "C:\Program Files (x86)\Google\Chrome\Application"
 
 start chrome.exe https://audio.online-convert.com/convert-to-mp3
 start chrome.exe "http://benfranklin.chips.jp/cake_apps/Cake_IFM11/images/index_2?filter_memo=jve+46%%234&RBs_AND_OR_Memo=AND&sort=file_name&direction=desc"
+start chrome.exe "https://writer.zoho.com/writer/open/evojoe2141dae20014586ba9b199e668206cc"
+start chrome.exe "http://benfranklin.chips.jp/PHP_server/D-2/time_calc.php"
 
 REM pushd "C:\Program Files (x86)\MT4 Gaitame Finest Company Limited"
 REM start terminal.exe
