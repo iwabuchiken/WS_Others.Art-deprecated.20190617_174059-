@@ -13,6 +13,12 @@ REM 	at : 2019/06/10 16:42:01
 REM ***************************
 taskkill /im wish.exe
 
+REM : domino
+taskkill /im domino.exe
+
+REM : itunes
+taskkill /im itunes.exe
+
 REM ***************************
 REM 	git : push
 REM 	at : 2019/04/05 10:14:45
