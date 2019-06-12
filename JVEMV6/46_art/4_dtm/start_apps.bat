@@ -26,6 +26,13 @@ pushd "C:\WORKS_2\Programs\freeware\music,sound\MuLab (64 bit)"
 start MuLab.exe
 
 REM *************************************
+REM 	domino
+REM 	2019/06/12 17:30:07
+REM *************************************
+pushd C:\WORKS_2\Programs\Domino143
+start Domino.exe
+
+REM *************************************
 REM 	git
 REM *************************************
 pushd C:\WORKS_2\WS\WS_Others.Art
